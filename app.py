@@ -162,8 +162,20 @@ elif choice == "Analýza Balíku":
     
     target_deck = st.selectbox("Vyberte balík (Select Deck)", all_archetypes)
     
+    # Calculate polarity for context
+    all_p = []
+    for a in all_archetypes:
+        val = calculate_polarity(a, matrix_dict, all_archetypes)
+        if val > 0: all_p.append((a, val))
+    all_p = sorted(all_p, key=lambda x: x[1])
+
     polarity = calculate_polarity(target_deck, matrix_dict, all_archetypes)
     st.metric("Index polarity", f"{polarity*100:.1f}%")
+    
+    if all_p:
+        stable_top = all_p[0]
+        polar_top = all_p[-1]
+        st.caption(f"**Kontext mety - Nejstabilnější Balík:** {stable_top[0]} ({stable_top[1]*100:.1f}%) | **Nejvíce polarizovaný:** {polar_top[0]} ({polar_top[1]*100:.1f}%)")
     
     # Matchup Breakdown
     row_data = matrix_dict.get(target_deck, {})
