@@ -164,8 +164,7 @@ elif choice == "Analýza Balíku":
     
     polarity = calculate_polarity(target_deck, matrix_dict, all_archetypes)
     st.metric("Index polarity", f"{polarity*100:.1f}%")
-    st.caption("Nižší = Stabilní (všechny matchupy podobné), Vyšší = Kámen-Nůžky-Papír (velké rozdíly)")
-
+    
     # Matchup Breakdown
     row_data = matrix_dict.get(target_deck, {})
     prof_rows = []
@@ -185,6 +184,14 @@ elif choice == "Analýza Balíku":
             })
             
     df_prof = pd.DataFrame(prof_rows).sort_values("Win Rate", ascending=False)
+    
+    # Add Min/Max info to polarity caption
+    if not df_prof.empty:
+        best_match = df_prof.iloc[0]
+        worst_match = df_prof.iloc[-1]
+        st.caption(f"**Max WR:** {best_match['Win Rate']:.1%} ({best_match['Opponent']}) | **Min WR:** {worst_match['Win Rate']:.1%} ({worst_match['Opponent']})")
+    
+    st.caption("Nižší = Stabilní (všechny matchupy podobné), Vyšší = Kámen-Nůžky-Papír (velké rozdíly)")
     
     st.subheader("Přehled matchupů")
     st.dataframe(
