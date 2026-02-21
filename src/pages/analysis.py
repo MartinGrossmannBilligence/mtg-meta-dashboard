@@ -100,8 +100,7 @@ def show_analysis(matrix_dict, all_archetypes, records_data):
                     "Win Rate",
                     format="%.1f%%",
                     min_value=0,
-                    max_value=1,
-                    color="#F5F5F5"
+                    max_value=1
                 )
             },
             hide_index=True,

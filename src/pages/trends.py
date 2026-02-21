@@ -44,7 +44,7 @@ def show_trends(data_dir, timeframes):
         color_discrete_sequence=px.colors.qualitative.Safe
     )
     
-    fig.add_hline(y=0.5, line_dash="dash", line_color=THEME["subtleText"], annotation_text="Break-even (50%)")
+    fig.add_hline(y=0.5, line_dash="dash", line_color=THEME["faint"], annotation_text="Break-even (50%)")
     
     fig.update_layout(
         height=500,
