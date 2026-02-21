@@ -108,8 +108,8 @@ all_archetypes = matrix_data["archetypes"]
 matrix_dict = matrix_data["matrix"]
 
 # Navigation
-menu = ["Matchup matice", "Profily balíčků", "Trendy", "Simulátor turnaje"]
-choice = st.sidebar.radio("Navigace", menu)
+menu = ["Analýza Balíku", "Matchup matice", "Trendy", "Simulátor turnaje"]
+choice = st.sidebar.radio("Navigace", menu, index=0)
 
 # --- Matchup Matrix ---
 if choice == "Matchup matice":
@@ -156,14 +156,14 @@ if choice == "Matchup matice":
         st.info("Najeďte myší na buňky pro přesné win raty. Škála je centrovaná na 50%.")
 
 # --- Deck Profiles ---
-elif choice == "Profily balíčků":
-    st.title("Průzkumník balíčků")
+elif choice == "Analýza Balíku":
+    st.title("Analýza Balíku")
     
     target_deck = st.selectbox("Vyberte balíček (Select Deck)", all_archetypes)
     
     polarity = calculate_polarity(target_deck, matrix_dict, all_archetypes)
-    st.metric("Index polarity", f"{polarity:.2f}")
-    st.caption("Nižší = Stabilní, Vyšší = Kámen-Nůžky-Papír")
+    st.metric("Index polarity", f"{polarity*100:.1f}%")
+    st.caption("Nižší = Stabilní (všechny matchupy podobné), Vyšší = Kámen-Nůžky-Papír (velké rozdíly)")
 
     # Matchup Breakdown
     row_data = matrix_dict.get(target_deck, {})
@@ -289,7 +289,7 @@ elif choice == "Simulátor turnaje":
             c1, c2 = st.columns([1, 2])
             with c1:
                 st.dataframe(
-                    ev_df.head(15).style.applymap(style_winrate, subset=["Očekávaná Win Rate"]).format({"Očekavana Win Rate": "{:.1%}"}),
+                    ev_df.head(15).style.applymap(style_winrate, subset=["Očekávaná Win Rate"]).format({"Očekávaná Win Rate": "{:.1%}"}),
                     use_container_width=True, hide_index=True
                 )
             with c2:
