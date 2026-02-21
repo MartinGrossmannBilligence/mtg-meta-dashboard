@@ -106,3 +106,4 @@ def show_analysis(matrix_dict, all_archetypes, records_data):
             hide_index=True,
             use_container_width=True
         )
+```
