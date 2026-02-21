@@ -12,7 +12,7 @@ env/
 # .streamlit/ 
 
 # Data (Sensitive or large files)
-data/*.json
+# data/*.json
 
 # OS
 .DS_Store
