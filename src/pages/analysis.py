@@ -106,4 +106,24 @@ def show_analysis(matrix_dict, all_archetypes, records_data):
             hide_index=True,
             use_container_width=True
         )
-```
+    
+    st.divider()
+    
+    # --- TOP 5 / BOTTOM 5 ---
+    col_best, col_worst = st.columns(2)
+    with col_best:
+        st.subheader("Top 5 nejlepší matchupy")
+        if not df_prof.empty:
+            best5 = df_prof.head(5)[["Opponent", "Win Rate", "Record"]]
+            st.dataframe(
+                best5.style.applymap(style_winrate, subset=["Win Rate"]).format({"Win Rate": "{:.1%}"}),
+                use_container_width=True, hide_index=True
+            )
+    with col_worst:
+        st.subheader("Top 5 nejhorší matchupy")
+        if not df_prof.empty:
+            worst5 = df_prof.tail(5)[["Opponent", "Win Rate", "Record"]]
+            st.dataframe(
+                worst5.style.applymap(style_winrate, subset=["Win Rate"]).format({"Win Rate": "{:.1%}"}),
+                use_container_width=True, hide_index=True
+            )

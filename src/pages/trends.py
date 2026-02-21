@@ -5,8 +5,8 @@ from src.analytics import get_period_comparison
 from src.ui import THEME, style_winrate
 
 def show_trends(data_dir, timeframes):
-    st.title("Meta Trendy")
-    st.markdown("Srovnání výkonnosti balíků napříč různými časovými úseky.")
+    st.markdown("<h1>Meta Trendy</h1>", unsafe_allow_html=True)
+    st.markdown('<p style="color:#8A8A8A; font-size:13px; margin-top:-20px; margin-bottom:24px;">Historical Performance · Comparative Timeline · 50% Baseline</p>', unsafe_allow_html=True)
     
     with st.spinner("Analyzuji historii..."):
         pivot_wr, games_df = get_period_comparison(data_dir, timeframes)

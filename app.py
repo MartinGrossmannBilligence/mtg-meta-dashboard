@@ -28,14 +28,8 @@ def get_cached_data(period_key):
 
 # 3. Sidebar Header & Global Filter
 with st.sidebar:
-    st.markdown("""
-        <div class="links-block">
-            <div class="links-title">DURESS MONO</div>
-            01 Premodern Dashboard ▶<br>
-            02 Duress Crew ▶<br>
-            <span style="color:#8A8A8A;">&nbsp;└ ▶ <a href="https://data.duresscrew.com/" style="color:#8A8A8A;text-decoration:none;">Data Source</a></span>
-        </div>
-    """, unsafe_allow_html=True)
+    st.markdown('<p style="font-size:18px; font-weight:700; margin-bottom:4px;">Brejkni to s Martinem</p>', unsafe_allow_html=True)
+    st.markdown('<p style="color:#8A8A8A; font-size:12px; margin-top:0;">Na základě dat <a href="https://data.duresscrew.com/" style="color:#8A8A8A;">Duress Crew</a></p>', unsafe_allow_html=True)
     st.divider()
     
     # Global Timeframe Selector
