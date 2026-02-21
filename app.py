@@ -89,10 +89,10 @@ st.sidebar.info("Zdroj dat: [Duress Crew](https://data.duresscrew.com/)")
 DATA_DIR = "data"
 TIMEFRAMES = {
     "All Time": "all_time",
-    "3 Months": "3_months",
-    "6 Months": "6_months",
+    "2 Years": "2_years",
     "1 Year": "1_year",
-    "2 Years": "2_years"
+    "6 Months": "6_months",
+    "3 Months": "3_months"
 }
 
 @st.cache_data
@@ -248,7 +248,7 @@ elif choice == "Trendy":
         else:
             selected_trend_decks = st.multiselect("Vyberte balíky pro analýzu", top_decks_trend, default=top_decks_trend[:5])
             
-            ordered_periods = ["3 Months", "6 Months", "1 Year", "2 Years", "All Time"]
+            ordered_periods = ["All Time", "2 Years", "1 Year", "6 Months", "3 Months"]
             existing_periods = [p for p in ordered_periods if p in pivot_wr.columns]
             trend_df = pivot_wr.loc[selected_trend_decks][existing_periods].T
             
