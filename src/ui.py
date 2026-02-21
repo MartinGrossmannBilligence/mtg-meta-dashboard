@@ -121,6 +121,20 @@ def apply_custom_css():
             color: {THEME['text']} !important;
         }}
         
+        /* Fix multiselect tags — primaryColor=white causes white-on-white */
+        [data-baseweb="tag"] {{
+            background-color: {THEME['surface2']} !important;
+            border: 1px solid {THEME['border']} !important;
+            color: {THEME['text']} !important;
+        }}
+        [data-baseweb="tag"] span {{
+            color: {THEME['text']} !important;
+        }}
+        /* Tag close button */
+        [data-baseweb="tag"] [role="presentation"] {{
+            color: {THEME['muted']} !important;
+        }}
+        
         /* Pills / Links block */
         .source-pill {{
             font-size: 13px;
