@@ -87,10 +87,10 @@ def show_analysis(matrix_dict, all_archetypes, records_data):
     # --- FULL MATCHUP TABLE ---
     st.subheader("Všechny matchupy")
     if not df_prof.empty:
+        df_display = df_prof[["Opponent", "Win Rate", "Record", "Games"]].copy()
+        df_display["Win Rate"] = df_display["Win Rate"].map(lambda x: f"{x:.1%}")
         st.dataframe(
-            df_prof[["Opponent", "Win Rate", "Record", "Games"]]
-            .style.applymap(style_winrate, subset=["Win Rate"])
-            .format({"Win Rate": "{:.1%}"}),
+            df_display.style.applymap(style_winrate, subset=["Win Rate"]),
             use_container_width=True, hide_index=True
         )
     
@@ -101,18 +101,18 @@ def show_analysis(matrix_dict, all_archetypes, records_data):
     with col_best:
         st.subheader("Top 5 nejlepší matchupy")
         if not df_prof.empty:
+            d = df_prof.head(5)[["Opponent", "Win Rate", "Games", "Record"]].copy()
+            d["Win Rate"] = d["Win Rate"].map(lambda x: f"{x:.1%}")
             st.dataframe(
-                df_prof.head(5)[["Opponent", "Win Rate", "Record"]]
-                .style.applymap(style_winrate, subset=["Win Rate"])
-                .format({"Win Rate": "{:.1%}"}),
+                d.style.applymap(style_winrate, subset=["Win Rate"]),
                 use_container_width=True, hide_index=True
             )
     with col_worst:
         st.subheader("Top 5 nejhorší matchupy")
         if not df_prof.empty:
+            d = df_prof.tail(5)[["Opponent", "Win Rate", "Games", "Record"]].copy()
+            d["Win Rate"] = d["Win Rate"].map(lambda x: f"{x:.1%}")
             st.dataframe(
-                df_prof.tail(5)[["Opponent", "Win Rate", "Record"]]
-                .style.applymap(style_winrate, subset=["Win Rate"])
-                .format({"Win Rate": "{:.1%}"}),
+                d.style.applymap(style_winrate, subset=["Win Rate"]),
                 use_container_width=True, hide_index=True
             )
