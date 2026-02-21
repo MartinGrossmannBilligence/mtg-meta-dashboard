@@ -117,12 +117,12 @@ if choice == "Matchup matice":
     
     c1, c2 = st.columns([3, 1])
     with c1:
-        selected_decks = st.multiselect("Vyberte balíčky", all_archetypes, default=all_archetypes)
+        selected_decks = st.multiselect("Vyberte balíky", all_archetypes, default=all_archetypes)
     with c2:
         min_games = st.slider("Minimální práh her", 0, 50, 5)
     
     if not selected_decks:
-        st.warning("Prosím vyberte alespoň jeden balíček.")
+        st.warning("Prosím vyberte alespoň jeden balík.")
     else:
         hm_data = []
         for arch1 in selected_decks:
@@ -143,7 +143,8 @@ if choice == "Matchup matice":
             color_continuous_scale=[[0, THEME["danger"]], [0.5, THEME["border"]], [1, THEME["success"]]],
             labels=dict(color="Win Rate"),
             zmin=0.3, zmax=0.7,
-            aspect="auto"
+            aspect="auto",
+            text_auto='.1%'
         )
         fig.update_layout(
             height=700, 
@@ -159,7 +160,7 @@ if choice == "Matchup matice":
 elif choice == "Analýza Balíku":
     st.title("Analýza Balíku")
     
-    target_deck = st.selectbox("Vyberte balíček (Select Deck)", all_archetypes)
+    target_deck = st.selectbox("Vyberte balík (Select Deck)", all_archetypes)
     
     polarity = calculate_polarity(target_deck, matrix_dict, all_archetypes)
     st.metric("Index polarity", f"{polarity*100:.1f}%")
@@ -224,9 +225,9 @@ elif choice == "Trendy":
         top_decks_trend = total_games_all[total_games_all >= min_total_games].index.tolist()
         
         if not top_decks_trend:
-            st.warning("Žádné balíčky neodpovídají threshold.")
+            st.warning("Žádné balíky neodpovídají threshold.")
         else:
-            selected_trend_decks = st.multiselect("Vyberte balíčky pro analýzu", top_decks_trend, default=top_decks_trend[:5])
+            selected_trend_decks = st.multiselect("Vyberte balíky pro analýzu", top_decks_trend, default=top_decks_trend[:5])
             
             ordered_periods = ["3 Months", "6 Months", "1 Year", "2 Years", "All Time"]
             existing_periods = [p for p in ordered_periods if p in pivot_wr.columns]
@@ -277,7 +278,7 @@ elif choice == "Simulátor turnaje":
     
     if st.button("Vypočítat očekávaný výkon (Projected EV)", type="primary"):
         if total_share == 0:
-            st.error("Prosím definujte alespoň jeden balíček.")
+            st.error("Prosím definujte alespoň jeden balík.")
         else:
             evs = calculate_expected_winrate(meta_shares, matrix_dict, all_archetypes)
             ev_df = pd.DataFrame(list(evs.items()), columns=["Select Deck", "Očekávaná Win Rate"])
