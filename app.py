@@ -65,10 +65,7 @@ pg_matrix = st.Page(run_matrix, title="Interaktivní Matice")
 pg_trends = st.Page(run_trends, title="Meta Trendy")
 pg_simulator = st.Page(run_simulator, title="Turnajový Simulátor")
 
-pg = st.navigation({
-    "Průzkumník": [pg_analysis, pg_matrix, pg_trends],
-    "Nástroje": [pg_simulator]
-})
+pg = st.navigation([pg_analysis, pg_matrix, pg_trends, pg_simulator])
 
 # 7. Execution
 pg.run()
