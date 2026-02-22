@@ -22,7 +22,7 @@ def apply_custom_css():
     st.markdown(f"""
         <style>
         /* Global & Typography */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap');
         
         * {{
             font-variant-numeric: tabular-nums;
@@ -35,7 +35,7 @@ def apply_custom_css():
         
         /* Headers */
         h1 {{
-            font-family: 'Inter', sans-serif !important;
+            font-family: 'IBM Plex Mono', monospace !important;
             font-size: 30px !important;
             font-weight: 400 !important;
             line-height: 1.1 !important;
@@ -74,7 +74,7 @@ def apply_custom_css():
             left: 16px;
             right: 16px;
             padding-bottom: 20px;
-            font-family: 'Inter', sans-serif;
+            font-family: 'IBM Plex Mono', monospace;
             font-size: 30px;
             font-weight: 400;
             color: {THEME['text']};
@@ -94,7 +94,7 @@ def apply_custom_css():
             color: {THEME['muted']} !important;
             border-radius: 4px;
             padding: 8px 12px;
-            font-family: monospace;
+            font-family: 'IBM Plex Mono', monospace;
         }}
         [data-testid="stSidebarNav"] a:hover {{
             background-color: {THEME['surface2']} !important;
