@@ -30,6 +30,13 @@ with st.sidebar:
 
     period_name = st.selectbox("Timeframe", list(TIMEFRAMES.keys()), index=0)
     st.divider()
+    
+    st.markdown(
+        '<div style="font-family:\'IBM Plex Mono\', monospace; font-size:10px; color:#8A8A8A; padding:0 8px;">'
+        'based on <a href="https://data.duresscrew.com/" target="_blank" style="color:#8A8A8A; text-decoration:underline; text-decoration-color:#222222;">Duress Crew data</a>'
+        '</div>',
+        unsafe_allow_html=True,
+    )
 
 # ── 4. Data ───────────────────────────────────────────────────────────────────
 try:
