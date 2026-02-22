@@ -25,7 +25,11 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
         unsafe_allow_html=True
     )
 
-    target_deck = st.selectbox("SELECT DECK", all_archetypes)
+    try:
+        default_idx = all_archetypes.index("Blue/Black Psychatog")
+    except ValueError:
+        default_idx = 0
+    target_deck = st.selectbox("Select Deck", all_archetypes, index=default_idx)
 
     row_data    = matrix_dict.get(target_deck, {})
     deck_record = next((r for r in records_data if r["archetype"] == target_deck), {})
