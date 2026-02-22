@@ -168,7 +168,7 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
                 size=15,
                 color=[_wr_color(v) for v in df_hist["Win Rate"]],
             ),
-            line=dict(color=THEME["border"], width=3),
+            line=dict(color=THEME["border"], width=5),
             marker=dict(
                 size=10,
                 color=[_wr_color(v) for v in df_hist["Win Rate"]],
