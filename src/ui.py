@@ -227,15 +227,6 @@ def apply_custom_css():
             background-color: {THEME['surface2']} !important;
         }}
 
-        /* ── Plotly chart wrapper card ────────────────────────────────────── */
-        [data-testid="element-container"]:has([data-testid="stPlotlyChart"]),
-        div[data-testid="stVerticalBlock"] > div:has([data-testid="stPlotlyChart"]) {{
-            background-color: {THEME['bg']} !important;
-            border: 1px solid {THEME['border']} !important;
-            border-radius: 10px !important;
-            padding: 16px !important;
-            box-shadow: none !important;
-        }}
 
         /* ── Buttons ──────────────────────────────────────────────────────── */
         .stButton > button {{
