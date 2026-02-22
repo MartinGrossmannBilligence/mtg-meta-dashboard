@@ -27,7 +27,7 @@ def get_cached_data(period_key):
 # in apply_custom_css().
 with st.sidebar:
 
-    period_name = st.selectbox("Timeframe", list(TIMEFRAMES.keys()), index=0)
+    period_name = st.selectbox("Choose Timeframe", list(TIMEFRAMES.keys()), index=0)
     st.divider()
     
     st.markdown(
