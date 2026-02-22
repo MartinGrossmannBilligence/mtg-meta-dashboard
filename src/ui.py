@@ -43,16 +43,17 @@ def apply_custom_css():
         /* ── Background image ─────────────────────────────────────────────── */
         [data-testid="stAppViewContainer"] {{
             background-image: url("data:image/jpeg;base64,{BG_IMAGE_B64}");
-            background-size: cover;
-            background-position: center;
+            background-size: contain;
+            background-position: center center;
             background-attachment: fixed;
             background-repeat: no-repeat;
+            background-color: #181818;
         }}
         [data-testid="stAppViewContainer"]::before {{
             content: "";
             position: fixed;
             inset: 0;
-            background-color: rgba(24, 24, 24, 0.50);
+            background-color: rgba(24, 24, 24, 0.65);
             pointer-events: none;
             z-index: 0;
         }}
