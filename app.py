@@ -7,7 +7,7 @@ from src.pages.meta_overview import show_meta_overview
 from src.pages.simulator import show_simulator
 
 # ── 1. Page Config ────────────────────────────────────────────────────────────
-st.set_page_config(page_title="Premodern Meta Lab", page_icon="assets/logo.svg", layout="wide")
+st.set_page_config(page_title="Premodern Meta Lab", page_icon="assets/favicon.png", layout="wide")
 apply_custom_css()
 
 # ── 2. Constants ──────────────────────────────────────────────────────────────
@@ -31,9 +31,7 @@ with st.sidebar:
     st.divider()
     
     st.markdown(
-        '<div style="font-family:\'IBM Plex Mono\', monospace; font-size:10px; color:#8A8A8A; padding:0 8px;">'
-        'Based on <a href="https://data.duresscrew.com/" target="_blank" style="color:#8A8A8A; text-decoration:underline; text-underline-offset:2px;">Duress Crew</a> data.'
-        '</div>',
+        '<div class="source-pill">Based on <a href="https://data.duresscrew.com/" target="_blank">Duress Crew</a> data.</div>',
         unsafe_allow_html=True,
     )
 

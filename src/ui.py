@@ -2,115 +2,131 @@ import streamlit as st
 
 # DURESS MONO Design Tokens
 THEME = {
-    "bg": "#0B0B0B",
-    "surface": "#111111",
-    "surface2": "#151515",
-    "border": "#222222",
-    "text": "#F5F5F5",
-    "muted": "#B8B8B8",
-    "faint": "#8A8A8A",
-    "invertBg": "#F5F5F5",
-    "invertText": "#0B0B0B",
-    "focus": "#8EA7B6",
+    "bg":          "#0B0B0B",
+    "surface":     "#111111",
+    "surface2":    "#151515",
+    "border":      "#222222",
+    "text":        "#F5F5F5",
+    "muted":       "#B8B8B8",
+    "faint":       "#8A8A8A",
+    "invertBg":    "#F5F5F5",
+    "invertText":  "#0B0B0B",
+    "focus":       "#8EA7B6",
     # Data viz (muted)
-    "success": "#6BC78E",
-    "danger": "#C76B6B",
-    "warning": "#C7B36B",
+    "success":     "#6BC78E",
+    "danger":      "#C76B6B",
+    "warning":     "#C7B36B",
 }
 
 def apply_custom_css():
     st.markdown(f"""
         <style>
-        /* Global & Typography */
+        /* ── Global & Typography ─────────────────────────────────────────── */
         @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap');
-        
+
         * {{
             font-variant-numeric: tabular-nums;
         }}
-        
+
+        html, body, [class*="css"] {{
+            font-family: 'IBM Plex Mono', monospace !important;
+        }}
+
         .block-container {{
-            padding-top: 0.6rem !important;
-            padding-bottom: 1rem !important;
+            padding-top: 24px !important;
+            padding-bottom: 48px !important;
+            max-width: 1400px;
             background-color: {THEME['bg']};
         }}
-        
-        /* Headers */
+
+        /* ── Typography hierarchy ─────────────────────────────────────────── */
         h1 {{
             font-family: 'IBM Plex Mono', monospace !important;
-            font-size: 30px !important;
-            font-weight: 400 !important;
+            font-size: 36px !important;
+            font-weight: 600 !important;
             line-height: 1.1 !important;
-            margin-bottom: 8px !important;
+            margin-bottom: 4px !important;
+            margin-top: 0 !important;
             color: {THEME['text']} !important;
             letter-spacing: -0.5px !important;
         }}
         h2 {{
-            font-size: 28px !important;
+            font-family: 'IBM Plex Mono', monospace !important;
+            font-size: 24px !important;
             font-weight: 600 !important;
             color: {THEME['text']} !important;
+            margin-top: 0 !important;
+            margin-bottom: 8px !important;
         }}
         h3 {{
-            font-size: 20px !important;
+            font-family: 'IBM Plex Mono', monospace !important;
+            font-size: 18px !important;
             font-weight: 600 !important;
             color: {THEME['text']} !important;
+            margin-top: 0 !important;
+            margin-bottom: 8px !important;
         }}
-        
-        /* Sidebar & Navigation */
-        [data-testid="stSidebar"] {{
-            background-color: {THEME['surface']};
-            border-right: 1px solid {THEME['border']};
-        }}
-        
-        /* Tighten dividers and vertical gaps */
+
+        /* ── Dividers ─────────────────────────────────────────────────────── */
         hr {{
-            margin-top: 0.5em !important;
-            margin-bottom: 0.75em !important;
+            margin-top: 12px !important;
+            margin-bottom: 12px !important;
+            border-color: {THEME['border']} !important;
         }}
         div[data-testid="stVerticalBlock"] > div {{
             padding-bottom: 0.1rem;
         }}
-        /* Tighten gap between h3 (subheader) and content below */
-        h3 {{
-            margin-top: 0.25rem !important;
-            margin-bottom: 0.25rem !important;
+
+        /* ── Hide Streamlit footer & main menu ────────────────────────────── */
+        #MainMenu {{ visibility: hidden; }}
+        footer {{ visibility: hidden; }}
+        [data-testid="stToolbar"] {{ display: none; }}
+
+        /* ── Sidebar shell ────────────────────────────────────────────────── */
+        [data-testid="stSidebar"] {{
+            background-color: {THEME['surface']};
+            border-right: 1px solid {THEME['border']};
         }}
-        
-        /* ── Sidebar nav: inject app title ABOVE page links via ::before ── */
+
+        /* ── Sidebar Nav: title injected via ::before ─────────────────────── */
         [data-testid="stSidebarNav"] {{
-            padding-top: 60px;  /* make room for title */
+            padding-top: 72px;
             position: relative;
         }}
-        /* Main Title */
         [data-testid="stSidebarNav"]::before {{
             content: "Premodern Meta Lab";
             display: block;
             position: absolute;
-            top: 10px;
+            top: 16px;
             left: 16px;
             right: 16px;
             font-family: 'IBM Plex Mono', monospace;
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 600;
             color: {THEME['text']};
-            letter-spacing: -0.5px;
+            letter-spacing: -0.3px;
             line-height: 1.2;
             white-space: nowrap;
         }}
 
         [data-testid="stSidebarNav"] ul {{
             padding-left: 0;
-            margin-bottom: 0;
+            margin: 0;
         }}
         [data-testid="stSidebarNav"] li {{
             margin-bottom: 2px;
+            list-style: none;
         }}
         [data-testid="stSidebarNav"] a,
         [data-testid="stSidebarNav"] span {{
             background-color: transparent !important;
             color: {THEME['muted']} !important;
-            border-radius: 4px;
-            padding: 6px 12px;
+            border-radius: 10px !important;
+            padding: 7px 12px !important;
             font-family: 'IBM Plex Mono', monospace;
+            font-size: 14px;
+            display: block;
+            transition: background 0.15s, color 0.15s;
         }}
         [data-testid="stSidebarNav"] a:hover {{
             background-color: {THEME['surface2']} !important;
@@ -120,24 +136,71 @@ def apply_custom_css():
             background-color: {THEME['surface2']} !important;
             color: {THEME['text']} !important;
             border-left: 2px solid {THEME['text']};
-        }}
-        /* Collapse the sidebar content gap between nav and widgets below */
-        [data-testid="stSidebarContent"] {{
-            padding-top: 0 !important;
-            gap: 0 !important;
-        }}
-        [data-testid="stSidebarContent"] > div {{
-            margin-top: 0 !important;
-            padding-top: 0 !important;
-        }}
-        /* Selectbox selected item un-bold */
-        div[data-baseweb="select"] span {{
-            font-weight: 400 !important;
+            padding-left: 10px !important;
         }}
 
-        /* Components Card Look */
-        [data-testid="stMetric"], 
-        [data-testid="stDataFrame"],
+        /* ── Sidebar widgets (Timeframe etc.) – tighten gap after nav ──────── */
+        [data-testid="stSidebarContent"] {{
+            display: flex;
+            flex-direction: column;
+        }}
+        /* Timeframe label */
+        [data-testid="stSidebar"] .stSelectbox label {{
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            color: {THEME['faint']} !important;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }}
+
+        /* ── KPI / Metric cards ───────────────────────────────────────────── */
+        [data-testid="stMetric"] {{
+            background-color: {THEME['surface']} !important;
+            border: 1px solid {THEME['border']} !important;
+            border-radius: 10px !important;
+            padding: 16px !important;
+            box-shadow: none !important;
+        }}
+        [data-testid="stMetricLabel"] {{
+            font-family: 'IBM Plex Mono', monospace !important;
+            font-size: 12px !important;
+            color: {THEME['faint']} !important;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }}
+        [data-testid="stMetricValue"] {{
+            font-family: 'IBM Plex Mono', monospace !important;
+            font-size: 28px !important;
+            font-weight: 700 !important;
+            color: {THEME['text']} !important;
+        }}
+
+        /* ── DataFrames / Tables ──────────────────────────────────────────── */
+        [data-testid="stDataFrame"] {{
+            background-color: {THEME['surface']} !important;
+            border: 1px solid {THEME['border']} !important;
+            border-radius: 10px !important;
+            padding: 0 !important;
+            box-shadow: none !important;
+        }}
+        [data-testid="stDataFrame"] table {{
+            border-collapse: collapse;
+        }}
+        [data-testid="stDataFrame"] td, [data-testid="stDataFrame"] th {{
+            border-bottom: 1px solid {THEME['border']} !important;
+            padding: 8px 12px !important;
+            font-family: 'IBM Plex Mono', monospace !important;
+            font-size: 13px !important;
+        }}
+        [data-testid="stDataFrame"] th {{
+            color: {THEME['muted']} !important;
+            font-size: 11px !important;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            background-color: {THEME['surface2']} !important;
+        }}
+
+        /* ── Plotly chart wrapper card ────────────────────────────────────── */
         div[data-testid="stVerticalBlock"] > div:has(> [data-testid="stPlotlyChart"]) {{
             background-color: {THEME['surface']} !important;
             border: 1px solid {THEME['border']} !important;
@@ -146,14 +209,17 @@ def apply_custom_css():
             box-shadow: none !important;
         }}
 
-        /* Buttons (Invert Hover) */
+        /* ── Buttons ──────────────────────────────────────────────────────── */
         .stButton > button {{
             background: transparent !important;
             border: 1px solid {THEME['border']} !important;
             color: {THEME['text']} !important;
             border-radius: 10px !important;
-            transition: all 0.2s ease;
-            font-weight: 500;
+            font-family: 'IBM Plex Mono', monospace !important;
+            font-size: 14px !important;
+            font-weight: 500 !important;
+            padding: 8px 20px !important;
+            transition: all 0.15s ease;
         }}
         .stButton > button:hover {{
             background: {THEME['invertBg']} !important;
@@ -165,83 +231,107 @@ def apply_custom_css():
             outline-offset: 2px !important;
         }}
 
-        /* Inputs / Selects */
-        .stSelectbox div[data-baseweb="select"] {{
-            font-weight: 800 !important;
-            font-size: 16px !important;
-        }}
-        .stSelectbox div[data-baseweb="select"], 
+        /* ── Selectbox / Inputs ───────────────────────────────────────────── */
+        .stSelectbox div[data-baseweb="select"],
         .stMultiSelect div[data-baseweb="select"],
         .stNumberInput input {{
             background-color: {THEME['surface']} !important;
             border: 1px solid {THEME['border']} !important;
+            border-radius: 10px !important;
             color: {THEME['text']} !important;
+            font-family: 'IBM Plex Mono', monospace !important;
         }}
-        
-        /* Fix multiselect tags — primaryColor=white causes white-on-white */
+        .stSelectbox div[data-baseweb="select"] {{
+            font-size: 15px !important;
+            font-weight: 600 !important;
+        }}
+
+        /* Fix multiselect tags */
         [data-baseweb="tag"] {{
             background-color: {THEME['surface2']} !important;
             border: 1px solid {THEME['border']} !important;
             color: {THEME['text']} !important;
+            border-radius: 6px !important;
         }}
-        [data-baseweb="tag"] span {{
-            color: {THEME['text']} !important;
+        [data-baseweb="tag"] span {{ color: {THEME['text']} !important; }}
+        [data-baseweb="tag"] [role="presentation"] {{ color: {THEME['muted']} !important; }}
+
+        /* ── Tabs ─────────────────────────────────────────────────────────── */
+        [data-testid="stTabs"] [data-baseweb="tab-list"] {{
+            gap: 4px;
+            border-bottom: 1px solid {THEME['border']};
+            background: transparent;
         }}
-        /* Tag close button */
-        [data-baseweb="tag"] [role="presentation"] {{
+        [data-testid="stTabs"] [data-baseweb="tab"] {{
+            background: transparent !important;
             color: {THEME['muted']} !important;
+            font-family: 'IBM Plex Mono', monospace !important;
+            font-size: 14px !important;
+            border: none !important;
+            border-radius: 0 !important;
+            padding: 8px 16px !important;
+            border-bottom: 2px solid transparent !important;
         }}
-        
-        /* Pills / Links block */
-        .source-pill {{
-            font-size: 13px;
-            padding: 4px 12px;
-            border-radius: 12px;
-            background: {THEME['surface2']};
-            border: 1px solid {THEME['border']};
-            color: {THEME['text']};
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 16px;
+        [data-testid="stTabs"] [data-baseweb="tab"]:hover {{
+            color: {THEME['text']} !important;
+            background: {THEME['surface2']} !important;
         }}
-        .links-block {{
-            font-family: monospace;
-            font-size: 14px;
-            color: {THEME['muted']};
-        }}
-        .links-title {{
-            font-weight: bold;
-            letter-spacing: 1px;
-            color: {THEME['text']};
-            margin-bottom: 8px;
+        [data-testid="stTabs"] [aria-selected="true"] {{
+            color: {THEME['text']} !important;
+            border-bottom: 2px solid {THEME['text']} !important;
+            background: transparent !important;
         }}
 
-        /* Table custom appearance */
-        [data-testid="stDataFrame"] table {{
-            border-collapse: collapse;
+        /* ── Sliders ──────────────────────────────────────────────────────── */
+        [data-testid="stSlider"] label {{
+            font-family: 'IBM Plex Mono', monospace !important;
+            font-size: 12px !important;
+            color: {THEME['muted']} !important;
         }}
-        [data-testid="stDataFrame"] td, [data-testid="stDataFrame"] th {{
-            border-bottom: 1px solid {THEME['border']} !important;
+
+        /* ── Selectbox un-bold fix ────────────────────────────────────────── */
+        div[data-baseweb="select"] span {{
+            font-weight: 400 !important;
+        }}
+
+        /* ── Info / Warning boxes ─────────────────────────────────────────── */
+        [data-testid="stInfo"], [data-testid="stWarning"] {{
+            border-radius: 10px !important;
+            border: 1px solid {THEME['border']} !important;
+            background-color: {THEME['surface']} !important;
+        }}
+
+        /* ── Source link (small muted footer in sidebar) ──────────────────── */
+        .source-pill {{
+            font-size: 12px;
+            color: {THEME['faint']};
+            font-family: 'IBM Plex Mono', monospace;
+        }}
+        .source-pill a {{
+            color: {THEME['faint']};
+            text-decoration: underline;
+            text-underline-offset: 2px;
         }}
         </style>
     """, unsafe_allow_html=True)
 
+
 def style_winrate(val):
     """Muted data colors for win rates."""
-    if val is None or val == "-" or val == "—": return ""
+    if val is None or val == "-" or val == "—":
+        return ""
     try:
         if isinstance(val, str) and "%" in val:
             num = float(val.split("%")[0]) / 100
         else:
             num = float(val)
-        
-        # Color boundaries (Muted palette)
-        if num < 0.45: color = THEME["danger"]
+
+        if num < 0.45:   color = THEME["danger"]
         elif num < 0.49: color = THEME["warning"]
         elif num < 0.51: return f'color: {THEME["text"]}; font-weight: bold;'
         elif num > 0.55: color = THEME["success"]
-        else: color = THEME["text"]
-        
+        else:            color = THEME["text"]
+
         return f'color: {color}; font-weight: bold;'
     except:
         return ""
