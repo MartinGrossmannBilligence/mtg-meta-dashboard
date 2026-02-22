@@ -155,7 +155,7 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
     st.subheader("All Matchups")
     if not df_prof.empty:
         df_display = df_prof[["Opponent", "WR", "95% CI", "Record", "Games", "Sample"]].copy()
-        df_display = df_display.rename(columns={"WR": "Win Rate", "95% CI": "Confidence Interval"})
+        df_display = df_display.rename(columns={"WR": "Win Rate", "95% CI": "Confidence Interval", "Sample": "Sample Size"})
         df_display["Win Rate"] = df_display["Win Rate"].map(lambda x: f"{x:.1%}")
         st.dataframe(
             _style_wr_col(df_display),
@@ -203,7 +203,3 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
             xaxis_title="", yaxis_title="Win Rate",
         )
         st.plotly_chart(fig_hist, use_container_width=True)
-
-        df_hist_disp = df_hist.copy()
-        df_hist_disp["Win Rate"] = df_hist_disp["Win Rate"].map(lambda x: f"{x:.1%}")
-        st.dataframe(_style_wr_col(df_hist_disp), use_container_width=True, hide_index=True)

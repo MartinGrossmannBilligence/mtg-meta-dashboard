@@ -62,33 +62,39 @@ def apply_custom_css():
         
         /* ── Sidebar nav: inject app title ABOVE page links via ::before ── */
         [data-testid="stSidebarNav"] {{
-            padding-top: 95px;  /* make room for title and subtitle */
+            padding-top: 100px;  /* make room for title and subtitle */
             position: relative;
         }}
-        /* Main Title */
+        /* Main Title + Logo */
         [data-testid="stSidebarNav"]::before {{
             content: "Premodern Meta Lab";
             display: block;
             position: absolute;
-            top: 10px;
+            top: 12px;
             left: 16px;
             right: 16px;
             font-family: 'IBM Plex Mono', monospace;
-            font-size: 22px;
-            font-weight: 400;
+            font-size: 15px;
+            font-weight: 600;
             color: {THEME['text']};
             letter-spacing: -0.5px;
-            line-height: 1.1;
+            line-height: 1.2;
+            padding-left: 28px;
+            white-space: nowrap;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23f5f5f5' /%3E%3Ctext x='50' y='72' font-family='monospace' font-size='65' font-weight='bold' fill='%23121212' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-size: 20px 20px;
+            background-position: left center;
         }}
         /* Subtitle line + Divider */
         .sidebar-subtitle {{
             position: absolute;
-            top: 48px;
+            top: 40px;
             left: 16px;
             right: 16px;
             padding-bottom: 12px;
             font-family: 'IBM Plex Mono', monospace;
-            font-size: 11px;
+            font-size: 10px;
             color: {THEME['faint']};
             border-bottom: 1px solid {THEME['border']};
             z-index: 100;
