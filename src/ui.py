@@ -231,11 +231,8 @@ def apply_custom_css():
         [data-testid="stPlotlyChart"] {{
             background-color: {THEME['bg']} !important;
             border-radius: 10px !important;
-            border: 1px solid {THEME['border']} !important;
-            padding: 10px !important;
-            box-shadow: none !important;
-            width: 100% !important;
-            box-sizing: border-box !important;
+            box-shadow: inset 0 0 0 1px {THEME['border']} !important;
+            overflow: hidden !important;
         }}
 
         /* ── Buttons ──────────────────────────────────────────────────────── */

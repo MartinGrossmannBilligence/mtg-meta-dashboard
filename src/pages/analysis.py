@@ -116,19 +116,7 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
     # --- WIN RATE HISTORY ---
     st.subheader("Win Rate Trend")
     
-    # Inject page-specific CSS to only style the chart wrapper on this tab
-    st.markdown(f"""
-    <style>
-    [data-testid="element-container"]:has([data-testid="stPlotlyChart"]),
-    div[data-testid="stVerticalBlock"] > div:has([data-testid="stPlotlyChart"]) {{
-        background-color: {{THEME['bg']}} !important;
-        border: 1px solid {{THEME['border']}} !important;
-        border-radius: 10px !important;
-        padding: 16px !important;
-        box-shadow: none !important;
-    }}
-    </style>
-    """, unsafe_allow_html=True)
+
 
     history_rows = []
     for period_label, period_key in timeframes.items():
