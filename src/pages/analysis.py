@@ -194,7 +194,7 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
         fig_hist.add_hline(y=0.5, line_dash="dash", line_color=THEME["faint"], line_width=1)
         fig_hist.update_layout(
             height=300,
-            paper_bgcolor="rgba(0,0,0,0.6)", plot_bgcolor="rgba(0,0,0,0)",
+            paper_bgcolor=THEME["surface"], plot_bgcolor="rgba(0,0,0,0)",
             font_color=THEME["muted"],
             font_family="IBM Plex Mono",
             margin=dict(l=0, r=0, t=30, b=0),
