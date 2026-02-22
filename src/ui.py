@@ -60,6 +60,15 @@ def apply_custom_css():
             border-right: 1px solid {THEME['border']};
         }}
         
+        /* Tighten dividers and vertical gaps */
+        hr {{
+            margin-top: 1em !important;
+            margin-bottom: 1.5em !important;
+        }}
+        div[data-testid="stVerticalBlock"] > div {{
+            padding-bottom: 0.2rem;
+        }}
+        
         /* ── Sidebar nav: inject app title ABOVE page links via ::before ── */
         [data-testid="stSidebarNav"] {{
             padding-top: 80px;  /* make room for title and subtitle */
