@@ -62,7 +62,7 @@ def apply_custom_css():
         
         /* ── Sidebar nav: inject app title ABOVE page links via ::before ── */
         [data-testid="stSidebarNav"] {{
-            padding-top: 72px;  /* make room for title */
+            padding-top: 64px;  /* make room for title */
             position: relative;
         }}
         /* Main Title */
@@ -70,12 +70,12 @@ def apply_custom_css():
             content: "Premodern Meta Lab";
             display: block;
             position: absolute;
-            top: 20px;
+            top: 10px;
             left: 16px;
             right: 16px;
             padding-bottom: 20px;
             font-family: 'IBM Plex Mono', monospace;
-            font-size: 30px;
+            font-size: 22px;
             font-weight: 400;
             color: {THEME['text']};
             letter-spacing: -0.5px;
