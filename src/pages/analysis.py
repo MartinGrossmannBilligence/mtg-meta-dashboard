@@ -89,42 +89,11 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
             bad_n  = int(counts.get("Unfavoured (<45%)", 0))
             even_n = int(counts.get("Even (45-55%)", 0))
             good_n = int(counts.get("Favoured (>55%)", 0))
-            dist = pd.DataFrame({
-                "Category": ["Unfavoured (<45%)", "Even (45-55%)", "Favoured (>55%)"],
-                "Count":    [bad_n, even_n, good_n],
-                "Hover":    [
-                    f"{bad_n} unfavoured (<45%)",
-                    f"{even_n} even (45–55%)",
-                    f"{good_n} favoured (>55%)",
-                ],
-            })
-            fig_dist = px.bar(
-                dist, x="Category", y="Count", text="Count",
-                custom_data=["Hover"],
-                color="Category",
-                color_discrete_map={
-                    "Unfavoured (<45%)": THEME["danger"],
-                    "Even (45-55%)":     THEME["warning"],
-                    "Favoured (>55%)":   THEME["success"],
-                },
-                template="plotly_dark",
+            st.metric(
+                "Matchup Distribution",
+                f"{good_n}↑  {even_n}~  {bad_n}↓",
+                help=f"{good_n} favoured (>55%) · {even_n} even (45–55%) · {bad_n} unfavoured (<45%)",
             )
-            fig_dist.update_traces(
-                textposition="inside", textfont_size=12, textfont_color="white", insidetextanchor="middle",
-                hovertemplate="%{customdata[0]}<extra></extra>",
-            )
-            fig_dist.update_layout(
-                showlegend=False,
-                height=130,
-                paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
-                margin=dict(l=0, r=0, t=4, b=0),
-                xaxis_title="", yaxis_title="",
-                font_size=10,
-                font_family="IBM Plex Mono",
-            )
-            fig_dist.update_xaxes(showticklabels=False)
-            fig_dist.update_yaxes(showticklabels=False, showgrid=False, zeroline=False)
-            st.plotly_chart(fig_dist, use_container_width=True)
 
     st.markdown('<div style="margin: 8px 0 12px 0; border-top: 1px solid #222222;"></div>', unsafe_allow_html=True)
 
