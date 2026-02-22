@@ -27,9 +27,9 @@ def show_simulator(matrix_dict, all_archetypes, records_data):
     if total_assigned > 100:
         st.warning(f"Total exceeds 100% by {total_assigned - 100}%. Results will be normalized.")
     else:
-        st.info(f"Other / Unknown: **{remaining}%**")
+        st.info(f"Other Decks: **{remaining}%**")
 
-    meta_shares["Unknown"] = remaining / 100
+    meta_shares["Other Decks"] = remaining / 100
 
     if st.button("Calculate Projected EV", type="primary"):
         with st.spinner("Simulating..."):
