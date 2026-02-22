@@ -48,8 +48,10 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
             d_all = df_rec.copy()
             
             def _get_interval(row):
-                w, t = row.get("wins", 0), row.get("total_matches", 0)
-                if t == 0: return "0.0% – 0.0%"
+                # df_rec has columns: wins (not renamed), Games (was total_matches)
+                w = row.get("wins", 0)
+                t = row.get("Games", 0)
+                if t == 0: return "n/a"
                 l, u = wilson_score_interval(w, t)
                 return f"{l:.1%} – {u:.1%}"
                 
