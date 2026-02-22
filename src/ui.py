@@ -2,15 +2,15 @@ import streamlit as st
 
 # DURESS MONO Design Tokens
 THEME = {
-    "bg":          "#0B0B0B",
-    "surface":     "#111111",
-    "surface2":    "#151515",
-    "border":      "#222222",
+    "bg":          "#181818",
+    "surface":     "#1F1F1F",
+    "surface2":    "#252525",
+    "border":      "#2E2E2E",
     "text":        "#F5F5F5",
     "muted":       "#B8B8B8",
     "faint":       "#8A8A8A",
     "invertBg":    "#F5F5F5",
-    "invertText":  "#0B0B0B",
+    "invertText":  "#181818",
     "focus":       "#8EA7B6",
     # Data viz (muted)
     "success":     "#6BC78E",
@@ -133,7 +133,7 @@ def apply_custom_css():
             color: {THEME['text']} !important;
         }}
         [data-testid="stSidebarNav"] a[aria-current="page"] {{
-            background-color: #1E1E1E !important;
+            background-color: #2A2A2A !important;
             color: {THEME['text']} !important;
             border-left: 2px solid {THEME['text']};
             padding-left: 10px !important;

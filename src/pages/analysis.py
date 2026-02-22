@@ -97,14 +97,18 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
             bad_n  = int(dist.loc[dist["Label"] == "Bad",  "Count"].iloc[0])
             even_n = int(dist.loc[dist["Label"] == "Even", "Count"].iloc[0])
             good_n = int(dist.loc[dist["Label"] == "Good", "Count"].iloc[0])
-            tip = f"{good_n} favoured · {even_n} even · {bad_n} unfavoured"
+            dist["Hover"] = [
+                f"{bad_n} unfavoured (<45%)",
+                f"{even_n} even (45–55%)",
+                f"{good_n} favoured (>55%)",
+            ]
             st.markdown(
-                f'<p style="font-size:11px; color:#8A8A8A; margin-bottom:2px; text-transform:uppercase; letter-spacing:0.06em;">Matchup Distribution</p>'
-                f'<p style="font-size:11px; color:#B8B8B8; margin-top:0;">{tip}</p>',
+                '<p style="font-size:11px; color:#8A8A8A; margin-bottom:2px; text-transform:uppercase; letter-spacing:0.06em;">Matchup Distribution</p>',
                 unsafe_allow_html=True
             )
             fig_dist = px.bar(
                 dist, x="Category", y="Count", text="Count",
+                custom_data=["Hover"],
                 color="Category",
                 color_discrete_map={
                     "Unfavoured (<45%)": THEME["danger"],
@@ -113,7 +117,10 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
                 },
                 template="plotly_dark",
             )
-            fig_dist.update_traces(textposition='inside', textfont_size=12, textfont_color="white", insidetextanchor="middle")
+            fig_dist.update_traces(
+                textposition='inside', textfont_size=12, textfont_color="white", insidetextanchor="middle",
+                hovertemplate="%{customdata[0]}<extra></extra>",
+            )
             fig_dist.update_layout(
                 showlegend=False,
                 height=100,
