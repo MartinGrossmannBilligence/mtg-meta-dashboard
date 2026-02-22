@@ -29,7 +29,8 @@ def apply_custom_css():
         }}
         
         .block-container {{
-            padding-top: 1.2rem;
+            padding-top: 0.6rem !important;
+            padding-bottom: 1rem !important;
             background-color: {THEME['bg']};
         }}
         
@@ -62,16 +63,21 @@ def apply_custom_css():
         
         /* Tighten dividers and vertical gaps */
         hr {{
-            margin-top: 1em !important;
-            margin-bottom: 1.5em !important;
+            margin-top: 0.5em !important;
+            margin-bottom: 0.75em !important;
         }}
         div[data-testid="stVerticalBlock"] > div {{
-            padding-bottom: 0.2rem;
+            padding-bottom: 0.1rem;
+        }}
+        /* Tighten gap between h3 (subheader) and content below */
+        h3 {{
+            margin-top: 0.25rem !important;
+            margin-bottom: 0.25rem !important;
         }}
         
         /* ── Sidebar nav: inject app title ABOVE page links via ::before ── */
         [data-testid="stSidebarNav"] {{
-            padding-top: 80px;  /* make room for title and subtitle */
+            padding-top: 60px;  /* make room for title */
             position: relative;
         }}
         /* Main Title */
@@ -93,16 +99,17 @@ def apply_custom_css():
 
         [data-testid="stSidebarNav"] ul {{
             padding-left: 0;
+            margin-bottom: 0;
         }}
         [data-testid="stSidebarNav"] li {{
-            margin-bottom: 4px;
+            margin-bottom: 2px;
         }}
         [data-testid="stSidebarNav"] a,
         [data-testid="stSidebarNav"] span {{
             background-color: transparent !important;
             color: {THEME['muted']} !important;
             border-radius: 4px;
-            padding: 8px 12px;
+            padding: 6px 12px;
             font-family: 'IBM Plex Mono', monospace;
         }}
         [data-testid="stSidebarNav"] a:hover {{
@@ -113,6 +120,15 @@ def apply_custom_css():
             background-color: {THEME['surface2']} !important;
             color: {THEME['text']} !important;
             border-left: 2px solid {THEME['text']};
+        }}
+        /* Collapse the sidebar content gap between nav and widgets below */
+        [data-testid="stSidebarContent"] {{
+            padding-top: 0 !important;
+            gap: 0 !important;
+        }}
+        [data-testid="stSidebarContent"] > div {{
+            margin-top: 0 !important;
+            padding-top: 0 !important;
         }}
         /* Selectbox selected item un-bold */
         div[data-baseweb="select"] span {{

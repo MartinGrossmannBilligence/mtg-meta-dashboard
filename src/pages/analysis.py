@@ -20,7 +20,7 @@ def _style_wr_col(df, col="Win Rate"):
 def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframes):
     st.markdown("<h1>Deck Analysis</h1>", unsafe_allow_html=True)
     st.markdown(
-        '<p style="color:#8A8A8A; font-size:13px; margin-top:-20px; margin-bottom:24px;">'
+        '<p style="color:#8A8A8A; font-size:13px; margin-top:-16px; margin-bottom:12px;">'
         'Premodern Metagame · Data: Duress Crew · Individual Deck Deep-Dive</p>',
         unsafe_allow_html=True
     )
@@ -128,7 +128,7 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
             fig_dist.update_xaxes(showticklabels=False) # Hide text labels to save space in the small column
             st.plotly_chart(fig_dist, use_container_width=True)
 
-    st.divider()
+    st.markdown('<div style="margin: 8px 0 12px 0; border-top: 1px solid #222222;"></div>', unsafe_allow_html=True)
 
     # --- TOP 5 / WORST 5 ---
     col_best, col_worst = st.columns(2)
@@ -149,7 +149,7 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
         if not df_prof.empty:
             st.dataframe(_table(df_prof.tail(5)), use_container_width=True, hide_index=True)
 
-    st.divider()
+    st.markdown('<div style="margin: 8px 0 12px 0; border-top: 1px solid #222222;"></div>', unsafe_allow_html=True)
 
     # --- FULL MATCHUP TABLE ---
     st.subheader("All Matchups")
@@ -162,7 +162,7 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
             use_container_width=True, hide_index=True
         )
 
-    st.divider()
+    st.markdown('<div style="margin: 8px 0 12px 0; border-top: 1px solid #222222;"></div>', unsafe_allow_html=True)
 
     # --- WIN RATE HISTORY ---
     st.subheader("Win Rate History")

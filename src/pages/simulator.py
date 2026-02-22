@@ -6,7 +6,7 @@ from src.ui import THEME, style_winrate
 
 def show_simulator(matrix_dict, all_archetypes, records_data):
     st.markdown("<h1>Tournament Simulator</h1>", unsafe_allow_html=True)
-    st.markdown('<p style="color:#8A8A8A; font-size:13px; margin-top:-20px; margin-bottom:24px;">Project expected win rate against a defined metagame field · Auto-normalization to 100%</p>', unsafe_allow_html=True)
+    st.markdown('<p style="color:#8A8A8A; font-size:13px; margin-top:-16px; margin-bottom:12px;">Project expected win rate against a defined metagame field · Auto-normalization to 100%</p>', unsafe_allow_html=True)
 
     st.subheader("1. Field Composition")
     st.caption("Set expected share (%) for each deck. Remaining % auto-assigned to Unknown/Other.")

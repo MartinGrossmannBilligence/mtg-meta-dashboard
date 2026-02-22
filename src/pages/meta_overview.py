@@ -13,7 +13,7 @@ def _style(df, col):
 def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, timeframes):
     st.markdown("<h1>Meta Overview</h1>", unsafe_allow_html=True)
     st.markdown(
-        '<p style="color:#8A8A8A; font-size:13px; margin-top:-20px; margin-bottom:24px;">'
+        '<p style="color:#8A8A8A; font-size:13px; margin-top:-16px; margin-bottom:12px;">'
         'Premodern Metagame · Matchup Matrix + Historical Trends · Data: Duress Crew</p>',
         unsafe_allow_html=True
     )
@@ -78,7 +78,7 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
                 d["Win Rate"] = d["Win Rate"].map(lambda x: f"{x:.1%}")
                 st.dataframe(_style(d, "Win Rate"), use_container_width=True, hide_index=True)
 
-            st.divider()
+            st.markdown('<div style="margin: 8px 0 12px 0; border-top: 1px solid #222222;"></div>', unsafe_allow_html=True)
 
             st.subheader("All Decks (Overall Metagame)")
             d_all = df_rec.copy()
@@ -97,7 +97,7 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
             
             st.dataframe(_style(d_all, "Win Rate"), use_container_width=True, hide_index=True)
 
-            st.divider()
+            st.markdown('<div style="margin: 8px 0 12px 0; border-top: 1px solid #222222;"></div>', unsafe_allow_html=True)
             selected_trend_decks_stats = st.multiselect(
                 "Select Decks for Trends",
                 all_archetypes,
@@ -174,7 +174,7 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
         st.plotly_chart(fig, use_container_width=True)
         st.caption("Scale centered at 50% (35%–65%). Blank cells = insufficient data.")
 
-        st.divider()
+        st.markdown('<div style="margin: 8px 0 12px 0; border-top: 1px solid #222222;"></div>', unsafe_allow_html=True)
 
         # ─── WIN RATE TRENDS ─────────────────────────────────────────────
         _draw_trend_chart(selected_decks)
