@@ -132,7 +132,7 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
     st.markdown('<div style="margin: 8px 0 12px 0; border-top: 1px solid #222222;"></div>', unsafe_allow_html=True)
 
     # --- WIN RATE HISTORY ---
-    st.subheader("Win Rate History")
+    st.subheader("Win Rate Trend")
     st.caption("Overall win rate across time windows — All Time → 2Y → 1Y → 6M.")
 
     history_rows = []
@@ -168,7 +168,7 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
                 size=15,
                 color=[_wr_color(v) for v in df_hist["Win Rate"]],
             ),
-            line=dict(color=THEME["border"], width=2),
+            line=dict(color=THEME["border"], width=3),
             marker=dict(
                 size=10,
                 color=[_wr_color(v) for v in df_hist["Win Rate"]],
