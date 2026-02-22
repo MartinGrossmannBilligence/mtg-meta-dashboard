@@ -120,7 +120,7 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
                 height=110,
                 paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
                 margin=dict(l=0, r=0, t=10, b=0),
-                xaxis_title="", yaxis_title="COUNT",
+                xaxis_title="", yaxis_title="",
                 font_size=10,
             )
             fig_dist.update_xaxes(showticklabels=False) # Hide text labels to save space in the small column
