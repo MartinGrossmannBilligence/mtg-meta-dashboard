@@ -133,10 +133,11 @@ def apply_custom_css():
             color: {THEME['text']} !important;
         }}
         [data-testid="stSidebarNav"] a[aria-current="page"] {{
-            background-color: {THEME['surface2']} !important;
+            background-color: #1E1E1E !important;
             color: {THEME['text']} !important;
             border-left: 2px solid {THEME['text']};
             padding-left: 10px !important;
+            font-weight: 600 !important;
         }}
 
         /* ── Sidebar widgets (Timeframe etc.) – tighten gap after nav ──────── */

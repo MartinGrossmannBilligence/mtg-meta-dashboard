@@ -75,21 +75,10 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
         st.metric(
             "Polarity Index",
             f"{polarity * 100:.1f}%",
-            help=(
-                f"**Polarity** = how spread out this deck's matchup win rates are.\n\n"
-                f"**{pct_rank}%** of decks in the field have a lower polarity than this one\n"
-                f"({pct_label}).\n\n"
-                "Low polarity → consistent, even matchups across the board.\n"
-                "High polarity → extreme wins and losses, rock-paper-scissors style."
-            ),
+            help=f"Spread of matchup win rates. {pct_rank}th percentile — {pct_label}.",
         )
 
     with c_chart:
-        # Title to match the KPI labels styling
-        st.markdown(
-            '<p style="font-size: 14px; color: #F5F5F5; margin-bottom: -10px;">Matchup Distribution</p>', 
-            unsafe_allow_html=True
-        )
         if not df_prof.empty:
             df_prof["Bracket"] = pd.cut(
                 df_prof["WR"],
@@ -100,12 +89,22 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
                 df_prof["Bracket"]
                 .value_counts()
                 .reindex(["Unfavoured (<45%)", "Even (45-55%)", "Favoured (>55%)"])
+                .fillna(0)
                 .reset_index()
             )
             dist.columns = ["Category", "Count"]
             dist["Label"] = ["Bad", "Even", "Good"]
+            bad_n  = int(dist.loc[dist["Label"] == "Bad",  "Count"].iloc[0])
+            even_n = int(dist.loc[dist["Label"] == "Even", "Count"].iloc[0])
+            good_n = int(dist.loc[dist["Label"] == "Good", "Count"].iloc[0])
+            tip = f"{good_n} favoured · {even_n} even · {bad_n} unfavoured"
+            st.markdown(
+                f'<p style="font-size:11px; color:#8A8A8A; margin-bottom:2px; text-transform:uppercase; letter-spacing:0.06em;">Matchup Distribution</p>'
+                f'<p style="font-size:11px; color:#B8B8B8; margin-top:0;">{tip}</p>',
+                unsafe_allow_html=True
+            )
             fig_dist = px.bar(
-                dist, x="Category", y="Count", text="Label",
+                dist, x="Category", y="Count", text="Count",
                 color="Category",
                 color_discrete_map={
                     "Unfavoured (<45%)": THEME["danger"],
@@ -115,17 +114,15 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
                 template="plotly_dark",
             )
             fig_dist.update_traces(textposition='inside', textfont_size=12, textfont_color="white", insidetextanchor="middle")
-            
-            # Make the chart small to fit neatly inside the metric card aesthetic
             fig_dist.update_layout(
-                showlegend=False, 
-                height=110,
+                showlegend=False,
+                height=100,
                 paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
-                margin=dict(l=0, r=0, t=10, b=0),
+                margin=dict(l=0, r=0, t=4, b=0),
                 xaxis_title="", yaxis_title="",
                 font_size=10,
             )
-            fig_dist.update_xaxes(showticklabels=False) # Hide text labels to save space in the small column
+            fig_dist.update_xaxes(showticklabels=False)
             st.plotly_chart(fig_dist, use_container_width=True)
 
     st.markdown('<div style="margin: 8px 0 12px 0; border-top: 1px solid #222222;"></div>', unsafe_allow_html=True)
@@ -147,7 +144,7 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
     with col_worst:
         st.subheader("Top 5 Worst Matchups")
         if not df_prof.empty:
-            st.dataframe(_table(df_prof.tail(5)), use_container_width=True, hide_index=True)
+            st.dataframe(_table(df_prof.tail(5).sort_values("WR", ascending=True)), use_container_width=True, hide_index=True)
 
     st.markdown('<div style="margin: 8px 0 12px 0; border-top: 1px solid #222222;"></div>', unsafe_allow_html=True)
 
@@ -184,22 +181,39 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
 
     if history_rows:
         df_hist = pd.DataFrame(history_rows)
+
+        def _wr_color(v):
+            if v > 0.55: return THEME["success"]
+            if v < 0.45: return THEME["danger"]
+            if v < 0.50: return THEME["warning"]
+            return THEME["text"]
+
         fig_hist = go.Figure()
         fig_hist.add_trace(go.Scatter(
             x=df_hist["Period"], y=df_hist["Win Rate"],
             mode="lines+markers+text",
             text=[f"{v:.1%}" for v in df_hist["Win Rate"]],
             textposition="top center",
-            line=dict(color=THEME["text"], width=2),
-            marker=dict(size=8, color=THEME["text"]),
+            textfont=dict(
+                size=15,
+                color=[_wr_color(v) for v in df_hist["Win Rate"]],
+            ),
+            line=dict(color=THEME["border"], width=2),
+            marker=dict(
+                size=10,
+                color=[_wr_color(v) for v in df_hist["Win Rate"]],
+                line=dict(width=0),
+            ),
         ))
-        fig_hist.add_hline(y=0.5, line_dash="dash", line_color=THEME["faint"])
+        fig_hist.add_hline(y=0.5, line_dash="dash", line_color=THEME["faint"], line_width=1)
         fig_hist.update_layout(
-            height=280,
+            height=300,
             paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
-            font_color=THEME["text"],
-            margin=dict(l=0, r=0, t=20, b=0),
-            yaxis=dict(tickformat=".0%", range=[0.3, 0.7]),
-            xaxis_title="", yaxis_title="Win Rate",
+            font_color=THEME["muted"],
+            font_family="IBM Plex Mono",
+            margin=dict(l=0, r=0, t=30, b=0),
+            yaxis=dict(tickformat=".0%", range=[0.3, 0.7], tickfont=dict(size=12)),
+            xaxis=dict(tickfont=dict(size=13)),
+            xaxis_title="", yaxis_title="",
         )
         st.plotly_chart(fig_hist, use_container_width=True)
