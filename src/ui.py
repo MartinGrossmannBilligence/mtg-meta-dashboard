@@ -234,6 +234,8 @@ def apply_custom_css():
             border: 1px solid {THEME['border']} !important;
             padding: 10px !important;
             box-shadow: none !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
         }}
 
         /* ── Buttons ──────────────────────────────────────────────────────── */
