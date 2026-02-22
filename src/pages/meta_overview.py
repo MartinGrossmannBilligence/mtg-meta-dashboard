@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
-from src.analytics import get_period_comparison
+from src.analytics import get_period_comparison, wilson_score_interval
 from src.ui import THEME, style_winrate
 
 def _style(df, col):
@@ -45,8 +45,18 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
             st.divider()
 
             st.subheader("All Decks (Overall Metagame)")
-            d_all = df_rec[["Deck", "Win Rate", "Games"]].copy()
+            d_all = df_rec.copy()
+            
+            def _get_interval(row):
+                w, t = row.get("wins", 0), row.get("total_matches", 0)
+                if t == 0: return "0.0% – 0.0%"
+                l, u = wilson_score_interval(w, t)
+                return f"{l:.1%} – {u:.1%}"
+                
+            d_all["Confidence Interval"] = d_all.apply(_get_interval, axis=1)
+            d_all = d_all[["Deck", "Win Rate", "Confidence Interval", "Games"]].rename(columns={"Games": "Sample Size"})
             d_all["Win Rate"] = d_all["Win Rate"].map(lambda x: f"{x:.1%}")
+            
             st.dataframe(_style(d_all, "Win Rate"), use_container_width=True, hide_index=True)
 
     # ─── TAB 2: MATCHUPS & TRENDS ────────────────────────────────────────────

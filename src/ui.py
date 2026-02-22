@@ -105,6 +105,10 @@ def apply_custom_css():
             color: {THEME['text']} !important;
             border-left: 2px solid {THEME['text']};
         }}
+        /* Selectbox selected item un-bold */
+        div[data-baseweb="select"] span {{
+            font-weight: 400 !important;
+        }}
 
         /* Components Card Look */
         [data-testid="stMetric"], 
