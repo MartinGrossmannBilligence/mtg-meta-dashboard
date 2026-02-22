@@ -72,8 +72,11 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
         "Polarity Index",
         f"{polarity * 100:.1f}%",
         help=(
-            f"{pct_rank}th percentile vs. all decks in the field — {pct_label}. "
-            "0% = perfectly even matchups; 100% = extreme variance."
+            f"**Polarity** = how spread out this deck's matchup win rates are.\n\n"
+            f"**{pct_rank}%** of decks in the field have a lower polarity than this one\n"
+            f"({pct_label}).\n\n"
+            "Low polarity → consistent, even matchups across the board.\n"
+            "High polarity → extreme wins and losses, rock-paper-scissors style."
         ),
     )
 

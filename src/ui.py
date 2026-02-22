@@ -58,25 +58,46 @@ def apply_custom_css():
             border-right: 1px solid {THEME['border']};
         }}
         
-        /* ASCII-style Nav items (targeting Streamlit Page Navigation) */
+        /* ── Sidebar nav: inject app title ABOVE the page links via ::before ── */
+        [data-testid="stSidebarNav"] {{
+            padding-top: 72px;  /* make room for injected title */
+            position: relative;
+        }}
+        [data-testid="stSidebarNav"]::before {{
+            content: "Premodern Meta Lab";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 16px 4px 16px;
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: {THEME['text']};
+            letter-spacing: -0.4px;
+        }}
         [data-testid="stSidebarNav"] ul {{
             padding-left: 0;
         }}
         [data-testid="stSidebarNav"] li {{
             margin-bottom: 4px;
         }}
-        [data-testid="stSidebarNav"] a {{
+        [data-testid="stSidebarNav"] a,
+        [data-testid="stSidebarNav"] span {{
             background-color: transparent !important;
             color: {THEME['muted']} !important;
             border-radius: 4px;
             padding: 8px 12px;
-            font-family: monospace;
+            font-family: 'Inter', sans-serif !important;
+            font-size: 14px;
         }}
         [data-testid="stSidebarNav"] a:hover {{
             background-color: {THEME['surface2']} !important;
             color: {THEME['text']} !important;
         }}
-        [data-testid="stSidebarNav"] a[aria-current="page"] {{
+        [data-testid="stSidebarNav"] a[aria-current="page"],
+        [data-testid="stSidebarNav"] a[aria-current="page"] span {{
             background-color: {THEME['surface2']} !important;
             color: {THEME['text']} !important;
             border-left: 2px solid {THEME['text']};
