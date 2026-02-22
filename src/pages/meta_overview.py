@@ -20,6 +20,21 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
 
     def _draw_trend_chart(selected_decks_list):
         st.subheader("Win Rate Trends")
+        
+        # Inject page-specific CSS to only style the chart wrapper on this tab
+        st.markdown(f"""
+        <style>
+        [data-testid="element-container"]:has([data-testid="stPlotlyChart"]),
+        div[data-testid="stVerticalBlock"] > div:has([data-testid="stPlotlyChart"]) {{
+            background-color: {{THEME['bg']}} !important;
+            border: 1px solid {{THEME['border']}} !important;
+            border-radius: 10px !important;
+            padding: 16px !important;
+            box-shadow: none !important;
+        }}
+        </style>
+        """, unsafe_allow_html=True)
+        
         with st.spinner("Loading historical data..."):
             pivot_wr, games_df = get_period_comparison(data_dir, timeframes)
 
