@@ -64,16 +64,14 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
         else "stable — consistent matchup profile across the field"
     )
 
-    # --- KPI & DISTRIBUTION ROW ---
-    # We create two main columns: Left for the 3 KPIs, Right for the Distribution Chart
-    c_kpis, c_chart = st.columns([1, 1.2])
+    # --- KPI & DISTRIBUTION ROW (4 equal columns) ---
+    c1, c2, c3, c_chart = st.columns(4)
     
-    with c_kpis:
-        # We can put the 3 KPIs in a 2x2 grid or just stack them, or use smaller columns inside
-        k1, k2 = st.columns(2)
-        k1.metric("Overall Win Rate", f"{overall_wr:.1%}")
-        k2.metric("Total Games", f"{total_games:,}")
-        
+    with c1:
+        st.metric("Overall Win Rate", f"{overall_wr:.1%}")
+    with c2:
+        st.metric("Total Games", f"{total_games:,}")
+    with c3:
         st.metric(
             "Polarity Index",
             f"{polarity * 100:.1f}%",
@@ -110,12 +108,17 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
                 },
                 template="plotly_dark",
             )
+            
+            # Make the chart small to fit neatly inside the metric card aesthetic
             fig_dist.update_layout(
-                showlegend=False, height=180,
+                showlegend=False, 
+                height=110,
                 paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
                 margin=dict(l=0, r=0, t=10, b=0),
                 xaxis_title="", yaxis_title="COUNT",
+                font_size=10,
             )
+            fig_dist.update_xaxes(showticklabels=False) # Hide text labels to save space in the small column
             st.plotly_chart(fig_dist, use_container_width=True)
 
     st.divider()
