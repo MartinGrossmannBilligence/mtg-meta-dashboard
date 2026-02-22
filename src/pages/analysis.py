@@ -64,55 +64,59 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
         else "stable — consistent matchup profile across the field"
     )
 
-    # --- KPI ROW ---
-    kpi1, kpi2, kpi3 = st.columns(3)
-    kpi1.metric("Overall Win Rate", f"{overall_wr:.1%}")
-    kpi2.metric("Total Games", f"{total_games:,}")
-    kpi3.metric(
-        "Polarity Index",
-        f"{polarity * 100:.1f}%",
-        help=(
-            f"**Polarity** = how spread out this deck's matchup win rates are.\n\n"
-            f"**{pct_rank}%** of decks in the field have a lower polarity than this one\n"
-            f"({pct_label}).\n\n"
-            "Low polarity → consistent, even matchups across the board.\n"
-            "High polarity → extreme wins and losses, rock-paper-scissors style."
-        ),
-    )
+    # --- KPI & DISTRIBUTION ROW ---
+    # We create two main columns: Left for the 3 KPIs, Right for the Distribution Chart
+    c_kpis, c_chart = st.columns([1, 1.2])
+    
+    with c_kpis:
+        # We can put the 3 KPIs in a 2x2 grid or just stack them, or use smaller columns inside
+        k1, k2 = st.columns(2)
+        k1.metric("Overall Win Rate", f"{overall_wr:.1%}")
+        k2.metric("Total Games", f"{total_games:,}")
+        
+        st.metric(
+            "Polarity Index",
+            f"{polarity * 100:.1f}%",
+            help=(
+                f"**Polarity** = how spread out this deck's matchup win rates are.\n\n"
+                f"**{pct_rank}%** of decks in the field have a lower polarity than this one\n"
+                f"({pct_label}).\n\n"
+                "Low polarity → consistent, even matchups across the board.\n"
+                "High polarity → extreme wins and losses, rock-paper-scissors style."
+            ),
+        )
 
-    st.divider()
-
-    # --- DISTRIBUTION CHART ---
-    if not df_prof.empty:
-        df_prof["Bracket"] = pd.cut(
-            df_prof["WR"],
-            bins=[0, 0.45, 0.55, 1.0],
-            labels=["Unfavoured (<45%)", "Even (45-55%)", "Favoured (>55%)"],
-        )
-        dist = (
-            df_prof["Bracket"]
-            .value_counts()
-            .reindex(["Unfavoured (<45%)", "Even (45-55%)", "Favoured (>55%)"])
-            .reset_index()
-        )
-        dist.columns = ["Category", "Count"]
-        fig_dist = px.bar(
-            dist, x="Category", y="Count",
-            color="Category",
-            color_discrete_map={
-                "Unfavoured (<45%)": THEME["danger"],
-                "Even (45-55%)":     THEME["warning"],
-                "Favoured (>55%)":   THEME["success"],
-            },
-            template="plotly_dark",
-        )
-        fig_dist.update_layout(
-            showlegend=False, height=220,
-            paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
-            margin=dict(l=0, r=0, t=10, b=0),
-            xaxis_title="", yaxis_title="COUNT",
-        )
-        st.plotly_chart(fig_dist, use_container_width=True)
+    with c_chart:
+        if not df_prof.empty:
+            df_prof["Bracket"] = pd.cut(
+                df_prof["WR"],
+                bins=[0, 0.45, 0.55, 1.0],
+                labels=["Unfavoured (<45%)", "Even (45-55%)", "Favoured (>55%)"],
+            )
+            dist = (
+                df_prof["Bracket"]
+                .value_counts()
+                .reindex(["Unfavoured (<45%)", "Even (45-55%)", "Favoured (>55%)"])
+                .reset_index()
+            )
+            dist.columns = ["Category", "Count"]
+            fig_dist = px.bar(
+                dist, x="Category", y="Count",
+                color="Category",
+                color_discrete_map={
+                    "Unfavoured (<45%)": THEME["danger"],
+                    "Even (45-55%)":     THEME["warning"],
+                    "Favoured (>55%)":   THEME["success"],
+                },
+                template="plotly_dark",
+            )
+            fig_dist.update_layout(
+                showlegend=False, height=180,
+                paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
+                margin=dict(l=0, r=0, t=10, b=0),
+                xaxis_title="", yaxis_title="COUNT",
+            )
+            st.plotly_chart(fig_dist, use_container_width=True)
 
     st.divider()
 
