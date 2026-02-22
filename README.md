@@ -1,20 +1,26 @@
-# Brejkni to s Martinem 🧠
+# Premodern Meta Lab
 
-Interactive Magic: The Gathering metagame dashboard for competitive analysis. 
+Interactive metagame analytics dashboard for **Premodern Magic: The Gathering** — built on data from Duress Crew.
+
+🔗 **Live app:** [premodern-meta-lab.streamlit.app](https://premodern-meta-lab.streamlit.app)
 
 ## Features
-- **Matchup Matrix**: Full-width interactive heatmap with Wilson score confidence intervals.
-- **Deck Profiles**: Top best/worst matchup breakdowns with styled performance indicators.
-- **Meta Trends**: Comparative win-rate shifts across 3m, 6m, 1y, 2y, and All-Time periods.
-- **Tournament Simulator**: Projected performance calculation based on custom field distributions.
 
-## How to Run Locally
-1. Clone the repository.
-2. Install dependencies: `pip install -r requirements.txt`
-3. Launch the app: `streamlit run app.py`
+- **Deck Analysis** — Deep-dive into any archetype: overall win rate, polarity index, matchup distribution chart, Top 5 best/worst matchups, full matchup table with Wilson confidence intervals + sample quality badges, and win rate history across time windows.
+- **Meta Overview** — Full metagame stats table + interactive matchup heatmap matrix + win rate trends across time periods.
+- **Tournament Simulator** — Projected win rate calculator based on custom field compositions.
 
 ## Data Source
+
 All metagame data is provided by [Duress Crew](https://data.duresscrew.com/).
 
+## How to Run Locally
+
+```bash
+pip install -r requirements.txt
+streamlit run app.py
+```
+
 ## Deployment
-This app is optimized for [Streamlit Cloud](https://streamlit.io/cloud).
+
+Hosted on [Streamlit Cloud](https://streamlit.io/cloud). Pushes to `main` deploy automatically.
