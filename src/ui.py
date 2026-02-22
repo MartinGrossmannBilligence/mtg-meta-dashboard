@@ -37,7 +37,7 @@ def apply_custom_css():
         h1 {{
             font-family: 'Inter', sans-serif !important;
             font-size: 30px !important;
-            font-weight: 800 !important;
+            font-weight: 400 !important;
             line-height: 1.1 !important;
             margin-bottom: 8px !important;
             color: {THEME['text']} !important;
@@ -76,7 +76,7 @@ def apply_custom_css():
             padding-bottom: 20px;
             font-family: 'Inter', sans-serif;
             font-size: 30px;
-            font-weight: 800;
+            font-weight: 400;
             color: {THEME['text']};
             letter-spacing: -0.5px;
             line-height: 1.1;
