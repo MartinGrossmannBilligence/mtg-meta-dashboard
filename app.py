@@ -7,8 +7,9 @@ from src.pages.meta_overview import show_meta_overview
 from src.pages.simulator import show_simulator
 
 # ── 1. Page Config ────────────────────────────────────────────────────────────
-st.set_page_config(page_title="Premodern Meta Lab", layout="wide")
+st.set_page_config(page_title="Premodern Meta Lab", page_icon="assets/logo.svg", layout="wide")
 apply_custom_css()
+st.logo("assets/logo.svg")
 
 # ── 2. Constants ──────────────────────────────────────────────────────────────
 DATA_DIR = "data"
@@ -25,14 +26,8 @@ def get_cached_data(period_key):
 
 # "Premodern Meta Lab" title is injected above the nav links via CSS ::before
 # in apply_custom_css().
-# We inject the subtitle as a raw HTML block positioned absolutely.
 with st.sidebar:
-    st.markdown(
-        '<div class="sidebar-subtitle">'
-        'Based on <a href="https://data.duresscrew.com/" target="_blank">Duress Crew data</a>'
-        '</div>',
-        unsafe_allow_html=True,
-    )
+
     period_name = st.selectbox("Timeframe", list(TIMEFRAMES.keys()), index=0)
     st.divider()
 

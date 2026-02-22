@@ -65,9 +65,9 @@ def apply_custom_css():
             padding-top: 80px;  /* make room for title and subtitle */
             position: relative;
         }}
-        /* Main Title */
+        /* Main Title + Subtitle */
         [data-testid="stSidebarNav"]::before {{
-            content: "Premodern Meta Lab";
+            content: "Premodern Meta Lab \\A based on Duress Crew data";
             display: block;
             position: absolute;
             top: 10px;
@@ -79,29 +79,12 @@ def apply_custom_css():
             color: {THEME['text']};
             letter-spacing: -0.5px;
             line-height: 1.2;
-            white-space: nowrap;
+            white-space: pre-wrap;
         }}
-        /* Subtitle line + Divider */
-        .sidebar-subtitle {{
-            position: absolute;
-            top: 48px;
-            left: 16px;
-            right: 16px;
-            padding-bottom: 8px;
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 10px;
-            color: {THEME['faint']};
-            border-bottom: 1px solid {THEME['border']};
-            z-index: 100;
+        [data-testid="stSidebarNav"]::before::first-line {{
+            font-size: 20px;
         }}
-        .sidebar-subtitle a {{
-            color: {THEME['faint']} !important;
-            text-decoration: underline !important;
-            text-decoration-color: {THEME['border']} !important;
-        }}
-        .sidebar-subtitle a:hover {{
-            color: {THEME['text']} !important;
-        }}
+
         [data-testid="stSidebarNav"] ul {{
             padding-left: 0;
         }}
