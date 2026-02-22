@@ -72,13 +72,6 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
     with c2:
         st.metric("Total Games", f"{total_games:,}")
     with c3:
-        st.metric(
-            "Polarity Index",
-            f"{polarity * 100:.1f}%",
-            help=f"Spread of matchup win rates. {pct_rank}th percentile — {pct_label}.",
-        )
-
-    with c_chart:
         if not df_prof.empty:
             df_prof["Bracket"] = pd.cut(
                 df_prof["WR"],
@@ -89,11 +82,30 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
             bad_n  = int(counts.get("Unfavoured (<45%)", 0))
             even_n = int(counts.get("Even (45-55%)", 0))
             good_n = int(counts.get("Favoured (>55%)", 0))
-            st.metric(
-                "Matchup Distribution",
-                f"{good_n}↑  {even_n}~  {bad_n}↓",
-                help=f"{good_n} favoured (>55%) · {even_n} even (45–55%) · {bad_n} unfavoured (<45%)",
+
+            colored_text = (
+                f"<span style='color:{THEME['success']}'>{good_n}↑</span> "
+                f"<span style='color:{THEME['faint']}'>{even_n}~</span> "
+                f"<span style='color:{THEME['danger']}'>{bad_n}↓</span>"
             )
+            
+            # Using markdown instead of st.metric to allow HTML colors inside the value
+            st.markdown(
+                f"""
+                <div data-testid="stMetric">
+                    <div style="font-size:11px; color:#8A8A8A; margin-bottom:2px; text-transform:uppercase; letter-spacing:0.06em;" title="{good_n} favoured (>55%) · {even_n} even (45–55%) · {bad_n} unfavoured (<45%)">Matchup Distribution</div>
+                    <div style="font-size: 1.8rem; font-weight: 500;">{colored_text}</div>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
+
+    with c_chart:
+        st.metric(
+            "Polarity Index",
+            f"{polarity * 100:.1f}%",
+            help=f"Spread of matchup win rates. {pct_rank}th percentile — {pct_label}.",
+        )
 
     st.markdown('<div style="margin: 8px 0 12px 0; border-top: 1px solid #222222;"></div>', unsafe_allow_html=True)
 
@@ -168,7 +180,7 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
                 size=15,
                 color=[_wr_color(v) for v in df_hist["Win Rate"]],
             ),
-            line=dict(color=THEME["border"], width=5),
+            line=dict(color=THEME["border"], width=7),
             marker=dict(
                 size=10,
                 color=[_wr_color(v) for v in df_hist["Win Rate"]],

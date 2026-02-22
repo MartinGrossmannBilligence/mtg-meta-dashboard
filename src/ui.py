@@ -99,12 +99,19 @@ def apply_custom_css():
         /* ── Hide Streamlit footer & main menu ────────────────────────────── */
         #MainMenu {{ visibility: hidden; }}
         footer {{ visibility: hidden; }}
-        /* Hide deploy/share buttons but keep sidebar toggle visible */
-        [data-testid="stToolbar"] button:not([kind="header"]) {{ visibility: hidden; }}
+        
+        /* Hide right-side deploy/share buttons but keep header wrapper alive */
+        [data-testid="stHeader"] {{ background: transparent !important; }}
+        [data-testid="stToolbar"] {{ visibility: hidden; }}
         [data-testid="stDecoration"] {{ display: none; }}
-        /* Keep the sidebar collapse/expand button always visible */
-        [data-testid="stSidebarCollapsedControl"] {{ display: flex !important; visibility: visible !important; }}
-
+        
+        /* Force the sidebar collapse/expand button to ALWAYS vividly show */
+        [data-testid="stSidebarCollapsedControl"] {{ 
+            display: flex !important; 
+            visibility: visible !important; 
+            z-index: 99999 !important; 
+        }}
+        
         /* ── Sidebar shell ────────────────────────────────────────────────── */
         [data-testid="stSidebar"] {{
             background-color: {THEME['surface']};
