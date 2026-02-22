@@ -1,5 +1,5 @@
 import streamlit as st
-from src.bg_data import BG_IMAGE_MANTICORE_B64
+from src.bg_data import BG_IMAGE_LOTUS_B64
 
 # DURESS MONO Design Tokens
 THEME = {
@@ -42,7 +42,7 @@ def apply_custom_css():
 
         /* ── Background image ─────────────────────────────────────────────── */
         [data-testid="stAppViewContainer"] {{
-            background-image: url("data:image/jpeg;base64,{BG_IMAGE_MANTICORE_B64}");
+            background-image: url("data:image/jpeg;base64,{BG_IMAGE_LOTUS_B64}");
             background-size: contain;
             background-position: center center;
             background-attachment: fixed;
