@@ -43,7 +43,7 @@ def apply_custom_css():
         h1 {{
             font-family: 'IBM Plex Mono', monospace !important;
             font-size: 36px !important;
-            font-weight: 600 !important;
+            font-weight: 400 !important;
             line-height: 1.1 !important;
             margin-bottom: 4px !important;
             margin-top: 0 !important;
