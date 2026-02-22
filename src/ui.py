@@ -74,15 +74,16 @@ def apply_custom_css():
             left: 16px;
             right: 16px;
             font-family: 'IBM Plex Mono', monospace;
-            font-size: 20px;
-            font-weight: 600;
+            font-size: 10px;
+            font-weight: 400;
             color: {THEME['text']};
             letter-spacing: -0.5px;
-            line-height: 1.2;
+            line-height: 1.5;
             white-space: pre-wrap;
         }}
         [data-testid="stSidebarNav"]::before::first-line {{
             font-size: 20px;
+            font-weight: 600;
         }}
 
         [data-testid="stSidebarNav"] ul {{
