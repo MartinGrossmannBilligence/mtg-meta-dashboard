@@ -85,6 +85,11 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
         )
 
     with c_chart:
+        # Title to match the KPI labels styling
+        st.markdown(
+            '<p style="font-size: 14px; color: #F5F5F5; margin-bottom: -10px;">Matchup Distribution</p>', 
+            unsafe_allow_html=True
+        )
         if not df_prof.empty:
             df_prof["Bracket"] = pd.cut(
                 df_prof["WR"],
