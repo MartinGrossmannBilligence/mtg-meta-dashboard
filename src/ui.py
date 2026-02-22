@@ -41,7 +41,7 @@ def apply_custom_css():
         }}
 
         /* ── Background color ─────────────────────────────────────────────── */
-        [data-testid="stAppViewContainer"] {{
+        [data-testid="stApp"] {{
             background-image: url("data:image/jpeg;base64,{BG_PLAINS_V9_B64}");
             background-size: cover;
             background-position: top center;
@@ -49,13 +49,21 @@ def apply_custom_css():
             background-repeat: no-repeat;
             background-color: #181818;
         }}
-        [data-testid="stAppViewContainer"]::before {{
+        /* Ensure intermediate container is transparent so we see the stApp background */
+        [data-testid="stAppViewContainer"] {{
+            background-color: transparent;
+        }}
+        [data-testid="stApp"]::before {{
             content: "";
             position: fixed;
             inset: 0;
             background-color: rgba(24, 24, 24, 0.65);
             pointer-events: none;
             z-index: 0;
+        }}
+        /* Make header completely see-through to reveal background underneath */
+        [data-testid="stHeader"] {{
+            background-color: transparent !important;
         }}
 
         /* ── Typography hierarchy ─────────────────────────────────────────── */
