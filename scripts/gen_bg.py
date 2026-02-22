@@ -4,7 +4,7 @@ from PIL import Image, ImageEnhance, ImageOps
 
 root = pathlib.Path(__file__).parent.parent
 img_path = root / "assets" / "bg.jpg"
-src_path = root.parent / ".gemini" / "antigravity" / "brain" / "699dfad3-8429-4a34-8c9f-c66ce122260c" / "media__1771768264095.jpg"
+src_path = root.parent / ".gemini" / "antigravity" / "brain" / "699dfad3-8429-4a34-8c9f-c66ce122260c" / "media__1771769453536.jpg"
 if not src_path.exists():
     src_path = img_path
 
