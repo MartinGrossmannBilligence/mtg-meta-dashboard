@@ -59,30 +59,38 @@ def apply_custom_css():
             border-right: 1px solid {THEME['border']};
         }}
         
-        /* ── Sidebar nav: inject app title + subtitle ABOVE page links via ::before ── */
+        /* ── Sidebar nav: inject app title + subtitle ABOVE page links via ::before/after ── */
         [data-testid="stSidebarNav"] {{
-            padding-top: 90px;
+            padding-top: 100px;  /* make room for title + subtitle */
             position: relative;
         }}
+        /* Main Title */
         [data-testid="stSidebarNav"]::before {{
-            content: "Premodern Meta Lab\A \A Based on Duress Crew data";
-            white-space: pre;
+            content: "Premodern Meta Lab";
             display: block;
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            padding: 20px 16px 14px 16px;
+            top: 20px;
+            left: 16px;
+            right: 16px;
             font-family: 'Playfair Display', Georgia, serif;
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 700;
             color: {THEME['text']};
             letter-spacing: -0.4px;
-            border-bottom: 1px solid {THEME['border']};
         }}
-        /* Subtitle line (second line of ::before) styled smaller */
+        /* Subtitle line + Divider */
         [data-testid="stSidebarNav"]::after {{
-            content: "";
+            content: "Based on Duress Crew data";
+            display: block;
+            position: absolute;
+            top: 50px;
+            left: 16px;
+            right: 16px;
+            padding-bottom: 14px;
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            color: {THEME['faint']};
+            border-bottom: 1px solid {THEME['border']};
         }}
         [data-testid="stSidebarNav"] ul {{
             padding-left: 0;
