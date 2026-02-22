@@ -35,12 +35,13 @@ def apply_custom_css():
         
         /* Headers */
         h1 {{
-            font-family: 'Playfair Display', Georgia, serif !important;
-            font-size: 44px !important;
-            font-weight: 700 !important;
+            font-family: 'Inter', sans-serif !important;
+            font-size: 30px !important;
+            font-weight: 800 !important;
             line-height: 1.1 !important;
             margin-bottom: 8px !important;
             color: {THEME['text']} !important;
+            letter-spacing: -0.5px !important;
         }}
         h2 {{
             font-size: 28px !important;
@@ -73,11 +74,12 @@ def apply_custom_css():
             left: 16px;
             right: 16px;
             padding-bottom: 20px;
-            font-family: 'Playfair Display', Georgia, serif;
-            font-size: 20px;
-            font-weight: 700;
+            font-family: 'Inter', sans-serif;
+            font-size: 30px;
+            font-weight: 800;
             color: {THEME['text']};
-            letter-spacing: -0.4px;
+            letter-spacing: -0.5px;
+            line-height: 1.1;
             border-bottom: 1px solid {THEME['border']};
         }}
         [data-testid="stSidebarNav"] ul {{
