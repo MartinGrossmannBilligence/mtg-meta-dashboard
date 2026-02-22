@@ -78,19 +78,26 @@ def apply_custom_css():
             color: {THEME['text']};
             letter-spacing: -0.4px;
         }}
-        /* Subtitle line + Divider */
-        [data-testid="stSidebarNav"]::after {{
-            content: "Based on Duress Crew data";
-            display: block;
+        /* Subtitle line + Divider (we remove ::after and instead inject real HTML for links) */
+        .sidebar-subtitle {{
             position: absolute;
-            top: 50px;
+            top: 54px;
             left: 16px;
             right: 16px;
-            padding-bottom: 14px;
+            padding-bottom: 12px;
             font-family: 'Inter', sans-serif;
             font-size: 11px;
             color: {THEME['faint']};
             border-bottom: 1px solid {THEME['border']};
+            z-index: 100;
+        }}
+        .sidebar-subtitle a {{
+            color: {THEME['faint']} !important;
+            text-decoration: underline !important;
+            text-decoration-color: {THEME['border']} !important;
+        }}
+        .sidebar-subtitle a:hover {{
+            color: {THEME['text']} !important;
         }}
         [data-testid="stSidebarNav"] ul {{
             padding-left: 0;
@@ -110,8 +117,7 @@ def apply_custom_css():
             background-color: {THEME['surface2']} !important;
             color: {THEME['text']} !important;
         }}
-        [data-testid="stSidebarNav"] a[aria-current="page"],
-        [data-testid="stSidebarNav"] a[aria-current="page"] span {{
+        [data-testid="stSidebarNav"] a[aria-current="page"] {{
             background-color: {THEME['surface2']} !important;
             color: {THEME['text']} !important;
             border-left: 2px solid {THEME['text']};

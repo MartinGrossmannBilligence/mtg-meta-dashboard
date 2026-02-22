@@ -23,16 +23,16 @@ TIMEFRAMES = {
 def get_cached_data(period_key):
     return load_period_data(DATA_DIR, TIMEFRAMES[period_key])
 
-# ── 3. Sidebar ─────────────────────────────────────────────────────
 # "Premodern Meta Lab" title is injected above the nav links via CSS ::before
-# in apply_custom_css(). Only controls go here.
+# in apply_custom_css().
+# We inject the subtitle as a raw HTML block positioned absolutely.
 with st.sidebar:
     st.markdown(
-        '<p style="color:#8A8A8A; font-size:12px; margin: 0 0 4px 0;">'
-        'Based on <a href="https://data.duresscrew.com/" style="color:#8A8A8A;">Duress Crew</a> data</p>',
+        '<div class="sidebar-subtitle">'
+        'Based on <a href="https://data.duresscrew.com/" target="_blank">Duress Crew</a> data'
+        '</div>',
         unsafe_allow_html=True,
     )
-    st.divider()
     period_name = st.selectbox("TIMEFRAME", list(TIMEFRAMES.keys()), index=0)
     st.divider()
 
