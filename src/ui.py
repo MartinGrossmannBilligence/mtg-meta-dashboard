@@ -22,7 +22,7 @@ def apply_custom_css():
     st.markdown(f"""
         <style>
         /* Global & Typography */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap');
         
         * {{
             font-variant-numeric: tabular-nums;
@@ -35,6 +35,7 @@ def apply_custom_css():
         
         /* Headers */
         h1 {{
+            font-family: 'Playfair Display', Georgia, serif !important;
             font-size: 44px !important;
             font-weight: 700 !important;
             line-height: 1.1 !important;
@@ -72,7 +73,7 @@ def apply_custom_css():
             left: 0;
             right: 0;
             padding: 20px 16px 14px 16px;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Playfair Display', Georgia, serif;
             font-size: 18px;
             font-weight: 700;
             color: {THEME['text']};
