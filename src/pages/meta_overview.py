@@ -46,7 +46,7 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
             fig_t.add_hline(y=0.5, line_dash="dash", line_color=THEME["faint"])
             fig_t.update_layout(
                 height=420, hovermode="closest",
-                paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
+                paper_bgcolor="rgba(0,0,0,0.6)", plot_bgcolor="rgba(0,0,0,0)",
                 font_color=THEME["text"],
                 legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
                 margin=dict(l=0, r=0, t=20, b=0),
