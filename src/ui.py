@@ -58,24 +58,30 @@ def apply_custom_css():
             border-right: 1px solid {THEME['border']};
         }}
         
-        /* ── Sidebar nav: inject app title ABOVE the page links via ::before ── */
+        /* ── Sidebar nav: inject app title + subtitle ABOVE page links via ::before ── */
         [data-testid="stSidebarNav"] {{
-            padding-top: 72px;  /* make room for injected title */
+            padding-top: 90px;
             position: relative;
         }}
         [data-testid="stSidebarNav"]::before {{
-            content: "Premodern Meta Lab";
+            content: "Premodern Meta Lab\A \A Based on Duress Crew data";
+            white-space: pre;
             display: block;
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
-            padding: 20px 16px 4px 16px;
+            padding: 20px 16px 14px 16px;
             font-family: 'Inter', sans-serif;
             font-size: 18px;
             font-weight: 700;
             color: {THEME['text']};
             letter-spacing: -0.4px;
+            border-bottom: 1px solid {THEME['border']};
+        }}
+        /* Subtitle line (second line of ::before) styled smaller */
+        [data-testid="stSidebarNav"]::after {{
+            content: "";
         }}
         [data-testid="stSidebarNav"] ul {{
             padding-left: 0;
@@ -89,8 +95,7 @@ def apply_custom_css():
             color: {THEME['muted']} !important;
             border-radius: 4px;
             padding: 8px 12px;
-            font-family: 'Inter', sans-serif !important;
-            font-size: 14px;
+            font-family: monospace;
         }}
         [data-testid="stSidebarNav"] a:hover {{
             background-color: {THEME['surface2']} !important;
