@@ -227,6 +227,14 @@ def apply_custom_css():
             background-color: {THEME['surface2']} !important;
         }}
 
+        /* ── Plotly chart wrapper card ────────────────────────────────────── */
+        [data-testid="stPlotlyChart"] {{
+            background-color: {THEME['bg']} !important;
+            border-radius: 10px !important;
+            border: 1px solid {THEME['border']} !important;
+            padding: 10px !important;
+            box-shadow: none !important;
+        }}
 
         /* ── Buttons ──────────────────────────────────────────────────────── */
         .stButton > button {{
