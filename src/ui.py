@@ -52,7 +52,7 @@ def apply_custom_css():
             content: "";
             position: fixed;
             inset: 0;
-            background-color: rgba(24, 24, 24, 0.82);
+            background-color: rgba(24, 24, 24, 0.50);
             pointer-events: none;
             z-index: 0;
         }}
