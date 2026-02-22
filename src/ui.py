@@ -62,7 +62,7 @@ def apply_custom_css():
         
         /* ── Sidebar nav: inject app title ABOVE page links via ::before ── */
         [data-testid="stSidebarNav"] {{
-            padding-top: 64px;  /* make room for title */
+            padding-top: 95px;  /* make room for title and subtitle */
             position: relative;
         }}
         /* Main Title */
@@ -73,14 +73,33 @@ def apply_custom_css():
             top: 10px;
             left: 16px;
             right: 16px;
-            padding-bottom: 20px;
             font-family: 'IBM Plex Mono', monospace;
             font-size: 22px;
             font-weight: 400;
             color: {THEME['text']};
             letter-spacing: -0.5px;
             line-height: 1.1;
+        }}
+        /* Subtitle line + Divider */
+        .sidebar-subtitle {{
+            position: absolute;
+            top: 48px;
+            left: 16px;
+            right: 16px;
+            padding-bottom: 12px;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            color: {THEME['faint']};
             border-bottom: 1px solid {THEME['border']};
+            z-index: 100;
+        }}
+        .sidebar-subtitle a {{
+            color: {THEME['faint']} !important;
+            text-decoration: underline !important;
+            text-decoration-color: {THEME['border']} !important;
+        }}
+        .sidebar-subtitle a:hover {{
+            color: {THEME['text']} !important;
         }}
         [data-testid="stSidebarNav"] ul {{
             padding-left: 0;

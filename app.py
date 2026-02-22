@@ -27,7 +27,13 @@ def get_cached_data(period_key):
 # in apply_custom_css().
 # We inject the subtitle as a raw HTML block positioned absolutely.
 with st.sidebar:
-    period_name = st.selectbox("TIMEFRAME", list(TIMEFRAMES.keys()), index=0)
+    st.markdown(
+        '<div class="sidebar-subtitle">'
+        'Based on <a href="https://data.duresscrew.com/" target="_blank">Duress Crew data</a>'
+        '</div>',
+        unsafe_allow_html=True,
+    )
+    period_name = st.selectbox("Timeframe", list(TIMEFRAMES.keys()), index=0)
     st.divider()
 
 # ── 4. Data ───────────────────────────────────────────────────────────────────

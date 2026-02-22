@@ -103,8 +103,9 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
                 .reset_index()
             )
             dist.columns = ["Category", "Count"]
+            dist["Label"] = ["Bad", "Even", "Good"]
             fig_dist = px.bar(
-                dist, x="Category", y="Count",
+                dist, x="Category", y="Count", text="Label",
                 color="Category",
                 color_discrete_map={
                     "Unfavoured (<45%)": THEME["danger"],
@@ -113,6 +114,7 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
                 },
                 template="plotly_dark",
             )
+            fig_dist.update_traces(textposition='inside', textfont_size=12, textfont_color="white", insidetextanchor="middle")
             
             # Make the chart small to fit neatly inside the metric card aesthetic
             fig_dist.update_layout(
@@ -153,7 +155,7 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
     st.subheader("All Matchups")
     if not df_prof.empty:
         df_display = df_prof[["Opponent", "WR", "95% CI", "Record", "Games", "Sample"]].copy()
-        df_display = df_display.rename(columns={"WR": "Win Rate"})
+        df_display = df_display.rename(columns={"WR": "Win Rate", "95% CI": "Confidence Interval"})
         df_display["Win Rate"] = df_display["Win Rate"].map(lambda x: f"{x:.1%}")
         st.dataframe(
             _style_wr_col(df_display),
