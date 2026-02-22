@@ -3,7 +3,7 @@ from PIL import Image, ImageEnhance, ImageOps
 
 root = pathlib.Path(__file__).parent.parent
 img_path = root / "assets" / "bg.jpg"
-src_path = pathlib.Path(r"C:\Users\MartinGrossmann\.gemini\antigravity\brain\699dfad3-8429-4a34-8c9f-c66ce122260c\media__1771780597346.jpg")
+src_path = pathlib.Path(r"C:\Users\MartinGrossmann\.gemini\antigravity\brain\699dfad3-8429-4a34-8c9f-c66ce122260c\media__1771781023217.png")
 
 if not src_path.exists():
     raise FileNotFoundError(f"Image not found at {src_path}")
@@ -25,5 +25,5 @@ out_path = root / "src" / "bg_data.py"
 b64 = base64.b64encode(img_path.read_bytes()).decode()
 
 # Using a REALLY unique variable name to bust cache on streamlit cloud
-out_path.write_text(f'BG_PLAINS_V9_B64 = "{b64}"\n')
+out_path.write_text(f'BG_TOG_V10_B64 = "{b64}"\n')
 print(f"Done: {len(b64)} chars, size: {img.size}")

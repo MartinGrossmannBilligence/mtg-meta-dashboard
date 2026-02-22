@@ -1,5 +1,5 @@
 import streamlit as st
-from src.bg_data import BG_PLAINS_V9_B64
+from src.bg_data import BG_TOG_V10_B64
 
 # DURESS MONO Design Tokens
 THEME = {
@@ -42,7 +42,7 @@ def apply_custom_css():
 
         /* ── Background color ─────────────────────────────────────────────── */
         [data-testid="stApp"] {{
-            background-image: url("data:image/jpeg;base64,{BG_PLAINS_V9_B64}");
+            background-image: url("data:image/jpeg;base64,{BG_TOG_V10_B64}");
             background-size: cover;
             background-position: top center;
             background-attachment: fixed;
