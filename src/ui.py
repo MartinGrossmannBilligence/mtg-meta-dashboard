@@ -1,4 +1,5 @@
 import streamlit as st
+from src.bg_data import BG_IMAGE_B64
 
 # DURESS MONO Design Tokens
 THEME = {
@@ -36,7 +37,24 @@ def apply_custom_css():
             padding-top: 24px !important;
             padding-bottom: 48px !important;
             max-width: 1400px;
-            background-color: {THEME['bg']};
+            background-color: transparent;
+        }}
+
+        /* ── Background image ─────────────────────────────────────────────── */
+        [data-testid="stAppViewContainer"] {{
+            background-image: url("data:image/jpeg;base64,{BG_IMAGE_B64}");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }}
+        [data-testid="stAppViewContainer"]::before {{
+            content: "";
+            position: fixed;
+            inset: 0;
+            background-color: rgba(24, 24, 24, 0.82);
+            pointer-events: none;
+            z-index: 0;
         }}
 
         /* ── Typography hierarchy ─────────────────────────────────────────── */
