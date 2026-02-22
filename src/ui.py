@@ -86,18 +86,6 @@ def apply_custom_css():
         #MainMenu {{ visibility: hidden; }}
         footer {{ visibility: hidden; }}
         
-        /* Hide right-side deploy/share buttons but keep header wrapper alive */
-        [data-testid="stHeader"] {{ background: transparent !important; }}
-        [data-testid="stToolbar"] {{ visibility: hidden; }}
-        [data-testid="stDecoration"] {{ display: none; }}
-        
-        /* Force the sidebar collapse/expand button to ALWAYS vividly show */
-        [data-testid="stSidebarCollapsedControl"] {{ 
-            display: flex !important; 
-            visibility: visible !important; 
-            z-index: 99999 !important; 
-        }}
-        
         /* ── Sidebar shell ────────────────────────────────────────────────── */
         [data-testid="stSidebar"] {{
             background-color: {THEME['surface']};
