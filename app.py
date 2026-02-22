@@ -23,15 +23,25 @@ TIMEFRAMES = {
 def get_cached_data(period_key):
     return load_period_data(DATA_DIR, TIMEFRAMES[period_key])
 
-# ── 3. Sidebar ────────────────────────────────────────────────────────────────
+# ── 3. Sidebar ─────────────────────────────────────────────────────
+# st.logo() pins content at the very top of the sidebar, above the navigation links.
+# We inject a tiny HTML "logo" that displays our app name + data source.
+st.logo(
+    image="data:image/svg+xml;base64,",  # 1-px transparent placeholder
+    link="https://data.duresscrew.com/",
+    size="small",
+)
+
+# The navigation links are rendered by Streamlit at the top of the sidebar.
+# We put remaining sidebar controls below.
 with st.sidebar:
+    # Branding rendered with custom CSS; it is injected above the nav via the
+    # ::before trick on [data-testid="stSidebar"].
     st.markdown(
-        '<p style="font-size:20px; font-weight:700; margin-bottom:2px; letter-spacing:-0.5px;">Premodern Meta Lab</p>',
-        unsafe_allow_html=True
-    )
-    st.markdown(
-        '<p style="color:#8A8A8A; font-size:12px; margin-top:0;">Based on <a href="https://data.duresscrew.com/" style="color:#8A8A8A;">Duress Crew</a> data</p>',
-        unsafe_allow_html=True
+        '<p style="font-size:19px;font-weight:700;margin:0 0 2px 0;letter-spacing:-0.4px;">Premodern Meta Lab</p>'
+        '<p style="color:#8A8A8A;font-size:12px;margin:0 0 12px 0;">'
+        'Based on <a href="https://data.duresscrew.com/" style="color:#8A8A8A;">Duress Crew</a> data</p>',
+        unsafe_allow_html=True,
     )
     st.divider()
     period_name = st.selectbox("TIMEFRAME", list(TIMEFRAMES.keys()), index=0)
@@ -51,7 +61,7 @@ def run_analysis():
     show_analysis(matrix_dict, all_archetypes, records_data, DATA_DIR, TIMEFRAMES)
 
 def run_meta_overview():
-    show_meta_overview(matrix_dict, all_archetypes, DATA_DIR, TIMEFRAMES)
+    show_meta_overview(matrix_dict, all_archetypes, records_data, DATA_DIR, TIMEFRAMES)
 
 def run_simulator():
     show_simulator(matrix_dict, all_archetypes, records_data)
