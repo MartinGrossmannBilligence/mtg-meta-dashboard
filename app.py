@@ -7,7 +7,7 @@ from src.pages.meta_overview import show_meta_overview
 from src.pages.simulator import show_simulator
 
 # ── 1. Page Config ────────────────────────────────────────────────────────────
-st.set_page_config(page_title="Premodern Meta Lab", layout="wide", page_icon="⚗️")
+st.set_page_config(page_title="Premodern Meta Lab", layout="wide")
 apply_custom_css()
 
 # ── 2. Constants ──────────────────────────────────────────────────────────────
