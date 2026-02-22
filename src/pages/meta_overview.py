@@ -18,7 +18,43 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
         unsafe_allow_html=True
     )
 
-    tab_stats, tab_matchups = st.tabs(["Metagame Stats", "Matchups & Trends"])
+    def _draw_trend_chart(selected_decks_list):
+        st.subheader("Win Rate Trends")
+        with st.spinner("Loading historical data..."):
+            pivot_wr, games_df = get_period_comparison(data_dir, timeframes)
+
+            if pivot_wr.empty:
+                st.error("Could not load trend data.")
+                return
+
+            valid_trend_decks = [d for d in selected_decks_list if d in pivot_wr.index]
+
+            if not valid_trend_decks:
+                st.warning("No selected decks have enough historical data.")
+                return
+
+            ordered_periods = list(timeframes.keys())
+            existing = [p for p in ordered_periods if p in pivot_wr.columns]
+            trend_df = pivot_wr.loc[valid_trend_decks][existing].T
+
+            fig_t = px.line(
+                trend_df, markers=True,
+                labels={"value": "Win Rate", "index": "Period"},
+                template="plotly_dark",
+                color_discrete_sequence=px.colors.qualitative.Safe,
+            )
+            fig_t.add_hline(y=0.5, line_dash="dash", line_color=THEME["faint"])
+            fig_t.update_layout(
+                height=420, hovermode="closest",
+                paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
+                font_color=THEME["text"],
+                legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
+                margin=dict(l=0, r=0, t=20, b=0),
+            )
+            fig_t.update_yaxes(tickformat=".0%", range=[0.3, 0.7])
+            st.plotly_chart(fig_t, use_container_width=True)
+
+    tab_stats, tab_matchups = st.tabs(["Metagame Stats", "Matchup Matrix"])
 
     # ─── TAB 1: METAGAME STATS ───────────────────────────────────────────────
     with tab_stats:
@@ -61,7 +97,17 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
             
             st.dataframe(_style(d_all, "Win Rate"), use_container_width=True, hide_index=True)
 
-    # ─── TAB 2: MATCHUPS & TRENDS ────────────────────────────────────────────
+            st.divider()
+            selected_trend_decks_stats = st.multiselect(
+                "Select Decks for Trends",
+                all_archetypes,
+                default=all_archetypes[:5],
+                key="stats_trend_decks",
+            )
+            if selected_trend_decks_stats:
+                _draw_trend_chart(selected_trend_decks_stats)
+
+    # ─── TAB 2: MATCHUP MATRIX ───────────────────────────────────────────────
     with tab_matchups:
         # ── SHARED DECK SELECTOR ─────────────────────────────────────────
         f1, f2, f3 = st.columns([3, 1, 1])
@@ -131,39 +177,5 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
         st.divider()
 
         # ─── WIN RATE TRENDS ─────────────────────────────────────────────
-        st.subheader("Win Rate Trends")
-        with st.spinner("Loading historical data..."):
-            pivot_wr, games_df = get_period_comparison(data_dir, timeframes)
-
-            if pivot_wr.empty:
-                st.error("Could not load trend data.")
-                return
-
-            # Filter selected_decks to those that exist in pivot_wr
-            valid_trend_decks = [d for d in selected_decks if d in pivot_wr.index]
-
-            if not valid_trend_decks:
-                st.warning("No selected decks have enough historical data. Adjust the SELECTED DECKS filter above.")
-                return
-
-            ordered_periods = list(timeframes.keys())
-            existing = [p for p in ordered_periods if p in pivot_wr.columns]
-            trend_df = pivot_wr.loc[valid_trend_decks][existing].T
-
-            fig_t = px.line(
-                trend_df, markers=True,
-                labels={"value": "Win Rate", "index": "Period"},
-                template="plotly_dark",
-                color_discrete_sequence=px.colors.qualitative.Safe,
-            )
-            fig_t.add_hline(y=0.5, line_dash="dash", line_color=THEME["faint"])
-            fig_t.update_layout(
-                height=420, hovermode="closest",
-                paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
-                font_color=THEME["text"],
-                legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
-                margin=dict(l=0, r=0, t=20, b=0),
-            )
-            fig_t.update_yaxes(tickformat=".0%", range=[0.3, 0.7])
-            st.plotly_chart(fig_t, use_container_width=True)
+        _draw_trend_chart(selected_decks)
 
