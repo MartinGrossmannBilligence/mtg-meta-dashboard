@@ -43,7 +43,7 @@ def apply_custom_css():
         /* ── Background color ─────────────────────────────────────────────── */
         [data-testid="stAppViewContainer"] {{
             background-image: url("data:image/jpeg;base64,{BG_MASTICORE_V4_B64}");
-            background-size: contain;
+            background-size: cover;
             background-position: center center;
             background-attachment: fixed;
             background-repeat: no-repeat;
