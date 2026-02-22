@@ -17,6 +17,8 @@ TIMEFRAMES = {
     "2 Years":  "2_years",
     "1 Year":   "1_year",
     "6 Months": "6_months",
+    "Last 30 Days": "30_days",
+    "Last 60 Days": "60_days",
 }
 
 @st.cache_data(ttl=3600)
@@ -27,7 +29,7 @@ def get_cached_data(period_key):
 # in apply_custom_css().
 with st.sidebar:
 
-    period_name = st.selectbox("Choose Timeframe", list(TIMEFRAMES.keys()), index=0)
+    period_name = st.selectbox("Choose Timeframe", ["All Time", "Last 30 Days", "Last 60 Days"], index=0)
     st.divider()
     
     st.markdown(
