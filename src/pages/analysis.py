@@ -119,14 +119,14 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
         return _style_wr_col(d)
 
     with col_best:
-        st.subheader("Top 5 Best Matchups")
-        if not df_prof.empty:
-            st.dataframe(_table(df_prof.head(5)), use_container_width=True, hide_index=True)
+        col_best.markdown("###### Top 5 Best Matchups")
+    if not df_prof.empty:
+        col_best.dataframe(_table(df_prof.head(5)), use_container_width=True, hide_index=True)
 
-    with col_worst:
-        st.subheader("Top 5 Worst Matchups")
-        if not df_prof.empty:
-            st.dataframe(_table(df_prof.tail(5).sort_values("WR", ascending=True)), use_container_width=True, hide_index=True)
+    col_worst.markdown("###### Top 5 Worst Matchups")
+    # Zde bylo potřeba sort_values("WR", ascending=True) pro odřazení od nejhoršího
+    if not df_prof.empty:
+        col_worst.dataframe(_table(df_prof.tail(5).sort_values("WR", ascending=True)), use_container_width=True, hide_index=True)
 
     st.markdown('<div style="margin: 8px 0 12px 0; border-top: 1px solid #222222;"></div>', unsafe_allow_html=True)
 
