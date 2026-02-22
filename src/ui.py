@@ -137,6 +137,10 @@ def apply_custom_css():
         }}
 
         /* Inputs / Selects */
+        .stSelectbox div[data-baseweb="select"] {{
+            font-weight: 800 !important;
+            font-size: 16px !important;
+        }}
         .stSelectbox div[data-baseweb="select"], 
         .stMultiSelect div[data-baseweb="select"],
         .stNumberInput input {{
