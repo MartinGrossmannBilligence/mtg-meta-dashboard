@@ -74,7 +74,7 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
 
             with c_bot:
                 st.subheader("Worst 5 Win Rate Decks")
-                d = df_rec.tail(5)[["Deck", "Win Rate", "Games"]].copy()
+                d = df_rec.tail(5).sort_values("Win Rate", ascending=True)[["Deck", "Win Rate", "Games"]].copy()
                 d["Win Rate"] = d["Win Rate"].map(lambda x: f"{x:.1%}")
                 st.dataframe(_style(d, "Win Rate"), use_container_width=True, hide_index=True)
 
