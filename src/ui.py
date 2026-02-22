@@ -62,15 +62,15 @@ def apply_custom_css():
         
         /* ── Sidebar nav: inject app title ABOVE page links via ::before ── */
         [data-testid="stSidebarNav"] {{
-            padding-top: 110px;  /* make room for title and subtitle */
+            padding-top: 80px;  /* make room for title and subtitle */
             position: relative;
         }}
-        /* Main Title + Logo */
+        /* Main Title */
         [data-testid="stSidebarNav"]::before {{
             content: "Premodern Meta Lab";
             display: block;
             position: absolute;
-            top: 14px;
+            top: 10px;
             left: 16px;
             right: 16px;
             font-family: 'IBM Plex Mono', monospace;
@@ -84,7 +84,7 @@ def apply_custom_css():
         /* Subtitle line + Divider */
         .sidebar-subtitle {{
             position: fixed;
-            top: 64px;
+            top: 80px;
             left: 8px;
             width: 240px;
             padding-bottom: 8px;
