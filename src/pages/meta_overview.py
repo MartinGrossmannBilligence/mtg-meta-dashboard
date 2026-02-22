@@ -151,7 +151,3 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
         )
         fig_t.update_yaxes(tickformat=".0%", range=[0.3, 0.7])
         st.plotly_chart(fig_t, use_container_width=True)
-
-        raw = pivot_wr.loc[valid_trend_decks][existing].fillna("—")
-        st.dataframe(_style(raw, None) if False else raw, use_container_width=True)
-        st.caption("'—' = insufficient data for that period. Deck selection mirrors the filter above.")
