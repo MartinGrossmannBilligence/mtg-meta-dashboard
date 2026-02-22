@@ -59,9 +59,9 @@ def apply_custom_css():
             border-right: 1px solid {THEME['border']};
         }}
         
-        /* ── Sidebar nav: inject app title + subtitle ABOVE page links via ::before/after ── */
+        /* ── Sidebar nav: inject app title ABOVE page links via ::before ── */
         [data-testid="stSidebarNav"] {{
-            padding-top: 100px;  /* make room for title + subtitle */
+            padding-top: 72px;  /* make room for title */
             position: relative;
         }}
         /* Main Title */
@@ -72,32 +72,13 @@ def apply_custom_css():
             top: 20px;
             left: 16px;
             right: 16px;
+            padding-bottom: 20px;
             font-family: 'Playfair Display', Georgia, serif;
             font-size: 20px;
             font-weight: 700;
             color: {THEME['text']};
             letter-spacing: -0.4px;
-        }}
-        /* Subtitle line + Divider (we remove ::after and instead inject real HTML for links) */
-        .sidebar-subtitle {{
-            position: absolute;
-            top: 54px;
-            left: 16px;
-            right: 16px;
-            padding-bottom: 12px;
-            font-family: 'Inter', sans-serif;
-            font-size: 11px;
-            color: {THEME['faint']};
             border-bottom: 1px solid {THEME['border']};
-            z-index: 100;
-        }}
-        .sidebar-subtitle a {{
-            color: {THEME['faint']} !important;
-            text-decoration: underline !important;
-            text-decoration-color: {THEME['border']} !important;
-        }}
-        .sidebar-subtitle a:hover {{
-            color: {THEME['text']} !important;
         }}
         [data-testid="stSidebarNav"] ul {{
             padding-left: 0;
