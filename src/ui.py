@@ -83,16 +83,16 @@ def apply_custom_css():
         }}
         /* Subtitle line + Divider */
         .sidebar-subtitle {{
-            position: absolute;
-            top: 40px;
-            left: 16px;
-            right: 16px;
-            padding-bottom: 12px;
+            position: fixed;
+            top: 64px;
+            left: 8px;
+            width: 240px;
+            padding-bottom: 8px;
             font-family: 'IBM Plex Mono', monospace;
             font-size: 10px;
             color: {THEME['faint']};
             border-bottom: 1px solid {THEME['border']};
-            z-index: 100;
+            z-index: 9999;
         }}
         .sidebar-subtitle a {{
             color: {THEME['faint']} !important;
