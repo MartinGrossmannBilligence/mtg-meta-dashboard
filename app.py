@@ -32,7 +32,7 @@ with st.sidebar:
     
     st.markdown(
         '<div style="font-family:\'IBM Plex Mono\', monospace; font-size:10px; color:#8A8A8A; padding:0 8px;">'
-        'Based on <a href="https://data.duresscrew.com/" target="_blank" style="color:#F5F5F5; text-decoration:underline; text-underline-offset:2px; font-weight:500;">Duress Crew</a> data.'
+        'Based on <a href="https://data.duresscrew.com/" target="_blank" style="color:#8A8A8A; text-decoration:underline; text-underline-offset:2px;">Duress Crew</a> data.'
         '</div>',
         unsafe_allow_html=True,
     )
