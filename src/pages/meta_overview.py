@@ -144,7 +144,7 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
 
     # ─── TAB 2: MATCHUP MATRIX ───────────────────────────────────────────────
     with tab_matchups:
-        default_decks = all_archetypes[:15]
+        default_decks = tier1_decks if tier1_decks else all_archetypes[:15]
 
         # ── SHARED DECK SELECTOR ─────────────────────────────────────────
         f1, f2, f3 = st.columns([3, 1, 1])
