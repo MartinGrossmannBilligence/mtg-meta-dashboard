@@ -206,15 +206,35 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
         with col_best:
             col_best.markdown("###### Best Matchups")
         
-        df_reliable = df_prof[df_prof["Games"] >= 20] if not df_prof.empty else df_prof
-        if df_reliable.empty and not df_prof.empty: df_reliable = df_prof
+        # Split into reliable (>= 20 games) and unreliable (< 20 games)
+        if not df_prof.empty:
+            df_reliable = df_prof[df_prof["Games"] >= 20].sort_values("WR", ascending=False)
+            df_unreliable = df_prof[df_prof["Games"] < 20].sort_values("WR", ascending=False)
+            
+            # Get top 5 best
+            best_matchups = df_reliable.head(5)
+            if len(best_matchups) < 5:
+                needed = 5 - len(best_matchups)
+                best_matchups = pd.concat([best_matchups, df_unreliable.head(needed)])
+                
+            # Get bottom 5 worst (sort ascending first)
+            df_reliable_worst = df_reliable.sort_values("WR", ascending=True)
+            df_unreliable_worst = df_unreliable.sort_values("WR", ascending=True)
+            
+            worst_matchups = df_reliable_worst.head(5)
+            if len(worst_matchups) < 5:
+                needed = 5 - len(worst_matchups)
+                worst_matchups = pd.concat([worst_matchups, df_unreliable_worst.head(needed)])
+        else:
+            best_matchups = pd.DataFrame()
+            worst_matchups = pd.DataFrame()
 
-        if not df_reliable.empty:
-            col_best.dataframe(_table(df_reliable.head(5)), use_container_width=True, hide_index=True)
+        if not best_matchups.empty:
+            col_best.dataframe(_table(best_matchups), use_container_width=True, hide_index=True)
 
         col_worst.markdown("###### Worst Matchups")
-        if not df_reliable.empty:
-            col_worst.dataframe(_table(df_reliable.tail(5).sort_values("WR", ascending=True)), use_container_width=True, hide_index=True)
+        if not worst_matchups.empty:
+            col_worst.dataframe(_table(worst_matchups), use_container_width=True, hide_index=True)
 
         st.markdown('<div style="margin: 8px 0 12px 0; border-top: 1px solid #222222;"></div>', unsafe_allow_html=True)
 
