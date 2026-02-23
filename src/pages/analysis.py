@@ -252,14 +252,51 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
 
 
     with tab_decks:
-        from src.mtgdecks_scraper import get_recent_top_decks
+        from src.mtgdecks_scraper import get_recent_top_decks, get_decklist
         decks = get_recent_top_decks(target_deck)
         if not decks:
             st.info("No recent decklists found matching the criteria (>=50 players, Top 8).")
         else:
             st.markdown("<br>", unsafe_allow_html=True)
-            st.markdown("#### Recent Top Performing Decklists")
-            for i, d in enumerate(decks):
-                st.markdown(f"**{d['rank']}** &mdash; [{d['player']}]({d['url']})", unsafe_allow_html=True)
-                st.caption(f"{d['date']} &bull; {d['event']} ({d['players']} players)")
-                st.divider()
+            st.markdown("#### Recent Top Decklists")
+            
+            # Map mtgdecks color codes to hex codes for visual display
+            color_map = {
+                'W': '#F8F6D8', 'U': '#C1D8E9', 'B': '#BAB1AB', 
+                'R': '#E49977', 'G': '#A3C095', 'C': '#CCCCCC'
+            }
+            
+            for d in decks:
+                # Get the actual cards for hover
+                cards = get_decklist(d['url'])
+                hover_text = "&#10;".join([f"{c['qty']}x {c['name']}" for c in cards]) if cards else "Preview not available"
+                
+                # Render colors as little dots
+                color_dots = ""
+                for c in d.get("colors", []):
+                    color_hex = color_map.get(c, '#888')
+                    color_dots += f'<span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:{color_hex}; margin-right:3px; border:1px solid rgba(255,255,255,0.2);"></span>'
+                
+                # Render spiciness badge if > 0
+                spice = d.get('spice', 0)
+                spice_badge = ""
+                if spice > 0:
+                    spice_color = "#E49977" if spice > 50 else "#F59F00" if spice > 20 else "#8A8A8A"
+                    spice_badge = f'<span style="margin-left:8px; font-size:10px; color:{spice_color}; border:1px solid {spice_color}40; padding:1px 6px; border-radius:10px; background:rgba(0,0,0,0.2);">🌶️ Spice: {spice}%</span>'
+                
+                html_block = f"""
+                <div style="margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid #222222;" title="{hover_text}">
+                    <div style="display:flex; align-items:center; margin-bottom: 2px;">
+                        <strong style="margin-right:8px; font-size:15px; color:#E0E0E0;">{d['rank']}</strong> 
+                        <a href="{d['url']}" target="_blank" style="color:#6BC78E; text-decoration:none; margin-right:10px; font-size:15px;">{d['player']}</a>
+                        {color_dots}
+                        {spice_badge}
+                    </div>
+                    <div style="font-size:12px; color:#8A8A8A; display:flex; gap:10px;">
+                        <span>🗓️ {d['date']}</span>
+                        <span>🏆 {d['event']}</span>
+                        <span>👥 {d['players']} players</span>
+                    </div>
+                </div>
+                """
+                st.markdown(html_block, unsafe_allow_html=True)

@@ -104,6 +104,19 @@ def get_recent_top_decks(archetype_name):
                 if not deck_url:
                     continue
                     
+                # Extract colors
+                color_td = cols[3]
+                colors_list = []
+                for span in color_td.find_all('span', class_='ms-cost'):
+                    for cls in span.get('class', []):
+                        if cls.startswith('ms-') and len(cls) == 4 and cls != 'ms-cost':
+                            colors_list.append(cls.replace('ms-', '').upper())
+                
+                # Extract spiciness
+                spice_td = cols[8]
+                spice_bar = spice_td.find('div', class_='progress-bar')
+                spice_val = int(spice_bar['aria-valuenow']) if spice_bar and 'aria-valuenow' in spice_bar.attrs else 0
+                    
                 rank_lower = rank_text.lower()
                 is_top_8 = any(r == rank_lower or rank_lower.startswith(r) for r in valid_ranks)
                 
@@ -133,6 +146,8 @@ def get_recent_top_decks(archetype_name):
                         "players": players,
                         "event": event,
                         "date": date_text,
+                        "colors": colors_list,
+                        "spice": spice_val,
                         "url": "https://mtgdecks.net" + deck_url if not deck_url.startswith('http') else deck_url
                     })
                     
@@ -151,3 +166,58 @@ def get_recent_top_decks(archetype_name):
         print(f"No decks found for {archetype_name} (mapped to slug: {slug})")
 
     return top_decks
+
+@st.cache_data(ttl=86400, show_spinner=False)
+def get_decklist(url):
+    """
+    Fetch a specific decklist from mtgdecks.net and return its cards.
+    Returns: list of dicts {"qty": int, "name": str}
+    """
+    try:
+        import urllib.request, gzip
+        from bs4 import BeautifulSoup
+        import re
+        
+        req = urllib.request.Request(
+            url, 
+            headers={
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+                'Accept-Language': 'en-US,en;q=0.9',
+                'Accept-Encoding': 'gzip, deflate',
+            }
+        )
+        with urllib.request.urlopen(req, timeout=10) as response:
+            html_bytes = response.read()
+            if response.info().get('Content-Encoding') == 'gzip':
+                html_bytes = gzip.decompress(html_bytes)
+            html = html_bytes.decode('utf-8', errors='ignore')
+            
+        soup = BeautifulSoup(html, 'html.parser')
+        cards = []
+        
+        # Mtgdecks uses <td class="number"> for card counts
+        number_tds = soup.find_all('td', class_='number')
+        for td in number_tds:
+            row = td.find_parent('tr')
+            if not row: continue
+            
+            qty_text = td.get_text(strip=True)
+            if not qty_text.isdigit(): continue
+                
+            qty = int(qty_text)
+            
+            # Name is usually an <a> tag
+            name_tag = row.find('a')
+            if name_tag:
+                name = name_tag.get_text(strip=True)
+                cards.append({"qty": qty, "name": name})
+                
+        # Split into mainboard/sideboard simply by counting to 60ish?
+        # Actually, mtgdecks often separates them by different tables, but a flat list is fine for a quick preview.
+        # Let's cap it at 75 cards total just in case.
+        return cards[:75]
+        
+    except Exception as e:
+        print(f"Error fetching decklist {url}: {e}")
+        return []
