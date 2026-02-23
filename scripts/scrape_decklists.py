@@ -52,22 +52,23 @@ def fetch_cards(deck_url):
             
     return cards[:75]
 
-def scrape_archetype_decklists(archetype_name, max_pages=3, required_decks=5):
+def scrape_archetype_decklists(archetype_name, max_pages=10, required_decks=10):
     slug = archetype_name.replace(" ", "-").replace("(", "").replace(")", "").replace("'", "")
     
     # Custom slug overrides for MTGDecks
     if archetype_name == "RG Oath": slug = "rg-oath"
     if archetype_name == "Suicide Black": slug = "suicide-black"
     if archetype_name == "UW Standstill": slug = "uw-standstill"
-    # Basic slug parsing works for most
     
     print(f"\nScraping {archetype_name} (slug: {slug})...")
     
     valid_ranks =['1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', 'top4', 'top8', '1', '2', '3', '4', '5', '6', '7', '8']
-    top_decks = []
+    collected_candidates = []
     
     for page in range(1, max_pages + 1):
-        if len(top_decks) >= required_decks:
+        # Stop early if we already have 10 absolute Top 8s above 50 players (the golden standard)
+        top8_count = sum(1 for d in collected_candidates if d['is_top_8'])
+        if top8_count >= required_decks:
             break
             
         url = f"https://mtgdecks.net/Premodern/{slug}"
@@ -82,13 +83,9 @@ def scrape_archetype_decklists(archetype_name, max_pages=3, required_decks=5):
         soup = BeautifulSoup(html, 'html.parser')
         rows = soup.find_all('tr')
         if not rows or len(rows) < 5:
-            # Reached the end of pagination
             break
             
         for row in rows:
-            if len(top_decks) >= required_decks:
-                break
-                
             cols = row.find_all('td')
             if len(cols) < 6:
                 continue
@@ -99,6 +96,8 @@ def scrape_archetype_decklists(archetype_name, max_pages=3, required_decks=5):
                 deck_link = player_td.find('a')
                 if not deck_link: continue
                 deck_url = deck_link['href']
+                if deck_url.startswith('/'):
+                    deck_url = 'https://mtgdecks.net' + deck_url
                 
                 strong_tag = player_td.find('strong')
                 player = strong_tag.get_text(strip=True).replace('By', '').strip() if strong_tag else "Unknown"
@@ -137,10 +136,9 @@ def scrape_archetype_decklists(archetype_name, max_pages=3, required_decks=5):
                         if wins >= 3 and losses == 0:
                             is_top_8 = True
                             
-                if players >= 50 and is_top_8:
-                    print(f"    [+] Found valid deck: {rank_text} by {player} ({players} players)")
-                    cards = fetch_cards(deck_url)
-                    top_decks.append({
+                # Relaxed rule: just needs >= 50 players. Top 8 is a bonus for sorting.
+                if players >= 50:
+                    collected_candidates.append({
                         "player": player,
                         "rank": rank_text,
                         "players": players,
@@ -149,12 +147,39 @@ def scrape_archetype_decklists(archetype_name, max_pages=3, required_decks=5):
                         "url": deck_url,
                         "colors": list(set(colors_list)),
                         "spice": spice_val,
-                        "cards": cards
+                        "is_top_8": is_top_8
                     })
             except Exception as e:
                 pass
                 
-    return top_decks
+    # Sort collected candidates:
+    # 1. Top 8 finishing decks first (True > False)
+    # 2. Number of players descending (bigger tournaments are better)
+    collected_candidates.sort(key=lambda x: (x["is_top_8"], x["players"]), reverse=True)
+    
+    # Take the top N required
+    final_selection = collected_candidates[:required_decks]
+    
+    # Now fetch the cards only for the selected top decks
+    final_decks = []
+    for count, deck in enumerate(final_selection):
+        print(f"    [{count+1}/{len(final_selection)}] Fetching cards for {deck['rank']} by {deck['player']} ({deck['players']} players; Top8: {deck['is_top_8']})")
+        cards = fetch_cards(deck['url'])
+        
+        # We don't need to save the is_top_8 boolean into the final JSON as the UI doesn't use it
+        final_decks.append({
+            "player": deck["player"],
+            "rank": deck["rank"],
+            "players": deck["players"],
+            "event": deck["event"],
+            "date": deck["date"],
+            "url": deck["url"],
+            "colors": deck["colors"],
+            "spice": deck["spice"],
+            "cards": cards
+        })
+        
+    return final_decks
 
 def main():
     if not os.path.exists(MATRIX_FILE):
@@ -165,7 +190,11 @@ def main():
         matrix_data = json.load(f)
         
     archetypes = matrix_data.get('archetypes', [])
-    print(f"Found {len(archetypes)} archetypes to scrape.")
+    tiers = matrix_data.get('tiers', {})
+    
+    # Filter to only Tier 1 and Tier 2 archetypes
+    tier_archetypes = [arch for arch in archetypes if tiers.get(arch) in ["Tier 1", "Tier 2"]]
+    print(f"Found {len(tier_archetypes)} Tier 1 & 2 archetypes to scrape out of {len(archetypes)} total.")
     
     # We will load existing decklists so we can resume/update without destroying everything
     decklists_db = {}
@@ -176,9 +205,9 @@ def main():
             except:
                 pass
                 
-    for arch in archetypes:
+    for arch in tier_archetypes:
         try:
-            decks = scrape_archetype_decklists(arch)
+            decks = scrape_archetype_decklists(arch, max_pages=10, required_decks=10)
             decklists_db[arch] = decks
             
             # Save progressively in case it crashes
