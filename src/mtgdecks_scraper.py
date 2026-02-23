@@ -7,7 +7,7 @@ import streamlit as st
 @st.cache_data(ttl=86400, show_spinner="Fetching latest decks from mtgdecks.net...")
 def get_recent_top_decks(archetype_name):
     """
-    Scrape mtgdecks.net for the given archetype and return up to 5 recent decklists
+    Scrape mtgdecks.net for the given archetype and return up to 10 recent decklists
     from tournaments with >= 100 players where the deck made Top 8.
     """
     
@@ -100,7 +100,7 @@ def get_recent_top_decks(archetype_name):
                     "url": "https://mtgdecks.net" + deck_url if not deck_url.startswith('http') else deck_url
                 })
                 
-            if len(top_decks) >= 5:
+            if len(top_decks) >= 10:
                 break
                 
         except Exception as e:
