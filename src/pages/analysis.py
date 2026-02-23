@@ -272,7 +272,10 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
             for i, d in enumerate(decks):
                 # Get the actual cards for hover
                 cards = get_decklist(d['url'])
-                hover_text = "&#10;".join([f"{c['qty']}x {c['name']}" for c in cards]) if cards else "Preview not available"
+                if cards:
+                    hover_text = " | ".join([f"{c['qty']}x {c['name']}" for c in cards])
+                else:
+                    hover_text = "Preview not available"
                 
                 # Render colors as little dots
                 color_dots = ""

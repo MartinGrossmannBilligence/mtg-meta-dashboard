@@ -166,11 +166,24 @@ def get_period_comparison(data_dir, periods_dict):
             
     df = pd.DataFrame(all_data)
     if df.empty:
-        return pd.DataFrame()
+        return pd.DataFrame(), pd.DataFrame()
         
-    pivot_df = df.pivot(index="Archetype", columns="Period", values="Win Rate")
-    # Also get games count to filter out low sample size in pivot
-    games_df = df.pivot(index="Archetype", columns="Period", values="Games").fillna(0)
+    # Due to archetype mapping, we might have multiple entries for the same Archetype + Period.
+    # We must aggregate them (e.g., sum games, weighted average for win rate).
+    
+    # Calculate total wins to accurately average win_rate
+    df["Wins"] = df["Win Rate"] * df["Games"]
+    
+    grouped = df.groupby(["Archetype", "Period"]).agg({
+        "Games": "sum",
+        "Wins": "sum"
+    }).reset_index()
+    
+    grouped["Win Rate"] = grouped["Wins"] / grouped["Games"]
+    grouped["Win Rate"] = grouped["Win Rate"].fillna(0)
+    
+    pivot_df = grouped.pivot(index="Archetype", columns="Period", values="Win Rate")
+    games_df = grouped.pivot(index="Archetype", columns="Period", values="Games").fillna(0)
     
     return pivot_df, games_df
 
