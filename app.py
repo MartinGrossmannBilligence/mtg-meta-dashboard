@@ -14,9 +14,9 @@ apply_custom_css()
 DATA_DIR = "data"
 TIMEFRAMES = {
     "All Time": "all_time",
-    "6 Months": "mtgdecks_matrix_6_months",
+    "1 Year":   "1_year",
+    "6 Months": "6_months",
     "2 Months": "mtgdecks_matrix_2_months",
-    "1 Month":  "mtgdecks_matrix_1_month",
 }
 
 @st.cache_data(ttl=3600)
@@ -31,7 +31,7 @@ with st.sidebar:
         "Choose Timeframe", 
         list(TIMEFRAMES.keys()), 
         index=0,
-        help="All Time data is based on Duress Crew historicals. 1, 2, and 6-month data are sourced from MTGDecks recent meta."
+        help="All Time, 1 Year, and 6 Months data are based on Duress Crew historicals. 2 Months data is sourced from MTGDecks recent meta."
     )
     st.divider()
     
