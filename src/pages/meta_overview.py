@@ -164,6 +164,12 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
             ]
             decks_for_matrix = [x[0] for x in sorted(stats, key=lambda x: x[1], reverse=True)]
 
+        if not decks_for_matrix:
+            st.info("No decks match the current filters.")
+            st.markdown('<div style="margin: 8px 0 12px 0; border-top: 1px solid #222222;"></div>', unsafe_allow_html=True)
+            _draw_trend_chart(selected_decks)
+            return
+
         hm_data, hover_data = [], []
         for arch1 in decks_for_matrix:
             row, hover_row = [], []

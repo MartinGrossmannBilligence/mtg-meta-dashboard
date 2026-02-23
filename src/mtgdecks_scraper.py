@@ -178,6 +178,9 @@ def get_decklist(url):
         from bs4 import BeautifulSoup
         import re
         
+        import time
+        time.sleep(1) # Be nice to the server to avoid 403 Formbidden
+        
         req = urllib.request.Request(
             url, 
             headers={
@@ -185,6 +188,7 @@ def get_decklist(url):
                 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
                 'Accept-Language': 'en-US,en;q=0.9',
                 'Accept-Encoding': 'gzip, deflate',
+                'Connection': 'keep-alive'
             }
         )
         with urllib.request.urlopen(req, timeout=10) as response:

@@ -266,7 +266,10 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
                 'R': '#E49977', 'G': '#A3C095', 'C': '#CCCCCC'
             }
             
-            for d in decks:
+            # Wrap in a styled container
+            html_content = '<div style="background-color: #1A1A1A; border: 1px solid #2A2A2A; border-radius: 8px; padding: 16px;">'
+            
+            for i, d in enumerate(decks):
                 # Get the actual cards for hover
                 cards = get_decklist(d['url'])
                 hover_text = "&#10;".join([f"{c['qty']}x {c['name']}" for c in cards]) if cards else "Preview not available"
@@ -284,8 +287,11 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
                     spice_color = "#E49977" if spice > 50 else "#F59F00" if spice > 20 else "#8A8A8A"
                     spice_badge = f'<span style="margin-left:8px; font-size:10px; color:{spice_color}; border:1px solid {spice_color}40; padding:1px 6px; border-radius:10px; background:rgba(0,0,0,0.2);">🌶️ Spice: {spice}%</span>'
                 
+                border_bottom = 'border-bottom: 1px solid #2A2A2A;' if i < len(decks) - 1 else ''
+                margin_bottom = 'margin-bottom: 12px; padding-bottom: 12px;' if i < len(decks) - 1 else ''
+                
                 html_block = f"""
-                <div style="margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid #222222;" title="{hover_text}">
+                <div style="{margin_bottom} {border_bottom}" title="{hover_text}">
                     <div style="display:flex; align-items:center; margin-bottom: 2px;">
                         <strong style="margin-right:8px; font-size:15px; color:#E0E0E0;">{d['rank']}</strong> 
                         <a href="{d['url']}" target="_blank" style="color:#6BC78E; text-decoration:none; margin-right:10px; font-size:15px;">{d['player']}</a>
@@ -299,4 +305,7 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
                     </div>
                 </div>
                 """
-                st.markdown(html_block, unsafe_allow_html=True)
+                html_content += html_block
+            
+            html_content += '</div>'
+            st.markdown(html_content, unsafe_allow_html=True)
