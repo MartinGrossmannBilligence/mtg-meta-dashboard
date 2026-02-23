@@ -55,7 +55,8 @@ def run_analysis():
     show_analysis(matrix_dict, all_archetypes, records_data, DATA_DIR, TIMEFRAMES)
 
 def run_meta_overview():
-    show_meta_overview(matrix_dict, all_archetypes, records_data, DATA_DIR, TIMEFRAMES, tiers_dict)
+    show_tier_filter = period_name not in ["6 Months", "2 Months"]
+    show_meta_overview(matrix_dict, all_archetypes, records_data, DATA_DIR, TIMEFRAMES, tiers_dict, show_tier_filter)
 
 def run_simulator():
     show_simulator(matrix_dict, all_archetypes, records_data)

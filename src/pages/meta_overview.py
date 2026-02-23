@@ -10,7 +10,7 @@ def _style(df, col):
     except AttributeError:
         return df.style.applymap(style_winrate, subset=[col])
 
-def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, timeframes, tiers_dict=None):
+def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, timeframes, tiers_dict=None, show_tier_filter=True):
     if tiers_dict is None: tiers_dict = {}
     st.markdown("<h1>Meta Overview</h1>", unsafe_allow_html=True)
     st.markdown(
@@ -23,7 +23,7 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
     default_tiers = ["Tier 1"] if "Tier 1" in available_tiers else available_tiers
     selected_tiers = []
     
-    if available_tiers:
+    if available_tiers and show_tier_filter:
         st.markdown("###### Filter Metagame")
         selected_tiers = st.multiselect(
             "Select Tiers",
@@ -39,6 +39,9 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
             
     if not all_archetypes:
         all_archetypes = ["None"]
+        
+    tier1_decks = [a for a in all_archetypes if tiers_dict.get(a) == "Tier 1"]
+    default_trend_decks = tier1_decks if tier1_decks else all_archetypes[:5]
 
     def _draw_trend_chart(selected_decks_list):
         st.subheader("Win Rate Trends")
@@ -91,15 +94,22 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
             )
 
             c_top, c_bot = st.columns(2)
+            
+            # Filter for meaningful sample size (e.g. >= 20 games) 
+            df_reliable = df_rec[df_rec["Games"] >= 20]
+            if len(df_reliable) < 5:
+                # fallback to taking the top N by games if nothing hit 20
+                df_reliable = df_rec.sort_values("Games", ascending=False).head(10).sort_values("Win Rate", ascending=False)
+                
             with c_top:
                 st.subheader("Best 5 Win Rate Decks")
-                d = df_rec.head(5)[["Deck", "Win Rate", "Games"]].copy()
+                d = df_reliable.head(5)[["Deck", "Win Rate", "Games"]].copy()
                 d["Win Rate"] = d["Win Rate"].map(lambda x: f"{x:.1%}")
                 st.dataframe(_style(d, "Win Rate"), use_container_width=True, hide_index=True)
 
             with c_bot:
                 st.subheader("Worst 5 Win Rate Decks")
-                d = df_rec.tail(5).sort_values("Win Rate", ascending=True)[["Deck", "Win Rate", "Games"]].copy()
+                d = df_reliable.tail(5).sort_values("Win Rate", ascending=True)[["Deck", "Win Rate", "Games"]].copy()
                 d["Win Rate"] = d["Win Rate"].map(lambda x: f"{x:.1%}")
                 st.dataframe(_style(d, "Win Rate"), use_container_width=True, hide_index=True)
 
@@ -126,7 +136,7 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
             selected_trend_decks_stats = st.multiselect(
                 "Select Decks for Trends",
                 all_archetypes,
-                default=all_archetypes[:5],
+                default=default_trend_decks,
                 key="stats_trend_decks",
             )
             if selected_trend_decks_stats:
