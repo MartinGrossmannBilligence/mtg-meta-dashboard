@@ -8,7 +8,7 @@ import streamlit as st
 def get_recent_top_decks(archetype_name):
     """
     Scrape mtgdecks.net for the given archetype and return up to 10 recent decklists
-    from tournaments with >= 100 players where the deck made Top 8.
+    from tournaments with >= 50 players where the deck made Top 8.
     """
     
     # Map typical names to mtgdecks slugs
@@ -28,6 +28,7 @@ def get_recent_top_decks(archetype_name):
         "burn": "burn",
         "elfball": "elves",
         "landstill": "uw-standstill",  # fallback or guess
+        "blue-black-psychatog": "psychatog",
     }
     
     slug = mapping.get(slug, slug)
@@ -39,18 +40,26 @@ def get_recent_top_decks(archetype_name):
         url = f"https://mtgdecks.net/Premodern/{slug}/page:{page}"
         
         try:
+            import gzip
+            
             req = urllib.request.Request(
                 url, 
                 data=None, 
                 headers={
                     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36',
-                    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-                    'Accept-Language': 'en-US,en;q=0.5',
+                    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+                    'Accept-Language': 'en-US,en;q=0.9',
+                    'Accept-Encoding': 'gzip, deflate',
+                    'Connection': 'keep-alive',
+                    'Upgrade-Insecure-Requests': '1'
                 }
             )
             
             with urllib.request.urlopen(req, timeout=10) as response:
-                html = response.read()
+                html_bytes = response.read()
+                if response.info().get('Content-Encoding') == 'gzip':
+                    html_bytes = gzip.decompress(html_bytes)
+                html = html_bytes.decode('utf-8', errors='ignore')
         except urllib.error.HTTPError as e:
             if e.code == 404:
                 break # No more pages
@@ -98,7 +107,7 @@ def get_recent_top_decks(archetype_name):
                 rank_lower = rank_text.lower()
                 is_top_8 = any(r == rank_lower or rank_lower.startswith(r) for r in valid_ranks)
                 
-                if players >= 100 and is_top_8:
+                if players >= 50 and is_top_8:
                     top_decks.append({
                         "player": player,
                         "rank": rank_text,
@@ -117,5 +126,9 @@ def get_recent_top_decks(archetype_name):
                 
         if len(top_decks) >= 10:
             break
+
+    # If nothing was found, output a warning for debugging purposes
+    if not top_decks:
+        print(f"No decks found for {archetype_name} (mapped to slug: {slug})")
 
     return top_decks

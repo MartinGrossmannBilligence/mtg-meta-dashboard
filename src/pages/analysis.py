@@ -214,7 +214,7 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
         from src.mtgdecks_scraper import get_recent_top_decks
         decks = get_recent_top_decks(target_deck)
         if not decks:
-            st.info("No recent decklists found matching the criteria (>=100 players, Top 8).")
+            st.info("No recent decklists found matching the criteria (>=50 players, Top 8).")
         else:
             st.markdown("<br>", unsafe_allow_html=True)
             st.markdown("#### Recent Top Performing Decklists")
