@@ -27,6 +27,8 @@ def load_period_data(data_dir, period):
                     "win_rate": wins / matches
                 })
         return matrix_data, records_data
+    matrix_path = os.path.join(data_dir, f"archetype_matrix_{period}.json")
+    records_path = os.path.join(data_dir, f"win_loss_records_{period}.json")
     
     with open(matrix_path, 'r', encoding='utf-8') as f:
         matrix_data = json.load(f)

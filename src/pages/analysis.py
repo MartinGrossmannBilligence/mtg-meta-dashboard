@@ -26,8 +26,8 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
     )
 
     try:
-        default_idx = all_archetypes.index("Blue/Black Psychatog")
-    except ValueError:
+        default_idx = next(i for i, x in enumerate(all_archetypes) if "stiflenought" in x.lower() or "dreadnought" in x.lower())
+    except StopIteration:
         default_idx = 0
     target_deck = st.selectbox("Select Deck", all_archetypes, index=default_idx)
 
@@ -187,13 +187,16 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
 
         with col_best:
             col_best.markdown("###### Best Matchups")
-        if not df_prof.empty:
-            col_best.dataframe(_table(df_prof.head(5)), use_container_width=True, hide_index=True)
+        
+        df_reliable = df_prof[df_prof["Games"] >= 20] if not df_prof.empty else df_prof
+        if df_reliable.empty and not df_prof.empty: df_reliable = df_prof
+
+        if not df_reliable.empty:
+            col_best.dataframe(_table(df_reliable.head(5)), use_container_width=True, hide_index=True)
 
         col_worst.markdown("###### Worst Matchups")
-        # Zde bylo potřeba sort_values("WR", ascending=True) pro odřazení od nejhoršího
-        if not df_prof.empty:
-            col_worst.dataframe(_table(df_prof.tail(5).sort_values("WR", ascending=True)), use_container_width=True, hide_index=True)
+        if not df_reliable.empty:
+            col_worst.dataframe(_table(df_reliable.tail(5).sort_values("WR", ascending=True)), use_container_width=True, hide_index=True)
 
         st.markdown('<div style="margin: 8px 0 12px 0; border-top: 1px solid #222222;"></div>', unsafe_allow_html=True)
 
