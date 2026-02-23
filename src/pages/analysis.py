@@ -25,11 +25,27 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
         unsafe_allow_html=True
     )
 
+    # Preserve deck selection across timeframe changes
     try:
-        default_idx = next(i for i, x in enumerate(all_archetypes) if "stiflenought" in x.lower() or "dreadnought" in x.lower())
+        default_deck = next(x for x in all_archetypes if "stiflenought" in x.lower() or "dreadnought" in x.lower())
     except StopIteration:
-        default_idx = 0
-    target_deck = st.selectbox("Select Deck", all_archetypes, index=default_idx)
+        default_deck = all_archetypes[0] if all_archetypes else ""
+
+    saved_deck = st.session_state.get("analysis_saved_deck", default_deck)
+    if saved_deck not in all_archetypes:
+        saved_deck = default_deck
+
+    try:
+        current_idx = all_archetypes.index(saved_deck)
+    except ValueError:
+        current_idx = 0
+
+    target_deck = st.selectbox(
+        "Select Deck", 
+        all_archetypes, 
+        index=current_idx
+    )
+    st.session_state["analysis_saved_deck"] = target_deck
 
     row_data    = matrix_dict.get(target_deck, {})
     deck_record = next((r for r in records_data if r["archetype"] == target_deck), {})
