@@ -252,8 +252,19 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
 
 
     with tab_decks:
-        from src.mtgdecks_scraper import get_recent_top_decks, get_decklist
-        decks = get_recent_top_decks(target_deck)
+        import os
+        import json
+        
+        decklists_file = os.path.join(data_dir, "decklists.json")
+        decks = []
+        if os.path.exists(decklists_file):
+            with open(decklists_file, 'r', encoding='utf-8') as f:
+                try:
+                    all_decklists = json.load(f)
+                    decks = all_decklists.get(target_deck, [])
+                except Exception as e:
+                    pass
+                    
         if not decks:
             st.info("No recent decklists found matching the criteria (>=50 players, Top 8).")
         else:
@@ -273,7 +284,7 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
             
             for i, d in enumerate(decks):
                 # Get the actual cards for hover
-                cards = get_decklist(d['url'])
+                cards = d.get('cards', [])
                 if cards:
                     hover_text = " | ".join([f"{c['qty']}x {c['name']}" for c in cards])
                 else:
