@@ -100,8 +100,10 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
                 st.markdown(
                     f"""
                     <div data-testid="stMetric">
-                        <div style="font-size:11px; color:#8A8A8A; margin-bottom:2px; text-transform:uppercase; letter-spacing:0.06em;" title="{good_n} favoured (>55%) · {even_n} even (45–55%) · {bad_n} unfavoured (<45%)">Matchup Distribution</div>
-                        <div style="font-size: 1.8rem; font-weight: 500;" title="{good_n} good, {even_n} even, {bad_n} bad">{colored_text}</div>
+                        <div style="font-size:11px; color:#8A8A8A; margin-bottom:2px; text-transform:uppercase; letter-spacing:0.06em;">
+                            Matchup Distribution <span title="{good_n} favoured (>55%) · {even_n} even (45–55%) · {bad_n} unfavoured (<45%)" style="cursor:help; font-size:12px; margin-left:4px; opacity:0.8;">&#9432;</span>
+                        </div>
+                        <div style="font-size: 1.8rem; font-weight: 500;">{colored_text}</div>
                     </div>
                     """,
                     unsafe_allow_html=True,

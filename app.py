@@ -13,10 +13,10 @@ apply_custom_css()
 # ── 2. Constants ──────────────────────────────────────────────────────────────
 DATA_DIR = "data"
 TIMEFRAMES = {
+    "All Time": "all_time",
     "6 Months": "mtgdecks_matrix_6_months",
     "2 Months": "mtgdecks_matrix_2_months",
     "1 Month":  "mtgdecks_matrix_1_month",
-    "All Time": "all_time",
 }
 
 @st.cache_data(ttl=3600)
@@ -27,7 +27,12 @@ def get_cached_period_data(period_key):
 # in apply_custom_css().
 with st.sidebar:
 
-    period_name = st.selectbox("Choose Timeframe", list(TIMEFRAMES.keys()), index=0)
+    period_name = st.selectbox(
+        "Choose Timeframe", 
+        list(TIMEFRAMES.keys()), 
+        index=0,
+        help="All Time data is based on Duress Crew historicals. 1, 2, and 6-month data are sourced from MTGDecks recent meta."
+    )
     st.divider()
     
     st.markdown(
