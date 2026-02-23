@@ -68,141 +68,157 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
         else "stable — consistent matchup profile across the field"
     )
 
-    # --- KPI & DISTRIBUTION ROW (4 equal columns) ---
-    c1, c2, c3, c_chart = st.columns(4)
-    
-    with c1:
-        st.metric("Overall Win Rate", f"{overall_wr:.1%}")
-    with c2:
-        st.metric("Total Games", f"{total_games:,}")
-    with c3:
-        if not df_prof.empty:
-            df_prof["Bracket"] = pd.cut(
-                df_prof["WR"],
-                bins=[0, 0.45, 0.55, 1.0],
-                labels=["Unfavoured (<45%)", "Even (45-55%)", "Favoured (>55%)"],
-            )
-            counts = df_prof["Bracket"].value_counts()
-            bad_n  = int(counts.get("Unfavoured (<45%)", 0))
-            even_n = int(counts.get("Even (45-55%)", 0))
-            good_n = int(counts.get("Favoured (>55%)", 0))
+    tab_stats, tab_decks = st.tabs(["Statistics", "Deck Lists"])
 
-            colored_text = (
-                f"<span style='color:{THEME['success']}'>{good_n}↑</span> "
-                f"<span style='color:{THEME['faint']}'>{even_n}~</span> "
-                f"<span style='color:{THEME['danger']}'>{bad_n}↓</span>"
-            )
+    with tab_stats:
+        # --- KPI & DISTRIBUTION ROW (4 equal columns) ---
+        c1, c2, c3, c_chart = st.columns(4)
+    
+        with c1:
+            st.metric("Overall Win Rate", f"{overall_wr:.1%}")
+        with c2:
+            st.metric("Total Games", f"{total_games:,}")
+        with c3:
+            if not df_prof.empty:
+                df_prof["Bracket"] = pd.cut(
+                    df_prof["WR"],
+                    bins=[0, 0.45, 0.55, 1.0],
+                    labels=["Unfavoured (<45%)", "Even (45-55%)", "Favoured (>55%)"],
+                )
+                counts = df_prof["Bracket"].value_counts()
+                bad_n  = int(counts.get("Unfavoured (<45%)", 0))
+                even_n = int(counts.get("Even (45-55%)", 0))
+                good_n = int(counts.get("Favoured (>55%)", 0))
+
+                colored_text = (
+                    f"<span style='color:{THEME['success']}'>{good_n}↑</span> "
+                    f"<span style='color:{THEME['faint']}'>{even_n}~</span> "
+                    f"<span style='color:{THEME['danger']}'>{bad_n}↓</span>"
+                )
             
-            # Using markdown instead of st.metric to allow HTML colors inside the value
-            st.markdown(
-                f"""
-                <div data-testid="stMetric">
-                    <div style="font-size:11px; color:#8A8A8A; margin-bottom:2px; text-transform:uppercase; letter-spacing:0.06em;" title="{good_n} favoured (>55%) · {even_n} even (45–55%) · {bad_n} unfavoured (<45%)">Matchup Distribution</div>
-                    <div style="font-size: 1.8rem; font-weight: 500;" title="{good_n} good, {even_n} even, {bad_n} bad">{colored_text}</div>
-                </div>
-                """,
-                unsafe_allow_html=True,
+                # Using markdown instead of st.metric to allow HTML colors inside the value
+                st.markdown(
+                    f"""
+                    <div data-testid="stMetric">
+                        <div style="font-size:11px; color:#8A8A8A; margin-bottom:2px; text-transform:uppercase; letter-spacing:0.06em;" title="{good_n} favoured (>55%) · {even_n} even (45–55%) · {bad_n} unfavoured (<45%)">Matchup Distribution</div>
+                        <div style="font-size: 1.8rem; font-weight: 500;" title="{good_n} good, {even_n} even, {bad_n} bad">{colored_text}</div>
+                    </div>
+                    """,
+                    unsafe_allow_html=True,
+                )
+
+        with c_chart:
+            st.metric(
+                "Polarity Index",
+                f"{polarity * 100:.1f}%",
+                help=f"Spread of matchup win rates. {pct_rank}th percentile — {pct_label}.",
             )
 
-    with c_chart:
-        st.metric(
-            "Polarity Index",
-            f"{polarity * 100:.1f}%",
-            help=f"Spread of matchup win rates. {pct_rank}th percentile — {pct_label}.",
-        )
+        st.markdown('<div style="margin: 8px 0 12px 0; border-top: 1px solid #222222;"></div>', unsafe_allow_html=True)
 
-    st.markdown('<div style="margin: 8px 0 12px 0; border-top: 1px solid #222222;"></div>', unsafe_allow_html=True)
-
-    # --- WIN RATE HISTORY ---
-    st.subheader("Win Rate Trend")
+        # --- WIN RATE HISTORY ---
+        st.subheader("Win Rate Trend")
     
 
 
-    history_rows = []
-    for period_label, period_key in timeframes.items():
-        try:
-            _, rdata = load_period_data(data_dir, period_key)
-            rec = next((r for r in rdata if r["archetype"] == target_deck), None)
-            if rec:
-                history_rows.append({
-                    "Period":   period_label,
-                    "Win Rate": rec["win_rate"],
-                    "Games":    rec["total_matches"],
-                })
-        except Exception:
-            pass
+        history_rows = []
+        for period_label, period_key in timeframes.items():
+            try:
+                _, rdata = load_period_data(data_dir, period_key)
+                rec = next((r for r in rdata if r["archetype"] == target_deck), None)
+                if rec:
+                    history_rows.append({
+                        "Period":   period_label,
+                        "Win Rate": rec["win_rate"],
+                        "Games":    rec["total_matches"],
+                    })
+            except Exception:
+                pass
 
-    if history_rows:
-        df_hist = pd.DataFrame(history_rows)
+        if history_rows:
+            df_hist = pd.DataFrame(history_rows)
 
-        def _wr_color(v):
-            if v > 0.55: return THEME["success"]
-            if v < 0.45: return THEME["danger"]
-            if v < 0.50: return THEME["warning"]
-            return THEME["text"]
+            def _wr_color(v):
+                if v > 0.55: return THEME["success"]
+                if v < 0.45: return THEME["danger"]
+                if v < 0.50: return THEME["warning"]
+                return THEME["text"]
 
-        fig_hist = go.Figure()
-        fig_hist.add_trace(go.Scatter(
-            x=df_hist["Period"], y=df_hist["Win Rate"],
-            mode="lines+markers+text",
-            text=[f"{v:.1%}" for v in df_hist["Win Rate"]],
-            textposition="top center",
-            textfont=dict(
-                size=15,
-                color=[_wr_color(v) for v in df_hist["Win Rate"]],
-            ),
-            line=dict(color=THEME["border"], width=7),
-            marker=dict(
-                size=10,
-                color=[_wr_color(v) for v in df_hist["Win Rate"]],
-                line=dict(width=0),
-            ),
-        ))
-        fig_hist.add_hline(y=0.5, line_dash="dash", line_color=THEME["faint"], line_width=1)
-        fig_hist.update_layout(
-            height=200,
-            paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
-            font_color=THEME["muted"],
-            font_family="IBM Plex Mono",
-            margin=dict(l=0, r=0, t=30, b=0),
-            yaxis=dict(tickformat=".0%", range=[0.3, 0.7], tickfont=dict(size=12)),
-            xaxis=dict(tickfont=dict(size=13)),
-            xaxis_title="", yaxis_title="",
-        )
-        st.plotly_chart(fig_hist, use_container_width=True)
+            fig_hist = go.Figure()
+            fig_hist.add_trace(go.Scatter(
+                x=df_hist["Period"], y=df_hist["Win Rate"],
+                mode="lines+markers+text",
+                text=[f"{v:.1%}" for v in df_hist["Win Rate"]],
+                textposition="top center",
+                textfont=dict(
+                    size=15,
+                    color=[_wr_color(v) for v in df_hist["Win Rate"]],
+                ),
+                line=dict(color=THEME["border"], width=7),
+                marker=dict(
+                    size=10,
+                    color=[_wr_color(v) for v in df_hist["Win Rate"]],
+                    line=dict(width=0),
+                ),
+            ))
+            fig_hist.add_hline(y=0.5, line_dash="dash", line_color=THEME["faint"], line_width=1)
+            fig_hist.update_layout(
+                height=200,
+                paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
+                font_color=THEME["muted"],
+                font_family="IBM Plex Mono",
+                margin=dict(l=0, r=0, t=30, b=0),
+                yaxis=dict(tickformat=".0%", range=[0.3, 0.7], tickfont=dict(size=12)),
+                xaxis=dict(tickfont=dict(size=13)),
+                xaxis_title="", yaxis_title="",
+            )
+            st.plotly_chart(fig_hist, use_container_width=True)
 
-    st.markdown('<div style="margin: 8px 0 12px 0; border-top: 1px solid #222222;"></div>', unsafe_allow_html=True)
+        st.markdown('<div style="margin: 8px 0 12px 0; border-top: 1px solid #222222;"></div>', unsafe_allow_html=True)
 
-    # --- TOP 5 / WORST 5 ---
-    col_best, col_worst = st.columns(2)
+        # --- TOP 5 / WORST 5 ---
+        col_best, col_worst = st.columns(2)
 
-    def _table(df_slice):
-        d = df_slice[["Opponent", "WR", "Games", "Record"]].copy()
-        d = d.rename(columns={"WR": "Win Rate"})
-        d["Win Rate"] = d["Win Rate"].map(lambda x: f"{x:.1%}")
-        return _style_wr_col(d)
+        def _table(df_slice):
+            d = df_slice[["Opponent", "WR", "Games", "Record"]].copy()
+            d = d.rename(columns={"WR": "Win Rate"})
+            d["Win Rate"] = d["Win Rate"].map(lambda x: f"{x:.1%}")
+            return _style_wr_col(d)
 
-    with col_best:
-        col_best.markdown("###### Best Matchups")
-    if not df_prof.empty:
-        col_best.dataframe(_table(df_prof.head(5)), use_container_width=True, hide_index=True)
+        with col_best:
+            col_best.markdown("###### Best Matchups")
+        if not df_prof.empty:
+            col_best.dataframe(_table(df_prof.head(5)), use_container_width=True, hide_index=True)
 
-    col_worst.markdown("###### Worst Matchups")
-    # Zde bylo potřeba sort_values("WR", ascending=True) pro odřazení od nejhoršího
-    if not df_prof.empty:
-        col_worst.dataframe(_table(df_prof.tail(5).sort_values("WR", ascending=True)), use_container_width=True, hide_index=True)
+        col_worst.markdown("###### Worst Matchups")
+        # Zde bylo potřeba sort_values("WR", ascending=True) pro odřazení od nejhoršího
+        if not df_prof.empty:
+            col_worst.dataframe(_table(df_prof.tail(5).sort_values("WR", ascending=True)), use_container_width=True, hide_index=True)
 
-    st.markdown('<div style="margin: 8px 0 12px 0; border-top: 1px solid #222222;"></div>', unsafe_allow_html=True)
+        st.markdown('<div style="margin: 8px 0 12px 0; border-top: 1px solid #222222;"></div>', unsafe_allow_html=True)
 
-    # --- FULL MATCHUP TABLE ---
-    st.subheader("All Matchups")
-    if not df_prof.empty:
-        df_display = df_prof[["Opponent", "WR", "95% CI", "Record", "Games", "Sample"]].copy()
-        df_display = df_display.rename(columns={"WR": "Win Rate", "95% CI": "Confidence Interval", "Sample": "Sample Size"})
-        df_display["Win Rate"] = df_display["Win Rate"].map(lambda x: f"{x:.1%}")
-        st.dataframe(
-            _style_wr_col(df_display),
-            use_container_width=True, hide_index=True
-        )
+        # --- FULL MATCHUP TABLE ---
+        st.subheader("All Matchups")
+        if not df_prof.empty:
+            df_display = df_prof[["Opponent", "WR", "95% CI", "Record", "Games", "Sample"]].copy()
+            df_display = df_display.rename(columns={"WR": "Win Rate", "95% CI": "Confidence Interval", "Sample": "Sample Size"})
+            df_display["Win Rate"] = df_display["Win Rate"].map(lambda x: f"{x:.1%}")
+            st.dataframe(
+                _style_wr_col(df_display),
+                use_container_width=True, hide_index=True
+            )
 
 
+
+    with tab_decks:
+        from src.mtgdecks_scraper import get_recent_top_decks
+        decks = get_recent_top_decks(target_deck)
+        if not decks:
+            st.info("No recent decklists found matching the criteria (>=100 players, Top 8).")
+        else:
+            st.markdown("<br>", unsafe_allow_html=True)
+            st.markdown("#### Recent Top Performing Decklists")
+            for i, d in enumerate(decks):
+                st.markdown(f"**{d['rank']}** &mdash; [{d['player']}]({d['url']})", unsafe_allow_html=True)
+                st.caption(f"{d['date']} &bull; {d['event']} ({d['players']} players)")
+                st.divider()
