@@ -1,18 +1,1502 @@
 {
   "5 Color Control": [],
-  "Aluren": [],
-  "Angry Hermit": [],
-  "Astral Slide": [],
-  "BUG Control": [],
-  "BW Control": [],
+  "Aluren": [
+    {
+      "player": "Pablo Marcos",
+      "rank": "Top4",
+      "players": 132,
+      "event": "2025 CPS Monthly League 19.04",
+      "date": "20-Nov -2025",
+      "url": "https://mtgdecks.net/Premodern/aluren-decklist-by-pablo-marcos-2703815",
+      "colors": [
+        "B",
+        "W",
+        "U",
+        "G",
+        "R"
+      ],
+      "spice": 31,
+      "cards": []
+    },
+    {
+      "player": "Poupas",
+      "rank": "Top8",
+      "players": 119,
+      "event": "2025 CPS Monthly League 19.01",
+      "date": "15-Oct -2025",
+      "url": "https://mtgdecks.net/Premodern/aluren-decklist-by-poupas-2656828",
+      "colors": [
+        "B",
+        "W",
+        "U",
+        "G",
+        "R"
+      ],
+      "spice": 31,
+      "cards": []
+    },
+    {
+      "player": "Alex Barnett",
+      "rank": "Top8",
+      "players": 111,
+      "event": "Eternal Weekend - Sunday Premodern Showdown @ Card Titan",
+      "date": "12-Oct -2025",
+      "url": "https://mtgdecks.net/Premodern/aluren-decklist-by-alex-barnett-2652178",
+      "colors": [
+        "U",
+        "G",
+        "B"
+      ],
+      "spice": 42,
+      "cards": []
+    },
+    {
+      "player": "La_Parkita",
+      "rank": "Top8",
+      "players": 55,
+      "event": "2025 CPS Monthly League 20.01",
+      "date": "29-Dec -2025",
+      "url": "https://mtgdecks.net/Premodern/aluren-decklist-by-la-parkita-2754304",
+      "colors": [
+        "B",
+        "W",
+        "U",
+        "G",
+        "R"
+      ],
+      "spice": 31,
+      "cards": []
+    },
+    {
+      "player": "Stephen Datka",
+      "rank": "Top512",
+      "players": 279,
+      "event": "North American Premodern Championship 2025 @ Duress Crew",
+      "date": "03-May -2025",
+      "url": "https://mtgdecks.net/Premodern/aluren-decklist-by-stephen-datka-2475692",
+      "colors": [
+        "B",
+        "W",
+        "U",
+        "G",
+        "R"
+      ],
+      "spice": 36,
+      "cards": []
+    },
+    {
+      "player": "Cory Abrams",
+      "rank": "Top128",
+      "players": 191,
+      "event": "Vanilla Premodern Side Event @ Lobstercon 2025 @ Duress Crew",
+      "date": "02-May -2025",
+      "url": "https://mtgdecks.net/Premodern/deck-decklist-by-cory-abrams-2475340",
+      "colors": [
+        "U",
+        "G",
+        "B"
+      ],
+      "spice": 40,
+      "cards": []
+    },
+    {
+      "player": "Cory Abrams",
+      "rank": "Top128",
+      "players": 131,
+      "event": "Duress Crew Presents: New England Premodern Winter Regional ...",
+      "date": "21-Feb -2026",
+      "url": "https://mtgdecks.net/Premodern/aluren-decklist-by-cory-abrams-2819093",
+      "colors": [
+        "W",
+        "U",
+        "G",
+        "B"
+      ],
+      "spice": 35,
+      "cards": []
+    },
+    {
+      "player": "Fpawlusz",
+      "rank": "Top16",
+      "players": 129,
+      "event": "2025 CPS Monthly League 19.03",
+      "date": "05-Nov -2025",
+      "url": "https://mtgdecks.net/Premodern/aluren-decklist-by-fpawlusz-2689705",
+      "colors": [
+        "B",
+        "W",
+        "U",
+        "G",
+        "R"
+      ],
+      "spice": 31,
+      "cards": []
+    },
+    {
+      "player": "fpawlusz",
+      "rank": "Top16",
+      "players": 129,
+      "event": "2025 CPS Monthly League 19.03",
+      "date": "05-Nov -2025",
+      "url": "https://mtgdecks.net/Premodern/aluren-decklist-by-fpawlusz-2688781",
+      "colors": [
+        "B",
+        "W",
+        "U",
+        "G",
+        "R"
+      ],
+      "spice": 31,
+      "cards": []
+    },
+    {
+      "player": "Ryan Bourgoin",
+      "rank": "Top32",
+      "players": 114,
+      "event": "Duress Crew Presents: New England Premodern Autumn Regional",
+      "date": "08-Nov -2025",
+      "url": "https://mtgdecks.net/Premodern/deck-decklist-by-ryan-bourgoin-2691123",
+      "colors": [
+        "B",
+        "W",
+        "U",
+        "G",
+        "R"
+      ],
+      "spice": 33,
+      "cards": []
+    }
+  ],
+  "Angry Hermit": [
+    {
+      "player": "Chris Hall",
+      "rank": "Top8",
+      "players": 279,
+      "event": "North American Premodern Championship 2025 @ Duress Crew",
+      "date": "03-May -2025",
+      "url": "https://mtgdecks.net/Premodern/angry-hermit-decklist-by-chris-hall-2475434",
+      "colors": [
+        "U",
+        "R",
+        "G",
+        "B"
+      ],
+      "spice": 11,
+      "cards": []
+    },
+    {
+      "player": "Simone Diodati",
+      "rank": "Top4",
+      "players": 122,
+      "event": "Torneo del Potere 2025 @ Magico Conclave Etrusco",
+      "date": "11-Oct -2025",
+      "url": "https://mtgdecks.net/Premodern/angry-hermit-decklist-by-simone-diodati-2653491",
+      "colors": [
+        "U",
+        "R",
+        "G",
+        "B"
+      ],
+      "spice": 11,
+      "cards": []
+    },
+    {
+      "player": "Diodati Simone",
+      "rank": "Top4",
+      "players": 122,
+      "event": "Torneo del Potere 2025 @ Magico Conclave Etrusco",
+      "date": "11-Oct -2025",
+      "url": "https://mtgdecks.net/Premodern/angry-hermit-decklist-by-diodati-simone-2653668",
+      "colors": [
+        "U",
+        "R",
+        "G",
+        "B"
+      ],
+      "spice": 11,
+      "cards": []
+    },
+    {
+      "player": "GosuCharlie",
+      "rank": "Top8",
+      "players": 81,
+      "event": "The Magic Online Society - March League #1",
+      "date": "18-Mar -2024",
+      "url": "https://mtgdecks.net/Premodern/angry-hermit-decklist-by-gosucharlie-1972885",
+      "colors": [
+        "U",
+        "R",
+        "G",
+        "B"
+      ],
+      "spice": 14,
+      "cards": []
+    },
+    {
+      "player": "Daniele Morri",
+      "rank": "Top8",
+      "players": 74,
+      "event": "Italian Premodern Nationals 2024 @ Chaos Orcs Fest II @The ...",
+      "date": "06-Jul -2024",
+      "url": "https://mtgdecks.net/Premodern/angry-hermit-decklist-by-daniele-morri-2116045",
+      "colors": [
+        "U",
+        "R",
+        "G",
+        "B"
+      ],
+      "spice": 11,
+      "cards": []
+    },
+    {
+      "player": "Raul Garcia",
+      "rank": "Top8",
+      "players": 70,
+      "event": "Super PreModern 10k Bazar de Bagd\u00e1",
+      "date": "31-Jan -2026",
+      "url": "https://mtgdecks.net/Premodern/angry-ghoul-decklist-by-raul-garcia-2799815",
+      "colors": [
+        "U",
+        "R",
+        "G",
+        "B"
+      ],
+      "spice": 11,
+      "cards": []
+    },
+    {
+      "player": "David Raczka",
+      "rank": "Top4",
+      "players": 67,
+      "event": "Winter Ball '26 Premodern",
+      "date": "31-Jan -2026",
+      "url": "https://mtgdecks.net/Premodern/deck-decklist-by-david-raczka-2794101",
+      "colors": [
+        "U",
+        "R",
+        "G",
+        "B"
+      ],
+      "spice": 12,
+      "cards": []
+    },
+    {
+      "player": "Claudio Bonanni",
+      "rank": "Top8",
+      "players": 65,
+      "event": "4Season Touurnament Main Event @ ARCI Benassi (Bologna, Ital...",
+      "date": "01-Mar -2025",
+      "url": "https://mtgdecks.net/Premodern/angry-ghoul-decklist-by-claudio-bonanni-2395365",
+      "colors": [
+        "U",
+        "R",
+        "G",
+        "B"
+      ],
+      "spice": 34,
+      "cards": []
+    },
+    {
+      "player": "Carlos Dominiqu...",
+      "rank": "2nd",
+      "players": 61,
+      "event": "VII Liga Madrile\u00f1a de Premodern - Jornada 4",
+      "date": "25-Jan -2025",
+      "url": "https://mtgdecks.net/Premodern/angry-hermit-decklist-by-carlos-dominique-2356141",
+      "colors": [
+        "U",
+        "R",
+        "G",
+        "B"
+      ],
+      "spice": 10,
+      "cards": []
+    },
+    {
+      "player": "Marco Le\u00f3n",
+      "rank": "Top4",
+      "players": 56,
+      "event": "Hispanoesfera 37 ED (Noviembre\u00b424)",
+      "date": "30-Nov -2024",
+      "url": "https://mtgdecks.net/Premodern/angry-hermit-decklist-by-marco-leon-2312120",
+      "colors": [
+        "U",
+        "R",
+        "G",
+        "B"
+      ],
+      "spice": 12,
+      "cards": []
+    }
+  ],
+  "Astral Slide": [
+    {
+      "player": "Adri267",
+      "rank": "Top8",
+      "players": 66,
+      "event": "Sunday $1K Pre-Modern - 9:30 am @ SCG CON Hartford",
+      "date": "18-May -2025",
+      "url": "https://mtgdecks.net/Premodern/boros-decklist-by-adri267-2492093",
+      "colors": [
+        "W",
+        "R"
+      ],
+      "spice": 20,
+      "cards": []
+    },
+    {
+      "player": "Gerrod Heise",
+      "rank": "Top256",
+      "players": 279,
+      "event": "North American Premodern Championship 2025 @ Duress Crew",
+      "date": "03-May -2025",
+      "url": "https://mtgdecks.net/Premodern/astral-slide-decklist-by-gerrod-heise-2475676",
+      "colors": [
+        "W",
+        "R"
+      ],
+      "spice": 20,
+      "cards": []
+    },
+    {
+      "player": "Gerrod Heise",
+      "rank": "Top32",
+      "players": 191,
+      "event": "Vanilla Premodern Side Event @ Lobstercon 2025 @ Duress Crew",
+      "date": "02-May -2025",
+      "url": "https://mtgdecks.net/Premodern/deck-decklist-by-gerrod-heise-2475261",
+      "colors": [
+        "W",
+        "R"
+      ],
+      "spice": 20,
+      "cards": []
+    },
+    {
+      "player": "Mario Hercezi",
+      "rank": "Top128",
+      "players": 189,
+      "event": "Premodern Italian Nationals 2026",
+      "date": "07-Feb -2026",
+      "url": "https://mtgdecks.net/Premodern/astral-slide-decklist-by-mario-hercezi-2804650",
+      "colors": [
+        "W",
+        "R"
+      ],
+      "spice": 25,
+      "cards": []
+    },
+    {
+      "player": "Luca Mattiuzzo",
+      "rank": "Top256",
+      "players": 189,
+      "event": "Premodern Italian Nationals 2026",
+      "date": "07-Feb -2026",
+      "url": "https://mtgdecks.net/Premodern/astral-slide-decklist-by-luca-mattiuzzo-2804743",
+      "colors": [
+        "W",
+        "G"
+      ],
+      "spice": 49,
+      "cards": []
+    },
+    {
+      "player": "Andrea Mantovan...",
+      "rank": "Top256",
+      "players": 189,
+      "event": "Premodern Italian Nationals 2026",
+      "date": "07-Feb -2026",
+      "url": "https://mtgdecks.net/Premodern/astral-slide-decklist-by-andrea-mantovani-2804768",
+      "colors": [
+        "W",
+        "R"
+      ],
+      "spice": 21,
+      "cards": []
+    },
+    {
+      "player": "Edoardo Menghin...",
+      "rank": "Top128",
+      "players": 125,
+      "event": "Premodern & Friends GRAND FESTIVAL (Milano, Italy)",
+      "date": "19-Oct -2025",
+      "url": "https://mtgdecks.net/Premodern/deck-decklist-by-edoardo-menghini-2664320",
+      "colors": [
+        "W",
+        "R"
+      ],
+      "spice": 22,
+      "cards": []
+    },
+    {
+      "player": "Jacob Gonzalez",
+      "rank": "Top64",
+      "players": 111,
+      "event": "Eternal Weekend - Sunday Premodern Showdown @ Card Titan",
+      "date": "12-Oct -2025",
+      "url": "https://mtgdecks.net/Premodern/boros-decklist-by-jacob-gonzalez-2652209",
+      "colors": [
+        "W",
+        "R"
+      ],
+      "spice": 32,
+      "cards": []
+    },
+    {
+      "player": "Adri Jackson",
+      "rank": "Top64",
+      "players": 107,
+      "event": "NEPM Summer Regional hosted by Duress Crew",
+      "date": "12-Jul -2025",
+      "url": "https://mtgdecks.net/Premodern/astral-slide-decklist-by-adri-jackson-2551826",
+      "colors": [
+        "W",
+        "R"
+      ],
+      "spice": 20,
+      "cards": []
+    },
+    {
+      "player": "Gordon Bakstran",
+      "rank": "Top128",
+      "players": 107,
+      "event": "NEPM Summer Regional hosted by Duress Crew",
+      "date": "12-Jul -2025",
+      "url": "https://mtgdecks.net/Premodern/astral-slide-decklist-by-gordon-bakstran-2551860",
+      "colors": [
+        "W",
+        "G"
+      ],
+      "spice": 47,
+      "cards": []
+    }
+  ],
+  "BUG Control": [
+    {
+      "player": "Andrea Giavardi",
+      "rank": "Top64",
+      "players": 92,
+      "event": "Premodern & Friends Winter Edition",
+      "date": "24-Jan -2026",
+      "url": "https://mtgdecks.net/Premodern/other-decklist-by-andrea-giavardi-2786997",
+      "colors": [
+        "U",
+        "G",
+        "B"
+      ],
+      "spice": 48,
+      "cards": []
+    },
+    {
+      "player": "Luiso",
+      "rank": "Other",
+      "players": 80,
+      "event": "I Liga Full Tapped 2025 Jornada 7",
+      "date": "27-Oct -2025",
+      "url": "https://mtgdecks.net/Premodern/control-espant-oso-decklist-by-luiso-2675224",
+      "colors": [
+        "U",
+        "G",
+        "B"
+      ],
+      "spice": 2,
+      "cards": []
+    },
+    {
+      "player": "Tobias Demmer",
+      "rank": "Top64",
+      "players": 59,
+      "event": "Moxforge Cup - D\u00fcsseldorf Edition",
+      "date": "15-Nov -2025",
+      "url": "https://mtgdecks.net/Premodern/deck-decklist-by-tobias-demmer-2698194",
+      "colors": [
+        "U",
+        "G",
+        "B"
+      ],
+      "spice": 2,
+      "cards": []
+    }
+  ],
+  "BW Control": [
+    {
+      "player": "bobthedog",
+      "rank": "Top8",
+      "players": 67,
+      "event": "MTGO Premodern Challenge 32 - Premodern #12828219",
+      "date": "06-Jan -2026",
+      "url": "https://mtgdecks.net/Premodern/deck-decklist-by-bobthedog-2761009",
+      "colors": [
+        "W",
+        "B"
+      ],
+      "spice": 14,
+      "cards": []
+    },
+    {
+      "player": "Francisca Garc\u00ed...",
+      "rank": "Top8",
+      "players": 57,
+      "event": "Colemono CUP 2025",
+      "date": "03-Jan -2026",
+      "url": "https://mtgdecks.net/Premodern/bw-control-decklist-by-francisca-garcia-2758558",
+      "colors": [
+        "W",
+        "B"
+      ],
+      "spice": 11,
+      "cards": []
+    },
+    {
+      "player": "Arlindo Ferreir...",
+      "rank": "Top8",
+      "players": 51,
+      "event": "LWPP fevereiro/2026 top8 @ Premodern Portugal",
+      "date": "15-Feb -2026",
+      "url": "https://mtgdecks.net/Premodern/bw-control-decklist-by-arlindo-ferreira-2812845",
+      "colors": [
+        "W",
+        "B"
+      ],
+      "spice": 14,
+      "cards": []
+    },
+    {
+      "player": "Alejandro Ramos",
+      "rank": "Top8",
+      "players": 50,
+      "event": "Premodern Fight Club #1",
+      "date": "17-Jan -2026",
+      "url": "https://mtgdecks.net/Premodern/wb-control-decklist-by-alejandro-ramos-2774712",
+      "colors": [
+        "W",
+        "B"
+      ],
+      "spice": 9,
+      "cards": []
+    },
+    {
+      "player": "Carlo Pierini",
+      "rank": "Top32",
+      "players": 189,
+      "event": "Premodern Italian Nationals 2026",
+      "date": "07-Feb -2026",
+      "url": "https://mtgdecks.net/Premodern/bw-control-decklist-by-carlo-pierini-2804602",
+      "colors": [
+        "W",
+        "B"
+      ],
+      "spice": 14,
+      "cards": []
+    },
+    {
+      "player": "Gabriele Costa",
+      "rank": "Top64",
+      "players": 189,
+      "event": "Premodern Italian Nationals 2026",
+      "date": "07-Feb -2026",
+      "url": "https://mtgdecks.net/Premodern/bw-control-decklist-by-gabriele-costa-2804615",
+      "colors": [
+        "W",
+        "B"
+      ],
+      "spice": 14,
+      "cards": []
+    },
+    {
+      "player": "Stefano Bertucc...",
+      "rank": "Top64",
+      "players": 189,
+      "event": "Premodern Italian Nationals 2026",
+      "date": "07-Feb -2026",
+      "url": "https://mtgdecks.net/Premodern/bw-control-decklist-by-stefano-bertucci-2804635",
+      "colors": [
+        "W",
+        "B"
+      ],
+      "spice": 15,
+      "cards": []
+    },
+    {
+      "player": "Luca Palazzese",
+      "rank": "Top128",
+      "players": 189,
+      "event": "Premodern Italian Nationals 2026",
+      "date": "07-Feb -2026",
+      "url": "https://mtgdecks.net/Premodern/bw-control-decklist-by-luca-palazzese-2804658",
+      "colors": [
+        "W",
+        "B"
+      ],
+      "spice": 10,
+      "cards": []
+    },
+    {
+      "player": "Andres Stacciol...",
+      "rank": "Top256",
+      "players": 189,
+      "event": "Premodern Italian Nationals 2026",
+      "date": "07-Feb -2026",
+      "url": "https://mtgdecks.net/Premodern/bw-control-decklist-by-andres-staccioli-2804746",
+      "colors": [
+        "W",
+        "B"
+      ],
+      "spice": 14,
+      "cards": []
+    },
+    {
+      "player": "Marco Poggiali",
+      "rank": "Top256",
+      "players": 189,
+      "event": "Premodern Italian Nationals 2026",
+      "date": "07-Feb -2026",
+      "url": "https://mtgdecks.net/Premodern/bw-control-decklist-by-marco-poggiali-2804761",
+      "colors": [
+        "W",
+        "B"
+      ],
+      "spice": 11,
+      "cards": []
+    }
+  ],
   "Balancing Tings": [],
-  "Broccoli Soup": [],
-  "Burn": [],
+  "Broccoli Soup": [
+    {
+      "player": "Thomas Jordan",
+      "rank": "1st",
+      "players": 98,
+      "event": "PIL Online League 05/25",
+      "date": "15-Jun -2025",
+      "url": "https://mtgdecks.net/Premodern/broccoli-soup-decklist-by-thomas-jordan-2520416",
+      "colors": [
+        "G",
+        "B"
+      ],
+      "spice": 20,
+      "cards": []
+    },
+    {
+      "player": "Bernard Sawicki",
+      "rank": "Top4",
+      "players": 88,
+      "event": "Polish Nationals @ Krakow (Poland)",
+      "date": "01-Feb -2025",
+      "url": "https://mtgdecks.net/Premodern/rancored-suicide-decklist-by-bernard-sawicki-2363970",
+      "colors": [
+        "G",
+        "B"
+      ],
+      "spice": 16,
+      "cards": []
+    },
+    {
+      "player": "Jelle Lansdaal",
+      "rank": "Top8",
+      "players": 73,
+      "event": "Premodern Online Monthly (March 2024)",
+      "date": "31-Mar -2024",
+      "url": "https://mtgdecks.net/Premodern/mono-black-decklist-by-jelle-lansdaal-2017857",
+      "colors": [
+        "G",
+        "B"
+      ],
+      "spice": 36,
+      "cards": []
+    },
+    {
+      "player": "Jelle Lansdaal",
+      "rank": "Top8",
+      "players": 73,
+      "event": "Premodern Online Monthly (March 2024)",
+      "date": "31-Mar -2024",
+      "url": "https://mtgdecks.net/Premodern/mono-black-decklist-by-jelle-lansdaal-2017857",
+      "colors": [
+        "G",
+        "B"
+      ],
+      "spice": 36,
+      "cards": []
+    },
+    {
+      "player": "Jelle Lansdaal",
+      "rank": "Top8",
+      "players": 73,
+      "event": "Premodern Online Monthly (March 2024)",
+      "date": "31-Mar -2024",
+      "url": "https://mtgdecks.net/Premodern/mono-black-decklist-by-jelle-lansdaal-2017857",
+      "colors": [
+        "G",
+        "B"
+      ],
+      "spice": 36,
+      "cards": []
+    },
+    {
+      "player": "Guta Power",
+      "rank": "Top4",
+      "players": 64,
+      "event": "PIL Online League 04/25",
+      "date": "24-May -2025",
+      "url": "https://mtgdecks.net/Premodern/bsoup-decklist-by-guta-power-2496538",
+      "colors": [
+        "G",
+        "B"
+      ],
+      "spice": 19,
+      "cards": []
+    },
+    {
+      "player": "Alex Teixeira",
+      "rank": "Top4",
+      "players": 64,
+      "event": "PIL Online League 02/25",
+      "date": "28-Feb -2025",
+      "url": "https://mtgdecks.net/Premodern/bsoup-decklist-by-alex-teixeira-2396242",
+      "colors": [
+        "G",
+        "B"
+      ],
+      "spice": 21,
+      "cards": []
+    },
+    {
+      "player": "M\u00e1rio Dias",
+      "rank": "1st",
+      "players": 64,
+      "event": "5th PIL Online League",
+      "date": "28-Dec -2024",
+      "url": "https://mtgdecks.net/Premodern/bsoup-decklist-by-mario-dias-2319146",
+      "colors": [
+        "G",
+        "B"
+      ],
+      "spice": 16,
+      "cards": []
+    },
+    {
+      "player": "Guta",
+      "rank": "1st",
+      "players": 64,
+      "event": "4th PIL Online League",
+      "date": "06-Dec -2024",
+      "url": "https://mtgdecks.net/Premodern/broccoli-soup-decklist-by-guta-2297078",
+      "colors": [
+        "G",
+        "B"
+      ],
+      "spice": 22,
+      "cards": []
+    },
+    {
+      "player": "Will Holland",
+      "rank": "Top8",
+      "players": 52,
+      "event": "ELD Open @ ELD's Time Vault Games (Bellingham, MA)",
+      "date": "12-Apr -2025",
+      "url": "https://mtgdecks.net/Premodern/broccoli-soup-decklist-by-will-holland-2446673",
+      "colors": [
+        "G",
+        "B"
+      ],
+      "spice": 32,
+      "cards": []
+    }
+  ],
+  "Burn": [
+    {
+      "player": "Evan Smith",
+      "rank": "1st",
+      "players": 98,
+      "event": "Premodern Buckeye Brawl @ Retromancers",
+      "date": "21-Feb -2026",
+      "url": "https://mtgdecks.net/Premodern/burn-decklist-by-evan-smith-2818916",
+      "colors": [
+        "R"
+      ],
+      "spice": 11,
+      "cards": []
+    },
+    {
+      "player": "Francesco Mazzu...",
+      "rank": "Top32",
+      "players": 189,
+      "event": "Premodern Italian Nationals 2026",
+      "date": "07-Feb -2026",
+      "url": "https://mtgdecks.net/Premodern/burn-decklist-by-francesco-mazzucchi-2804604",
+      "colors": [
+        "R"
+      ],
+      "spice": 12,
+      "cards": []
+    },
+    {
+      "player": "Livio Setaro",
+      "rank": "Top64",
+      "players": 189,
+      "event": "Premodern Italian Nationals 2026",
+      "date": "07-Feb -2026",
+      "url": "https://mtgdecks.net/Premodern/burn-decklist-by-livio-setaro-2804627",
+      "colors": [
+        "R"
+      ],
+      "spice": 15,
+      "cards": []
+    },
+    {
+      "player": "Filippo Pezza",
+      "rank": "Top64",
+      "players": 189,
+      "event": "Premodern Italian Nationals 2026",
+      "date": "07-Feb -2026",
+      "url": "https://mtgdecks.net/Premodern/burn-decklist-by-filippo-pezza-2804632",
+      "colors": [
+        "R"
+      ],
+      "spice": 23,
+      "cards": []
+    },
+    {
+      "player": "Matteo Migliozz...",
+      "rank": "Top64",
+      "players": 189,
+      "event": "Premodern Italian Nationals 2026",
+      "date": "07-Feb -2026",
+      "url": "https://mtgdecks.net/Premodern/burn-decklist-by-matteo-migliozzi-2804639",
+      "colors": [
+        "R"
+      ],
+      "spice": 9,
+      "cards": []
+    },
+    {
+      "player": "Tomaso Brunello",
+      "rank": "Top128",
+      "players": 189,
+      "event": "Premodern Italian Nationals 2026",
+      "date": "07-Feb -2026",
+      "url": "https://mtgdecks.net/Premodern/burn-decklist-by-tomaso-brunello-2804693",
+      "colors": [
+        "R"
+      ],
+      "spice": 10,
+      "cards": []
+    },
+    {
+      "player": "Giovanni Manica...",
+      "rank": "Top128",
+      "players": 189,
+      "event": "Premodern Italian Nationals 2026",
+      "date": "07-Feb -2026",
+      "url": "https://mtgdecks.net/Premodern/burn-decklist-by-giovanni-manicardi-2804698",
+      "colors": [
+        "R"
+      ],
+      "spice": 10,
+      "cards": []
+    },
+    {
+      "player": "Marco Ricci",
+      "rank": "Top256",
+      "players": 189,
+      "event": "Premodern Italian Nationals 2026",
+      "date": "07-Feb -2026",
+      "url": "https://mtgdecks.net/Premodern/burn-decklist-by-marco-ricci-2804734",
+      "colors": [
+        "R"
+      ],
+      "spice": 10,
+      "cards": []
+    },
+    {
+      "player": "Jacopo Pinelli",
+      "rank": "Top256",
+      "players": 189,
+      "event": "Premodern Italian Nationals 2026",
+      "date": "07-Feb -2026",
+      "url": "https://mtgdecks.net/Premodern/burn-decklist-by-jacopo-pinelli-2804744",
+      "colors": [
+        "R"
+      ],
+      "spice": 35,
+      "cards": []
+    },
+    {
+      "player": "Antonio Paolett...",
+      "rank": "Top256",
+      "players": 189,
+      "event": "Premodern Italian Nationals 2026",
+      "date": "07-Feb -2026",
+      "url": "https://mtgdecks.net/Premodern/burn-decklist-by-antonio-paoletti-2804751",
+      "colors": [
+        "R"
+      ],
+      "spice": 16,
+      "cards": []
+    }
+  ],
   "Cephalid Breakfast": [],
-  "Clerics": [],
-  "Contamination": [],
-  "Deadguy Ale": [],
-  "Devourer Combo": [],
+  "Clerics": [
+    {
+      "player": "Haitz",
+      "rank": "1st",
+      "players": 75,
+      "event": "2025 Nantuko League - Agosto",
+      "date": "30-Aug -2025",
+      "url": "https://mtgdecks.net/Premodern/clerics-decklist-by-haitz-2606969",
+      "colors": [
+        "B"
+      ],
+      "spice": 31,
+      "cards": []
+    },
+    {
+      "player": "Luis Augusto",
+      "rank": "Top8",
+      "players": 72,
+      "event": "VIII Liga Madrile\u00f1a de Premodern - Jornada 3",
+      "date": "22-Nov -2025",
+      "url": "https://mtgdecks.net/Premodern/clerics-decklist-by-luis-augusto-2717066",
+      "colors": [
+        "B"
+      ],
+      "spice": 34,
+      "cards": []
+    },
+    {
+      "player": "Gon\u00e7alo Lima",
+      "rank": "Top8",
+      "players": 51,
+      "event": "LWPP fevereiro/2026 top8 @ Premodern Portugal",
+      "date": "15-Feb -2026",
+      "url": "https://mtgdecks.net/Premodern/mono-b-clerics-decklist-by-goncalo-lima-2812847",
+      "colors": [
+        "B"
+      ],
+      "spice": 32,
+      "cards": []
+    },
+    {
+      "player": "TooTallTim",
+      "rank": "Top8",
+      "players": 50,
+      "event": "MTGO Premodern Challenge 32 #12832534",
+      "date": "07-Feb -2026",
+      "url": "https://mtgdecks.net/Premodern/deck-decklist-by-tootalltim-2801233",
+      "colors": [
+        "B"
+      ],
+      "spice": 35,
+      "cards": []
+    },
+    {
+      "player": "David Aldeano",
+      "rank": "Top4",
+      "players": 50,
+      "event": "2\u00aa Liga Premodern Gasteiz Mirari - Jornada 7",
+      "date": "05-Jul -2025",
+      "url": "https://mtgdecks.net/Premodern/clerics-decklist-by-david-aldeano-2555437",
+      "colors": [
+        "B"
+      ],
+      "spice": 37,
+      "cards": []
+    },
+    {
+      "player": "Gregor Posinek",
+      "rank": "Top64",
+      "players": 189,
+      "event": "Premodern Italian Nationals 2026",
+      "date": "07-Feb -2026",
+      "url": "https://mtgdecks.net/Premodern/life-decklist-by-gregor-posinek-2804641",
+      "colors": [
+        "W",
+        "G"
+      ],
+      "spice": 84,
+      "cards": []
+    },
+    {
+      "player": "Brian Lonergan",
+      "rank": "Top32",
+      "players": 131,
+      "event": "Duress Crew Presents: New England Premodern Winter Regional ...",
+      "date": "21-Feb -2026",
+      "url": "https://mtgdecks.net/Premodern/clerics-decklist-by-brian-lonergan-2819031",
+      "colors": [
+        "B"
+      ],
+      "spice": 36,
+      "cards": []
+    },
+    {
+      "player": "Branden Cavanau...",
+      "rank": "Top64",
+      "players": 131,
+      "event": "Duress Crew Presents: New England Premodern Winter Regional ...",
+      "date": "21-Feb -2026",
+      "url": "https://mtgdecks.net/Premodern/clerics-decklist-by-branden-cavanaugh-2819058",
+      "colors": [
+        "B"
+      ],
+      "spice": 34,
+      "cards": []
+    },
+    {
+      "player": "Brandon T",
+      "rank": "Top128",
+      "players": 131,
+      "event": "Duress Crew Presents: New England Premodern Winter Regional ...",
+      "date": "21-Feb -2026",
+      "url": "https://mtgdecks.net/Premodern/life-decklist-by-brandon-t-2819071",
+      "colors": [
+        "W",
+        "G",
+        "B"
+      ],
+      "spice": 79,
+      "cards": []
+    },
+    {
+      "player": "Ben Bauer",
+      "rank": "Top128",
+      "players": 131,
+      "event": "Duress Crew Presents: New England Premodern Winter Regional ...",
+      "date": "21-Feb -2026",
+      "url": "https://mtgdecks.net/Premodern/life-decklist-by-ben-bauer-2819106",
+      "colors": [
+        "W",
+        "G",
+        "R"
+      ],
+      "spice": 85,
+      "cards": []
+    }
+  ],
+  "Contamination": [
+    {
+      "player": "Umeboshi",
+      "rank": "Top4",
+      "players": 129,
+      "event": "2025 CPS Monthly League 19.03",
+      "date": "05-Nov -2025",
+      "url": "https://mtgdecks.net/Premodern/contamination-decklist-by-umeboshi-2688768",
+      "colors": [
+        "B"
+      ],
+      "spice": 15,
+      "cards": []
+    },
+    {
+      "player": "JpAlmeida",
+      "rank": "Top8",
+      "players": 122,
+      "event": "2025 CPS Monthly League 18.06",
+      "date": "24-Sep -2025",
+      "url": "https://mtgdecks.net/Premodern/mono-black-control-decklist-by-jpalmeida-2631180",
+      "colors": [
+        "B"
+      ],
+      "spice": 16,
+      "cards": []
+    },
+    {
+      "player": "Umeboshi",
+      "rank": "Top8",
+      "players": 118,
+      "event": "2025 CPS Monthly League 19.02",
+      "date": "22-Oct -2025",
+      "url": "https://mtgdecks.net/Premodern/contamination-decklist-by-umeboshi-2671493",
+      "colors": [
+        "B"
+      ],
+      "spice": 15,
+      "cards": []
+    },
+    {
+      "player": "Umeboshi",
+      "rank": "Top4",
+      "players": 113,
+      "event": "2025 CPS Monthly League 19.06",
+      "date": "16-Dec -2025",
+      "url": "https://mtgdecks.net/Premodern/contamination-decklist-by-umeboshi-2745106",
+      "colors": [
+        "B"
+      ],
+      "spice": 18,
+      "cards": []
+    },
+    {
+      "player": "Umeboshi",
+      "rank": "Top8",
+      "players": 113,
+      "event": "2025 CPS Monthly League 19.05",
+      "date": "28-Nov -2025",
+      "url": "https://mtgdecks.net/Premodern/contamination-decklist-by-umeboshi-2717756",
+      "colors": [
+        "B"
+      ],
+      "spice": 17,
+      "cards": []
+    },
+    {
+      "player": "Emil Pol\u00e1k",
+      "rank": "Top8",
+      "players": 111,
+      "event": "Polish Nationals 2025 @ Kinguin E-Sports Lounge (Gda\u0144sk, Pol...",
+      "date": "04-Oct -2025",
+      "url": "https://mtgdecks.net/Premodern/mono-b-contamination-decklist-by-emil-polak-2645221",
+      "colors": [
+        "B"
+      ],
+      "spice": 13,
+      "cards": []
+    },
+    {
+      "player": "\u00c1lvaro Galindo",
+      "rank": "Top8",
+      "players": 71,
+      "event": "2025 Nantuko League - Septiembre",
+      "date": "30-Sep -2025",
+      "url": "https://mtgdecks.net/Premodern/mono-black-control-decklist-by-alvaro-galindo-2644970",
+      "colors": [
+        "B"
+      ],
+      "spice": 15,
+      "cards": []
+    },
+    {
+      "player": "\u00c1lvaro Galindo",
+      "rank": "Top8",
+      "players": 66,
+      "event": "2025 Nantuko League - Diciembre",
+      "date": "31-Dec -2025",
+      "url": "https://mtgdecks.net/Premodern/contamination-decklist-by-alvaro-galindo-2756902",
+      "colors": [
+        "B"
+      ],
+      "spice": 20,
+      "cards": []
+    },
+    {
+      "player": "Virgilio Dom\u00edng...",
+      "rank": "Top8",
+      "players": 64,
+      "event": "II Spanish Premodern Supercup",
+      "date": "17-Jan -2026",
+      "url": "https://mtgdecks.net/Premodern/contamination-decklist-by-virgilio-dominguez-2777193",
+      "colors": [
+        "B"
+      ],
+      "spice": 21,
+      "cards": []
+    },
+    {
+      "player": "\u00c1lvaro Galindo",
+      "rank": "2nd",
+      "players": 57,
+      "event": "Colemono CUP 2025",
+      "date": "03-Jan -2026",
+      "url": "https://mtgdecks.net/Premodern/contamination-decklist-by-alvaro-galindo-2758554",
+      "colors": [
+        "B"
+      ],
+      "spice": 20,
+      "cards": []
+    }
+  ],
+  "Deadguy Ale": [
+    {
+      "player": "Nacho Delgado",
+      "rank": "Top8",
+      "players": 72,
+      "event": "VIII Liga Madrile\u00f1a de Premodern - Jornada 3",
+      "date": "22-Nov -2025",
+      "url": "https://mtgdecks.net/Premodern/deadguy-ale-decklist-by-nacho-delgado-2717065",
+      "colors": [
+        "W",
+        "B"
+      ],
+      "spice": 24,
+      "cards": []
+    },
+    {
+      "player": "Anderson Thome",
+      "rank": "Top8",
+      "players": 64,
+      "event": "PIL Online League 08/25",
+      "date": "24-Aug -2025",
+      "url": "https://mtgdecks.net/Premodern/dga-decklist-by-anderson-thome-2596660",
+      "colors": [
+        "W",
+        "B"
+      ],
+      "spice": 19,
+      "cards": []
+    },
+    {
+      "player": "Andrea Zanolett...",
+      "rank": "Top128",
+      "players": 189,
+      "event": "Premodern Italian Nationals 2026",
+      "date": "07-Feb -2026",
+      "url": "https://mtgdecks.net/Premodern/deadguy-ale-decklist-by-andrea-zanoletti-2804664",
+      "colors": [
+        "W",
+        "B"
+      ],
+      "spice": 13,
+      "cards": []
+    },
+    {
+      "player": "Raniero Romaldi",
+      "rank": "Top128",
+      "players": 189,
+      "event": "Premodern Italian Nationals 2026",
+      "date": "07-Feb -2026",
+      "url": "https://mtgdecks.net/Premodern/deadguy-ale-decklist-by-raniero-romaldi-2804697",
+      "colors": [
+        "W",
+        "B"
+      ],
+      "spice": 9,
+      "cards": []
+    },
+    {
+      "player": "Flavio Persiani",
+      "rank": "Top256",
+      "players": 189,
+      "event": "Premodern Italian Nationals 2026",
+      "date": "07-Feb -2026",
+      "url": "https://mtgdecks.net/Premodern/deadguy-ale-decklist-by-flavio-persiani-2804727",
+      "colors": [
+        "W",
+        "B"
+      ],
+      "spice": 19,
+      "cards": []
+    },
+    {
+      "player": "Marco Spacone",
+      "rank": "Top32",
+      "players": 125,
+      "event": "Premodern & Friends GRAND FESTIVAL (Milano, Italy)",
+      "date": "19-Oct -2025",
+      "url": "https://mtgdecks.net/Premodern/deadguy-ale-decklist-by-marco-spacone-2664258",
+      "colors": [
+        "W",
+        "B"
+      ],
+      "spice": 19,
+      "cards": []
+    },
+    {
+      "player": "Jack Lebowsky",
+      "rank": "Top128",
+      "players": 125,
+      "event": "Premodern & Friends GRAND FESTIVAL (Milano, Italy)",
+      "date": "19-Oct -2025",
+      "url": "https://mtgdecks.net/Premodern/deadguy-ale-decklist-by-jack-lebowsky-2664293",
+      "colors": [
+        "W",
+        "B"
+      ],
+      "spice": 14,
+      "cards": []
+    },
+    {
+      "player": "Angelo Breidens",
+      "rank": "Top128",
+      "players": 125,
+      "event": "Premodern & Friends GRAND FESTIVAL (Milano, Italy)",
+      "date": "19-Oct -2025",
+      "url": "https://mtgdecks.net/Premodern/deadguy-ale-decklist-by-angelo-breidens-2664312",
+      "colors": [
+        "W",
+        "B"
+      ],
+      "spice": 12,
+      "cards": []
+    },
+    {
+      "player": "Alessandro Brun...",
+      "rank": "Top128",
+      "players": 125,
+      "event": "Premodern & Friends GRAND FESTIVAL (Milano, Italy)",
+      "date": "19-Oct -2025",
+      "url": "https://mtgdecks.net/Premodern/deck-decklist-by-alessandro-brunetti-2664318",
+      "colors": [
+        "W",
+        "B"
+      ],
+      "spice": 23,
+      "cards": []
+    },
+    {
+      "player": "Luca Cosimi",
+      "rank": "Top128",
+      "players": 122,
+      "event": "Torneo del Potere 2025 @ Magico Conclave Etrusco",
+      "date": "11-Oct -2025",
+      "url": "https://mtgdecks.net/Premodern/deadguy-ale-decklist-by-luca-cosimi-2653581",
+      "colors": [
+        "W",
+        "B"
+      ],
+      "spice": 17,
+      "cards": []
+    }
+  ],
+  "Devourer Combo": [
+    {
+      "player": "Sergio Gomez",
+      "rank": "Top4",
+      "players": 76,
+      "event": "2025 Nantuko League - Noviembre",
+      "date": "30-Nov -2025",
+      "url": "https://mtgdecks.net/Premodern/devourer-combo-decklist-by-sergio-gomez-2729743",
+      "colors": [
+        "U",
+        "R"
+      ],
+      "spice": 15,
+      "cards": []
+    },
+    {
+      "player": "Juanma Gonzalez",
+      "rank": "2nd",
+      "players": 72,
+      "event": "Nacional Argentino de Premodern 2025",
+      "date": "13-Dec -2025",
+      "url": "https://mtgdecks.net/Premodern/devourer-combo-decklist-by-juanma-gonzalez-2741617",
+      "colors": [
+        "U",
+        "R"
+      ],
+      "spice": 22,
+      "cards": []
+    },
+    {
+      "player": "Jose Manuel Rob...",
+      "rank": "1st",
+      "players": 72,
+      "event": "VIII Liga Madrile\u00f1a de Premodern - Jornada 3",
+      "date": "22-Nov -2025",
+      "url": "https://mtgdecks.net/Premodern/devourer-combo-decklist-by-jose-manuel-robleno-2717059",
+      "colors": [
+        "W",
+        "U",
+        "G",
+        "R"
+      ],
+      "spice": 20,
+      "cards": []
+    },
+    {
+      "player": "Ankylosaur",
+      "rank": "Top8",
+      "players": 56,
+      "event": "MTGO Premodern Challenge 32 - Premodern #12828092",
+      "date": "27-Dec -2025",
+      "url": "https://mtgdecks.net/Premodern/deck-decklist-by-ankylosaur-2752188",
+      "colors": [
+        "U",
+        "R"
+      ],
+      "spice": 24,
+      "cards": []
+    },
+    {
+      "player": "Bruno Bonadio L...",
+      "rank": "2nd",
+      "players": 55,
+      "event": "Final Circuito Liga Magic",
+      "date": "14-Dec -2025",
+      "url": "https://mtgdecks.net/Premodern/devourer-combo-decklist-by-bruno-bonadio-lopez-2748003",
+      "colors": [
+        "U",
+        "R"
+      ],
+      "spice": 20,
+      "cards": []
+    },
+    {
+      "player": "Gabriel Francoi...",
+      "rank": "Top8",
+      "players": 55,
+      "event": "Final Circuito Liga Magic",
+      "date": "14-Dec -2025",
+      "url": "https://mtgdecks.net/Premodern/tinkerfling-decklist-by-gabriel-francois-machado-2748014",
+      "colors": [
+        "W",
+        "U",
+        "R"
+      ],
+      "spice": 26,
+      "cards": []
+    },
+    {
+      "player": "Angelo Pecora",
+      "rank": "Top8",
+      "players": 53,
+      "event": "PM Series @ Magic Lair (Torino, Italy)",
+      "date": "11-Jan -2026",
+      "url": "https://mtgdecks.net/Premodern/oath-devourer-decklist-by-angelo-pecora-2770917",
+      "colors": [
+        "W",
+        "U",
+        "G",
+        "R"
+      ],
+      "spice": 22,
+      "cards": []
+    },
+    {
+      "player": "Ondrej Kedrovic",
+      "rank": "1st",
+      "players": 51,
+      "event": "Slovak Premodern Championship 2025 @ Cloudpost (Bratislava, ...",
+      "date": "22-Nov -2025",
+      "url": "https://mtgdecks.net/Premodern/tinker-fling-decklist-by-ondrej-kedrovic-2711111",
+      "colors": [
+        "U",
+        "G",
+        "R"
+      ],
+      "spice": 35,
+      "cards": []
+    },
+    {
+      "player": "Swarped",
+      "rank": "Top8",
+      "players": 50,
+      "event": "MTGO Premodern Challenge 32 #12832534",
+      "date": "07-Feb -2026",
+      "url": "https://mtgdecks.net/Premodern/deck-decklist-by-swarped-2801238",
+      "colors": [
+        "W",
+        "U",
+        "G",
+        "R"
+      ],
+      "spice": 29,
+      "cards": []
+    },
+    {
+      "player": "Heisl",
+      "rank": "Top8",
+      "players": 50,
+      "event": "Moxforge League November 2025",
+      "date": "30-Nov -2025",
+      "url": "https://mtgdecks.net/Premodern/devourer-combo-decklist-by-heisl-2735117",
+      "colors": [
+        "U",
+        "R"
+      ],
+      "spice": 15,
+      "cards": []
+    }
+  ],
   "Doomsday": [],
   "Draco Blast": [],
   "Dragonstorm": [],
@@ -53,15 +1537,956 @@
   "Mono White Control": [],
   "Oath": [],
   "Oath Control": [],
-  "Oath Ponza": [],
-  "Oath Spec": [],
+  "Oath Ponza": [
+    {
+      "player": "Matt Folk",
+      "rank": "2nd",
+      "players": 98,
+      "event": "Premodern Buckeye Brawl @ Retromancers",
+      "date": "21-Feb -2026",
+      "url": "https://mtgdecks.net/Premodern/oath-ponza-decklist-by-matt-folk-2818917",
+      "colors": [
+        "W",
+        "G"
+      ],
+      "spice": 23,
+      "cards": []
+    },
+    {
+      "player": "Joshua LaPointe",
+      "rank": "Top8",
+      "players": 98,
+      "event": "Premodern Buckeye Brawl @ Retromancers",
+      "date": "21-Feb -2026",
+      "url": "https://mtgdecks.net/Premodern/oath-ponza-decklist-by-joshua-lapointe-2818922",
+      "colors": [
+        "W",
+        "G"
+      ],
+      "spice": 27,
+      "cards": []
+    },
+    {
+      "player": "tbundz",
+      "rank": "Top4",
+      "players": 67,
+      "event": "MTGO Premodern Challenge 32 - Premodern #12828150",
+      "date": "01-Jan -2026",
+      "url": "https://mtgdecks.net/Premodern/deck-decklist-by-tbundz-2755855",
+      "colors": [
+        "W",
+        "G"
+      ],
+      "spice": 28,
+      "cards": []
+    },
+    {
+      "player": "Martin Oviedo",
+      "rank": "Top8",
+      "players": 66,
+      "event": "2025 Nantuko League - Diciembre",
+      "date": "31-Dec -2025",
+      "url": "https://mtgdecks.net/Premodern/oath-ponza-decklist-by-martin-oviedo-2756901",
+      "colors": [
+        "G",
+        "R"
+      ],
+      "spice": 18,
+      "cards": []
+    },
+    {
+      "player": "radimex",
+      "rank": "2nd",
+      "players": 56,
+      "event": "1st Hungarian Premodern Nationals @PreTownRivers",
+      "date": "21-Feb -2026",
+      "url": "https://mtgdecks.net/Premodern/deck-decklist-by-radimex-2817450",
+      "colors": [
+        "W",
+        "G"
+      ],
+      "spice": 20,
+      "cards": []
+    },
+    {
+      "player": "Jo\u00e3o Parrado",
+      "rank": "Top8",
+      "players": 51,
+      "event": "LWPP fevereiro/2026 top8 @ Premodern Portugal",
+      "date": "15-Feb -2026",
+      "url": "https://mtgdecks.net/Premodern/rg-ponza-oath-decklist-by-joao-parrado-2812842",
+      "colors": [
+        "G",
+        "R"
+      ],
+      "spice": 18,
+      "cards": []
+    },
+    {
+      "player": "Federico Malaca...",
+      "rank": "Top16",
+      "players": 189,
+      "event": "Premodern Italian Nationals 2026",
+      "date": "07-Feb -2026",
+      "url": "https://mtgdecks.net/Premodern/oath-ponza-decklist-by-federico-malacarne-2804591",
+      "colors": [
+        "W",
+        "G"
+      ],
+      "spice": 26,
+      "cards": []
+    },
+    {
+      "player": "Daniele Di Fazi...",
+      "rank": "Top64",
+      "players": 189,
+      "event": "Premodern Italian Nationals 2026",
+      "date": "07-Feb -2026",
+      "url": "https://mtgdecks.net/Premodern/oath-ponza-decklist-by-daniele-di-fazio-2804633",
+      "colors": [
+        "W",
+        "G",
+        "B"
+      ],
+      "spice": 33,
+      "cards": []
+    },
+    {
+      "player": "Luca Farsetti",
+      "rank": "Top128",
+      "players": 189,
+      "event": "Premodern Italian Nationals 2026",
+      "date": "07-Feb -2026",
+      "url": "https://mtgdecks.net/Premodern/oath-ponza-decklist-by-luca-farsetti-2804648",
+      "colors": [
+        "G",
+        "R"
+      ],
+      "spice": 16,
+      "cards": []
+    },
+    {
+      "player": "Dominic Eger",
+      "rank": "Top128",
+      "players": 189,
+      "event": "Premodern Italian Nationals 2026",
+      "date": "07-Feb -2026",
+      "url": "https://mtgdecks.net/Premodern/oath-ponza-decklist-by-dominic-eger-2804683",
+      "colors": [
+        "W",
+        "G"
+      ],
+      "spice": 24,
+      "cards": []
+    }
+  ],
+  "Oath Spec": [
+    {
+      "player": "Thatguyfromfnm",
+      "rank": "Top8",
+      "players": 131,
+      "event": "2025 CPS Monthly League 18.03",
+      "date": "09-Aug -2025",
+      "url": "https://mtgdecks.net/Premodern/oath-of-druids-decklist-by-thatguyfromfnm-2582650",
+      "colors": [
+        "W",
+        "U",
+        "G",
+        "R"
+      ],
+      "spice": 16,
+      "cards": []
+    },
+    {
+      "player": "ThatGuyFromFNM",
+      "rank": "Top8",
+      "players": 131,
+      "event": "2025 CPS Monthly League 18.03",
+      "date": "09-Aug -2025",
+      "url": "https://mtgdecks.net/Premodern/oath-spec-decklist-by-thatguyfromfnm-2581113",
+      "colors": [
+        "W",
+        "U",
+        "G",
+        "R"
+      ],
+      "spice": 16,
+      "cards": []
+    },
+    {
+      "player": "Pablo Marcos",
+      "rank": "Top4",
+      "players": 75,
+      "event": "2025 Nantuko League - Agosto",
+      "date": "30-Aug -2025",
+      "url": "https://mtgdecks.net/Premodern/oath-spec-decklist-by-pablo-marcos-2606971",
+      "colors": [
+        "W",
+        "U",
+        "G",
+        "R"
+      ],
+      "spice": 12,
+      "cards": []
+    },
+    {
+      "player": "Gordon Bakstran",
+      "rank": "Top64",
+      "players": 131,
+      "event": "Duress Crew Presents: New England Premodern Winter Regional ...",
+      "date": "21-Feb -2026",
+      "url": "https://mtgdecks.net/Premodern/oath-control-decklist-by-gordon-bakstran-2819060",
+      "colors": [
+        "W",
+        "U",
+        "G",
+        "B"
+      ],
+      "spice": 21,
+      "cards": []
+    },
+    {
+      "player": "Umeboshi",
+      "rank": "Top16",
+      "players": 131,
+      "event": "2025 CPS Monthly League 18.03",
+      "date": "09-Aug -2025",
+      "url": "https://mtgdecks.net/Premodern/oath-spec-decklist-by-umeboshi-2581116",
+      "colors": [
+        "W",
+        "U",
+        "G",
+        "R"
+      ],
+      "spice": 10,
+      "cards": []
+    },
+    {
+      "player": "Pablo Marcos",
+      "rank": "Top16",
+      "players": 131,
+      "event": "2025 CPS Monthly League 18.03",
+      "date": "09-Aug -2025",
+      "url": "https://mtgdecks.net/Premodern/oath-spec-decklist-by-pablo-marcos-2581120",
+      "colors": [
+        "W",
+        "U",
+        "G",
+        "R"
+      ],
+      "spice": 10,
+      "cards": []
+    },
+    {
+      "player": "Federico Morico...",
+      "rank": "Top32",
+      "players": 122,
+      "event": "Torneo del Potere 2025 @ Magico Conclave Etrusco",
+      "date": "11-Oct -2025",
+      "url": "https://mtgdecks.net/Premodern/deck-decklist-by-federico-moriconi-2653513",
+      "colors": [
+        "W",
+        "U",
+        "G",
+        "R"
+      ],
+      "spice": 17,
+      "cards": []
+    },
+    {
+      "player": "bradless",
+      "rank": "Top16",
+      "players": 121,
+      "event": "2025 CPS Monthly League 18.02",
+      "date": "30-Jul -2025",
+      "url": "https://mtgdecks.net/Premodern/oath-spec-decklist-by-bradless-2570339",
+      "colors": [
+        "W",
+        "U",
+        "G",
+        "R"
+      ],
+      "spice": 11,
+      "cards": []
+    },
+    {
+      "player": "Curtisaxel",
+      "rank": "Top16",
+      "players": 118,
+      "event": "2025 CPS Monthly League 19.02",
+      "date": "22-Oct -2025",
+      "url": "https://mtgdecks.net/Premodern/oath-spec-decklist-by-curtisaxel-2671496",
+      "colors": [
+        "W",
+        "U",
+        "G",
+        "R"
+      ],
+      "spice": 11,
+      "cards": []
+    },
+    {
+      "player": "Brian Selden",
+      "rank": "Top16",
+      "players": 114,
+      "event": "Duress Crew Presents: New England Premodern Autumn Regional",
+      "date": "08-Nov -2025",
+      "url": "https://mtgdecks.net/Premodern/deck-decklist-by-brian-selden-2691108",
+      "colors": [
+        "W",
+        "U",
+        "G",
+        "R"
+      ],
+      "spice": 13,
+      "cards": []
+    }
+  ],
   "Pandeburst Control": [],
-  "Pattern Combo": [],
-  "Pit Rack": [],
-  "Ponza": [],
+  "Pattern Combo": [
+    {
+      "player": "Jaakko Husso",
+      "rank": "Top8",
+      "players": 92,
+      "event": "Premodern European Championships 2025 (Tampere, Finland)",
+      "date": "06-Sep -2025",
+      "url": "https://mtgdecks.net/Premodern/deck-decklist-by-jaakko-husso-2610730",
+      "colors": [
+        "B",
+        "W",
+        "U",
+        "G",
+        "R"
+      ],
+      "spice": 31,
+      "cards": []
+    },
+    {
+      "player": "Marcin Kowalski",
+      "rank": "Top8",
+      "players": 88,
+      "event": "Polish Nationals @ Krakow (Poland)",
+      "date": "01-Feb -2025",
+      "url": "https://mtgdecks.net/Premodern/pattern-of-rebirth-decklist-by-marcin-kowalski-2363973",
+      "colors": [
+        "B",
+        "W",
+        "G",
+        "R"
+      ],
+      "spice": 38,
+      "cards": []
+    },
+    {
+      "player": "Tomeu Servera",
+      "rank": "Top4",
+      "players": 58,
+      "event": "Full Tapped - Torneo Berganiego 2025",
+      "date": "04-Aug -2025",
+      "url": "https://mtgdecks.net/Premodern/pattern-combo-decklist-by-tomeu-servera-2576373",
+      "colors": [
+        "W",
+        "G",
+        "B"
+      ],
+      "spice": 33,
+      "cards": []
+    },
+    {
+      "player": "Alex Bohn",
+      "rank": "Top256",
+      "players": 191,
+      "event": "Vanilla Premodern Side Event @ Lobstercon 2025 @ Duress Crew",
+      "date": "02-May -2025",
+      "url": "https://mtgdecks.net/Premodern/pattern-combo-decklist-by-alex-bohn-2475385",
+      "colors": [
+        "B",
+        "W",
+        "U",
+        "G",
+        "R"
+      ],
+      "spice": 51,
+      "cards": []
+    },
+    {
+      "player": "Marcin Kowalski",
+      "rank": "Top64",
+      "players": 92,
+      "event": "Premodern European Championships 2025 (Tampere, Finland)",
+      "date": "06-Sep -2025",
+      "url": "https://mtgdecks.net/Premodern/deck-decklist-by-marcin-kowalski-2610779",
+      "colors": [
+        "B",
+        "W",
+        "G",
+        "R"
+      ],
+      "spice": 35,
+      "cards": []
+    },
+    {
+      "player": "Marco Le\u00f3n",
+      "rank": "W/L",
+      "players": 80,
+      "event": "I Liga Full Tapped 2025 Jornada 2",
+      "date": "22-Sep -2025",
+      "url": "https://mtgdecks.net/Premodern/pattern-combo-ml-decklist-by-marco-leon-2624275",
+      "colors": [
+        "B",
+        "W",
+        "U",
+        "G",
+        "R"
+      ],
+      "spice": 28,
+      "cards": []
+    },
+    {
+      "player": "Marco Le\u00f3n",
+      "rank": "W/L",
+      "players": 80,
+      "event": "I Liga Full Tapped 2025 Jornada 1",
+      "date": "15-Sep -2025",
+      "url": "https://mtgdecks.net/Premodern/pattern-combo-ml-decklist-by-marco-leon-2616962",
+      "colors": [
+        "B",
+        "W",
+        "U",
+        "G",
+        "R"
+      ],
+      "spice": 31,
+      "cards": []
+    },
+    {
+      "player": "Rodrigo Caseiro",
+      "rank": "Top16",
+      "players": 71,
+      "event": "2025 Nantuko League - Septiembre",
+      "date": "30-Sep -2025",
+      "url": "https://mtgdecks.net/Premodern/pattern-combo-decklist-by-rodrigo-caseiro-2644979",
+      "colors": [
+        "W",
+        "G",
+        "B"
+      ],
+      "spice": 30,
+      "cards": []
+    },
+    {
+      "player": "Lorenzo Cigersa",
+      "rank": "Top32",
+      "players": 57,
+      "event": "Kgrip premodern christmas carol",
+      "date": "14-Dec -2025",
+      "url": "https://mtgdecks.net/Premodern/deck-decklist-by-lorenzo-cigersa-2739309",
+      "colors": [
+        "W",
+        "G",
+        "B"
+      ],
+      "spice": 33,
+      "cards": []
+    },
+    {
+      "player": "Marco Le\u00f3n",
+      "rank": "Top16",
+      "players": 57,
+      "event": "Argentog - Battle Royale 2024/12",
+      "date": "31-Jan -2025",
+      "url": "https://mtgdecks.net/Premodern/pattern-combo-decklist-by-marco-leon-2370050",
+      "colors": [
+        "B",
+        "W",
+        "U",
+        "G",
+        "R"
+      ],
+      "spice": 32,
+      "cards": []
+    }
+  ],
+  "Pit Rack": [
+    {
+      "player": "Diego Ct",
+      "rank": "2nd",
+      "players": 230,
+      "event": "\"La Previa\" Side Event @ 2025 Spanish Premodern Nationals",
+      "date": "31-Oct -2025",
+      "url": "https://mtgdecks.net/Premodern/pit-rack-decklist-by-diego-ct-2685710",
+      "colors": [
+        "B"
+      ],
+      "spice": 15,
+      "cards": []
+    },
+    {
+      "player": "David Nieto",
+      "rank": "Top8",
+      "players": 73,
+      "event": "VIII Liga Madrile\u00f1a de Premodern - Jornada 2",
+      "date": "25-Oct -2025",
+      "url": "https://mtgdecks.net/Premodern/pit-rack-decklist-by-david-nieto-2676686",
+      "colors": [
+        "B"
+      ],
+      "spice": 15,
+      "cards": []
+    },
+    {
+      "player": "Tomas Paulovic",
+      "rank": "Top8",
+      "players": 51,
+      "event": "Slovak Premodern Championship 2025 @ Cloudpost (Bratislava, ...",
+      "date": "22-Nov -2025",
+      "url": "https://mtgdecks.net/Premodern/mono-black-control-decklist-by-tomas-paulovic-2711118",
+      "colors": [
+        "B"
+      ],
+      "spice": 28,
+      "cards": []
+    },
+    {
+      "player": "Francesco Rover...",
+      "rank": "Top256",
+      "players": 189,
+      "event": "Premodern Italian Nationals 2026",
+      "date": "07-Feb -2026",
+      "url": "https://mtgdecks.net/Premodern/pit-rack-decklist-by-francesco-roversi-2804714",
+      "colors": [
+        "B"
+      ],
+      "spice": 26,
+      "cards": []
+    },
+    {
+      "player": "Davide Ciavarre...",
+      "rank": "Top256",
+      "players": 189,
+      "event": "Premodern Italian Nationals 2026",
+      "date": "07-Feb -2026",
+      "url": "https://mtgdecks.net/Premodern/pit-rack-decklist-by-davide-ciavarrella-2804730",
+      "colors": [
+        "B"
+      ],
+      "spice": 24,
+      "cards": []
+    },
+    {
+      "player": "Francesco Fenat...",
+      "rank": "Top256",
+      "players": 189,
+      "event": "Premodern Italian Nationals 2026",
+      "date": "07-Feb -2026",
+      "url": "https://mtgdecks.net/Premodern/pit-rack-decklist-by-francesco-fenati-2804758",
+      "colors": [
+        "B"
+      ],
+      "spice": 60,
+      "cards": []
+    },
+    {
+      "player": "Lagerbon",
+      "rank": "Top16",
+      "players": 132,
+      "event": "2025 CPS Monthly League 19.04",
+      "date": "20-Nov -2025",
+      "url": "https://mtgdecks.net/Premodern/mono-black-control-decklist-by-lagerbon-2708048",
+      "colors": [
+        "B"
+      ],
+      "spice": 28,
+      "cards": []
+    },
+    {
+      "player": "lagerbon",
+      "rank": "Top16",
+      "players": 132,
+      "event": "2025 CPS Monthly League 19.04",
+      "date": "20-Nov -2025",
+      "url": "https://mtgdecks.net/Premodern/pit-rack-decklist-by-lagerbon-2703824",
+      "colors": [
+        "B"
+      ],
+      "spice": 28,
+      "cards": []
+    },
+    {
+      "player": "Andrea Molla",
+      "rank": "Top128",
+      "players": 125,
+      "event": "Premodern & Friends GRAND FESTIVAL (Milano, Italy)",
+      "date": "19-Oct -2025",
+      "url": "https://mtgdecks.net/Premodern/deck-decklist-by-andrea-molla-2664311",
+      "colors": [
+        "B"
+      ],
+      "spice": 23,
+      "cards": []
+    },
+    {
+      "player": "daniele pintaud...",
+      "rank": "Top128",
+      "players": 125,
+      "event": "Premodern & Friends GRAND FESTIVAL (Milano, Italy)",
+      "date": "19-Oct -2025",
+      "url": "https://mtgdecks.net/Premodern/deck-decklist-by-daniele-pintaudi-2664325",
+      "colors": [
+        "B"
+      ],
+      "spice": 20,
+      "cards": []
+    }
+  ],
+  "Ponza": [
+    {
+      "player": "Davide Zoli",
+      "rank": "Top8",
+      "players": 189,
+      "event": "Premodern Italian Nationals 2026",
+      "date": "07-Feb -2026",
+      "url": "https://mtgdecks.net/Premodern/ponza-decklist-by-davide-zoli-2804584",
+      "colors": [
+        "R"
+      ],
+      "spice": 32,
+      "cards": []
+    },
+    {
+      "player": "Molorri",
+      "rank": "Top8",
+      "players": 132,
+      "event": "2025 CPS Monthly League 19.04",
+      "date": "20-Nov -2025",
+      "url": "https://mtgdecks.net/Premodern/ponza-decklist-by-molorri-2703819",
+      "colors": [
+        "R"
+      ],
+      "spice": 34,
+      "cards": []
+    },
+    {
+      "player": "Ricky Carrara",
+      "rank": "2nd",
+      "players": 72,
+      "event": "Super Pr\u00e9Modern Bazar de Bagd\u00e1",
+      "date": "02-Aug -2025",
+      "url": "https://mtgdecks.net/Premodern/ponza-decklist-by-ricky-carrara-2577242",
+      "colors": [
+        "R"
+      ],
+      "spice": 35,
+      "cards": []
+    },
+    {
+      "player": "Piotr D\u0142ugosz",
+      "rank": "Top8",
+      "players": 67,
+      "event": "BBB Challenge Episode 2 - Premodern",
+      "date": "20-Sep -2025",
+      "url": "https://mtgdecks.net/Premodern/burn-decklist-by-piotr-dlugosz-2628954",
+      "colors": [
+        "R"
+      ],
+      "spice": 33,
+      "cards": []
+    },
+    {
+      "player": "Ariel Trapp",
+      "rank": "Top4",
+      "players": 61,
+      "event": "Viennageddon 2025 - Premodern Main Event (Austrian Premodern...",
+      "date": "18-May -2025",
+      "url": "https://mtgdecks.net/Premodern/red-ponza-decklist-by-ariel-trapp-2527690",
+      "colors": [
+        "R"
+      ],
+      "spice": 39,
+      "cards": []
+    },
+    {
+      "player": "Frenzy277",
+      "rank": "Top8",
+      "players": 53,
+      "event": "MTGO Premodern Challenge 32 #12830685",
+      "date": "27-Jan -2026",
+      "url": "https://mtgdecks.net/Premodern/deck-decklist-by-frenzy277-2787557",
+      "colors": [
+        "R"
+      ],
+      "spice": 40,
+      "cards": []
+    },
+    {
+      "player": "Henrique Martin...",
+      "rank": "Top8",
+      "players": 51,
+      "event": "LWPP fevereiro/2026 top8 @ Premodern Portugal",
+      "date": "15-Feb -2026",
+      "url": "https://mtgdecks.net/Premodern/ponza-decklist-by-henrique-martins-2812844",
+      "colors": [
+        "R"
+      ],
+      "spice": 36,
+      "cards": []
+    },
+    {
+      "player": "IgoC",
+      "rank": "Top4",
+      "players": 51,
+      "event": "Vinea Goblin Festival @One Eyed Jack",
+      "date": "09-Nov -2025",
+      "url": "https://mtgdecks.net/Premodern/mono-red-decklist-by-igoc-2692848",
+      "colors": [
+        "R"
+      ],
+      "spice": 39,
+      "cards": []
+    },
+    {
+      "player": "Erik Higbie",
+      "rank": "Top256",
+      "players": 279,
+      "event": "North American Premodern Championship 2025 @ Duress Crew",
+      "date": "03-May -2025",
+      "url": "https://mtgdecks.net/Premodern/rogue-decklist-by-erik-higbie-2475646",
+      "colors": [
+        "R"
+      ],
+      "spice": 63,
+      "cards": []
+    },
+    {
+      "player": "Andoni Perez",
+      "rank": "Top16",
+      "players": 230,
+      "event": "\"La Previa\" Side Event @ 2025 Spanish Premodern Nationals",
+      "date": "31-Oct -2025",
+      "url": "https://mtgdecks.net/Premodern/ponza-decklist-by-andoni-perez-2685717",
+      "colors": [
+        "R"
+      ],
+      "spice": 32,
+      "cards": []
+    }
+  ],
   "Pox": [],
-  "Psychatog": [],
-  "Pyrostatic Oath": [],
+  "Psychatog": [
+    {
+      "player": "walrusmadness",
+      "rank": "2nd",
+      "players": 72,
+      "event": "MTGO Premodern Challenge 32 #12827475",
+      "date": "18-Dec -2025",
+      "url": "https://mtgdecks.net/Premodern/deck-decklist-by-walrusmadness-2744214",
+      "colors": [
+        "U",
+        "B"
+      ],
+      "spice": 20,
+      "cards": []
+    },
+    {
+      "player": "Bryce Menard",
+      "rank": "Top8",
+      "players": 66,
+      "event": "ELD Open x NEPMM @ ELD's Time Vault Games (Bellingham, MA)",
+      "date": "10-Jan -2026",
+      "url": "https://mtgdecks.net/Premodern/tog-decklist-by-bryce-menard-2769727",
+      "colors": [
+        "U",
+        "B"
+      ],
+      "spice": 20,
+      "cards": []
+    },
+    {
+      "player": "__forge__",
+      "rank": "Top4",
+      "players": 66,
+      "event": "MTGO Premodern Challenge 32 - Premodern #12828075",
+      "date": "26-Dec -2025",
+      "url": "https://mtgdecks.net/Premodern/deck-decklist-by-forge-2750850",
+      "colors": [
+        "U",
+        "B"
+      ],
+      "spice": 22,
+      "cards": []
+    },
+    {
+      "player": "RonColpoCinese",
+      "rank": "Top8",
+      "players": 66,
+      "event": "MTGO Premodern Challenge 32 - Premodern #12828075",
+      "date": "26-Dec -2025",
+      "url": "https://mtgdecks.net/Premodern/deck-decklist-by-roncolpocinese-2750833",
+      "colors": [
+        "U",
+        "B"
+      ],
+      "spice": 20,
+      "cards": []
+    },
+    {
+      "player": "tripleAAA",
+      "rank": "Top8",
+      "players": 65,
+      "event": "MTGO Premodern Challenge 32 - Premodern #12828126",
+      "date": "30-Dec -2025",
+      "url": "https://mtgdecks.net/Premodern/deck-decklist-by-tripleaaa-2754658",
+      "colors": [
+        "U",
+        "B"
+      ],
+      "spice": 27,
+      "cards": []
+    },
+    {
+      "player": "Furnace_Scamp",
+      "rank": "Top8",
+      "players": 65,
+      "event": "MTGO Premodern Challenge 32 - Premodern #12828126",
+      "date": "30-Dec -2025",
+      "url": "https://mtgdecks.net/Premodern/deck-decklist-by-furnace-scamp-2754648",
+      "colors": [
+        "U",
+        "B"
+      ],
+      "spice": 20,
+      "cards": []
+    },
+    {
+      "player": "Giacomo Gennai",
+      "rank": "Top128",
+      "players": 189,
+      "event": "Premodern Italian Nationals 2026",
+      "date": "07-Feb -2026",
+      "url": "https://mtgdecks.net/Premodern/psychatog-decklist-by-giacomo-gennai-2804671",
+      "colors": [
+        "U",
+        "B"
+      ],
+      "spice": 29,
+      "cards": []
+    },
+    {
+      "player": "Giovanni Manzol...",
+      "rank": "Top128",
+      "players": 189,
+      "event": "Premodern Italian Nationals 2026",
+      "date": "07-Feb -2026",
+      "url": "https://mtgdecks.net/Premodern/psychatog-decklist-by-giovanni-manzoli-2804687",
+      "colors": [
+        "U",
+        "B"
+      ],
+      "spice": 19,
+      "cards": []
+    },
+    {
+      "player": "Christopher Sha...",
+      "rank": "Top32",
+      "players": 98,
+      "event": "Premodern Buckeye Brawl @ Retromancers",
+      "date": "21-Feb -2026",
+      "url": "https://mtgdecks.net/Premodern/psychatog-decklist-by-christopher-shavers-2818942",
+      "colors": [
+        "U",
+        "B"
+      ],
+      "spice": 21,
+      "cards": []
+    },
+    {
+      "player": "Collin Moser",
+      "rank": "Top64",
+      "players": 98,
+      "event": "Premodern Buckeye Brawl @ Retromancers",
+      "date": "21-Feb -2026",
+      "url": "https://mtgdecks.net/Premodern/deck-decklist-by-collin-moser-2818958",
+      "colors": [
+        "U",
+        "B"
+      ],
+      "spice": 20,
+      "cards": []
+    }
+  ],
+  "Pyrostatic Oath": [
+    {
+      "player": "Patr\u00edcio Duarte...",
+      "rank": "Top8",
+      "players": 51,
+      "event": "LWPP fevereiro/2026 top8 @ Premodern Portugal",
+      "date": "15-Feb -2026",
+      "url": "https://mtgdecks.net/Premodern/pyro-oath-decklist-by-patricio-duarte-2812846",
+      "colors": [
+        "G",
+        "R"
+      ],
+      "spice": 18,
+      "cards": []
+    },
+    {
+      "player": "Abravo93",
+      "rank": "Top32",
+      "players": 64,
+      "event": "Png on Air - Live in Medina EP.02 Moralzarzal Edition",
+      "date": "20-Jul -2024",
+      "url": "https://mtgdecks.net/Premodern/avocado-toast-decklist-by-abravo93-2129001",
+      "colors": [
+        "G",
+        "R"
+      ],
+      "spice": 46,
+      "cards": []
+    },
+    {
+      "player": "Abravo93",
+      "rank": "W/L",
+      "players": 63,
+      "event": "MTG 8\u00aa Liga PNG 1\u00aa Jornada",
+      "date": "10-Mar -2025",
+      "url": "https://mtgdecks.net/Premodern/rg-control-decklist-by-abravo93-2395243",
+      "colors": [
+        "G",
+        "R"
+      ],
+      "spice": 43,
+      "cards": []
+    },
+    {
+      "player": "DrPhilsTherapis...",
+      "rank": "Top64",
+      "players": 60,
+      "event": "Evansville Eternal Open 2025 - Charity Premodern Tournament...",
+      "date": "12-Jul -2025",
+      "url": "https://mtgdecks.net/Premodern/gruul-decklist-by-drphilstherapist-2551543",
+      "colors": [
+        "G",
+        "R"
+      ],
+      "spice": 27,
+      "cards": []
+    },
+    {
+      "player": "PauR17",
+      "rank": "Top64",
+      "players": 56,
+      "event": "1st Hungarian Premodern Nationals @PreTownRivers",
+      "date": "21-Feb -2026",
+      "url": "https://mtgdecks.net/Premodern/deck-decklist-by-paur17-2817495",
+      "colors": [
+        "W",
+        "G",
+        "R"
+      ],
+      "spice": 19,
+      "cards": []
+    }
+  ],
   "RW Aggro": [],
   "Reanimator": [],
   "Rebels": [],
