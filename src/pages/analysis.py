@@ -266,6 +266,8 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
                 'R': '#E49977', 'G': '#A3C095', 'C': '#CCCCCC'
             }
             
+            import textwrap
+            
             # Wrap in a styled container
             html_content = '<div style="background-color: #1A1A1A; border: 1px solid #2A2A2A; border-radius: 8px; padding: 16px;">'
             
@@ -308,7 +310,9 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
                     </div>
                 </div>
                 """
-                html_content += html_block
+                
+                # Dedent is crucial here! Streamlit markdown treats 4+ spaces as a code block.
+                html_content += textwrap.dedent(html_block)
             
             html_content += '</div>'
             st.markdown(html_content, unsafe_allow_html=True)
