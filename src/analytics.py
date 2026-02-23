@@ -5,9 +5,28 @@ import os
 from scipy.stats import norm
 
 def load_period_data(data_dir, period):
-    """Load JSON data for a specific period."""
-    matrix_path = os.path.join(data_dir, f"archetype_matrix_{period}.json")
-    records_path = os.path.join(data_dir, f"win_loss_records_{period}.json")
+    if period.startswith("mtgdecks_matrix"):
+        matrix_path = os.path.join(data_dir, f"{period}.json")
+        with open(matrix_path, 'r', encoding='utf-8') as f:
+            matrix_data = json.load(f)
+            
+        records_data = []
+        for arch, matchups in matrix_data.get("matrix", {}).items():
+            wins, losses, draws, matches = 0, 0, 0, 0
+            for opp, stats in matchups.items():
+                wins += stats.get("wins", 0)
+                losses += stats.get("losses", 0)
+                matches += stats.get("total_matches", 0)
+            if matches > 0:
+                records_data.append({
+                    "archetype": arch,
+                    "wins": wins,
+                    "losses": losses,
+                    "draws": draws,
+                    "total_matches": matches,
+                    "win_rate": wins / matches
+                })
+        return matrix_data, records_data
     
     with open(matrix_path, 'r', encoding='utf-8') as f:
         matrix_data = json.load(f)
@@ -15,6 +34,42 @@ def load_period_data(data_dir, period):
     with open(records_path, 'r', encoding='utf-8') as f:
         records_data = json.load(f)
         
+    # Apply DURESS_TO_MTGDECKS mapping for local duress files
+    from src.mappings import DURESS_TO_MTGDECKS
+    import copy
+    
+    mapped_archetypes = []
+    for a in matrix_data.get('archetypes', []):
+        mapped_archetypes.append(DURESS_TO_MTGDECKS.get(a, a))
+    matrix_data['archetypes'] = sorted(list(set(mapped_archetypes)))
+    
+    mapped_matrix = {}
+    for old_arch, opps in matrix_data.get('matrix', {}).items():
+        new_arch = DURESS_TO_MTGDECKS.get(old_arch, old_arch)
+        if new_arch not in mapped_matrix: mapped_matrix[new_arch] = {}
+        
+        for old_opp, stats in opps.items():
+            new_opp = DURESS_TO_MTGDECKS.get(old_opp, old_opp)
+            
+            # Combine stats if multiple old map to same new
+            if new_opp not in mapped_matrix[new_arch]:
+                new_stats = copy.deepcopy(stats)
+                new_stats['archetype'] = new_opp
+                mapped_matrix[new_arch][new_opp] = new_stats
+            else:
+                existing = mapped_matrix[new_arch][new_opp]
+                existing['wins'] += stats.get('wins', 0)
+                existing['losses'] += stats.get('losses', 0)
+                existing['draws'] += stats.get('draws', 0)
+                existing['total_matches'] += stats.get('total_matches', 0)
+                if existing['total_matches'] > 0:
+                    existing['win_rate'] = (existing['wins'] + existing['draws']*0.5) / existing['total_matches']
+                    
+    matrix_data['matrix'] = mapped_matrix
+    
+    for rec in records_data:
+        rec['archetype'] = DURESS_TO_MTGDECKS.get(rec.get('archetype'), rec.get('archetype'))
+            
     return matrix_data, records_data
 
 def wilson_score_interval(wins, total, confidence=0.95):

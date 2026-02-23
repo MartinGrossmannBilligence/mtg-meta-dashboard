@@ -13,14 +13,14 @@ apply_custom_css()
 # ── 2. Constants ──────────────────────────────────────────────────────────────
 DATA_DIR = "data"
 TIMEFRAMES = {
+    "6 Months": "mtgdecks_matrix_6_months",
+    "2 Months": "mtgdecks_matrix_2_months",
+    "1 Month":  "mtgdecks_matrix_1_month",
     "All Time": "all_time",
-    "2 Years":  "2_years",
-    "1 Year":   "1_year",
-    "6 Months": "6_months",
 }
 
 @st.cache_data(ttl=3600)
-def get_cached_data(period_key):
+def get_cached_period_data(period_key):
     return load_period_data(DATA_DIR, TIMEFRAMES[period_key])
 
 # "Premodern Meta Lab" title is injected above the nav links via CSS ::before
@@ -31,15 +31,16 @@ with st.sidebar:
     st.divider()
     
     st.markdown(
-        '<div class="source-pill">Based on <a href="https://data.duresscrew.com/" target="_blank">Duress Crew</a> data.</div>',
+        '<div class="source-pill">Primary data from <b>MTGDecks.net</b>.<br>All-Time historicals from <a href="https://data.duresscrew.com/" target="_blank">Duress Crew</a>.</div>',
         unsafe_allow_html=True,
     )
 
 # ── 4. Data ───────────────────────────────────────────────────────────────────
 try:
-    matrix_data, records_data = get_cached_data(period_name)
+    matrix_data, records_data = get_cached_period_data(period_name)
     all_archetypes = matrix_data["archetypes"]
     matrix_dict    = matrix_data["matrix"]
+    tiers_dict     = matrix_data.get("tiers", {})
 except Exception as e:
     st.error(f"Failed to load data: {e}")
     st.stop()
@@ -49,7 +50,7 @@ def run_analysis():
     show_analysis(matrix_dict, all_archetypes, records_data, DATA_DIR, TIMEFRAMES)
 
 def run_meta_overview():
-    show_meta_overview(matrix_dict, all_archetypes, records_data, DATA_DIR, TIMEFRAMES)
+    show_meta_overview(matrix_dict, all_archetypes, records_data, DATA_DIR, TIMEFRAMES, tiers_dict)
 
 def run_simulator():
     show_simulator(matrix_dict, all_archetypes, records_data)

@@ -10,7 +10,8 @@ def _style(df, col):
     except AttributeError:
         return df.style.applymap(style_winrate, subset=[col])
 
-def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, timeframes):
+def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, timeframes, tiers_dict=None):
+    if tiers_dict is None: tiers_dict = {}
     st.markdown("<h1>Meta Overview</h1>", unsafe_allow_html=True)
     st.markdown(
         '<p style="color:#8A8A8A; font-size:13px; margin-top:-16px; margin-bottom:12px;">'
@@ -112,13 +113,41 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
 
     # ─── TAB 2: MATCHUP MATRIX ───────────────────────────────────────────────
     with tab_matchups:
+        st.markdown("#### Filter Matchups")
+        
+        # Determine available tiers
+        available_tiers = sorted(list(set(tiers_dict.values()))) if tiers_dict else []
+        default_tiers = ["Tier 1"] if "Tier 1" in available_tiers else available_tiers
+        
+        t1, t2 = st.columns([2, 2])
+        with t1:
+            if available_tiers:
+                selected_tiers = st.multiselect(
+                    "Filter by Tiers",
+                    available_tiers,
+                    default=default_tiers,
+                    key="overview_tier_select"
+                )
+            else:
+                selected_tiers = []
+                
+        # Filter all_archetypes based on selected tiers
+        filtered_archetypes = all_archetypes
+        if selected_tiers and tiers_dict:
+            filtered_archetypes = [a for a in all_archetypes if tiers_dict.get(a) in selected_tiers]
+        
+        if not filtered_archetypes:
+            filtered_archetypes = all_archetypes[:10] # fallback
+            
+        default_decks = filtered_archetypes[:15] # Don't select too many by default
+
         # ── SHARED DECK SELECTOR ─────────────────────────────────────────
         f1, f2, f3 = st.columns([3, 1, 1])
         with f1:
             selected_decks = st.multiselect(
                 "Select Decks",
-                all_archetypes,
-                default=all_archetypes[:10],
+                all_archetypes, # Can still pick any
+                default=default_decks,
                 key="overview_deck_select",
             )
         with f2:

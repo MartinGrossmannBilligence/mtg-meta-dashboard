@@ -107,6 +107,25 @@ def get_recent_top_decks(archetype_name):
                 rank_lower = rank_text.lower()
                 is_top_8 = any(r == rank_lower or rank_lower.startswith(r) for r in valid_ranks)
                 
+                # If players isn't given but we have a match record like "5-0", estimate minimum players
+                if players == 0:
+                    match_record = re.match(r'^(\d+)-(\d+)(?:-(\d+))?$', rank_text)
+                    if match_record:
+                        wins = int(match_record.group(1))
+                        losses = int(match_record.group(2))
+                        draws = int(match_record.group(3)) if match_record.group(3) else 0
+                        total_rounds = wins + losses + draws
+                        
+                        if total_rounds >= 8: players = 129
+                        elif total_rounds == 7: players = 65
+                        elif total_rounds == 6: players = 33
+                        elif total_rounds == 5: players = 17
+                        elif total_rounds == 4: players = 9
+                        elif total_rounds == 3: players = 4
+                        # Also, if they have a strong winning record like "5-0", they essentially won the tournament or league
+                        if wins >= 3 and losses == 0:
+                            is_top_8 = True
+                
                 if players >= 50 and is_top_8:
                     top_decks.append({
                         "player": player,
