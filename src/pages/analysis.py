@@ -122,7 +122,12 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
         st.markdown('<div style="margin: 8px 0 12px 0; border-top: 1px solid #222222;"></div>', unsafe_allow_html=True)
 
         # --- WIN RATE HISTORY ---
-        st.subheader("Win Rate Trend")
+        st.markdown(
+            "#### Win Rate Trend "
+            "<span title='Each point shows the overall win rate across all recorded matches in that time window (e.g. 6 Months = all matches from the last 6 months combined).' "
+            "style='cursor:help; font-size:16px; color:#8A8A8A; opacity:0.8;'>&#9432;</span>",
+            unsafe_allow_html=True,
+        )
     
 
 
