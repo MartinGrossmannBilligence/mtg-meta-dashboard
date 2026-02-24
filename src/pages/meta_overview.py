@@ -80,6 +80,23 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
                 margin=dict(l=0, r=0, t=20, b=0),
             )
             fig_t.update_yaxes(tickformat=".0%", range=[0.3, 0.7])
+            # Add deck icons at the last data point of each line
+            from src.ui import get_icon_b64
+            last_period = existing[-1] if existing else None
+            if last_period:
+                for deck in valid_trend_decks:
+                    wr_val = pivot_wr.loc[deck].get(last_period)
+                    if pd.notna(wr_val):
+                        ib64 = get_icon_b64(deck, data_dir)
+                        if ib64:
+                            fig_t.add_layout_image(
+                                source=f"data:image/jpeg;base64,{ib64}",
+                                xref="x", yref="y",
+                                x=last_period, y=wr_val,
+                                xanchor="left", yanchor="middle",
+                                sizex=0.3, sizey=0.05,
+                                layer="above",
+                            )
             st.plotly_chart(fig_t, use_container_width=True)
 
     tab_stats, tab_matchups = st.tabs(["Metagame Stats", "Matchup Matrix"])
