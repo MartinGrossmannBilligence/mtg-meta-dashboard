@@ -20,7 +20,7 @@ def get_icon_b64(deck_name, data_dir="data"):
 
 def html_deck_table(df, columns, deck_col="Deck", wr_col="Win Rate", data_dir="data"):
     """Render a dataframe as HTML table with deck icons and colored win rates."""
-    header = ''.join(f'<th style="padding:6px 8px;text-align:left;border-bottom:1px solid #333;color:#8A8A8A;font-size:12px;">{c}</th>' for c in columns)
+    header = ''.join(f'<th style="padding:6px 8px;text-align:left;border-bottom:1px solid #333;color:#8A8A8A;font-size:13px;">{c}</th>' for c in columns)
     rows = ''
     for _, row in df.iterrows():
         cells = ''
@@ -29,16 +29,16 @@ def html_deck_table(df, columns, deck_col="Deck", wr_col="Win Rate", data_dir="d
             if c == deck_col:
                 b64 = get_icon_b64(val, data_dir)
                 img = f'<img src="data:image/jpeg;base64,{b64}" style="width:28px;height:20px;object-fit:cover;border-radius:3px;margin-right:6px;vertical-align:middle;border:1px solid #333;">' if b64 else ''
-                cells += f'<td style="padding:5px 8px;font-size:13px;">{img}{val}</td>'
+                cells += f'<td style="padding:5px 8px;font-size:14px;">{img}{val}</td>'
             elif c == wr_col:
                 try:
                     v = float(val.strip('%')) / 100
                 except:
                     v = 0.5
                 color = THEME['success'] if v > 0.55 else THEME['danger'] if v < 0.45 else THEME['warning'] if v < 0.50 else THEME['text']
-                cells += f'<td style="padding:5px 8px;font-size:13px;color:{color};font-weight:600;">{val}</td>'
+                cells += f'<td style="padding:5px 8px;font-size:14px;color:{color};font-weight:600;">{val}</td>'
             else:
-                cells += f'<td style="padding:5px 8px;font-size:13px;color:#AAA;">{val}</td>'
+                cells += f'<td style="padding:5px 8px;font-size:14px;color:#AAA;">{val}</td>'
         rows += f'<tr style="border-bottom:1px solid #222;">{cells}</tr>'
     return f'<table style="width:100%;border-collapse:collapse;background:#1A1A1A;border-radius:6px;"><thead><tr>{header}</tr></thead><tbody>{rows}</tbody></table>'
 

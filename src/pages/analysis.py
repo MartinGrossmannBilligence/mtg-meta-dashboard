@@ -35,7 +35,7 @@ def _wr_color_str(wr_str):
 
 def _html_matchup_table(df, columns, data_dir="data"):
     """Render a matchup dataframe as an HTML table with deck icons."""
-    header = ''.join(f'<th style="padding:6px 8px; text-align:left; border-bottom:1px solid #333; color:#8A8A8A; font-size:12px;">{c}</th>' for c in columns)
+    header = ''.join(f'<th style="padding:6px 8px; text-align:left; border-bottom:1px solid #333; color:#8A8A8A; font-size:13px;">{c}</th>' for c in columns)
     rows_html = ''
     for _, row in df.iterrows():
         cells = ''
@@ -44,12 +44,12 @@ def _html_matchup_table(df, columns, data_dir="data"):
             if c == 'Opponent':
                 b64 = _get_icon_b64(val, data_dir)
                 img = f'<img src="data:image/jpeg;base64,{b64}" style="width:28px;height:20px;object-fit:cover;border-radius:3px;margin-right:6px;vertical-align:middle;border:1px solid #333;">' if b64 else ''
-                cells += f'<td style="padding:5px 8px; font-size:13px;">{img}{val}</td>'
+                cells += f'<td style="padding:5px 8px; font-size:14px;">{img}{val}</td>'
             elif c == 'Win Rate':
                 color = _wr_color_str(val)
-                cells += f'<td style="padding:5px 8px; font-size:13px; color:{color}; font-weight:600;">{val}</td>'
+                cells += f'<td style="padding:5px 8px; font-size:14px; color:{color}; font-weight:600;">{val}</td>'
             else:
-                cells += f'<td style="padding:5px 8px; font-size:13px; color:#AAA;">{val}</td>'
+                cells += f'<td style="padding:5px 8px; font-size:14px; color:#AAA;">{val}</td>'
         rows_html += f'<tr style="border-bottom:1px solid #222;">{cells}</tr>'
     return f'<table style="width:100%; border-collapse:collapse; background:#1A1A1A; border-radius:6px;"><thead><tr>{header}</tr></thead><tbody>{rows_html}</tbody></table>'
 
