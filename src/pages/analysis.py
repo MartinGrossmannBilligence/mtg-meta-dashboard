@@ -338,16 +338,9 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
                 with open(path, "rb") as f:
                     return base64.b64encode(f.read()).decode(), path
 
-            MANA_ICON_DATA = {c: _get_mana_b64(c) for c in ['W', 'U', 'B', 'R', 'G']}
-            MANA_ICONS = {c: data[0] for c, data in MANA_ICON_DATA.items()}
+            MANA_ICONS = {c: _get_mana_b64(c)[0] for c in ['W', 'U', 'B', 'R', 'G']}
             # Add a generic colorless diamond
             MANA_ICONS['C'] = 'PHN2ZyB2aWV3Qm94PSIwIDAgMzIgMzIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTUiIGZpbGw9IiNBM0EzQTMiIC8+PHBhdGggZD0iTTE2IDhsNiA4bC02IDhsLTYtOHoiIGZpbGw9IiMwMDAiIC8+PC9zdmc+'
-            
-            # DEBUG: Check which icons loaded
-            loaded = [c for c, b in MANA_ICONS.items() if b]
-            if len(loaded) < 6:
-                failed_paths = {c: MANA_ICON_DATA[c][1] for c in ['W', 'U', 'B', 'R', 'G'] if not MANA_ICONS.get(c)}
-                st.caption(f"Debug: Loaded {loaded}, Failed: {failed_paths}")
             
             import textwrap
             
