@@ -132,7 +132,7 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
             d_all = df_rec.copy()
             
             # matrix_dict is now the full matrix_data object
-            matchups_matrix = matrix_dict.get("matrix", {})
+            matchups_matrix = matrix_dict.get("matrix", matrix_dict) 
             meta_shares     = matrix_dict.get("meta_shares", {})
             def _get_share(deck):
                 s = meta_shares.get(deck)

@@ -13,15 +13,15 @@ apply_custom_css()
 # ── 2. Constants ──────────────────────────────────────────────────────────────
 DATA_DIR = "data"
 TIMEFRAMES = {
-    "All Time": "mtgdecks_matrix_all_time",
-    "1 Year":   "mtgdecks_matrix_1_year",
+    "All Time": "all_time",
+    "1 Year":   "1_year",
     "6 Months": "mtgdecks_matrix_6_months",
     "2 Months": "mtgdecks_matrix_2_months",
 }
 
 @st.cache_data(ttl=3600)
 def get_cached_period_data(period_key):
-    # Cache busting: v2
+    # Cache busting: v3
     return load_period_data(DATA_DIR, TIMEFRAMES[period_key])
 
 # "Premodern Meta Lab" title is injected above the nav links via CSS ::before
@@ -32,12 +32,12 @@ with st.sidebar:
         "Choose Timeframe", 
         list(TIMEFRAMES.keys()), 
         index=0,
-        help="Aggregated performance data summarizing all recorded matches within the selected time window."
+        help="Aggregated performance data summarizing all recorded matches within the selected time window (e.g., last 6 months or 1 year)."
     )
     st.divider()
     
     st.markdown(
-        '<div class="source-pill">Primary data from <b>MTGDecks.net</b>.</div>',
+        '<div class="source-pill">Primary data from <b>MTGDecks.net</b>.<br>All-Time & 1 Year data based on <a href="https://data.duresscrew.com/" target="_blank">Duress Crew</a> data.</div>',
         unsafe_allow_html=True,
     )
     st.markdown('<div style="flex-grow:1;"></div>', unsafe_allow_html=True)
