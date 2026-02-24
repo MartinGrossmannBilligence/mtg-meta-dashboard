@@ -259,7 +259,7 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
             return d
 
         with col_best:
-            col_best.markdown("###### Best Matchups")
+            col_best.markdown("###### Best Matchups <span title='Matchups with fewer than 20 games are deprioritized to ensure statistical reliability.' style='cursor:help; font-size:14px; color:#8A8A8A; opacity:0.8;'>&#9432;</span>", unsafe_allow_html=True)
         
         # Split into reliable (>= 20 games) and unreliable (< 20 games)
         if not df_prof.empty:
