@@ -5,6 +5,7 @@ import plotly.graph_objects as go
 from src.analytics import load_period_data, wilson_score_interval, calculate_polarity
 from src.ui import THEME, style_winrate
 import os
+import json
 
 def _quality_badge(games):
     if games >= 50: return "High"
@@ -260,9 +261,7 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
 
 
     with tab_decks:
-        import os
-        import json
-        
+
         decklists_file = os.path.join(data_dir, "decklists.json")
         decks = []
         if os.path.exists(decklists_file):
