@@ -41,7 +41,7 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
     if not custom_defaults:
         custom_defaults = tier1_decks if tier1_decks else all_archetypes[:15]
 
-    def _draw_trend_chart(selected_decks_list):
+    def _draw_trend_chart(selected_decks_list, key_suffix=""):
         st.subheader("Win Rate Trends")
         
 
@@ -92,7 +92,7 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
                             xshift=8,
                             font=dict(size=10, family="IBM Plex Mono"),
                         )
-            st.plotly_chart(fig_t, use_container_width=True)
+            st.plotly_chart(fig_t, use_container_width=True, key=f"trend_chart_{key_suffix}")
 
     tab_stats, tab_matchups = st.tabs(["Metagame Stats", "Matchup Matrix"])
 
@@ -163,15 +163,8 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
                 key="stats_trend_decks",
             )
             if selected_trend_decks_stats:
-                _draw_trend_chart(selected_trend_decks_stats)
+                _draw_trend_chart(selected_trend_decks_stats, key_suffix="stats")
 
-    # User's preferred default decks for the overview and trends
-    user_preferred = ["Replenish", "Goblins", "Landstill", "Burn", "Stiflenought"]
-    custom_defaults = [d for d in user_preferred if d in all_archetypes]
-    
-    # If we don't find all of them exactly, fallback to any that partially match or tier1
-    if not custom_defaults:
-        custom_defaults = tier1_decks if tier1_decks else all_archetypes[:15]
 
     # ─── TAB 2: MATCHUP MATRIX ───────────────────────────────────────────────
     with tab_matchups:
@@ -249,5 +242,5 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
         st.markdown('<div style="margin: 8px 0 12px 0; border-top: 1px solid #222222;"></div>', unsafe_allow_html=True)
 
         # ─── WIN RATE TRENDS ─────────────────────────────────────────────
-        _draw_trend_chart(selected_decks)
+        _draw_trend_chart(selected_decks, key_suffix="matrix")
 
