@@ -1,5 +1,47 @@
 import streamlit as st
+import os
+import base64
 from src.bg_data import BG_TOG_V10_B64
+
+_icon_cache = {}
+def get_icon_b64(deck_name, data_dir="data"):
+    """Return base64-encoded JPEG art_crop for a deck (cached)."""
+    if deck_name in _icon_cache:
+        return _icon_cache[deck_name]
+    slug = deck_name.lower().replace(" ", "_").replace("/", "_").replace("'", "")
+    path = os.path.join(data_dir, "..", "assets", "deck_icons", f"{slug}.jpg")
+    if os.path.exists(path):
+        with open(path, "rb") as f:
+            _icon_cache[deck_name] = base64.b64encode(f.read()).decode()
+    else:
+        _icon_cache[deck_name] = None
+    return _icon_cache[deck_name]
+
+def html_deck_table(df, columns, deck_col="Deck", wr_col="Win Rate", data_dir="data"):
+    """Render a dataframe as HTML table with deck icons and colored win rates."""
+    header = ''.join(f'<th style="padding:6px 8px;text-align:left;border-bottom:1px solid #333;color:#8A8A8A;font-size:12px;">{c}</th>' for c in columns)
+    rows = ''
+    for _, row in df.iterrows():
+        cells = ''
+        for c in columns:
+            val = str(row.get(c, ''))
+            if c == deck_col:
+                b64 = get_icon_b64(val, data_dir)
+                img = f'<img src="data:image/jpeg;base64,{b64}" style="width:28px;height:20px;object-fit:cover;border-radius:3px;margin-right:6px;vertical-align:middle;border:1px solid #333;">' if b64 else ''
+                cells += f'<td style="padding:5px 8px;font-size:13px;">{img}{val}</td>'
+            elif c == wr_col:
+                try:
+                    v = float(val.strip('%')) / 100
+                except:
+                    v = 0.5
+                color = THEME['success'] if v > 0.55 else THEME['danger'] if v < 0.45 else THEME['warning'] if v < 0.50 else THEME['text']
+                cells += f'<td style="padding:5px 8px;font-size:13px;color:{color};font-weight:600;">{val}</td>'
+            else:
+                cells += f'<td style="padding:5px 8px;font-size:13px;color:#AAA;">{val}</td>'
+        rows += f'<tr style="border-bottom:1px solid #222;">{cells}</tr>'
+    return f'<table style="width:100%;border-collapse:collapse;background:#1A1A1A;border-radius:6px;"><thead><tr>{header}</tr></thead><tbody>{rows}</tbody></table>'
+
+
 
 # DURESS MONO Design Tokens
 THEME = {

@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 from src.analytics import calculate_expected_winrate
-from src.ui import THEME, style_winrate
+from src.ui import THEME, style_winrate, html_deck_table
 
 def show_simulator(matrix_dict, all_archetypes, records_data):
     st.markdown("<h1>Tournament Simulator</h1>", unsafe_allow_html=True)
@@ -45,10 +45,7 @@ def show_simulator(matrix_dict, all_archetypes, records_data):
                 st.subheader("Best Deck for the Field")
                 d = ev_df[["#", "Deck", "Projected Win Rate"]].head(10).copy()
                 d["Projected Win Rate"] = d["Projected Win Rate"].map(lambda x: f"{x:.1%}")
-                st.dataframe(
-                    d.style.applymap(style_winrate, subset=["Projected Win Rate"]),
-                    use_container_width=True, hide_index=True
-                )
+                st.markdown(html_deck_table(d, ["#", "Deck", "Projected Win Rate"], wr_col="Projected Win Rate"), unsafe_allow_html=True)
 
             with res_c2:
                 st.subheader("Visual Ranking")

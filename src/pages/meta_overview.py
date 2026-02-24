@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 from src.analytics import get_period_comparison, wilson_score_interval
-from src.ui import THEME, style_winrate
+from src.ui import THEME, style_winrate, html_deck_table
 
 def _style(df, col):
     try:
@@ -105,13 +105,13 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
                 st.subheader("Best 5 Win Rate Decks")
                 d = df_reliable.head(5)[["Deck", "Win Rate", "Games"]].copy()
                 d["Win Rate"] = d["Win Rate"].map(lambda x: f"{x:.1%}")
-                st.dataframe(_style(d, "Win Rate"), use_container_width=True, hide_index=True)
+                st.markdown(html_deck_table(d, ["Deck", "Win Rate", "Games"], data_dir=data_dir), unsafe_allow_html=True)
 
             with c_bot:
                 st.subheader("Worst 5 Win Rate Decks")
                 d = df_reliable.tail(5).sort_values("Win Rate", ascending=True)[["Deck", "Win Rate", "Games"]].copy()
                 d["Win Rate"] = d["Win Rate"].map(lambda x: f"{x:.1%}")
-                st.dataframe(_style(d, "Win Rate"), use_container_width=True, hide_index=True)
+                st.markdown(html_deck_table(d, ["Deck", "Win Rate", "Games"], data_dir=data_dir), unsafe_allow_html=True)
 
             st.markdown('<div style="margin: 8px 0 12px 0; border-top: 1px solid #222222;"></div>', unsafe_allow_html=True)
 
@@ -130,7 +130,7 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
             d_all = d_all[["Deck", "Win Rate", "Confidence Interval", "Games"]].rename(columns={"Games": "Sample Size"})
             d_all["Win Rate"] = d_all["Win Rate"].map(lambda x: f"{x:.1%}")
             
-            st.dataframe(_style(d_all, "Win Rate"), use_container_width=True, hide_index=True)
+            st.markdown(html_deck_table(d_all, ["Deck", "Win Rate", "Confidence Interval", "Sample Size"], data_dir=data_dir), unsafe_allow_html=True)
 
             st.markdown('<div style="margin: 8px 0 12px 0; border-top: 1px solid #222222;"></div>', unsafe_allow_html=True)
             selected_trend_decks_stats = st.multiselect(
