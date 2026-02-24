@@ -32,7 +32,9 @@ def show_simulator(matrix_dict, all_archetypes, records_data):
 
     if st.button("Calculate Projected EV", type="primary"):
         with st.spinner("Simulating..."):
-            evs = calculate_expected_winrate(meta_shares, matrix_dict, all_archetypes)
+            # matrix_dict is now the full matrix_data object
+            matchups_matrix = matrix_dict.get("matrix", matrix_dict)
+            evs = calculate_expected_winrate(meta_shares, matchups_matrix, all_archetypes)
             ev_df = pd.DataFrame(list(evs.items()), columns=["Deck", "Projected Win Rate"])
             ev_df = ev_df.sort_values("Projected Win Rate", ascending=False).reset_index(drop=True)
             ev_df["#"] = ev_df.index + 1
