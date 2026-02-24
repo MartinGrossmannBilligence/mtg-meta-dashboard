@@ -51,7 +51,7 @@ def _html_matchup_table(df, columns, data_dir="data"):
             else:
                 cells += f'<td style="padding:5px 8px; font-size:14px; color:#AAA;">{val}</td>'
         rows_html += f'<tr style="border-bottom:1px solid #222;">{cells}</tr>'
-    return f'<table style="width:100%; border-collapse:collapse; background:#1A1A1A; border-radius:6px;"><thead><tr>{header}</tr></thead><tbody>{rows_html}</tbody></table>'
+    return f'<table style="width:100%; border-collapse:collapse; background:#1A1A1A; border-radius:8px; overflow:hidden;"><thead><tr>{header}</tr></thead><tbody>{rows_html}</tbody></table>'
 
 def _quality_badge(games):
     if games >= 50: return "High"

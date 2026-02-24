@@ -40,7 +40,7 @@ def html_deck_table(df, columns, deck_col="Deck", wr_col="Win Rate", data_dir="d
             else:
                 cells += f'<td style="padding:5px 8px;font-size:14px;color:#AAA;">{val}</td>'
         rows += f'<tr style="border-bottom:1px solid #222;">{cells}</tr>'
-    return f'<table style="width:100%;border-collapse:collapse;background:#1A1A1A;border-radius:6px;"><thead><tr>{header}</tr></thead><tbody>{rows}</tbody></table>'
+    return f'<table style="width:100%;border-collapse:collapse;background:#1A1A1A;border-radius:8px;overflow:hidden;"><thead><tr>{header}</tr></thead><tbody>{rows}</tbody></table>'
 
 # DURESS MONO Design Tokens
 THEME = {
@@ -370,7 +370,7 @@ def apply_custom_css():
 
         /* ── Source link (small muted footer in sidebar) ──────────────────── */
         .source-pill {{
-            font-size: 12px;
+            font-size: 11px;
             color: {THEME['faint']};
             font-family: 'IBM Plex Mono', monospace;
         }}
