@@ -15,7 +15,7 @@ DATA_DIR = "data"
 TIMEFRAMES = {
     "All Time": "all_time",
     "1 Year":   "1_year",
-    "6 Months": "6_months",
+    "6 Months": "mtgdecks_matrix_6_months",
     "2 Months": "mtgdecks_matrix_2_months",
 }
 
@@ -31,7 +31,7 @@ with st.sidebar:
         "Choose Timeframe", 
         list(TIMEFRAMES.keys()), 
         index=0,
-        help="All Time, 1 Year, and 6 Months data are based on Duress Crew historicals. 2 Months data is sourced from MTGDecks recent meta."
+        help="All Time and 1 Year data are historicals from Duress Crew. 6 Months and 2 Months data are sourced from MTGDecks."
     )
     st.divider()
     
