@@ -147,39 +147,44 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
     with tab_stats:
         # Get meta share for this archetype
         meta_shares = matrix_dict.get("meta_shares", {})
-        # MTGDecks names in metagame table are often uppercase
         share = meta_shares.get(target_deck)
-        if share is None:
-            share = meta_shares.get(target_deck.upper())
+        if share is None: share = meta_shares.get(target_deck.upper())
         share_display = f"{share:.1%}" if share is not None else "N/A"
 
-        # --- KPI ROW (3 columns) ---
-        st.markdown(
-            f"""
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px;">
-                <div style="background: #1A1A1A; padding: 16px; border-radius: 8px; border: 1px solid #333; text-align: center;">
-                    <div style="color: #8A8A8A; font-size: 13px; margin-bottom: 4px;">Matches</div>
-                    <div style="color: #FFF; font-size: 24px; font-weight: 600;">{total_games:,}</div>
-                </div>
-                <div style="background: #1A1A1A; padding: 16px; border-radius: 8px; border: 1px solid #333; text-align: center;">
-                    <div style="color: #8A8A8A; font-size: 13px; margin-bottom: 4px;">Meta Share</div>
-                    <div style="color: #FFF; font-size: 24px; font-weight: 600;">{share_display}</div>
-                </div>
-                <div style="background: #1A1A1A; padding: 16px; border-radius: 8px; border: 1px solid #333; text-align: center;">
-                    <div style="color: #8A8A8A; font-size: 13px; margin-bottom: 4px;">Win Rate</div>
-                    <div style="color: {_wr_color_str(f'{overall_wr:.1%}')}; font-size: 24px; font-weight: 600;">{overall_wr:.1%}</div>
-                </div>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
+        # --- KPI ROW (5 columns) ---
+        c1, c2, c3, c4, c5 = st.columns(5)
+        
+        with c1:
+            st.metric("Overall Win Rate", f"{overall_wr:.1%}")
+        with c2:
+            st.metric("Total Games", f"{total_games:,}")
+        with c3:
+            st.metric("Meta Share", share_display)
+        with c4:
+            if not df_prof.empty:
+                df_prof["Bracket"] = pd.cut(
+                    df_prof["WR"],
+                    bins=[0, 0.45, 0.55, 1.0],
+                    labels=["Unfavoured (<45%)", "Even (45-55%)", "Favoured (>55%)"],
+                )
+                counts = df_prof["Bracket"].value_counts()
+                bad_n  = int(counts.get("Unfavoured (<45%)", 0))
+                even_n = int(counts.get("Even (45-55%)", 0))
+                good_n = int(counts.get("Favoured (>55%)", 0))
 
-        st.markdown(
-            f'<div style="background:#1A1A1A; padding:12px 16px; border-radius:8px; border:1px solid #333; margin-bottom:24px; font-size:14px; color:#AAA;">'
-            f'This deck has a <b>{pct_rank}%</b> polarity score, which means it has a {pct_label}.'
-            f'</div>',
-            unsafe_allow_html=True
-        )
+                st.metric(
+                    "Matchup Distribution",
+                    f"{good_n}↑  {even_n}~  {bad_n}↓",
+                    help=f"{good_n} favoured (>55%) · {even_n} even (45–55%) · {bad_n} unfavoured (<45%)"
+                )
+        with c5:
+            st.metric(
+                "Polarity Index",
+                f"{polarity * 100:.1f}%",
+                help=f"Spread of matchup win rates. {pct_rank}th percentile — {pct_label}.",
+            )
+
+        st.markdown('<div style="margin: 8px 0 12px 0; border-top: 1px solid #222222;"></div>', unsafe_allow_html=True)
 
         # --- WIN RATE HISTORY ---
         st.markdown(
