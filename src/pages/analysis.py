@@ -322,30 +322,32 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
             def _get_mana_b64(color_code):
                 mapping = {'W': 'W', 'U': 'U', 'B': 'B', 'R': 'R', 'G': 'G'}
                 code = mapping.get(color_code)
-                if not code: return None
+                if not code: return None, "No Code"
                 fname = f"mana_{code}_128.webp"
-                # Use absolute path to be sure
-                base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-                path = os.path.join(base_dir, "assets", "mana_symbols", fname)
-                if not os.path.exists(path):
-                    # Fallback to current dir join just in case
-                    path = os.path.join("assets", "mana_symbols", fname)
+                # Use same logic as deck icons
+                path = os.path.join(data_dir, "..", "assets", "mana_symbols", fname)
                 
                 if not os.path.exists(path):
-                    return None
+                    # Fallback to absolute check as secondary
+                    base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+                    path = os.path.join(base_dir, "assets", "mana_symbols", fname)
+                
+                if not os.path.exists(path):
+                    return None, path
                     
                 with open(path, "rb") as f:
-                    return base64.b64encode(f.read()).decode()
+                    return base64.b64encode(f.read()).decode(), path
 
-            MANA_ICONS = {c: _get_mana_b64(c) for c in ['W', 'U', 'B', 'R', 'G']}
-            # Add a generic colorless diamond if needed or fallback
+            MANA_ICON_DATA = {c: _get_mana_b64(c) for c in ['W', 'U', 'B', 'R', 'G']}
+            MANA_ICONS = {c: data[0] for c, data in MANA_ICON_DATA.items()}
+            # Add a generic colorless diamond
             MANA_ICONS['C'] = 'PHN2ZyB2aWV3Qm94PSIwIDAgMzIgMzIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTUiIGZpbGw9IiNBM0EzQTMiIC8+PHBhdGggZD0iTTE2IDhsNiA4bC02IDhsLTYtOHoiIGZpbGw9IiMwMDAiIC8+PC9zdmc+'
             
             # DEBUG: Check which icons loaded
             loaded = [c for c, b in MANA_ICONS.items() if b]
             if len(loaded) < 6:
-                missing = [c for c in ['W', 'U', 'B', 'R', 'G', 'C'] if not MANA_ICONS.get(c)]
-                st.caption(f"Debug: Loaded {loaded}, Missing {missing}")
+                failed_paths = {c: MANA_ICON_DATA[c][1] for c in ['W', 'U', 'B', 'R', 'G'] if not MANA_ICONS.get(c)}
+                st.caption(f"Debug: Loaded {loaded}, Failed: {failed_paths}")
             
             import textwrap
             
