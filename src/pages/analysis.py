@@ -66,7 +66,7 @@ def _style_wr_col(df, col="Win Rate"):
         return df.style.applymap(style_winrate, subset=[col])
 
 def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframes):
-    st.markdown('<h1 style="font-size: 28px;">Deck Analysis</h1>', unsafe_allow_html=True)
+    st.markdown('<h1 style="font-size: 24px;">Deck Analysis</h1>', unsafe_allow_html=True)
 
     # Preserve deck selection across timeframe changes
     try:

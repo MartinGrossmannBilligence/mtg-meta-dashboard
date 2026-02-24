@@ -5,7 +5,7 @@ from src.analytics import calculate_expected_winrate
 from src.ui import THEME, style_winrate, html_deck_table
 
 def show_simulator(matrix_dict, all_archetypes, records_data):
-    st.markdown('<h1 style="font-size: 28px;">Tournament Simulator</h1>', unsafe_allow_html=True)
+    st.markdown('<h1 style="font-size: 24px;">Tournament Simulator</h1>', unsafe_allow_html=True)
 
     st.subheader("1. Field Composition")
     st.caption("Set expected share (%) for each deck. Remaining % auto-assigned to Unknown/Other.")
