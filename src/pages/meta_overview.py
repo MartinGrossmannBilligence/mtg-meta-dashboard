@@ -117,7 +117,7 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
                 st.markdown(html_deck_table(d, ["Deck", "Win Rate", "Games"], data_dir=data_dir), unsafe_allow_html=True)
 
             with c_bot:
-                st.subheader("Worst 5 Decks")
+                st.markdown("###### Worst 5 Decks <span title='Decks with fewer than 20 games are excluded to ensure statistical reliability.' style='cursor:help; font-size:14px; color:#8A8A8A; opacity:0.8;'>&#9432;</span>", unsafe_allow_html=True)
                 d = df_reliable.tail(5).sort_values("Win Rate", ascending=True)[["Deck", "Win Rate", "Games"]].copy()
                 d["Win Rate"] = d["Win Rate"].map(lambda x: f"{x:.1%}")
                 st.markdown(html_deck_table(d, ["Deck", "Win Rate", "Games"], data_dir=data_dir), unsafe_allow_html=True)

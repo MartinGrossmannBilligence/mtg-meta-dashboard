@@ -280,7 +280,7 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
         if not best_matchups.empty:
             col_best.markdown(_html_matchup_table(_prep(best_matchups), ["Opponent", "Win Rate", "Games", "Record"], data_dir), unsafe_allow_html=True)
 
-        col_worst.markdown("###### Worst Matchups")
+        col_worst.markdown("###### Worst Matchups <span title='Matchups with fewer than 20 games are deprioritized to ensure statistical reliability.' style='cursor:help; font-size:14px; color:#8A8A8A; opacity:0.8;'>&#9432;</span>", unsafe_allow_html=True)
         if not worst_matchups.empty:
             col_worst.markdown(_html_matchup_table(_prep(worst_matchups), ["Opponent", "Win Rate", "Games", "Record"], data_dir), unsafe_allow_html=True)
 
