@@ -69,9 +69,23 @@ def load_period_data(data_dir, period):
                     
     matrix_data['matrix'] = mapped_matrix
     
+    # Merge records that map to the same new archetype name
+    merged_records = {}
     for rec in records_data:
-        rec['archetype'] = DURESS_TO_MTGDECKS.get(rec.get('archetype'), rec.get('archetype'))
-            
+        new_name = DURESS_TO_MTGDECKS.get(rec.get('archetype'), rec.get('archetype'))
+        if new_name in merged_records:
+            merged_records[new_name]['wins'] += rec.get('wins', 0)
+            merged_records[new_name]['losses'] += rec.get('losses', 0)
+            merged_records[new_name]['draws'] += rec.get('draws', 0)
+            merged_records[new_name]['total_matches'] += rec.get('total_matches', 0)
+            t = merged_records[new_name]['total_matches']
+            if t > 0:
+                merged_records[new_name]['win_rate'] = (merged_records[new_name]['wins'] + merged_records[new_name]['draws'] * 0.5) / t
+        else:
+            merged_records[new_name] = dict(rec)
+            merged_records[new_name]['archetype'] = new_name
+    records_data = list(merged_records.values())
+
     return matrix_data, records_data
 
 def wilson_score_interval(wins, total, confidence=0.95):
