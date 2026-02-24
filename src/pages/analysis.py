@@ -321,16 +321,31 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
             # Load Official MTG Mana Symbols from local assets
             def _get_mana_b64(color_code):
                 mapping = {'W': 'W', 'U': 'U', 'B': 'B', 'R': 'R', 'G': 'G'}
-                fname = f"mana_{mapping.get(color_code)}_128.webp"
-                path = os.path.join("assets", "mana_symbols", fname)
+                code = mapping.get(color_code)
+                if not code: return None
+                fname = f"mana_{code}_128.webp"
+                # Use absolute path to be sure
+                base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+                path = os.path.join(base_dir, "assets", "mana_symbols", fname)
+                if not os.path.exists(path):
+                    # Fallback to current dir join just in case
+                    path = os.path.join("assets", "mana_symbols", fname)
+                
                 if not os.path.exists(path):
                     return None
+                    
                 with open(path, "rb") as f:
                     return base64.b64encode(f.read()).decode()
 
             MANA_ICONS = {c: _get_mana_b64(c) for c in ['W', 'U', 'B', 'R', 'G']}
             # Add a generic colorless diamond if needed or fallback
             MANA_ICONS['C'] = 'PHN2ZyB2aWV3Qm94PSIwIDAgMzIgMzIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTUiIGZpbGw9IiNBM0EzQTMiIC8+PHBhdGggZD0iTTE2IDhsNiA4bC02IDhsLTYtOHoiIGZpbGw9IiMwMDAiIC8+PC9zdmc+'
+            
+            # DEBUG: Check which icons loaded
+            loaded = [c for c, b in MANA_ICONS.items() if b]
+            if len(loaded) < 6:
+                missing = [c for c in ['W', 'U', 'B', 'R', 'G', 'C'] if not MANA_ICONS.get(c)]
+                st.caption(f"Debug: Loaded {loaded}, Missing {missing}")
             
             import textwrap
             
@@ -360,7 +375,7 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
                     b64 = MANA_ICONS.get(c)
                     if b64:
                         mime = "image/svg+xml" if c == 'C' else "image/webp"
-                        color_dots += f'<img src="data:{mime};base64,{b64}" style="width:16px; height:16px; margin-right:4px; vertical-align:middle;">'
+                        color_dots += f'<img src="data:{mime};base64,{b64}" style="width:16px; height:16px; margin-right:4px; vertical-align:middle;" title="Mana {c}" alt="[{c}]">'
                 
                 # Render spiciness badge if > 0
                 spice = d.get('spice', 0)
