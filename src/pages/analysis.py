@@ -318,15 +318,19 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
             info_text = "Offline snapshots from MTGDecks.net. Prioritizes Top 8 finishes in events with 50+ players. Searches up to 10 pages deep per archetype. Max 10 decks."
             st.markdown(f"<h3>Recent Top Decklists <span title='{info_text}' style='cursor:help; font-size:16px; color:#8A8A8A; opacity:0.8;'>&#9432;</span></h3>", unsafe_allow_html=True)
             
-            # Official MTG Mana Symbols - SVG paths based on user image (Circular with icons)
-            MANA_ICONS = {
-                'W': 'PHN2ZyB2aWV3Qm94PSIwIDAgMzIgMzIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTUiIGZpbGw9IiNGRkJENTIiIC8+PHBhdGggZD0iTTE2IDEwYzAtMy4zIDEuMy02IDMtNnMyIDIgMiA0cy0yLjcgNS01IDV6IiBmaWxsPSIjMDAwIiAvPjxwYXRoIGQ9Ik0xNiAxMGMwIDMuMy0xLjMgNi0zIDZzLTIuNy0yLjctMi43LTZzMi00IDUtNHoiIGZpbGw9IiMwMDAiIHRyYW5zZm9ybT0icm90YXRlKDcyIDE2IDE2KSIgLz48cGF0aCBkPSJNMTYgMTBjMCAzLjMtMS4zIDYtMyA2cy0yLjctMi43LTIuNy02czItNCA1LTR6IiBmaWxsPSIjMDAwIiB0cmFuc2Zvcm09InJvdGF0ZSgxNDQgMTYgMTYpIiAvPjxwYXRoIGQ9Ik0xNiAxMGMwIDMuMy0xLjMgNi0zIDZzLTIuNy0yLjctMi43LTZzMi00IDUtNHoiIGZpbGw9IiMwMDAiIHRyYW5zZm9ybT0icm90YXRlKDIxNiAxNiAxNikiIC8+PHBhdGggZD0iTTE2IDEwYzAtMy4zIDEuMy02IDMtNnMyIDIgMiA0cy0yLjcgNS01IDV6IiBmaWxsPSIjMDAwIiB0cmFuc2Zvcm09InJvdGF0ZSgyODggMTYgMTYpIiAvPjxjaXJjbGUgY3g9IjE2IiBjeT0iMTYiIHI9IjUuNSIgZmlsbD0iI0ZGRkJENTIiIC8+PC9zdmc+',
-                'U': 'PHN2ZyB2aWV3Qm94PSIwIDAgMzIgMzIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTUiIGZpbGw9IiM4NUNEREYiIC8+PHBhdGggZD0iTTE2IDI0YzQtNyA4LTcgOC0xMnMtNC04LTgtOHMtOCA0LTggOHM0IDUgOCAxMnoiIGZpbGw9IiMwMDAiIC8+PC9zdmc+',
-                'B': 'PHN2ZyB2aWV3Qm94PSIwIDAgMzIgMzIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTUiIGZpbGw9IiNBMThGQTIiIC8+PHBhdGggZD0iTTE2IDEyYzItMiA0IDAgNCA0czAgOC00IDEwcy00LTYtNC0xMHM0LTYgNC00em0tNCA0YzAgMyA0IDYgNCA2cyAzLTMgMy02cy0yLTQtMy00cy00IDEtNCA0eiIgZmlsbD0iIzAwMCIgLz48L3N2Zz4=',
-                'R': 'PHN2ZyB2aWV3Qm94PSIwIDAgMzIgMzIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTUiIGZpbGw9IiNGRjZCNjEiIC8+PHBhdGggZD0iTTE2IThjLTIgIDEtNCA1LTQgOXM0IDkgOCAxMXMtNC03LTQtMTF6bTAgMGM0IDIgNCA2IDQgMTFzLTQgLTktOCAtMTF6IiBmaWxsPSIjMDAwIiAvPjwvc3ZnPg==',
-                'G': 'PHN2ZyB2aWV3Qm94PSIwIDAgMzIgMzIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTUiIGZpbGw9IiM0N0FGNUIiIC8+PHBhdGggZD0iTTEyIDIwaDh2MTAgaDE0em0wIDEwYzYtNCAxMi00IDEyIDEwIiBmaWxsPSIjMDAwIiAvPjxwYXRoIGQ9Ik0xNiA2YzMtMSA2IDMgNiA5cy0zIDYtNiA2cy02LTMtNi05czMtMTAgNi05eiIgZmlsbD0iIzAwMCIgLz48L3N2Zz4=',
-                'C': 'PHN2ZyB2aWV3Qm94PSIwIDAgMzIgMzIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTUiIGZpbGw9IiNBM0EzQTMiIC8+PHBhdGggZD0iTTE2IDhsNiA4bC02IDhsLTYtOHoiIGZpbGw9IiMwMDAiIC8+PC9zdmc+',
-            }
+            # Load Official MTG Mana Symbols from local assets
+            def _get_mana_b64(color_code):
+                mapping = {'W': 'W', 'U': 'U', 'B': 'B', 'R': 'R', 'G': 'G'}
+                fname = f"mana_{mapping.get(color_code)}_128.webp"
+                path = os.path.join("assets", "mana_symbols", fname)
+                if not os.path.exists(path):
+                    return None
+                with open(path, "rb") as f:
+                    return base64.b64encode(f.read()).decode()
+
+            MANA_ICONS = {c: _get_mana_b64(c) for c in ['W', 'U', 'B', 'R', 'G']}
+            # Add a generic colorless diamond if needed or fallback
+            MANA_ICONS['C'] = 'PHN2ZyB2aWV3Qm94PSIwIDAgMzIgMzIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTUiIGZpbGw9IiNBM0EzQTMiIC8+PHBhdGggZD0iTTE2IDhsNiA4bC02IDhsLTYtOHoiIGZpbGw9IiMwMDAiIC8+PC9zdmc+'
             
             import textwrap
             
