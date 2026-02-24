@@ -15,5 +15,6 @@ DURESS_TO_MTGDECKS = {
     "Black/White Control": "BW Control",
     "White Weenie": "White Weenie",
     "Gro-a-tog": "Gro-a-Tog",
-    "Sligh": "Sligh", # Keeps name if not found in mtgdecks
+    "Sligh": "Burn",
+    "Moneyball Black": "Mono Black",
 }
