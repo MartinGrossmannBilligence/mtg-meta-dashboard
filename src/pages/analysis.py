@@ -320,8 +320,8 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
             
             # Map mtgdecks color codes to hex codes for visual display
             color_map = {
-                'W': '#F8F6D8', 'U': '#C1D8E9', 'B': '#BAB1AB', 
-                'R': '#E49977', 'G': '#A3C095', 'C': '#CCCCCC'
+                'W': '#FFFBD5', 'U': '#0E68AB', 'B': '#150B00', 
+                'R': '#D3202A', 'G': '#00733E', 'C': '#999999'
             }
             
             import textwrap
