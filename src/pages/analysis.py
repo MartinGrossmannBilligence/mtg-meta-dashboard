@@ -359,7 +359,8 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
                 for c in d.get("colors", []):
                     b64 = MANA_ICONS.get(c)
                     if b64:
-                        color_dots += f'<img src="data:image/svg+xml;base64,{b64}" style="width:14px; height:14px; margin-right:4px; vertical-align:middle;">'
+                        mime = "image/svg+xml" if c == 'C' else "image/webp"
+                        color_dots += f'<img src="data:{mime};base64,{b64}" style="width:16px; height:16px; margin-right:4px; vertical-align:middle;">'
                 
                 # Render spiciness badge if > 0
                 spice = d.get('spice', 0)
@@ -374,7 +375,7 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
                 html_block = f"""
                 <div style="{margin_bottom} {border_bottom}" title="{hover_text}">
                     <div style="display:flex; align-items:center; margin-bottom: 2px;">
-                        <strong style="margin-right:8px; font-size:15px; color:#E0E0E0;">{d['rank']} from {d.get('players', '??')} Players</strong> 
+                        <span style="margin-right:8px; font-size:14px; color:#E0E0E0;"><strong style="color:#FFF;">{d['rank']}</strong> from <strong style="color:#FFF;">{d.get('players', '??')}</strong> Players</span> 
                         <a href="{d['url']}" target="_blank" style="color:#6BC78E; text-decoration:none; margin-right:10px; font-size:15px;">{d['player']}</a>
                         {color_dots}
                         {spice_badge}
