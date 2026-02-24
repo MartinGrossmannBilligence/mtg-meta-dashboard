@@ -4,6 +4,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 from src.analytics import load_period_data, wilson_score_interval, calculate_polarity
 from src.ui import THEME, style_winrate
+import os
 
 def _quality_badge(games):
     if games >= 50: return "High"
@@ -46,6 +47,21 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
         index=current_idx
     )
     st.session_state["analysis_saved_deck"] = target_deck
+
+    # Show deck icon + name header
+    import base64
+    icon_slug = target_deck.lower().replace(" ", "_").replace("/", "_").replace("'", "")
+    icon_path = os.path.join(data_dir, "..", "assets", "deck_icons", f"{icon_slug}.jpg")
+    if os.path.exists(icon_path):
+        with open(icon_path, "rb") as img_f:
+            b64 = base64.b64encode(img_f.read()).decode()
+        st.markdown(
+            f'<div style="display:flex; align-items:center; gap:14px; margin:8px 0 4px 0;">'
+            f'<img src="data:image/jpeg;base64,{b64}" style="width:64px; height:48px; object-fit:cover; border-radius:6px; border:1px solid #333;">'
+            f'<span style="font-size:1.6rem; font-weight:600; color:#E0E0E0;">{target_deck}</span>'
+            f'</div>',
+            unsafe_allow_html=True,
+        )
 
     row_data    = matrix_dict.get(target_deck, {})
     deck_record = next((r for r in records_data if r["archetype"] == target_deck), {})
