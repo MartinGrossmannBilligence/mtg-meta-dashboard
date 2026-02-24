@@ -71,8 +71,9 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
                 height=420, hovermode="closest",
                 paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
                 font_color=THEME["text"],
-                legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
+                showlegend=False,
                 margin=dict(l=0, r=0, t=20, b=0),
+                xaxis_title="",
             )
             fig_t.update_yaxes(tickformat=".0%", range=[0.3, 0.7])
             # Add deck names at the last data point of each line
