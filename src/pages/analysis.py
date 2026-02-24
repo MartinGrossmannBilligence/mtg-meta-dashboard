@@ -84,7 +84,7 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
         else "stable — consistent matchup profile across the field"
     )
 
-    tab_stats, tab_decks = st.tabs(["Statistics", "Deck Lists"])
+    tab_stats, tab_decks = st.tabs(["Statistics", "Top Decklists"])
 
     with tab_stats:
         # --- KPI & DISTRIBUTION ROW (4 equal columns) ---
@@ -106,23 +106,10 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
                 even_n = int(counts.get("Even (45-55%)", 0))
                 good_n = int(counts.get("Favoured (>55%)", 0))
 
-                colored_text = (
-                    f"<span style='color:{THEME['success']}'>{good_n}↑</span> "
-                    f"<span style='color:{THEME['faint']}'>{even_n}~</span> "
-                    f"<span style='color:{THEME['danger']}'>{bad_n}↓</span>"
-                )
-            
-                # Using markdown instead of st.metric to allow HTML colors inside the value
-                st.markdown(
-                    f"""
-                    <div data-testid="stMetric">
-                        <div style="font-size:11px; color:#8A8A8A; margin-bottom:2px; text-transform:uppercase; letter-spacing:0.06em;">
-                            Matchup Distribution <span title="{good_n} favoured (>55%) · {even_n} even (45–55%) · {bad_n} unfavoured (<45%)" style="cursor:help; font-size:12px; margin-left:4px; opacity:0.8;">&#9432;</span>
-                        </div>
-                        <div style="font-size: 1.8rem; font-weight: 500;">{colored_text}</div>
-                    </div>
-                    """,
-                    unsafe_allow_html=True,
+                st.metric(
+                    "Matchup Distribution",
+                    f"{good_n}↑  {even_n}~  {bad_n}↓",
+                    help=f"{good_n} favoured (>55%) · {even_n} even (45–55%) · {bad_n} unfavoured (<45%)"
                 )
 
         with c_chart:
@@ -269,7 +256,8 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
             st.info("No recent decklists found matching the criteria (>=50 players, Top 8).")
         else:
             st.markdown("<br>", unsafe_allow_html=True)
-            st.markdown("#### Recent Top Decklists")
+            info_text = "Offline snapshots from MTGDecks.net. Prioritizes Top 8 finishes in events with 50+ players. Searches up to 10 pages deep per archetype. Max 10 decks."
+            st.markdown(f"#### Recent Top Decklists <span title='{info_text}' style='cursor:help; font-size:16px; color:#8A8A8A; opacity:0.8;'>&#9432;</span>", unsafe_allow_html=True)
             
             # Map mtgdecks color codes to hex codes for visual display
             color_map = {
@@ -283,10 +271,19 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
             html_content = '<div style="background-color: #1A1A1A; border: 1px solid #2A2A2A; border-radius: 8px; padding: 16px;">'
             
             for i, d in enumerate(decks):
-                # Get the actual cards for hover
+                # Get the actual cards for hover and format them compactly with safe escaping
                 cards = d.get('cards', [])
                 if cards:
-                    hover_text = " | ".join([f"{c['qty']}x {c['name']}" for c in cards])
+                    lines = []
+                    current_line = []
+                    for c in cards:
+                        current_line.append(f"{c['qty']}x {c['name']}")
+                        if len(current_line) == 3:
+                            lines.append(" | ".join(current_line))
+                            current_line = []
+                    if current_line:
+                        lines.append(" | ".join(current_line))
+                    hover_text = "&#10;".join(lines).replace('"', '&quot;').replace("'", "&#39;")
                 else:
                     hover_text = "Preview not available"
                 
