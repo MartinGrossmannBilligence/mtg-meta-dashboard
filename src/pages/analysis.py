@@ -3,7 +3,7 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 from src.analytics import load_period_data, wilson_score_interval, calculate_polarity
-from src.ui import THEME, style_winrate, html_kpi_card
+from src.ui import THEME, style_winrate
 import os
 import json
 import base64
@@ -149,10 +149,9 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
         c1, c2, c3, c_chart = st.columns(4)
     
         with c1:
-            color = THEME['success'] if overall_wr > 0.50 else THEME['danger'] if overall_wr < 0.50 else THEME['text']
-            st.markdown(html_kpi_card("Overall Win Rate", f"{overall_wr:.1%}", color=color), unsafe_allow_html=True)
+            st.metric("Overall Win Rate", f"{overall_wr:.1%}")
         with c2:
-            st.markdown(html_kpi_card("Total Games", f"{total_games:,}"), unsafe_allow_html=True)
+            st.metric("Total Games", f"{total_games:,}")
         with c3:
             if not df_prof.empty:
                 df_prof["Bracket"] = pd.cut(
@@ -165,16 +164,18 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
                 even_n = int(counts.get("Even (45-55%)", 0))
                 good_n = int(counts.get("Favoured (>55%)", 0))
 
-                dist_val = f'<span style="color:{THEME["success"]};">{good_n}↑</span> &nbsp; {even_n}~ &nbsp; <span style="color:{THEME["danger"]};">{bad_n}↓</span>'
-                help_t = f"{good_n} favoured (>55%) · {even_n} even (45–55%) · {bad_n} unfavoured (<45%)"
-                st.markdown(html_kpi_card("Matchup Distribution", dist_val, help_text=help_t), unsafe_allow_html=True)
+                st.metric(
+                    "Matchup Distribution",
+                    f"{good_n}↑  {even_n}~  {bad_n}↓",
+                    help=f"{good_n} favoured (>55%) · {even_n} even (45–55%) · {bad_n} unfavoured (<45%)"
+                )
 
         with c_chart:
-            st.markdown(html_kpi_card(
-                "Polarity Index", 
+            st.metric(
+                "Polarity Index",
                 f"{polarity * 100:.1f}%",
-                help_text=f"Spread of matchup win rates. {pct_rank}th percentile — {pct_label}."
-            ), unsafe_allow_html=True)
+                help=f"Spread of matchup win rates. {pct_rank}th percentile — {pct_label}.",
+            )
 
         st.markdown('<div style="margin: 8px 0 12px 0; border-top: 1px solid #222222;"></div>', unsafe_allow_html=True)
 
