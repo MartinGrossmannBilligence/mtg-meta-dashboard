@@ -88,27 +88,25 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
     except ValueError:
         current_idx = 0
 
-    target_deck = st.selectbox(
-        "Select Deck", 
-        all_archetypes, 
-        index=current_idx
-    )
+    # Icon + selectbox side by side
+    col_icon, col_select = st.columns([0.08, 0.92])
+    with col_select:
+        target_deck = st.selectbox(
+            "Select Deck", 
+            all_archetypes, 
+            index=current_idx
+        )
     st.session_state["analysis_saved_deck"] = target_deck
 
-    # Show deck icon + name header
-    import base64
-    icon_slug = target_deck.lower().replace(" ", "_").replace("/", "_").replace("'", "")
-    icon_path = os.path.join(data_dir, "..", "assets", "deck_icons", f"{icon_slug}.jpg")
-    if os.path.exists(icon_path):
-        with open(icon_path, "rb") as img_f:
-            b64 = base64.b64encode(img_f.read()).decode()
-        st.markdown(
-            f'<div style="display:flex; align-items:center; gap:14px; margin:8px 0 4px 0;">'
-            f'<img src="data:image/jpeg;base64,{b64}" style="width:64px; height:48px; object-fit:cover; border-radius:6px; border:1px solid #333;">'
-            f'<span style="font-size:1.6rem; font-weight:600; color:#E0E0E0;">{target_deck}</span>'
-            f'</div>',
-            unsafe_allow_html=True,
-        )
+    with col_icon:
+        b64 = _get_icon_b64(target_deck, data_dir)
+        if b64:
+            st.markdown(
+                f'<div style="margin-top:24px;">'
+                f'<img src="data:image/jpeg;base64,{b64}" style="width:56px; height:42px; object-fit:cover; border-radius:6px; border:1px solid #333;">'
+                f'</div>',
+                unsafe_allow_html=True,
+            )
 
     row_data    = matrix_dict.get(target_deck, {})
     deck_record = next((r for r in records_data if r["archetype"] == target_deck), {})
