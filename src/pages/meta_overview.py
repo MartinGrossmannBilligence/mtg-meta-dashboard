@@ -35,8 +35,11 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
     if not all_archetypes:
         all_archetypes = ["None"]
         
-    tier1_decks = [a for a in all_archetypes if tiers_dict.get(a) == "Tier 1"]
-    default_trend_decks = tier1_decks if tier1_decks else all_archetypes[:5]
+    # User's preferred default decks for the overview and trends
+    user_preferred = ["Replenish", "Goblins", "Landstill", "Burn", "Stiflenought"]
+    custom_defaults = [d for d in user_preferred if d in all_archetypes]
+    if not custom_defaults:
+        custom_defaults = tier1_decks if tier1_decks else all_archetypes[:15]
 
     def _draw_trend_chart(selected_decks_list):
         st.subheader("Win Rate Trends")
@@ -146,23 +149,29 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
             selected_trend_decks_stats = st.multiselect(
                 "Select Decks for Trends",
                 all_archetypes,
-                default=default_trend_decks,
+                default=custom_defaults,
                 key="stats_trend_decks",
             )
             if selected_trend_decks_stats:
                 _draw_trend_chart(selected_trend_decks_stats)
 
+    # User's preferred default decks for the overview and trends
+    user_preferred = ["Replenish", "Goblins", "Landstill", "Burn", "Stiflenought"]
+    custom_defaults = [d for d in user_preferred if d in all_archetypes]
+    
+    # If we don't find all of them exactly, fallback to any that partially match or tier1
+    if not custom_defaults:
+        custom_defaults = tier1_decks if tier1_decks else all_archetypes[:15]
+
     # ─── TAB 2: MATCHUP MATRIX ───────────────────────────────────────────────
     with tab_matchups:
-        default_decks = tier1_decks if tier1_decks else all_archetypes[:15]
-
         # ── SHARED DECK SELECTOR ─────────────────────────────────────────
         f1, f2, f3 = st.columns([3, 1, 1])
         with f1:
             selected_decks = st.multiselect(
                 "Select Decks",
                 all_archetypes, # Can still pick any
-                default=default_decks,
+                default=custom_defaults,
                 key="overview_deck_select",
             )
         with f2:
