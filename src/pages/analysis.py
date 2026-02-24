@@ -67,11 +67,6 @@ def _style_wr_col(df, col="Win Rate"):
 
 def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframes):
     st.markdown("<h1>Deck Analysis</h1>", unsafe_allow_html=True)
-    st.markdown(
-        '<p style="color:#8A8A8A; font-size:13px; margin-top:-16px; margin-bottom:12px;">'
-        'Individual Deck Deep-Dive</p>',
-        unsafe_allow_html=True
-    )
 
     # Preserve deck selection across timeframe changes
     try:

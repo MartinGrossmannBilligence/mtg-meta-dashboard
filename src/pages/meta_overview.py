@@ -13,11 +13,6 @@ def _style(df, col):
 def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, timeframes, tiers_dict=None, show_tier_filter=True):
     if tiers_dict is None: tiers_dict = {}
     st.markdown("<h1>Meta Overview</h1>", unsafe_allow_html=True)
-    st.markdown(
-        '<p style="color:#8A8A8A; font-size:13px; margin-top:-16px; margin-bottom:12px;">'
-        'Premodern Metagame · Matchup Matrix + Historical Trends · Data: Duress Crew</p>',
-        unsafe_allow_html=True
-    )
 
     available_tiers = sorted(list(set(tiers_dict.values()))) if tiers_dict else []
     default_tiers = ["Tier 1"] if "Tier 1" in available_tiers else available_tiers
