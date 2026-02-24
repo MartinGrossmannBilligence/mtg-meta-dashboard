@@ -147,7 +147,7 @@ def apply_custom_css():
         h3 {{
             font-family: 'IBM Plex Mono', monospace !important;
             font-size: 18px !important;
-            font-weight: 600 !important;
+            font-weight: 400 !important;
             color: {THEME['text']} !important;
             margin-top: 0 !important;
             margin-bottom: 8px !important;

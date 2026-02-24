@@ -181,9 +181,9 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
 
         # --- WIN RATE HISTORY ---
         st.markdown(
-            "#### Win Rate Trend "
+            "<h3>Win Rate Trend "
             "<span title='Each point shows the overall win rate across all recorded matches in that time window (e.g. 6 Months = all matches from the last 6 months combined).' "
-            "style='cursor:help; font-size:16px; color:#8A8A8A; opacity:0.8;'>&#9432;</span>",
+            "style='cursor:help; font-size:16px; color:#8A8A8A; opacity:0.8;'>&#9432;</span></h3>",
             unsafe_allow_html=True,
         )
     
@@ -254,7 +254,7 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
             return d
 
         with col_best:
-            col_best.markdown("###### Best Matchups <span title='Matchups with fewer than 20 games are deprioritized to ensure statistical reliability.' style='cursor:help; font-size:14px; color:#8A8A8A; opacity:0.8;'>&#9432;</span>", unsafe_allow_html=True)
+            col_best.markdown("<h3>Best Matchups <span title='Matchups with fewer than 20 games are deprioritized to ensure statistical reliability.' style='cursor:help; font-size:14px; color:#8A8A8A; opacity:0.8;'>&#9432;</span></h3>", unsafe_allow_html=True)
         
         # Split into reliable (>= 20 games) and unreliable (< 20 games)
         if not df_prof.empty:
@@ -280,7 +280,7 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
         if not best_matchups.empty:
             col_best.markdown(_html_matchup_table(_prep(best_matchups), ["Opponent", "Win Rate", "Games", "Record"], data_dir), unsafe_allow_html=True)
 
-        col_worst.markdown("###### Worst Matchups <span title='Matchups with fewer than 20 games are deprioritized to ensure statistical reliability.' style='cursor:help; font-size:14px; color:#8A8A8A; opacity:0.8;'>&#9432;</span>", unsafe_allow_html=True)
+        col_worst.markdown("<h3>Worst Matchups <span title='Matchups with fewer than 20 games are deprioritized to ensure statistical reliability.' style='cursor:help; font-size:14px; color:#8A8A8A; opacity:0.8;'>&#9432;</span></h3>", unsafe_allow_html=True)
         if not worst_matchups.empty:
             col_worst.markdown(_html_matchup_table(_prep(worst_matchups), ["Opponent", "Win Rate", "Games", "Record"], data_dir), unsafe_allow_html=True)
 
@@ -316,7 +316,7 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
         else:
             st.markdown("<br>", unsafe_allow_html=True)
             info_text = "Offline snapshots from MTGDecks.net. Prioritizes Top 8 finishes in events with 50+ players. Searches up to 10 pages deep per archetype. Max 10 decks."
-            st.markdown(f"#### Recent Top Decklists <span title='{info_text}' style='cursor:help; font-size:16px; color:#8A8A8A; opacity:0.8;'>&#9432;</span>", unsafe_allow_html=True)
+            st.markdown(f"<h3>Recent Top Decklists <span title='{info_text}' style='cursor:help; font-size:16px; color:#8A8A8A; opacity:0.8;'>&#9432;</span></h3>", unsafe_allow_html=True)
             
             # Map mtgdecks color codes to hex codes for visual display
             color_map = {

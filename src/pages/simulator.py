@@ -41,13 +41,13 @@ def show_simulator(matrix_dict, all_archetypes, records_data):
 
             res_c1, res_c2 = st.columns([1, 1])
             with res_c1:
-                st.subheader("Best Deck for the Field")
+                st.markdown("<h3>Best Deck for the Field</h3>", unsafe_allow_html=True)
                 d = ev_df[["#", "Deck", "Projected Win Rate"]].head(10).copy()
                 d["Projected Win Rate"] = d["Projected Win Rate"].map(lambda x: f"{x:.1%}")
                 st.markdown(html_deck_table(d, ["#", "Deck", "Projected Win Rate"], wr_col="Projected Win Rate"), unsafe_allow_html=True)
 
             with res_c2:
-                st.subheader("Visual Ranking")
+                st.markdown("<h3>Visual Ranking</h3>", unsafe_allow_html=True)
                 fig = px.bar(
                     ev_df.head(10),
                     x="Deck", y="Projected Win Rate",
