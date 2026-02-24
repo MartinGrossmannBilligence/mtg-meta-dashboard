@@ -103,20 +103,20 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
                 df_reliable = df_rec.sort_values("Games", ascending=False).head(10).sort_values("Win Rate", ascending=False)
                 
             with c_top:
-                st.subheader("Best 5 Win Rate Decks")
+                st.subheader("Best 5 Decks")
                 d = df_reliable.head(5)[["Deck", "Win Rate", "Games"]].copy()
                 d["Win Rate"] = d["Win Rate"].map(lambda x: f"{x:.1%}")
                 st.markdown(html_deck_table(d, ["Deck", "Win Rate", "Games"], data_dir=data_dir), unsafe_allow_html=True)
 
             with c_bot:
-                st.subheader("Worst 5 Win Rate Decks")
+                st.subheader("Worst 5 Decks")
                 d = df_reliable.tail(5).sort_values("Win Rate", ascending=True)[["Deck", "Win Rate", "Games"]].copy()
                 d["Win Rate"] = d["Win Rate"].map(lambda x: f"{x:.1%}")
                 st.markdown(html_deck_table(d, ["Deck", "Win Rate", "Games"], data_dir=data_dir), unsafe_allow_html=True)
 
             st.markdown('<div style="margin: 8px 0 12px 0; border-top: 1px solid #222222;"></div>', unsafe_allow_html=True)
 
-            st.subheader("All Decks (Overall Metagame)")
+            st.subheader("All Decks by Win Rate")
             d_all = df_rec.copy()
             
             def _get_interval(row):
