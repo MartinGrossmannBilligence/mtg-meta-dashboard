@@ -106,10 +106,18 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
                 even_n = int(counts.get("Even (45-55%)", 0))
                 good_n = int(counts.get("Favoured (>55%)", 0))
 
-                st.metric(
-                    "Matchup Distribution",
-                    f"{good_n}↑  {even_n}~  {bad_n}↓",
-                    help=f"{good_n} favoured (>55%) · {even_n} even (45–55%) · {bad_n} unfavoured (<45%)"
+                st.markdown(
+                    f"""<div>
+                        <div style="font-size:0.875rem; color:rgba(250,250,250,0.6); margin-bottom:4px;">Matchup Distribution
+                            <span title="{good_n} favoured (>55%) · {even_n} even (45–55%) · {bad_n} unfavoured (<45%)" style="cursor:help; opacity:0.7;">&#9432;</span>
+                        </div>
+                        <div style="font-size:2.25rem; font-weight:400; letter-spacing:-0.005em;">
+                            <span style="color:#6BC78E;">{good_n}↑</span>
+                            <span style="color:#8A8A8A; margin:0 4px;">{even_n}~</span>
+                            <span style="color:#C76B6B;">{bad_n}↓</span>
+                        </div>
+                    </div>""",
+                    unsafe_allow_html=True,
                 )
 
         with c_chart:
