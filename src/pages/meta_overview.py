@@ -78,7 +78,7 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
                 margin=dict(l=0, r=0, t=20, b=0),
                 xaxis_title="",
             )
-            fig_t.update_yaxes(tickformat=".0%", range=[0.3, 0.7])
+            fig_t.update_yaxes(tickformat=".0%", range=[0.35, 0.65])
             # Add deck names at the last data point of each line
             last_period = existing[-1] if existing else None
             if last_period:
@@ -92,7 +92,11 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
                             xshift=8,
                             font=dict(size=10, family="IBM Plex Mono"),
                         )
-            st.plotly_chart(fig_t, use_container_width=True, key=f"trend_chart_{key_suffix}")
+            
+            # Horizontally shrink the chart by placing it in a centered column
+            _, chart_col, _ = st.columns([0.1, 0.8, 0.1])
+            with chart_col:
+                st.plotly_chart(fig_t, use_container_width=True, key=f"trend_chart_{key_suffix}")
 
     tab_stats, tab_matchups = st.tabs(["Metagame Stats", "Matchup Matrix"])
 
