@@ -7,7 +7,7 @@ from src.pages.meta_overview import show_meta_overview
 from src.pages.simulator import show_simulator
 
 # ── 1. Page Config ────────────────────────────────────────────────────────────
-st.set_page_config(page_title="Premodern Meta Lab", page_icon="assets/favicon.png", layout="wide")
+st.set_page_config(page_title="MTG Premodern Lab", page_icon="assets/favicon.png", layout="wide")
 apply_custom_css()
 
 # ── 2. Constants ──────────────────────────────────────────────────────────────
@@ -37,6 +37,10 @@ with st.sidebar:
     
     st.markdown(
         '<div class="source-pill">Primary data from <b>MTGDecks.net</b>.<br>All-Time & 1 Year data based on <a href="https://data.duresscrew.com/" target="_blank">Duress Crew</a> data.</div>',
+        unsafe_allow_html=True,
+    )
+    st.markdown(
+        '<div style="font-size:11px; color:#666; margin-top:12px;">Feel free to contact me at <a href="mailto:grossmann.martin.cz@gmail.com" style="color:#8EA7B6;">grossmann.martin.cz@gmail.com</a> or via <a href="https://m.me/martin.grossmann.5" target="_blank" style="color:#8EA7B6;">Messenger</a></div>',
         unsafe_allow_html=True,
     )
 

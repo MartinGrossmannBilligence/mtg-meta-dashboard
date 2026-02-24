@@ -4,12 +4,13 @@ import base64
 from src.bg_data import BG_TOG_V10_B64
 
 _icon_cache = {}
+_PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 def get_icon_b64(deck_name, data_dir="data"):
     """Return base64-encoded JPEG art_crop for a deck (cached)."""
     if deck_name in _icon_cache:
         return _icon_cache[deck_name]
     slug = deck_name.lower().replace(" ", "_").replace("/", "_").replace("'", "")
-    path = os.path.join(data_dir, "..", "assets", "deck_icons", f"{slug}.jpg")
+    path = os.path.join(_PROJECT_ROOT, "assets", "deck_icons", f"{slug}.jpg")
     if os.path.exists(path):
         with open(path, "rb") as f:
             _icon_cache[deck_name] = base64.b64encode(f.read()).decode()
@@ -40,8 +41,6 @@ def html_deck_table(df, columns, deck_col="Deck", wr_col="Win Rate", data_dir="d
                 cells += f'<td style="padding:5px 8px;font-size:13px;color:#AAA;">{val}</td>'
         rows += f'<tr style="border-bottom:1px solid #222;">{cells}</tr>'
     return f'<table style="width:100%;border-collapse:collapse;background:#1A1A1A;border-radius:6px;"><thead><tr>{header}</tr></thead><tbody>{rows}</tbody></table>'
-
-
 
 # DURESS MONO Design Tokens
 THEME = {
@@ -162,7 +161,7 @@ def apply_custom_css():
             position: relative;
         }}
         [data-testid="stSidebarNav"]::before {{
-            content: "Premodern Meta Lab";
+            content: "MTG Premodern Lab";
             display: block;
             position: absolute;
             top: 16px;
