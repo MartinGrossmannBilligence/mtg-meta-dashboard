@@ -92,6 +92,7 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
                 .rename(columns={"archetype": "Deck", "win_rate": "Win Rate", "total_matches": "Games"})
                 .sort_values("Win Rate", ascending=False)
             )
+            df_rec = df_rec[df_rec["Deck"] != "Unknown"]
 
             c_top, c_bot = st.columns(2)
             
