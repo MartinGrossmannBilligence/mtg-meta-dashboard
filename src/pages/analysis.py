@@ -372,24 +372,24 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
                 border_bottom = 'border-bottom: 1px solid #2A2A2A;' if i < len(decks) - 1 else ''
                 margin_bottom = 'margin-bottom: 12px; padding-bottom: 12px;' if i < len(decks) - 1 else ''
                 
-                html_block = f"""
-                <div style="{margin_bottom} {border_bottom}" title="{hover_text}">
-                    <div style="display:flex; align-items:center; margin-bottom: 2px;">
-                        <span style="margin-right:8px; font-size:14px; color:#E0E0E0;"><strong style="color:#FFF;">{d['rank']}</strong> from <strong style="color:#FFF;">{d.get('players', '??')}</strong> Players</span> 
-                        <a href="{d['url']}" target="_blank" style="color:#6BC78E; text-decoration:none; margin-right:10px; font-size:15px;">{d['player']}</a>
-                        {color_dots}
-                        {spice_badge}
-                    </div>
-                    <div style="font-size:12px; color:#8A8A8A; display:flex; gap:10px;">
-                        <span>🗓️ {d['date']}</span>
-                        <span>🏆 {d['event']}</span>
-                        <span>👥 {d['players']} players</span>
-                    </div>
-                </div>
-                """
+                # Build row HTML without any leading indentation to avoid Streamlit code-block parsing
+                html_block = (
+                    f'<div style="{margin_bottom} {border_bottom}" title="{hover_text}">'
+                    f'<div style="display:flex; align-items:center; margin-bottom: 2px;">'
+                    f'<span style="margin-right:12px; font-size:14px; color:#E0E0E0;"><strong style="color:#FFF;">{d["rank"]}</strong> from <strong style="color:#FFF;">{d.get("players", "??")}</strong> Players</span>'
+                    f'<a href="{d["url"]}" target="_blank" style="color:#6BC78E; text-decoration:none; margin-right:10px; font-size:15px; font-weight:600;">{d["player"]}</a>'
+                    f'{color_dots}'
+                    f'{spice_badge}'
+                    f'</div>'
+                    f'<div style="font-size:12px; color:#8A8A8A; display:flex; gap:12px; margin-top:4px;">'
+                    f'<span>🗓️ {d["date"]}</span>'
+                    f'<span>🏆 {d["event"]}</span>'
+                    f'<span>👥 {d["players"]} players</span>'
+                    f'</div>'
+                    f'</div>'
+                )
                 
-                # Dedent is crucial here! Streamlit markdown treats 4+ spaces as a code block.
-                html_content += textwrap.dedent(html_block)
+                html_content += html_block
             
             html_content += '</div>'
             st.markdown(html_content, unsafe_allow_html=True)
