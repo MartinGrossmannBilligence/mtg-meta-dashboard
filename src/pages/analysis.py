@@ -6,6 +6,52 @@ from src.analytics import load_period_data, wilson_score_interval, calculate_pol
 from src.ui import THEME, style_winrate
 import os
 import json
+import base64
+
+_icon_cache = {}
+def _get_icon_b64(deck_name, data_dir="data"):
+    """Return base64-encoded JPEG art_crop for a deck (cached)."""
+    if deck_name in _icon_cache:
+        return _icon_cache[deck_name]
+    slug = deck_name.lower().replace(" ", "_").replace("/", "_").replace("'", "")
+    path = os.path.join(data_dir, "..", "assets", "deck_icons", f"{slug}.jpg")
+    if os.path.exists(path):
+        with open(path, "rb") as f:
+            _icon_cache[deck_name] = base64.b64encode(f.read()).decode()
+    else:
+        _icon_cache[deck_name] = None
+    return _icon_cache[deck_name]
+
+def _wr_color_str(wr_str):
+    """Return CSS color for a formatted win rate string like '55.0%'."""
+    try:
+        v = float(wr_str.strip('%')) / 100
+    except:
+        return THEME['text']
+    if v > 0.55: return THEME['success']
+    if v < 0.45: return THEME['danger']
+    if v < 0.50: return THEME['warning']
+    return THEME['text']
+
+def _html_matchup_table(df, columns, data_dir="data"):
+    """Render a matchup dataframe as an HTML table with deck icons."""
+    header = ''.join(f'<th style="padding:6px 8px; text-align:left; border-bottom:1px solid #333; color:#8A8A8A; font-size:12px;">{c}</th>' for c in columns)
+    rows_html = ''
+    for _, row in df.iterrows():
+        cells = ''
+        for c in columns:
+            val = str(row.get(c, ''))
+            if c == 'Opponent':
+                b64 = _get_icon_b64(val, data_dir)
+                img = f'<img src="data:image/jpeg;base64,{b64}" style="width:28px;height:20px;object-fit:cover;border-radius:3px;margin-right:6px;vertical-align:middle;border:1px solid #333;">' if b64 else ''
+                cells += f'<td style="padding:5px 8px; font-size:13px;">{img}{val}</td>'
+            elif c == 'Win Rate':
+                color = _wr_color_str(val)
+                cells += f'<td style="padding:5px 8px; font-size:13px; color:{color}; font-weight:600;">{val}</td>'
+            else:
+                cells += f'<td style="padding:5px 8px; font-size:13px; color:#AAA;">{val}</td>'
+        rows_html += f'<tr style="border-bottom:1px solid #222;">{cells}</tr>'
+    return f'<table style="width:100%; border-collapse:collapse; background:#1A1A1A; border-radius:6px;"><thead><tr>{header}</tr></thead><tbody>{rows_html}</tbody></table>'
 
 def _quality_badge(games):
     if games >= 50: return "High"
@@ -23,7 +69,7 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
     st.markdown("<h1>Deck Analysis</h1>", unsafe_allow_html=True)
     st.markdown(
         '<p style="color:#8A8A8A; font-size:13px; margin-top:-16px; margin-bottom:12px;">'
-        'Premodern Metagame · Data: Duress Crew · Individual Deck Deep-Dive</p>',
+        'Individual Deck Deep-Dive</p>',
         unsafe_allow_html=True
     )
 
@@ -206,11 +252,11 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
         # --- TOP 5 / WORST 5 ---
         col_best, col_worst = st.columns(2)
 
-        def _table(df_slice):
+        def _prep(df_slice):
             d = df_slice[["Opponent", "WR", "Games", "Record"]].copy()
             d = d.rename(columns={"WR": "Win Rate"})
             d["Win Rate"] = d["Win Rate"].map(lambda x: f"{x:.1%}")
-            return _style_wr_col(d)
+            return d
 
         with col_best:
             col_best.markdown("###### Best Matchups")
@@ -220,13 +266,11 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
             df_reliable = df_prof[df_prof["Games"] >= 20].sort_values("WR", ascending=False)
             df_unreliable = df_prof[df_prof["Games"] < 20].sort_values("WR", ascending=False)
             
-            # Get top 5 best
             best_matchups = df_reliable.head(5)
             if len(best_matchups) < 5:
                 needed = 5 - len(best_matchups)
                 best_matchups = pd.concat([best_matchups, df_unreliable.head(needed)])
                 
-            # Get bottom 5 worst (sort ascending first)
             df_reliable_worst = df_reliable.sort_values("WR", ascending=True)
             df_unreliable_worst = df_unreliable.sort_values("WR", ascending=True)
             
@@ -239,11 +283,11 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
             worst_matchups = pd.DataFrame()
 
         if not best_matchups.empty:
-            col_best.dataframe(_table(best_matchups), use_container_width=True, hide_index=True)
+            col_best.markdown(_html_matchup_table(_prep(best_matchups), ["Opponent", "Win Rate", "Games", "Record"], data_dir), unsafe_allow_html=True)
 
         col_worst.markdown("###### Worst Matchups")
         if not worst_matchups.empty:
-            col_worst.dataframe(_table(worst_matchups), use_container_width=True, hide_index=True)
+            col_worst.markdown(_html_matchup_table(_prep(worst_matchups), ["Opponent", "Win Rate", "Games", "Record"], data_dir), unsafe_allow_html=True)
 
         st.markdown('<div style="margin: 8px 0 12px 0; border-top: 1px solid #222222;"></div>', unsafe_allow_html=True)
 
@@ -253,9 +297,9 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
             df_display = df_prof[["Opponent", "WR", "95% CI", "Record", "Games", "Sample"]].copy()
             df_display = df_display.rename(columns={"WR": "Win Rate", "95% CI": "Confidence Interval", "Sample": "Sample Size"})
             df_display["Win Rate"] = df_display["Win Rate"].map(lambda x: f"{x:.1%}")
-            st.dataframe(
-                _style_wr_col(df_display),
-                use_container_width=True, hide_index=True
+            st.markdown(
+                _html_matchup_table(df_display, ["Opponent", "Win Rate", "Confidence Interval", "Record", "Games", "Sample Size"], data_dir),
+                unsafe_allow_html=True,
             )
 
 
