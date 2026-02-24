@@ -31,7 +31,7 @@ with st.sidebar:
         "Choose Timeframe", 
         list(TIMEFRAMES.keys()), 
         index=0,
-        help="All Time and 1 Year data are historicals from Duress Crew. 6 Months and 2 Months data are sourced from MTGDecks."
+        help="Aggregated performance data summarizing all recorded matches within the selected time window (e.g., last 6 months or 1 year)."
     )
     st.divider()
     
