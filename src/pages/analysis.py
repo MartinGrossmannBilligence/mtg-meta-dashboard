@@ -383,10 +383,13 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
                 margin_bottom = 'margin-bottom: 12px; padding-bottom: 12px;' if i < len(decks) - 1 else ''
                 
                 # Build row HTML without any leading indentation to avoid Streamlit code-block parsing
+                # Entire rank/player block is now clickable
                 html_block = (
                     f'<div style="{margin_bottom} {border_bottom}" title="{hover_text}">'
                     f'<div style="display:flex; align-items:center; margin-bottom: 2px;">'
-                    f'<span style="margin-right:12px; font-size:14px; color:#E0E0E0;"><strong style="color:#FFF;">{d["rank"]}</strong> from <strong style="color:#FFF;">{d.get("players", "??")}</strong> Players</span>'
+                    f'<a href="{d["url"]}" target="_blank" style="text-decoration:none; color:inherit; margin-right:12px; font-size:14px;">'
+                    f'<span style="color:#E0E0E0;"><strong style="color:#FFF;">{d["rank"]}</strong> from <strong style="color:#FFF;">{d.get("players", "??")}</strong> Players</span>'
+                    f'</a>'
                     f'<a href="{d["url"]}" target="_blank" style="color:#6BC78E; text-decoration:none; margin-right:10px; font-size:15px; font-weight:600;">{d["player"]}</a>'
                     f'{color_dots}'
                     f'{spice_badge}'
