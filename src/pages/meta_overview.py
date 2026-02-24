@@ -12,7 +12,7 @@ def _style(df, col):
 
 def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, timeframes, tiers_dict=None, show_tier_filter=True):
     if tiers_dict is None: tiers_dict = {}
-    st.markdown("<h1>Meta Overview</h1>", unsafe_allow_html=True)
+    st.markdown('<h1 style="font-size: 28px;">Meta Overview</h1>', unsafe_allow_html=True)
 
     available_tiers = sorted(list(set(tiers_dict.values()))) if tiers_dict else []
     default_tiers = ["Tier 1"] if "Tier 1" in available_tiers else available_tiers

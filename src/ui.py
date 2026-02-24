@@ -42,6 +42,24 @@ def html_deck_table(df, columns, deck_col="Deck", wr_col="Win Rate", data_dir="d
         rows += f'<tr style="border-bottom:1px solid #222;">{cells}</tr>'
     return f'<table style="width:100%;border-collapse:collapse;background:#1A1A1A;border-radius:8px;overflow:hidden;"><thead><tr>{header}</tr></thead><tbody>{rows}</tbody></table>'
 
+def html_kpi_card(label, value, color=None, help_text=None):
+    """Render a colorized KPI card as HTML."""
+    if color is None: color = THEME['text']
+    tooltip = f' title="{help_text}" style="cursor:help;"' if help_text else ''
+    return f"""
+    <div{tooltip} style="
+        background: #1A1A1A;
+        border: 1px solid #333;
+        border-radius: 8px;
+        padding: 12px 16px;
+        text-align: center;
+        height: 100%;
+    ">
+        <div style="color: #8A8A8A; font-size: 12px; margin-bottom: 4px; font-family: 'IBM Plex Mono', monospace;">{label}</div>
+        <div style="color: {color}; font-size: 24px; font-weight: 700;">{value}</div>
+    </div>
+    """
+
 # DURESS MONO Design Tokens
 THEME = {
     "bg":          "#181818",
