@@ -36,7 +36,7 @@ with st.sidebar:
     st.divider()
     
     st.markdown(
-        '<div class="source-pill">Primary data from <b>MTGDecks.net</b>.<br>All-Time historicals from <a href="https://data.duresscrew.com/" target="_blank">Duress Crew</a>.</div>',
+        '<div class="source-pill">Primary data from <b>MTGDecks.net</b>.<br>All-Time & 1 Year data based on <a href="https://data.duresscrew.com/" target="_blank">Duress Crew</a> data.</div>',
         unsafe_allow_html=True,
     )
 
