@@ -21,6 +21,7 @@ TIMEFRAMES = {
 
 @st.cache_data(ttl=3600)
 def get_cached_period_data(period_key):
+    # Cache busting: v2
     return load_period_data(DATA_DIR, TIMEFRAMES[period_key])
 
 # "Premodern Meta Lab" title is injected above the nav links via CSS ::before
@@ -31,12 +32,12 @@ with st.sidebar:
         "Choose Timeframe", 
         list(TIMEFRAMES.keys()), 
         index=0,
-        help="Aggregated performance data summarizing all recorded matches within the selected time window (e.g., last 6 months or 1 year)."
+        help="Aggregated performance data summarizing all recorded matches within the selected time window."
     )
     st.divider()
     
     st.markdown(
-        '<div class="source-pill">Primary data from <b>MTGDecks.net</b>.<br>All-Time & 1 Year data based on <a href="https://data.duresscrew.com/" target="_blank">Duress Crew</a> data.</div>',
+        '<div class="source-pill">Primary data from <b>MTGDecks.net</b>.</div>',
         unsafe_allow_html=True,
     )
     st.markdown('<div style="flex-grow:1;"></div>', unsafe_allow_html=True)
@@ -49,7 +50,6 @@ with st.sidebar:
 try:
     matrix_data, records_data = get_cached_period_data(period_name)
     all_archetypes = matrix_data["archetypes"]
-    matrix_dict    = matrix_data["matrix"]
     tiers_dict     = matrix_data.get("tiers", {})
 except Exception as e:
     st.error(f"Failed to load data: {e}")
@@ -57,7 +57,7 @@ except Exception as e:
 
 # ── 5. Page functions ─────────────────────────────────────────────────────────
 def run_analysis():
-    show_analysis(matrix_dict, all_archetypes, records_data, DATA_DIR, TIMEFRAMES)
+    show_analysis(matrix_data, all_archetypes, records_data, DATA_DIR, TIMEFRAMES)
 
 def run_meta_overview():
     show_tier_filter = period_name not in ["6 Months", "2 Months"]

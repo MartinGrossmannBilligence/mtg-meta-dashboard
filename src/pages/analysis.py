@@ -103,7 +103,7 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
                 unsafe_allow_html=True,
             )
 
-    row_data    = matrix_dict.get(target_deck, {})
+    row_data    = matrix_dict.get("matrix", {}).get(target_deck, {})
     deck_record = next((r for r in records_data if r["archetype"] == target_deck), {})
     overall_wr  = deck_record.get("win_rate", 0)
     total_games = deck_record.get("total_matches", 0)
@@ -145,8 +145,9 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
     tab_stats, tab_decks = st.tabs(["Statistics", "Top Decklists"])
 
     with tab_stats:
-        # Get meta share for this archetype
-        meta_shares = matrix_dict.get("meta_shares", {})
+        # matrix_dict is now the full matrix_data object
+        matchups_matrix = matrix_dict.get("matrix", {})
+        meta_shares     = matrix_dict.get("meta_shares", {})
         share = meta_shares.get(target_deck)
         if share is None: share = meta_shares.get(target_deck.upper())
         share_display = f"{share:.1%}" if share is not None else "N/A"

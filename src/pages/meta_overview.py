@@ -131,8 +131,9 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
             st.subheader("All Decks by Win Rate")
             d_all = df_rec.copy()
             
-            # Add Meta Share column from matrix_dict
-            meta_shares = matrix_dict.get("meta_shares", {})
+            # matrix_dict is now the full matrix_data object
+            matchups_matrix = matrix_dict.get("matrix", {})
+            meta_shares     = matrix_dict.get("meta_shares", {})
             def _get_share(deck):
                 s = meta_shares.get(deck)
                 if s is None: s = meta_shares.get(deck.upper())
@@ -197,7 +198,7 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
         decks_for_matrix = list(selected_decks)
         if sort_by == "Win Rate":
             stats = [
-                (d, sum(matrix_dict.get(d, {}).get(o, {}).get("win_rate", 0.5) for o in decks_for_matrix) / len(decks_for_matrix))
+                (d, sum(matchups_matrix.get(d, {}).get(o, {}).get("win_rate", 0.5) for o in decks_for_matrix) / len(decks_for_matrix))
                 for d in decks_for_matrix
             ]
             decks_for_matrix = [x[0] for x in sorted(stats, key=lambda x: x[1], reverse=True)]
@@ -212,7 +213,7 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
         for arch1 in decks_for_matrix:
             row, hover_row = [], []
             for arch2 in decks_for_matrix:
-                cell  = matrix_dict.get(arch1, {}).get(arch2, {})
+                cell  = matchups_matrix.get(arch1, {}).get(arch2, {})
                 total = cell.get("total_matches", 0)
                 wr    = cell.get("win_rate", 0.5)
                 if total >= min_games:
