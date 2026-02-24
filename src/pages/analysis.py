@@ -245,19 +245,6 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
                 xaxis=dict(tickfont=dict(size=13)),
                 xaxis_title="", yaxis_title="",
             )
-            # Add deck icon at the last data point
-            icon_b64 = _get_icon_b64(target_deck, data_dir)
-            if icon_b64 and len(df_hist) > 0:
-                last_x = df_hist["Period"].iloc[-1]
-                last_y = df_hist["Win Rate"].iloc[-1]
-                fig_hist.add_layout_image(
-                    source=f"data:image/jpeg;base64,{icon_b64}",
-                    xref="x", yref="y",
-                    x=last_x, y=last_y,
-                    xanchor="center", yanchor="middle",
-                    sizex=0.6, sizey=0.06,
-                    layer="above",
-                )
             st.plotly_chart(fig_hist, use_container_width=True)
 
         st.markdown('<div style="margin: 8px 0 12px 0; border-top: 1px solid #222222;"></div>', unsafe_allow_html=True)

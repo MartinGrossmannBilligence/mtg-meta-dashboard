@@ -94,7 +94,7 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
                                 xref="x", yref="y",
                                 x=last_period, y=wr_val,
                                 xanchor="left", yanchor="middle",
-                                sizex=0.3, sizey=0.05,
+                                sizex=0.15, sizey=0.025,
                                 layer="above",
                             )
             st.plotly_chart(fig_t, use_container_width=True)
