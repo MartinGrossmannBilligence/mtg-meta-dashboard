@@ -119,26 +119,75 @@ def fetch_matrix(url, time_frame, tier_mapping):
         "matrix": matrix
     }
 
+def fetch_meta_shares(url):
+    print(f"Fetching meta shares from {url}...")
+    html = fetch_html(url)
+    if not html: return {}
+    
+    soup = BeautifulSoup(html, 'html.parser')
+    table = soup.find('table', class_='table-striped')
+    if not table: return {}
+    
+    shares = {}
+    for row in table.find_all('tr'):
+        cols = row.find_all('td')
+        if len(cols) < 3: continue
+        
+        # Archetype name in 2nd column
+        name_tag = cols[1].find('strong')
+        if not name_tag: continue
+        name = name_tag.get_text(strip=True)
+        
+        # Share percentage in 3rd column
+        share_text = cols[2].find('b')
+        if share_text:
+            try:
+                # Convert "7.96%" to 0.0796
+                val = float(share_text.get_text(strip=True).replace('%', '')) / 100.0
+                shares[name] = val
+            except:
+                pass
+                
+    return shares
+
 def main():
     tiers = get_tiers()
     print(f"Loaded {len(tiers)} archetype tiers.")
     
-    urls = {
-        "6 Months": "https://mtgdecks.net/Premodern/winrates",
-        "2 Months": "https://mtgdecks.net/Premodern/winrates/range:last60days",
-        "1 Month": "https://mtgdecks.net/Premodern/winrates/range:last30days"
+    # We map timeframe names to (Winrate URL, Metagame URL)
+    sources = {
+        "All Time": (
+            "https://mtgdecks.net/Premodern/winrates/range:last2years",
+            "https://mtgdecks.net/Premodern/metagame:last-2-years"
+        ),
+        "1 Year": (
+            "https://mtgdecks.net/Premodern/winrates/range:last1year",
+            "https://mtgdecks.net/Premodern/metagame:last-year"
+        ),
+        "6 Months": (
+            "https://mtgdecks.net/Premodern/winrates",
+            "https://mtgdecks.net/Premodern/metagame:last-6-months"
+        ),
+        "2 Months": (
+            "https://mtgdecks.net/Premodern/winrates/range:last60days",
+            "https://mtgdecks.net/Premodern/metagame:last-2-months"
+        )
     }
     
     os.makedirs('data', exist_ok=True)
     
-    for timeframe, url in urls.items():
-        data = fetch_matrix(url, timeframe, tiers)
+    for timeframe, (wr_url, meta_url) in sources.items():
+        data = fetch_matrix(wr_url, timeframe, tiers)
         if data:
+            # Add meta shares
+            shares = fetch_meta_shares(meta_url)
+            data["meta_shares"] = shares
+            
             filename = timeframe.lower().replace(' ', '_')
             filepath = f"data/mtgdecks_matrix_{filename}.json"
             with open(filepath, 'w', encoding='utf-8') as f:
                 json.dump(data, f, indent=4)
-            print(f"Saved {filepath}")
+            print(f"Saved {filepath} with {len(shares)} meta share entries.")
 
 if __name__ == "__main__":
     main()

@@ -131,6 +131,15 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
             st.subheader("All Decks by Win Rate")
             d_all = df_rec.copy()
             
+            # Add Meta Share column from matrix_dict
+            meta_shares = matrix_dict.get("meta_shares", {})
+            def _get_share(deck):
+                s = meta_shares.get(deck)
+                if s is None: s = meta_shares.get(deck.upper())
+                return f"{s:.1%}" if s is not None else "n/a"
+            
+            d_all["Meta Share"] = d_all["Deck"].map(_get_share)
+            
             def _get_interval(row):
                 # df_rec has columns: wins (not renamed), Games (was total_matches)
                 w = row.get("wins", 0)
@@ -140,10 +149,10 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
                 return f"{l:.1%} – {u:.1%}"
                 
             d_all["Confidence Interval"] = d_all.apply(_get_interval, axis=1)
-            d_all = d_all[["Deck", "Win Rate", "Confidence Interval", "Games"]].rename(columns={"Games": "Sample Size"})
+            d_all = d_all[["Deck", "Win Rate", "Meta Share", "Confidence Interval", "Games"]].rename(columns={"Games": "Sample Size"})
             d_all["Win Rate"] = d_all["Win Rate"].map(lambda x: f"{x:.1%}")
             
-            st.markdown(html_deck_table(d_all, ["Deck", "Win Rate", "Confidence Interval", "Sample Size"], data_dir=data_dir), unsafe_allow_html=True)
+            st.markdown(html_deck_table(d_all, ["Deck", "Win Rate", "Meta Share", "Confidence Interval", "Sample Size"], data_dir=data_dir), unsafe_allow_html=True)
 
             st.markdown('<div style="margin: 8px 0 12px 0; border-top: 1px solid #222222;"></div>', unsafe_allow_html=True)
             selected_trend_decks_stats = st.multiselect(
