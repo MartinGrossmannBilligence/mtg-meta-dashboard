@@ -39,8 +39,9 @@ with st.sidebar:
         '<div class="source-pill">Primary data from <b>MTGDecks.net</b>.<br>All-Time & 1 Year data based on <a href="https://data.duresscrew.com/" target="_blank">Duress Crew</a> data.</div>',
         unsafe_allow_html=True,
     )
+    st.markdown('<div style="flex-grow:1;"></div>', unsafe_allow_html=True)
     st.markdown(
-        '<div style="font-size:11px; color:#666; margin-top:12px;">Feel free to contact me at <a href="mailto:grossmann.martin.cz@gmail.com" style="color:#8EA7B6;">grossmann.martin.cz@gmail.com</a> or via <a href="https://m.me/martin.grossmann.5" target="_blank" style="color:#8EA7B6;">Messenger</a></div>',
+        '<div class="source-pill" style="margin-top:auto;">Feel free to contact me at <a href="mailto:grossmann.martin.cz@gmail.com">grossmann.martin.cz@gmail.com</a> or via <a href="https://m.me/martin.grossmann.5" target="_blank">Messenger</a></div>',
         unsafe_allow_html=True,
     )
 
