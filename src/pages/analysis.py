@@ -319,9 +319,14 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
             st.markdown(f"<h3>Recent Top Decklists <span title='{info_text}' style='cursor:help; font-size:16px; color:#8A8A8A; opacity:0.8;'>&#9432;</span></h3>", unsafe_allow_html=True)
             
             # Map mtgdecks color codes to hex codes for visual display
-            color_map = {
-                'W': '#FFFBD5', 'U': '#0E68AB', 'B': '#150B00', 
-                'R': '#D3202A', 'G': '#00733E', 'C': '#999999'
+            # MTG Mana Symbols - SVG paths Simplified (Standard MTG Style)
+            MANA_ICONS = {
+                'W': 'PHN2ZyB2aWV3Qm94PSIwIDAgMzIgMzIiIHdpZHRoPSIxNCIgaGVpZ2h0PSIxNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIxNiIgY3k9IjE2IiByPSIxNSIgZmlsbD0iI0ZGRkJENTI2IiAvPjxwYXRoIGQ9Ik0xNiA2bDIuNSA1LjUgNi41IDEgLTUgNC41IDEuNSA3IC02IC0zLjUgLTYgMy41IDEuNSAtNyAtNSAtNC41IDYuNSAtMXoiIGZpbGw9IiNGRkJENTIiIC8+PC9zdmc+',
+                'U': 'PHN2ZyB2aWV3Qm94PSIwIDAgMzIgMzIiIHdpZHRoPSIxNCIgaGVpZ2h0PSIxNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIxNiIgY3k9IjE2IiByPSIxNSIgZmlsbD0iIzBFRjhBQTI2IiAvPjxwYXRoIGQ9Ik0xNiA4czggOCAxMiAxMmMwIDQtNCIDLTYgOGgtMTJjLTQgMCAtNiAtNCAtNiAtOCAwIC00IDYgLTEyIDgtMTJ6IiBmaWxsPSIjMEU2OEFCIiAvPjwvc3ZnPg==',
+                'B': 'PHN2ZyB2aWV3Qm94PSIwIDAgMzIgMzIiIHdpZHRoPSIxNCIgaGVpZ2h0PSIxNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIxNiIgY3k9IjE2IiByPSIxNSIgZmlsbD0iIzE1MEIwMDI2IiAvPjxwYXRoIGQ9Ik0xNiA2YzQtMiA4IDIgOCA2IDAgNiAtOCA4IC04IDE0IDAgLTYgLTggLTggLTggLTE0IDAgLTQgNCAtOCA4IC02eiIgZmlsbD0iIzE1MEIwMCIgLz48L3N2Zz4=',
+                'R': 'PHN2ZyB2aWV3Qm94PSIwIDAgMzIgMzIiIHdpZHRoPSIxNCIgaGVpZ2h0PSIxNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIxNiIgY3k9IjE2IiByPSIxNSIgZmlsbD0iI0QzMjAyQTI2IiAvPjxwYXRoIGQ9Ik0xNCA2bDIgNGw4IDEwaC0xNmw2IC0xNHoiIGZpbGw9IiNEMzIwMkEiIC8+PC9zdmc+',
+                'G': 'PHN2ZyB2aWV3Qm94PSIwIDAgMzIgMzIiIHdpZHRoPSIxNCIgaGVpZ2h0PSIxNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIxNiIgY3k9IjE2IiByPSIxNSIgZmlsbD0iIzAwNzMzRTI2IiAvPjxwYXRoIGQ9Ik0xNiA2bDYgMTJoLTQgdjhoLTR2LThoLTR6IiBmaWxsPSIjMDA3MzNFIiAvPjwvc3ZnPg==',
+                'C': 'PHN2ZyB2aWV3Qm94PSIwIDAgMzIgMzIiIHdpZHRoPSIxNCIgaGVpZ2h0PSIxNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIxNiIgY3k9IjE2IiByPSIxNSIgZmlsbD0iIzk5OTk5OTI2IiAvPjxwYXRoIGQ9Ik0xNiA2bDggMTBsLTggMTBsLTggLTEweiIgZmlsbD0iIzk5OTk5OSIgLz48L3N2Zz4=',
             }
             
             import textwrap
@@ -346,11 +351,12 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
                 else:
                     hover_text = "Preview not available"
                 
-                # Render colors as little dots
+                # Render colors as mana symbols
                 color_dots = ""
                 for c in d.get("colors", []):
-                    color_hex = color_map.get(c, '#888')
-                    color_dots += f'<span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:{color_hex}; margin-right:3px; border:1px solid rgba(255,255,255,0.2);"></span>'
+                    b64 = MANA_ICONS.get(c)
+                    if b64:
+                        color_dots += f'<img src="data:image/svg+xml;base64,{b64}" style="width:14px; height:14px; margin-right:4px; vertical-align:middle;">'
                 
                 # Render spiciness badge if > 0
                 spice = d.get('spice', 0)
