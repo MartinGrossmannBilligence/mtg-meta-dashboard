@@ -237,12 +237,12 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
                 l, u = wilson_score_interval(w, t)
                 return f"{l:.1%} – {u:.1%}"
                 
-            d_all["Confidence Interval"] = d_all.apply(_get_interval, axis=1)
-            d_table = d_all[["Deck", "Win Rate (Num)", "Meta Share", "Confidence Interval", "Games"]].copy()
+            d_all["Win Rate Confidence Interval"] = d_all.apply(_get_interval, axis=1)
+            d_table = d_all[["Deck", "Win Rate (Num)", "Meta Share", "Win Rate Confidence Interval", "Games"]].copy()
             d_table = d_table.rename(columns={"Games": "Sample Size", "Win Rate (Num)": "Win Rate"})
             d_table["Win Rate"] = d_table["Win Rate"].map(lambda x: f"{x:.1%}")
             
-            st.markdown(html_deck_table(d_table, ["Deck", "Win Rate", "Meta Share", "Confidence Interval", "Sample Size"], data_dir=data_dir), unsafe_allow_html=True)
+            st.markdown(html_deck_table(d_table, ["Deck", "Win Rate", "Meta Share", "Win Rate Confidence Interval", "Sample Size"], data_dir=data_dir), unsafe_allow_html=True)
 
             st.markdown('<div style="margin: 8px 0 12px 0; border-top: 1px solid #222222;"></div>', unsafe_allow_html=True)
             selected_trend_decks_stats = st.multiselect(
