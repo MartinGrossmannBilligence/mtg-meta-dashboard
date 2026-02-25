@@ -88,10 +88,10 @@ def load_period_data(data_dir, period):
 
     # Override meta shares and tiers using mtgdecks data for relevant periods
     # as mtgdecks better reflects the actual metagame share and contains tiers.
-    mtgdecks_path = os.path.join(data_dir, f"mtgdecks_matrix_{period}.json")
     if period.startswith("mtgdecks_matrix"):
-        # If the period itself is already the mtgdecks internal key
         mtgdecks_path = os.path.join(data_dir, f"{period}.json")
+    else:
+        mtgdecks_path = os.path.join(data_dir, f"mtgdecks_matrix_{period}.json")
         
     if os.path.exists(mtgdecks_path):
         with open(mtgdecks_path, 'r', encoding='utf-8') as mf:
