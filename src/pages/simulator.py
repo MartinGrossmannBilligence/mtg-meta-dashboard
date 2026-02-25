@@ -10,8 +10,15 @@ def show_simulator(matrix_dict, all_archetypes, records_data):
     st.subheader("1. Field Composition")
     st.caption("Set expected share (%) for each deck. Remaining % auto-assigned to Other Decks. (Defaults pre-filled based on real meta shares)")
 
-    # Get the top decks by total matches, and inject user-requested specific decks
-    top_decks = [r["archetype"] for r in sorted(records_data, key=lambda x: x.get("total_matches", 0), reverse=True)[:8]]
+    # Get the top decks by total matches, filtering out unknowns, and inject user-requested specific decks
+    top_decks = []
+    for r in sorted(records_data, key=lambda x: x.get("total_matches", 0), reverse=True):
+        arch = r["archetype"]
+        if "unknown" not in arch.lower():
+            top_decks.append(arch)
+        if len(top_decks) >= 8:
+            break
+            
     for extra in ["Oath Ponza", "Terrageddon", "Stasis"]:
         if extra not in top_decks:
             top_decks.append(extra)
