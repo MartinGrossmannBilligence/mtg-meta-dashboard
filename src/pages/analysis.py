@@ -151,8 +151,7 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
         # matrix_dict is now the full matrix_data object
         matchups_matrix = matrix_dict.get("matrix", matrix_dict)
         meta_shares     = matrix_dict.get("meta_shares", {})
-        share = meta_shares.get(target_deck)
-        if share is None: share = meta_shares.get(target_deck.upper())
+        share = meta_shares.get(target_deck.upper())
         share_display = f"{share:.1%}" if share is not None else "N/A"
 
         # --- KPI ROW (5 columns) ---
@@ -206,8 +205,7 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
                 rec = next((r for r in rdata if r["archetype"] == target_deck), None)
                 if rec:
                     ms = mdata.get("meta_shares", {})
-                    share = ms.get(target_deck)
-                    if share is None: share = ms.get(target_deck.upper())
+                    share = ms.get(target_deck.upper())
                     history_rows.append({
                         "Period":      period_label,
                         "Win Rate":    rec["win_rate"],

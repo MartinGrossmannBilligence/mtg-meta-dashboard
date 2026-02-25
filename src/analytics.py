@@ -24,81 +24,86 @@ def load_period_data(data_dir, period):
                     "losses": losses,
                     "draws": draws,
                     "total_matches": matches,
-                    "win_rate": wins / matches
+                    "win_rate": (wins + draws*0.5) / matches
                 })
-        return matrix_data, records_data
-    matrix_path = os.path.join(data_dir, f"archetype_matrix_{period}.json")
-    records_path = os.path.join(data_dir, f"win_loss_records_{period}.json")
-    
-    with open(matrix_path, 'r', encoding='utf-8') as f:
-        matrix_data = json.load(f)
-    
-    with open(records_path, 'r', encoding='utf-8') as f:
-        records_data = json.load(f)
+    else:
+        matrix_path = os.path.join(data_dir, f"archetype_matrix_{period}.json")
+        records_path = os.path.join(data_dir, f"win_loss_records_{period}.json")
         
-    # Apply DURESS_TO_MTGDECKS mapping for local duress files
-    from src.mappings import DURESS_TO_MTGDECKS
-    import copy
-    
-    mapped_archetypes = []
-    for a in matrix_data.get('archetypes', []):
-        mapped_archetypes.append(DURESS_TO_MTGDECKS.get(a, a))
-    matrix_data['archetypes'] = sorted(list(set(mapped_archetypes)))
-    
-    mapped_matrix = {}
-    for old_arch, opps in matrix_data.get('matrix', {}).items():
-        new_arch = DURESS_TO_MTGDECKS.get(old_arch, old_arch)
-        if new_arch not in mapped_matrix: mapped_matrix[new_arch] = {}
+        with open(matrix_path, 'r', encoding='utf-8') as f:
+            matrix_data = json.load(f)
         
-        for old_opp, stats in opps.items():
-            new_opp = DURESS_TO_MTGDECKS.get(old_opp, old_opp)
+        with open(records_path, 'r', encoding='utf-8') as f:
+            records_data = json.load(f)
             
-            # Combine stats if multiple old map to same new
-            if new_opp not in mapped_matrix[new_arch]:
-                new_stats = copy.deepcopy(stats)
-                new_stats['archetype'] = new_opp
-                mapped_matrix[new_arch][new_opp] = new_stats
+        # Apply DURESS_TO_MTGDECKS mapping for local duress files
+        from src.mappings import DURESS_TO_MTGDECKS
+        import copy
+        
+        mapped_archetypes = []
+        for a in matrix_data.get('archetypes', []):
+            mapped_archetypes.append(DURESS_TO_MTGDECKS.get(a, a))
+        matrix_data['archetypes'] = sorted(list(set(mapped_archetypes)))
+        
+        mapped_matrix = {}
+        for old_arch, opps in matrix_data.get('matrix', {}).items():
+            new_arch = DURESS_TO_MTGDECKS.get(old_arch, old_arch)
+            if new_arch not in mapped_matrix: mapped_matrix[new_arch] = {}
+            
+            for old_opp, stats in opps.items():
+                new_opp = DURESS_TO_MTGDECKS.get(old_opp, old_opp)
+                
+                # Combine stats if multiple old map to same new
+                if new_opp not in mapped_matrix[new_arch]:
+                    new_stats = copy.deepcopy(stats)
+                    new_stats['archetype'] = new_opp
+                    mapped_matrix[new_arch][new_opp] = new_stats
+                else:
+                    existing = mapped_matrix[new_arch][new_opp]
+                    existing['wins'] += stats.get('wins', 0)
+                    existing['losses'] += stats.get('losses', 0)
+                    existing['draws'] += stats.get('draws', 0)
+                    existing['total_matches'] += stats.get('total_matches', 0)
+                    if existing['total_matches'] > 0:
+                        existing['win_rate'] = (existing['wins'] + existing['draws']*0.5) / existing['total_matches']
+                        
+        matrix_data['matrix'] = mapped_matrix
+        
+        # Merge records that map to the same new archetype name
+        merged_records = {}
+        for rec in records_data:
+            new_name = DURESS_TO_MTGDECKS.get(rec.get('archetype'), rec.get('archetype'))
+            if new_name in merged_records:
+                merged_records[new_name]['wins'] += rec.get('wins', 0)
+                merged_records[new_name]['losses'] += rec.get('losses', 0)
+                merged_records[new_name]['draws'] += rec.get('draws', 0)
+                merged_records[new_name]['total_matches'] += rec.get('total_matches', 0)
+                t = merged_records[new_name]['total_matches']
+                if t > 0:
+                    merged_records[new_name]['win_rate'] = (merged_records[new_name]['wins'] + merged_records[new_name]['draws'] * 0.5) / t
             else:
-                existing = mapped_matrix[new_arch][new_opp]
-                existing['wins'] += stats.get('wins', 0)
-                existing['losses'] += stats.get('losses', 0)
-                existing['draws'] += stats.get('draws', 0)
-                existing['total_matches'] += stats.get('total_matches', 0)
-                if existing['total_matches'] > 0:
-                    existing['win_rate'] = (existing['wins'] + existing['draws']*0.5) / existing['total_matches']
-                    
-    matrix_data['matrix'] = mapped_matrix
-    
-    # Merge records that map to the same new archetype name
-    merged_records = {}
-    for rec in records_data:
-        new_name = DURESS_TO_MTGDECKS.get(rec.get('archetype'), rec.get('archetype'))
-        if new_name in merged_records:
-            merged_records[new_name]['wins'] += rec.get('wins', 0)
-            merged_records[new_name]['losses'] += rec.get('losses', 0)
-            merged_records[new_name]['draws'] += rec.get('draws', 0)
-            merged_records[new_name]['total_matches'] += rec.get('total_matches', 0)
-            t = merged_records[new_name]['total_matches']
-            if t > 0:
-                merged_records[new_name]['win_rate'] = (merged_records[new_name]['wins'] + merged_records[new_name]['draws'] * 0.5) / t
-        else:
-            merged_records[new_name] = dict(rec)
-            merged_records[new_name]['archetype'] = new_name
-    records_data = list(merged_records.values())
+                merged_records[new_name] = dict(rec)
+                merged_records[new_name]['archetype'] = new_name
+        records_data = list(merged_records.values())
 
     # Override meta shares and tiers using mtgdecks data for relevant periods
     # as mtgdecks better reflects the actual metagame share and contains tiers.
     mtgdecks_path = os.path.join(data_dir, f"mtgdecks_matrix_{period}.json")
+    if period.startswith("mtgdecks_matrix"):
+        # If the period itself is already the mtgdecks internal key
+        mtgdecks_path = os.path.join(data_dir, f"{period}.json")
         
     if os.path.exists(mtgdecks_path):
         with open(mtgdecks_path, 'r', encoding='utf-8') as mf:
             mtg_data = json.load(mf)
             if "meta_shares" in mtg_data:
-                # Normalize keys to uppercase for better matching if needed, 
-                # but preserve original for the app's lookup logic
                 matrix_data["meta_shares"] = mtg_data["meta_shares"]
             if "tiers" in mtg_data:
                 matrix_data["tiers"] = mtg_data["tiers"]
+
+    # Normalize meta shares to UPPERCASE keys for robust lookup in the UI
+    if "meta_shares" in matrix_data:
+        matrix_data["meta_shares"] = {k.upper(): v for k, v in matrix_data["meta_shares"].items()}
 
     return matrix_data, records_data
 

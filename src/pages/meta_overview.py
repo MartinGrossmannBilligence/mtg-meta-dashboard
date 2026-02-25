@@ -103,9 +103,7 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
             matchups_matrix = matrix_dict.get("matrix", matrix_dict) 
             meta_shares     = matrix_dict.get("meta_shares", {})
             def _get_share_num(deck):
-                s = meta_shares.get(deck)
-                if s is None: s = meta_shares.get(deck.upper())
-                return s if s is not None else 0.0
+                return meta_shares.get(deck.upper(), 0.0)
 
             df_rec["Meta Share (Num)"] = df_rec["Deck"].map(_get_share_num)
             df_rec["Win Rate (Num)"]   = df_rec["Win Rate"]
