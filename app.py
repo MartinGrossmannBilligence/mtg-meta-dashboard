@@ -37,7 +37,7 @@ with st.sidebar:
     st.divider()
     
     st.markdown(
-        '<div class="source-pill">This app is based on data from <a href="https://mtgdecks.net" target="_blank" style="text-decoration: underline;">MTGDecks.net</a></div>',
+        '<div class="source-pill">This app is based on <a href="https://mtgdecks.net/Premodern" target="_blank" style="text-decoration: underline;">MTGDecks.net</a> data.</div>',
         unsafe_allow_html=True,
     )
 
