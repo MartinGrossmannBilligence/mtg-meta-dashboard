@@ -37,11 +37,11 @@ with st.sidebar:
     st.divider()
     
     help_text = (
-        "Data Sources & Mapping&#10;&#10;"
-        "• 6 Months & 2 Months data, along with the overall Meta Share metric, are sourced from MTGDecks.net. "
-        "These provide a highly granular view of recent tournament results, including a larger proportion of lower-tier decks.&#10;&#10;"
+        "Data Sources & Mapping&#10;"
         "• All-Time & 1 Year data is sourced from the Duress Crew data project, providing a robust "
-        "historical foundation for matchups.&#10;&#10;"
+        "historical foundation for matchups.&#10;"
+        "• 6 Months & 2 Months data, along with the overall Meta Share metric, are sourced from MTGDecks.net. "
+        "These provide a highly granular view of recent tournament results, including a larger proportion of lower-tier decks.&#10;"
         "• To ensure continuity, decks from both sources are mapped together so you can analyze a deck's "
         "performance seamlessly across all timeframes."
     )
