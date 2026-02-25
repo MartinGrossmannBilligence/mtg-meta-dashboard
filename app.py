@@ -37,19 +37,22 @@ with st.sidebar:
     st.divider()
     
     help_text = (
-        "Data Sources & Mapping\n\n"
+        "Data Sources & Mapping&#10;&#10;"
         "• 6 Months & 2 Months data, along with the overall Meta Share metric, are sourced from MTGDecks.net. "
-        "These provide a highly granular view of recent tournament results, including a larger proportion of lower-tier decks.\n\n"
+        "These provide a highly granular view of recent tournament results, including a larger proportion of lower-tier decks.&#10;&#10;"
         "• All-Time & 1 Year data is sourced from the Duress Crew data project, providing a robust "
-        "historical foundation for matchups.\n\n"
+        "historical foundation for matchups.&#10;&#10;"
         "• To ensure continuity, decks from both sources are mapped together so you can analyze a deck's "
         "performance seamlessly across all timeframes."
     )
     
+    # SVG mimicking Streamlit's native 'st.metric' help tooltips (Grey question mark in circle)
+    help_svg = '''<svg viewBox="0 0 24 24" width="15" height="15" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -3px; cursor: help; color: #8A8A8A; margin-left: 4px;"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>'''
+    
     st.markdown(
-        '<div class="source-pill">This app is based on data from <b>MTGDecks.net</b> & <a href="https://data.duresscrew.com/" target="_blank">Duress Crew</a>.</div>',
+        f'<div class="source-pill">This app is based on data from <b>MTGDecks.net</b> & <a href="https://data.duresscrew.com/" target="_blank">Duress Crew</a>.'
+        f'<span title="{help_text}">{help_svg}</span></div>',
         unsafe_allow_html=True,
-        help=help_text
     )
 
 
