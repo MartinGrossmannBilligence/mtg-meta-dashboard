@@ -118,70 +118,25 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
             )
             df_rec = df_rec[df_rec["Deck"] != "Unknown"]
 
-            c_top, c_bot = st.columns(2)
-            
-            # Filter for meaningful sample size (e.g. >= 20 games) 
-            df_reliable = df_rec[df_rec["Games"] >= 20]
-            if len(df_reliable) < 5:
-                # fallback to taking the top N by games if nothing hit 20
-                df_reliable = df_rec.sort_values("Games", ascending=False).head(10).sort_values("Win Rate", ascending=False)
-                
-            with c_top:
-                st.markdown("<h3>Best 5 Decks <span title='Decks with fewer than 20 games are excluded to ensure statistical reliability.' style='cursor:help; font-size:14px; color:#8A8A8A; opacity:0.8;'>&#9432;</span></h3>", unsafe_allow_html=True)
-                d = df_reliable.head(5)[["Deck", "Win Rate", "Games"]].copy()
-                d["Win Rate"] = d["Win Rate"].map(lambda x: f"{x:.1%}")
-                st.markdown(html_deck_table(d, ["Deck", "Win Rate", "Games"], data_dir=data_dir), unsafe_allow_html=True)
-
-            with c_bot:
-                st.markdown("<h3>Worst 5 Decks <span title='Decks with fewer than 20 games are excluded to ensure statistical reliability.' style='cursor:help; font-size:14px; color:#8A8A8A; opacity:0.8;'>&#9432;</span></h3>", unsafe_allow_html=True)
-                d = df_reliable.tail(5).sort_values("Win Rate", ascending=True)[["Deck", "Win Rate", "Games"]].copy()
-                d["Win Rate"] = d["Win Rate"].map(lambda x: f"{x:.1%}")
-                st.markdown(html_deck_table(d, ["Deck", "Win Rate", "Games"], data_dir=data_dir), unsafe_allow_html=True)
-
-            st.markdown('<div style="margin: 8px 0 12px 0; border-top: 1px solid #222222;"></div>', unsafe_allow_html=True)
-
-            st.subheader("All Decks by Win Rate")
-            d_all = df_rec.copy()
-            
-            # matrix_dict is now the full matrix_data object
+            # ─── Compute meta shares early (used by scatter + table) ─────────
             matchups_matrix = matrix_dict.get("matrix", matrix_dict) 
             meta_shares     = matrix_dict.get("meta_shares", {})
             def _get_share_num(deck):
                 s = meta_shares.get(deck)
                 if s is None: s = meta_shares.get(deck.upper())
                 return s if s is not None else 0.0
-            
-            d_all["Meta Share (Num)"] = d_all["Deck"].map(_get_share_num)
-            d_all["Meta Share"] = d_all["Meta Share (Num)"].apply(lambda s: f"{s:.1%}" if s > 0 else "n/a")
-            d_all["Win Rate (Num)"] = d_all["Win Rate"]
-            
-            def _get_interval(row):
-                # df_rec has columns: wins (not renamed), Games (was total_matches)
-                w = row.get("wins", 0)
-                t = row.get("Games", 0)
-                if t == 0: return "n/a"
-                l, u = wilson_score_interval(w, t)
-                return f"{l:.1%} – {u:.1%}"
-                
-            d_all["Confidence Interval"] = d_all.apply(_get_interval, axis=1)
-            # Create a display dataframe
-            d_table = d_all[["Deck", "Win Rate (Num)", "Meta Share", "Confidence Interval", "Games"]].copy()
-            d_table = d_table.rename(columns={"Games": "Sample Size", "Win Rate (Num)": "Win Rate"})
-            d_table["Win Rate"] = d_table["Win Rate"].map(lambda x: f"{x:.1%}")
-            
-            st.markdown(html_deck_table(d_table, ["Deck", "Win Rate", "Meta Share", "Confidence Interval", "Sample Size"], data_dir=data_dir), unsafe_allow_html=True)
 
-            st.markdown('<div style="margin: 30px 0 12px 0; border-top: 1px solid #222222;"></div>', unsafe_allow_html=True)
-            
+            df_rec["Meta Share (Num)"] = df_rec["Deck"].map(_get_share_num)
+            df_rec["Win Rate (Num)"]   = df_rec["Win Rate"]
+
             # --- SCATTER PLOT: Metagame Share vs Win Rate ---
             st.subheader("Metagame Share vs Win Rate")
-            scatter_df = d_all[(d_all["Meta Share (Num)"] > 0) & (d_all["Games"] >= 20)].copy()
+            scatter_df = df_rec[(df_rec["Meta Share (Num)"] > 0) & (df_rec["Games"] >= 20)].copy()
 
             if scatter_df.empty:
                 st.info("Meta share data not available for this timeframe.")
             else:
                 from src.ui import get_icon_b64
-                import base64
 
                 max_share = scatter_df["Meta Share (Num)"].max() or 0.1
                 x_max = max_share * 1.18
@@ -205,7 +160,6 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
                 )
                 fig_s.add_hline(y=0.5, line_dash="dash", line_color=THEME["faint"])
 
-                # Icon sizing — roughly 7% of each axis range per icon
                 icon_sizex = x_range * 0.07
                 icon_sizey = y_range * 0.08
 
@@ -213,7 +167,6 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
                     deck  = row["Deck"]
                     x_val = row["Meta Share (Num)"]
                     y_val = row["Win Rate (Num)"]
-
                     b64 = get_icon_b64(deck, data_dir)
                     if b64:
                         fig_s.add_layout_image(dict(
@@ -225,25 +178,20 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
                             sizing="contain", layer="above"
                         ))
                     else:
-                        # Fallback: annotate with deck name
                         fig_s.add_annotation(
                             x=x_val, y=y_val,
                             text=deck, showarrow=False,
                             font=dict(size=9, color=THEME["muted"]),
-                            xanchor="center", yanchor="bottom",
-                            yshift=8
+                            xanchor="center", yanchor="bottom", yshift=8
                         )
 
-                # Make points invisible but large enough for hover targets
                 fig_s.update_traces(
                     marker=dict(color="rgba(255,255,255,0.15)", size=22,
                                 line=dict(color="rgba(255,255,255,0.3)", width=1))
                 )
-
                 fig_s.update_layout(
                     height=380,
-                    paper_bgcolor="rgba(0,0,0,0)",
-                    plot_bgcolor="rgba(0,0,0,0)",
+                    paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
                     font_color=THEME["text"],
                     margin=dict(l=20, r=20, t=30, b=20),
                     xaxis_title="Metagame Share",
@@ -252,8 +200,48 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
                     yaxis=dict(tickformat=".0%", range=[y_min, y_max]),
                     showlegend=False,
                 )
-
                 st.plotly_chart(fig_s, use_container_width=True, key="scatter_meta_winrate")
+
+            st.markdown('<div style="margin: 8px 0 12px 0; border-top: 1px solid #222222;"></div>', unsafe_allow_html=True)
+
+            c_top, c_bot = st.columns(2)
+            
+            # Filter for meaningful sample size (e.g. >= 20 games) 
+            df_reliable = df_rec[df_rec["Games"] >= 20]
+            if len(df_reliable) < 5:
+                df_reliable = df_rec.sort_values("Games", ascending=False).head(10).sort_values("Win Rate", ascending=False)
+                
+            with c_top:
+                st.markdown("<h3>Best 5 Decks <span title='Decks with fewer than 20 games are excluded to ensure statistical reliability.' style='cursor:help; font-size:14px; color:#8A8A8A; opacity:0.8;'>&#9432;</span></h3>", unsafe_allow_html=True)
+                d = df_reliable.head(5)[["Deck", "Win Rate", "Games"]].copy()
+                d["Win Rate"] = d["Win Rate"].map(lambda x: f"{x:.1%}")
+                st.markdown(html_deck_table(d, ["Deck", "Win Rate", "Games"], data_dir=data_dir), unsafe_allow_html=True)
+
+            with c_bot:
+                st.markdown("<h3>Worst 5 Decks <span title='Decks with fewer than 20 games are excluded to ensure statistical reliability.' style='cursor:help; font-size:14px; color:#8A8A8A; opacity:0.8;'>&#9432;</span></h3>", unsafe_allow_html=True)
+                d = df_reliable.tail(5).sort_values("Win Rate", ascending=True)[["Deck", "Win Rate", "Games"]].copy()
+                d["Win Rate"] = d["Win Rate"].map(lambda x: f"{x:.1%}")
+                st.markdown(html_deck_table(d, ["Deck", "Win Rate", "Games"], data_dir=data_dir), unsafe_allow_html=True)
+
+            st.markdown('<div style="margin: 8px 0 12px 0; border-top: 1px solid #222222;"></div>', unsafe_allow_html=True)
+
+            st.subheader("All Decks by Win Rate")
+            d_all = df_rec.copy()
+            d_all["Meta Share"] = d_all["Meta Share (Num)"].apply(lambda s: f"{s:.1%}" if s > 0 else "n/a")
+
+            def _get_interval(row):
+                w = row.get("wins", 0)
+                t = row.get("Games", 0)
+                if t == 0: return "n/a"
+                l, u = wilson_score_interval(w, t)
+                return f"{l:.1%} – {u:.1%}"
+                
+            d_all["Confidence Interval"] = d_all.apply(_get_interval, axis=1)
+            d_table = d_all[["Deck", "Win Rate (Num)", "Meta Share", "Confidence Interval", "Games"]].copy()
+            d_table = d_table.rename(columns={"Games": "Sample Size", "Win Rate (Num)": "Win Rate"})
+            d_table["Win Rate"] = d_table["Win Rate"].map(lambda x: f"{x:.1%}")
+            
+            st.markdown(html_deck_table(d_table, ["Deck", "Win Rate", "Meta Share", "Confidence Interval", "Sample Size"], data_dir=data_dir), unsafe_allow_html=True)
 
             st.markdown('<div style="margin: 8px 0 12px 0; border-top: 1px solid #222222;"></div>', unsafe_allow_html=True)
             selected_trend_decks_stats = st.multiselect(
