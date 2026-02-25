@@ -36,22 +36,8 @@ with st.sidebar:
     )
     st.divider()
     
-    help_text = (
-        "Data Sources & Mapping&#10;"
-        "• All-Time & 1 Year data is aggregated from historical Premodern community datasets, providing a robust "
-        "historical foundation for matchups.&#10;"
-        "• 6 Months & 2 Months data, along with the overall Meta Share metric, decklists, are sourced from MTGDecks.net. "
-        "These provide a highly granular view of recent tournament results, including a larger proportion of lower-tier decks.&#10;"
-        "• To ensure continuity, decks from these sources are mapped together so you can analyze a deck's "
-        "performance seamlessly across all timeframes."
-    )
-    
-    # SVG mimicking Streamlit's native 'st.metric' help tooltips (Grey question mark in circle)
-    help_svg = '''<svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -3px; cursor: help; color: rgba(250, 250, 250, 0.6); margin-left: 4px;"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>'''
-    
     st.markdown(
-        f'<div class="source-pill">This app is based on data from <b>MTGDecks.net</b> & Historical Community Data.'
-        f'<span title="{help_text}" style="cursor:help; font-size:16px;">{help_svg}</span></div>',
+        '<div class="source-pill">This app is based on data from <a href="https://mtgdecks.net" target="_blank" style="text-decoration: underline;">MTGDecks.net</a></div>',
         unsafe_allow_html=True,
     )
 
