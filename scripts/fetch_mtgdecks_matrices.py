@@ -169,7 +169,7 @@ def main():
     
     # We map timeframe names to (Winrate URL, Metagame URL)
     sources = {
-        "All Time": (
+        "2 Years": (
             "https://mtgdecks.net/Premodern/winrates/range:last2years",
             "https://mtgdecks.net/Premodern/metagame/range:last2years"
         ),

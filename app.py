@@ -13,7 +13,7 @@ apply_custom_css()
 # ── 2. Constants ──────────────────────────────────────────────────────────────
 DATA_DIR = "data"
 TIMEFRAMES = {
-    "All Time": "all_time",
+    "2 Years": "all_time",
     "1 Year":   "1_year",
     "6 Months": "mtgdecks_matrix_6_months",
     "2 Months": "mtgdecks_matrix_2_months",
