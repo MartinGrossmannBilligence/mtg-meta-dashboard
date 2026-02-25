@@ -9,9 +9,9 @@
       "date": "20-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/simic-decklist-by-sam-black-2815462",
       "colors": [
-        "U",
-        "W",
         "G",
+        "W",
+        "U",
         "B"
       ],
       "spice": 67,
@@ -25,9 +25,9 @@
       "date": "31-Aug -2025",
       "url": "https://mtgdecks.net/Premodern/aluren-decklist-by-christoph-sourcin-2615413",
       "colors": [
-        "U",
-        "W",
         "G",
+        "W",
+        "U",
         "B"
       ],
       "spice": 40,
@@ -41,11 +41,11 @@
       "date": "12-Dec -2025",
       "url": "https://mtgdecks.net/Premodern/aluren-decklist-by-checentrattacco-2743393",
       "colors": [
-        "W",
-        "R",
-        "B",
         "G",
-        "U"
+        "W",
+        "U",
+        "R",
+        "B"
       ],
       "spice": 34,
       "cards": []
@@ -58,11 +58,11 @@
       "date": "20-Nov -2025",
       "url": "https://mtgdecks.net/Premodern/aluren-decklist-by-pablo-marcos-2703815",
       "colors": [
-        "W",
-        "R",
-        "B",
         "G",
-        "U"
+        "W",
+        "U",
+        "R",
+        "B"
       ],
       "spice": 31,
       "cards": []
@@ -75,11 +75,11 @@
       "date": "15-Mar -2025",
       "url": "https://mtgdecks.net/Premodern/aluren-decklist-by-vitor-alexandre-2410102",
       "colors": [
-        "W",
-        "R",
-        "B",
         "G",
-        "U"
+        "W",
+        "U",
+        "R",
+        "B"
       ],
       "spice": 31,
       "cards": []
@@ -92,11 +92,11 @@
       "date": "15-Oct -2025",
       "url": "https://mtgdecks.net/Premodern/aluren-decklist-by-poupas-2656828",
       "colors": [
-        "W",
-        "R",
-        "B",
         "G",
-        "U"
+        "W",
+        "U",
+        "R",
+        "B"
       ],
       "spice": 31,
       "cards": []
@@ -109,8 +109,8 @@
       "date": "12-Oct -2025",
       "url": "https://mtgdecks.net/Premodern/aluren-decklist-by-alex-barnett-2652178",
       "colors": [
-        "U",
         "G",
+        "U",
         "B"
       ],
       "spice": 42,
@@ -124,8 +124,8 @@
       "date": "10-Jan -2026",
       "url": "https://mtgdecks.net/Premodern/aluren-decklist-by-adam-soper-2765160",
       "colors": [
-        "W",
         "G",
+        "W",
         "U",
         "B"
       ],
@@ -140,8 +140,8 @@
       "date": "10-Jan -2026",
       "url": "https://mtgdecks.net/Premodern/aluren-decklist-by-adam-soper-2770356",
       "colors": [
-        "W",
         "G",
+        "W",
         "U",
         "B"
       ],
@@ -156,11 +156,11 @@
       "date": "18-Jan -2026",
       "url": "https://mtgdecks.net/Premodern/aluren-decklist-by-parka-2786662",
       "colors": [
-        "W",
-        "R",
-        "B",
         "G",
-        "U"
+        "W",
+        "U",
+        "R",
+        "B"
       ],
       "spice": 31,
       "cards": []
@@ -175,11 +175,11 @@
       "date": "23-Jan -2026",
       "url": "https://mtgdecks.net/Premodern/cephalid-breakfast-decklist-by-amedeo-de-simone-2783243",
       "colors": [
-        "W",
-        "R",
-        "B",
         "G",
-        "U"
+        "W",
+        "U",
+        "R",
+        "B"
       ],
       "spice": 44,
       "cards": []
@@ -192,10 +192,10 @@
       "date": "20-Apr -2024",
       "url": "https://mtgdecks.net/Premodern/hermit-breakfast-decklist-by-matvey-dolganov-2020713",
       "colors": [
-        "U",
+        "R",
         "G",
-        "B",
-        "R"
+        "U",
+        "B"
       ],
       "spice": 12,
       "cards": []
@@ -208,10 +208,10 @@
       "date": "25-Jan -2025",
       "url": "https://mtgdecks.net/Premodern/angry-hermit-decklist-by-carlos-dominique-2356141",
       "colors": [
-        "U",
+        "R",
         "G",
-        "B",
-        "R"
+        "U",
+        "B"
       ],
       "spice": 10,
       "cards": []
@@ -224,11 +224,11 @@
       "date": "05-May -2024",
       "url": "https://mtgdecks.net/Premodern/angry-hermit-decklist-by-jan-schmidt-2040730",
       "colors": [
-        "W",
-        "R",
-        "B",
         "G",
-        "U"
+        "W",
+        "U",
+        "R",
+        "B"
       ],
       "spice": 41,
       "cards": []
@@ -241,10 +241,10 @@
       "date": "07-Jul -2025",
       "url": "https://mtgdecks.net/Premodern/angry-hermit-decklist-by-marco-leon-2547685",
       "colors": [
-        "U",
+        "R",
         "G",
-        "B",
-        "R"
+        "U",
+        "B"
       ],
       "spice": 12,
       "cards": []
@@ -257,10 +257,10 @@
       "date": "26-Jan -2025",
       "url": "https://mtgdecks.net/Premodern/angry-hermit-decklist-by-joan-tuset-2353955",
       "colors": [
-        "U",
+        "R",
         "G",
-        "B",
-        "R"
+        "U",
+        "B"
       ],
       "spice": 13,
       "cards": []
@@ -273,10 +273,10 @@
       "date": "31-Mar -2024",
       "url": "https://mtgdecks.net/Premodern/hermit-ghoul-decklist-by-marco-leon-1975307",
       "colors": [
-        "U",
+        "R",
         "G",
-        "B",
-        "R"
+        "U",
+        "B"
       ],
       "spice": 12,
       "cards": []
@@ -289,10 +289,10 @@
       "date": "25-Jan -2026",
       "url": "https://mtgdecks.net/Premodern/u-b-r-g-decklist-by-the-shallow-grave-2784831",
       "colors": [
-        "U",
+        "R",
         "G",
-        "B",
-        "R"
+        "U",
+        "B"
       ],
       "spice": 13,
       "cards": []
@@ -305,10 +305,10 @@
       "date": "11-Oct -2025",
       "url": "https://mtgdecks.net/Premodern/angry-hermit-decklist-by-simone-diodati-2653491",
       "colors": [
-        "U",
+        "R",
         "G",
-        "B",
-        "R"
+        "U",
+        "B"
       ],
       "spice": 11,
       "cards": []
@@ -321,10 +321,10 @@
       "date": "11-Oct -2025",
       "url": "https://mtgdecks.net/Premodern/angry-hermit-decklist-by-diodati-simone-2653668",
       "colors": [
-        "U",
+        "R",
         "G",
-        "B",
-        "R"
+        "U",
+        "B"
       ],
       "spice": 11,
       "cards": []
@@ -339,10 +339,10 @@
       "date": "07-Jun -2025",
       "url": "https://mtgdecks.net/Premodern/gw-slide-decklist-by-gordon-basket-bakstran-2515388",
       "colors": [
-        "W",
-        "G"
+        "G",
+        "W"
       ],
-      "spice": 46,
+      "spice": 47,
       "cards": []
     },
     {
@@ -353,8 +353,8 @@
       "date": "18-May -2025",
       "url": "https://mtgdecks.net/Premodern/boros-decklist-by-adri267-2492093",
       "colors": [
-        "W",
-        "R"
+        "R",
+        "W"
       ],
       "spice": 20,
       "cards": []
@@ -367,8 +367,8 @@
       "date": "31-Oct -2025",
       "url": "https://mtgdecks.net/Premodern/astral-slide-decklist-by-bjorn-eriksson-2689483",
       "colors": [
-        "W",
-        "R"
+        "R",
+        "W"
       ],
       "spice": 32,
       "cards": []
@@ -381,8 +381,8 @@
       "date": "01-Sep -2025",
       "url": "https://mtgdecks.net/Premodern/astral-slide-decklist-by-slatan-olsson-2607697",
       "colors": [
-        "W",
-        "R"
+        "R",
+        "W"
       ],
       "spice": 17,
       "cards": []
@@ -395,8 +395,8 @@
       "date": "21-Jun -2025",
       "url": "https://mtgdecks.net/Premodern/gw-astral-slide-decklist-by-futson-2525343",
       "colors": [
-        "W",
-        "G"
+        "G",
+        "W"
       ],
       "spice": 66,
       "cards": []
@@ -409,8 +409,8 @@
       "date": "13-Dec -2025",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-realreggaeshark-2737122",
       "colors": [
-        "W",
-        "R"
+        "R",
+        "W"
       ],
       "spice": 20,
       "cards": []
@@ -423,8 +423,8 @@
       "date": "11-Dec -2025",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-aylett-2733900",
       "colors": [
-        "W",
-        "R"
+        "R",
+        "W"
       ],
       "spice": 22,
       "cards": []
@@ -437,8 +437,8 @@
       "date": "24-Jan -2026",
       "url": "https://mtgdecks.net/Premodern/astral-slide-decklist-by-mikel-diez-2789538",
       "colors": [
-        "W",
-        "G"
+        "G",
+        "W"
       ],
       "spice": 74,
       "cards": []
@@ -451,8 +451,8 @@
       "date": "13-Jul -2025",
       "url": "https://mtgdecks.net/Premodern/astral-slide-decklist-by-tomihiro-nakata-2587080",
       "colors": [
-        "W",
-        "R"
+        "R",
+        "W"
       ],
       "spice": 14,
       "cards": []
@@ -465,8 +465,8 @@
       "date": "20-Sep -2025",
       "url": "https://mtgdecks.net/Premodern/astral-slide-decklist-by-slatan-olsson-2628032",
       "colors": [
-        "W",
-        "R"
+        "R",
+        "W"
       ],
       "spice": 15,
       "cards": []
@@ -481,8 +481,8 @@
       "date": "01-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/ubg-control-decklist-by-lucas-cattoni-2803171",
       "colors": [
-        "U",
         "G",
+        "U",
         "B"
       ],
       "spice": 5,
@@ -496,8 +496,8 @@
       "date": "18-Jan -2026",
       "url": "https://mtgdecks.net/Premodern/bug-control-decklist-by-alexvv-2786664",
       "colors": [
-        "U",
         "G",
+        "U",
         "B"
       ],
       "spice": 17,
@@ -511,8 +511,8 @@
       "date": "09-Nov -2025",
       "url": "https://mtgdecks.net/Premodern/bug-control-decklist-by-gigi-kaito-2715365",
       "colors": [
-        "U",
         "G",
+        "U",
         "B"
       ],
       "spice": 2,
@@ -526,8 +526,8 @@
       "date": "28-Sep -2025",
       "url": "https://mtgdecks.net/Premodern/bug-control-decklist-by-gigi-kaito-2637465",
       "colors": [
-        "U",
         "G",
+        "U",
         "B"
       ],
       "spice": 2,
@@ -541,8 +541,8 @@
       "date": "10-Oct -2025",
       "url": "https://mtgdecks.net/Premodern/ubg-control-decklist-by-adam-wiklund-2656029",
       "colors": [
-        "U",
         "G",
+        "U",
         "B"
       ],
       "spice": 2,
@@ -556,8 +556,8 @@
       "date": "03-Oct -2025",
       "url": "https://mtgdecks.net/Premodern/bug-control-decklist-by-gigi-kaito-2641687",
       "colors": [
-        "U",
         "G",
+        "U",
         "B"
       ],
       "spice": 2,
@@ -571,8 +571,8 @@
       "date": "10-Oct -2025",
       "url": "https://mtgdecks.net/Premodern/bug-control-decklist-by-gigi-kaito-2654166",
       "colors": [
-        "U",
         "G",
+        "U",
         "B"
       ],
       "spice": 2,
@@ -586,8 +586,8 @@
       "date": "12-Jul -2025",
       "url": "https://mtgdecks.net/Premodern/bug-control-decklist-by-andrew-huska-2552534",
       "colors": [
-        "U",
         "G",
+        "U",
         "B"
       ],
       "spice": 4,
@@ -601,8 +601,8 @@
       "date": "17-Oct -2025",
       "url": "https://mtgdecks.net/Premodern/bug-control-decklist-by-gigi-kaito-2677510",
       "colors": [
-        "U",
         "G",
+        "U",
         "B"
       ],
       "spice": 2,
@@ -616,8 +616,8 @@
       "date": "03-Oct -2025",
       "url": "https://mtgdecks.net/Premodern/rogue-decklist-by-adam-wiklund-2645727",
       "colors": [
-        "U",
         "G",
+        "U",
         "B"
       ],
       "spice": 2,
@@ -963,19 +963,6 @@
       "cards": []
     },
     {
-      "player": "JIN YOU",
-      "rank": "1st",
-      "players": 33,
-      "event": "LCOS PREMODERN FEBRERO 26 (ESPECIAL 50!)",
-      "date": "22-Feb -2026",
-      "url": "https://mtgdecks.net/Premodern/slight-decklist-by-jin-you-2827032",
-      "colors": [
-        "R"
-      ],
-      "spice": 39,
-      "cards": []
-    },
-    {
       "player": "Riccardo Bonato",
       "rank": "2nd",
       "players": 37,
@@ -1039,6 +1026,19 @@
       ],
       "spice": 14,
       "cards": []
+    },
+    {
+      "player": "David G\u00f3mez",
+      "rank": "1st",
+      "players": 15,
+      "event": "II Torneo Mensual Premodern Gadir",
+      "date": "14-Feb -2026",
+      "url": "https://mtgdecks.net/Premodern/burn-decklist-by-david-gomez-2811949",
+      "colors": [
+        "R"
+      ],
+      "spice": 23,
+      "cards": []
     }
   ],
   "Cephalid Breakfast": [],
@@ -1064,8 +1064,8 @@
       "date": "08-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/life-combo-decklist-by-jos-baserri-2810320",
       "colors": [
-        "W",
         "G",
+        "W",
         "B"
       ],
       "spice": 79,
@@ -1092,9 +1092,9 @@
       "date": "13-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/life-decklist-by-andrea-forti-2807212",
       "colors": [
-        "W",
+        "R",
         "G",
-        "R"
+        "W"
       ],
       "spice": 84,
       "cards": []
@@ -1461,10 +1461,10 @@
       "date": "22-Nov -2025",
       "url": "https://mtgdecks.net/Premodern/devourer-combo-decklist-by-jose-manuel-robleno-2717059",
       "colors": [
-        "U",
-        "W",
         "R",
-        "G"
+        "G",
+        "W",
+        "U"
       ],
       "spice": 20,
       "cards": []
@@ -1477,9 +1477,9 @@
       "date": "22-Nov -2025",
       "url": "https://mtgdecks.net/Premodern/tinker-fling-decklist-by-ondrej-kedrovic-2711111",
       "colors": [
-        "U",
+        "R",
         "G",
-        "R"
+        "U"
       ],
       "spice": 35,
       "cards": []
@@ -1492,8 +1492,8 @@
       "date": "08-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/ur-devourer-decklist-by-diliz-2810311",
       "colors": [
-        "U",
-        "R"
+        "R",
+        "U"
       ],
       "spice": 16,
       "cards": []
@@ -1506,8 +1506,8 @@
       "date": "13-Dec -2025",
       "url": "https://mtgdecks.net/Premodern/devourer-combo-decklist-by-juanma-gonzalez-2741617",
       "colors": [
-        "U",
-        "R"
+        "R",
+        "U"
       ],
       "spice": 22,
       "cards": []
@@ -1520,8 +1520,8 @@
       "date": "14-Dec -2025",
       "url": "https://mtgdecks.net/Premodern/devourer-combo-decklist-by-bruno-bonadio-lopez-2748003",
       "colors": [
-        "U",
-        "R"
+        "R",
+        "U"
       ],
       "spice": 20,
       "cards": []
@@ -1534,9 +1534,9 @@
       "date": "21-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/w-u-r-g-decklist-by-daniel-mares-2819540",
       "colors": [
-        "W",
-        "G",
         "R",
+        "G",
+        "W",
         "U"
       ],
       "spice": 27,
@@ -1550,9 +1550,9 @@
       "date": "19-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-swarped-2813793",
       "colors": [
-        "W",
-        "G",
         "R",
+        "G",
+        "W",
         "U"
       ],
       "spice": 32,
@@ -1566,8 +1566,8 @@
       "date": "20-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/izzet-decklist-by-ankylosaur-2815463",
       "colors": [
-        "U",
-        "R"
+        "R",
+        "U"
       ],
       "spice": 20,
       "cards": []
@@ -1580,8 +1580,8 @@
       "date": "30-Nov -2025",
       "url": "https://mtgdecks.net/Premodern/devourer-combo-decklist-by-sergio-gomez-2729743",
       "colors": [
-        "U",
-        "R"
+        "R",
+        "U"
       ],
       "spice": 15,
       "cards": []
@@ -1594,8 +1594,8 @@
       "date": "10-Jan -2026",
       "url": "https://mtgdecks.net/Premodern/devourer-combo-decklist-by-georg-seydel-2770845",
       "colors": [
-        "U",
-        "R"
+        "R",
+        "U"
       ],
       "spice": 30,
       "cards": []
@@ -1652,8 +1652,8 @@
       "date": "13-Jul -2025",
       "url": "https://mtgdecks.net/Premodern/dream-halls-combo-decklist-by-chris-lochte-2554313",
       "colors": [
-        "U",
-        "R"
+        "R",
+        "U"
       ],
       "spice": 49,
       "cards": []
@@ -1666,8 +1666,8 @@
       "date": "30-Sep -2024",
       "url": "https://mtgdecks.net/Premodern/dream-halls-decklist-by-tobias-van-der-neut-2222666",
       "colors": [
-        "U",
-        "R"
+        "R",
+        "U"
       ],
       "spice": 31,
       "cards": []
@@ -1749,8 +1749,8 @@
       "date": "07-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/elves-decklist-by-frank-roelofs-2804579",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 59,
       "cards": []
@@ -1763,8 +1763,8 @@
       "date": "21-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-sbsb-2817449",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 18,
       "cards": []
@@ -1777,8 +1777,8 @@
       "date": "16-Jan -2026",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-suchiha-2772778",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 18,
       "cards": []
@@ -1791,8 +1791,8 @@
       "date": "08-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/survielves-decklist-by-kerrigan-2810308",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 29,
       "cards": []
@@ -1805,8 +1805,8 @@
       "date": "08-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/survielves-decklist-by-patxi-izaguirre-2810309",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 23,
       "cards": []
@@ -1819,8 +1819,8 @@
       "date": "25-Jan -2026",
       "url": "https://mtgdecks.net/Premodern/survielves-decklist-by-kerrigan-2792626",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 24,
       "cards": []
@@ -1833,8 +1833,8 @@
       "date": "15-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/survielves-decklist-by-erlantz-baserri-2816426",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 21,
       "cards": []
@@ -1847,24 +1847,10 @@
       "date": "15-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/survielves-decklist-by-kerrigan-2816428",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 29,
-      "cards": []
-    },
-    {
-      "player": "TELM FABREGAS",
-      "rank": "2nd",
-      "players": 33,
-      "event": "LCOS PREMODERN FEBRERO 26 (ESPECIAL 50!)",
-      "date": "22-Feb -2026",
-      "url": "https://mtgdecks.net/Premodern/elfos-rojillos-decklist-by-telm-fabregas-2827037",
-      "colors": [
-        "G",
-        "R"
-      ],
-      "spice": 59,
       "cards": []
     },
     {
@@ -1875,10 +1861,24 @@
       "date": "31-Jan -2026",
       "url": "https://mtgdecks.net/Premodern/elves-decklist-by-nick-mayo-2794102",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 18,
+      "cards": []
+    },
+    {
+      "player": "Ivan De Castro",
+      "rank": "Top4",
+      "players": 64,
+      "event": "II Spanish Premodern Supercup",
+      "date": "17-Jan -2026",
+      "url": "https://mtgdecks.net/Premodern/elves-decklist-by-ivan-de-castro-2777190",
+      "colors": [
+        "G",
+        "W"
+      ],
+      "spice": 31,
       "cards": []
     }
   ],
@@ -1891,8 +1891,8 @@
       "date": "15-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/enchantress-decklist-by-jason-bostonsnorlax-2810329",
       "colors": [
-        "W",
-        "G"
+        "G",
+        "W"
       ],
       "spice": 17,
       "cards": []
@@ -1905,8 +1905,8 @@
       "date": "13-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-smolero-2807411",
       "colors": [
-        "W",
-        "G"
+        "G",
+        "W"
       ],
       "spice": 12,
       "cards": []
@@ -1919,8 +1919,8 @@
       "date": "31-Jan -2026",
       "url": "https://mtgdecks.net/Premodern/enchantress-decklist-by-adrian-asensio-2798412",
       "colors": [
-        "W",
-        "G"
+        "G",
+        "W"
       ],
       "spice": 12,
       "cards": []
@@ -1933,8 +1933,8 @@
       "date": "27-Jan -2026",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-negator87-2787573",
       "colors": [
-        "W",
-        "G"
+        "G",
+        "W"
       ],
       "spice": 25,
       "cards": []
@@ -1947,9 +1947,9 @@
       "date": "07-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/enchantress-decklist-by-xavi-muntada-2801855",
       "colors": [
-        "W",
+        "R",
         "G",
-        "R"
+        "W"
       ],
       "spice": 19,
       "cards": []
@@ -1962,8 +1962,8 @@
       "date": "20-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/enchantress-decklist-by-riccardo-speranza-2825335",
       "colors": [
-        "W",
-        "G"
+        "G",
+        "W"
       ],
       "spice": 11,
       "cards": []
@@ -1976,8 +1976,8 @@
       "date": "13-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/enchantress-of-druids-decklist-by-edouard-lecocq-2811244",
       "colors": [
-        "W",
-        "G"
+        "G",
+        "W"
       ],
       "spice": 31,
       "cards": []
@@ -1990,8 +1990,8 @@
       "date": "31-Jan -2026",
       "url": "https://mtgdecks.net/Premodern/enchantress-decklist-by-thiago-paiva-2799809",
       "colors": [
-        "W",
-        "G"
+        "G",
+        "W"
       ],
       "spice": 21,
       "cards": []
@@ -2004,8 +2004,8 @@
       "date": "29-Jan -2026",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-john1111-2789334",
       "colors": [
-        "W",
-        "G"
+        "G",
+        "W"
       ],
       "spice": 25,
       "cards": []
@@ -2018,8 +2018,8 @@
       "date": "14-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/enchantress-decklist-by-pablo-britos-2813333",
       "colors": [
-        "W",
-        "G"
+        "G",
+        "W"
       ],
       "spice": 15,
       "cards": []
@@ -2034,8 +2034,8 @@
       "date": "25-Jan -2026",
       "url": "https://mtgdecks.net/Premodern/rg-fires-decklist-by-kabuki-2792621",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 21,
       "cards": []
@@ -2048,8 +2048,8 @@
       "date": "24-Jan -2026",
       "url": "https://mtgdecks.net/Premodern/fires-decklist-by-pau-pons-2794828",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 24,
       "cards": []
@@ -2062,8 +2062,8 @@
       "date": "14-Apr -2024",
       "url": "https://mtgdecks.net/Premodern/fires-decklist-by-motxon-1991627",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 25,
       "cards": []
@@ -2076,8 +2076,8 @@
       "date": "17-Mar -2024",
       "url": "https://mtgdecks.net/Premodern/rg-fires-decklist-by-motxon-1956125",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 27,
       "cards": []
@@ -2090,8 +2090,8 @@
       "date": "08-Nov -2025",
       "url": "https://mtgdecks.net/Premodern/fires-of-yavimaya-decklist-by-rosario-m-2693959",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 25,
       "cards": []
@@ -2104,8 +2104,8 @@
       "date": "22-Jun -2025",
       "url": "https://mtgdecks.net/Premodern/fires-decklist-by-vedast-sanxis-2529969",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 41,
       "cards": []
@@ -2118,8 +2118,8 @@
       "date": "07-Apr -2024",
       "url": "https://mtgdecks.net/Premodern/fires-decklist-by-motxon-1981729",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 25,
       "cards": []
@@ -2132,8 +2132,8 @@
       "date": "31-Mar -2024",
       "url": "https://mtgdecks.net/Premodern/fires-decklist-by-motxon-1975513",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 22,
       "cards": []
@@ -2146,8 +2146,8 @@
       "date": "24-Mar -2024",
       "url": "https://mtgdecks.net/Premodern/fires-decklist-by-motxon-1963414",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 27,
       "cards": []
@@ -2160,8 +2160,8 @@
       "date": "12-Oct -2025",
       "url": "https://mtgdecks.net/Premodern/fires-decklist-by-raffaele-farina-2666736",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 22,
       "cards": []
@@ -2176,8 +2176,8 @@
       "date": "11-Jun -2024",
       "url": "https://mtgdecks.net/Premodern/fluctuator-decklist-by-vitor-silva-2086101",
       "colors": [
-        "U",
         "W",
+        "U",
         "B"
       ],
       "spice": 15,
@@ -2191,8 +2191,8 @@
       "date": "14-May -2024",
       "url": "https://mtgdecks.net/Premodern/fluctuator-decklist-by-ivo-pessoa-2049035",
       "colors": [
-        "U",
         "W",
+        "U",
         "B"
       ],
       "spice": 15,
@@ -2206,9 +2206,9 @@
       "date": "15-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/fluctuator-decklist-by-sebastian-maidana-2816461",
       "colors": [
-        "U",
-        "W",
         "G",
+        "W",
+        "U",
         "B"
       ],
       "spice": 20,
@@ -2222,8 +2222,8 @@
       "date": "02-Dec -2025",
       "url": "https://mtgdecks.net/Premodern/fluctuator-decklist-by-nikolay-taylor-2723520",
       "colors": [
-        "U",
         "W",
+        "U",
         "B"
       ],
       "spice": 12,
@@ -2237,8 +2237,8 @@
       "date": "01-Aug -2025",
       "url": "https://mtgdecks.net/Premodern/fluctuator-decklist-by-fernando-gonzalez-2582424",
       "colors": [
-        "U",
         "W",
+        "U",
         "B"
       ],
       "spice": 12,
@@ -2252,8 +2252,8 @@
       "date": "13-Aug -2025",
       "url": "https://mtgdecks.net/Premodern/fluctuator-decklist-by-an-youcheng-2584819",
       "colors": [
-        "W",
-        "R"
+        "R",
+        "W"
       ],
       "spice": 75,
       "cards": []
@@ -2266,8 +2266,8 @@
       "date": "09-Jul -2025",
       "url": "https://mtgdecks.net/Premodern/fluctuator-decklist-by-luiz-reis-2554758",
       "colors": [
-        "U",
         "W",
+        "U",
         "B"
       ],
       "spice": 12,
@@ -2281,11 +2281,11 @@
       "date": "09-Dec -2024",
       "url": "https://mtgdecks.net/Premodern/fluctuator-decklist-by-chris-hardy-2214999",
       "colors": [
-        "W",
-        "R",
-        "B",
         "G",
-        "U"
+        "W",
+        "U",
+        "R",
+        "B"
       ],
       "spice": 40,
       "cards": []
@@ -2298,8 +2298,8 @@
       "date": "10-Aug -2024",
       "url": "https://mtgdecks.net/Premodern/fluctuator-decklist-by-fluctuator-2166373",
       "colors": [
-        "U",
         "W",
+        "U",
         "B"
       ],
       "spice": 24,
@@ -2313,8 +2313,8 @@
       "date": "10-Aug -2024",
       "url": "https://mtgdecks.net/Premodern/fluctuator-decklist-by-martin-barraza-2162731",
       "colors": [
-        "U",
         "W",
+        "U",
         "B"
       ],
       "spice": 24,
@@ -2331,11 +2331,11 @@
       "date": "10-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-fishduggery-2804779",
       "colors": [
-        "W",
-        "R",
-        "B",
         "G",
-        "U"
+        "W",
+        "U",
+        "R",
+        "B"
       ],
       "spice": 12,
       "cards": []
@@ -2348,11 +2348,11 @@
       "date": "31-Jan -2026",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-fishduggery-2792566",
       "colors": [
-        "W",
-        "R",
-        "B",
         "G",
-        "U"
+        "W",
+        "U",
+        "R",
+        "B"
       ],
       "spice": 12,
       "cards": []
@@ -2365,11 +2365,11 @@
       "date": "05-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-kask1-2798223",
       "colors": [
-        "W",
-        "R",
-        "B",
         "G",
-        "U"
+        "W",
+        "U",
+        "R",
+        "B"
       ],
       "spice": 13,
       "cards": []
@@ -2382,11 +2382,11 @@
       "date": "10-Jan -2026",
       "url": "https://mtgdecks.net/Premodern/full-english-breakfast-decklist-by-jorg-heinrich-2770846",
       "colors": [
-        "W",
-        "R",
-        "B",
         "G",
-        "U"
+        "W",
+        "U",
+        "R",
+        "B"
       ],
       "spice": 11,
       "cards": []
@@ -2399,13 +2399,30 @@
       "date": "07-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/full-english-breakfast-decklist-by-andrea-mancini-2804586",
       "colors": [
-        "W",
-        "R",
-        "B",
         "G",
-        "U"
+        "W",
+        "U",
+        "R",
+        "B"
       ],
       "spice": 14,
+      "cards": []
+    },
+    {
+      "player": "Henrique Cavagn...",
+      "rank": "Top8",
+      "players": 74,
+      "event": "FERNET PREMODERN OPEN",
+      "date": "19-Oct -2025",
+      "url": "https://mtgdecks.net/Premodern/full-english-breakfast-decklist-by-henrique-cavagnoli-2667742",
+      "colors": [
+        "G",
+        "W",
+        "U",
+        "R",
+        "B"
+      ],
+      "spice": 28,
       "cards": []
     },
     {
@@ -2416,30 +2433,13 @@
       "date": "30-Jan -2026",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-fishduggery-2790037",
       "colors": [
-        "W",
-        "R",
-        "B",
         "G",
-        "U"
+        "W",
+        "U",
+        "R",
+        "B"
       ],
       "spice": 12,
-      "cards": []
-    },
-    {
-      "player": "Carl Winter",
-      "rank": "1st",
-      "players": 31,
-      "event": "Dragonmaster Games February 2026 1K",
-      "date": "21-Feb -2026",
-      "url": "https://mtgdecks.net/Premodern/full-english-breakfast-decklist-by-carl-winter-2827327",
-      "colors": [
-        "W",
-        "R",
-        "B",
-        "G",
-        "U"
-      ],
-      "spice": 13,
       "cards": []
     },
     {
@@ -2450,11 +2450,11 @@
       "date": "28-Nov -2025",
       "url": "https://mtgdecks.net/Premodern/angry-hermit-decklist-by-fernando-rodriguez-2727622",
       "colors": [
-        "W",
-        "R",
-        "B",
         "G",
-        "U"
+        "W",
+        "U",
+        "R",
+        "B"
       ],
       "spice": 14,
       "cards": []
@@ -2467,11 +2467,11 @@
       "date": "01-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-elliot-fisher-2794085",
       "colors": [
-        "W",
-        "R",
-        "B",
         "G",
-        "U"
+        "W",
+        "U",
+        "R",
+        "B"
       ],
       "spice": 12,
       "cards": []
@@ -2484,11 +2484,11 @@
       "date": "05-Nov -2025",
       "url": "https://mtgdecks.net/Premodern/w-u-b-r-g-decklist-by-mack83p-2687694",
       "colors": [
-        "W",
-        "R",
-        "B",
         "G",
-        "U"
+        "W",
+        "U",
+        "R",
+        "B"
       ],
       "spice": 40,
       "cards": []
@@ -2503,8 +2503,8 @@
       "date": "17-May -2025",
       "url": "https://mtgdecks.net/Premodern/rogue-decklist-by-marco-mognon-2493741",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 50,
       "cards": []
@@ -2517,8 +2517,8 @@
       "date": "27-Dec -2025",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-calebd-2752172",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 21,
       "cards": []
@@ -2531,8 +2531,8 @@
       "date": "13-Oct -2024",
       "url": "https://mtgdecks.net/Premodern/rogue-decklist-by-binarysoloist-2239637",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 34,
       "cards": []
@@ -2545,8 +2545,8 @@
       "date": "28-Feb -2025",
       "url": "https://mtgdecks.net/Premodern/rg-aggro-decklist-by-edouard-lecocq-2390273",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 54,
       "cards": []
@@ -2559,8 +2559,8 @@
       "date": "08-Sep -2025",
       "url": "https://mtgdecks.net/Premodern/zoo-decklist-by-clayton-leite-de-farias-2617439",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 22,
       "cards": []
@@ -2573,8 +2573,8 @@
       "date": "09-Jan -2026",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-klmno-2762813",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 21,
       "cards": []
@@ -2587,8 +2587,8 @@
       "date": "04-Jan -2026",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-acydcytryk-2759168",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 21,
       "cards": []
@@ -2601,8 +2601,8 @@
       "date": "03-Jan -2026",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-aaue-2757573",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 19,
       "cards": []
@@ -2615,8 +2615,8 @@
       "date": "30-Dec -2025",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-aaue-2754502",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 19,
       "cards": []
@@ -2629,8 +2629,8 @@
       "date": "29-Dec -2025",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-aaue-2753768",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 19,
       "cards": []
@@ -2646,10 +2646,10 @@
       "date": "12-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-umodian-2806385",
       "colors": [
-        "W",
-        "G"
+        "G",
+        "W"
       ],
-      "spice": 10,
+      "spice": 11,
       "cards": []
     },
     {
@@ -2660,8 +2660,8 @@
       "date": "22-Jan -2026",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-umodian-2778803",
       "colors": [
-        "W",
-        "G"
+        "G",
+        "W"
       ],
       "spice": 11,
       "cards": []
@@ -2674,10 +2674,10 @@
       "date": "07-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-hamuda-2801231",
       "colors": [
-        "W",
-        "G"
+        "G",
+        "W"
       ],
-      "spice": 12,
+      "spice": 13,
       "cards": []
     },
     {
@@ -2688,10 +2688,10 @@
       "date": "13-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-pedrastone-2807410",
       "colors": [
-        "W",
-        "G"
+        "G",
+        "W"
       ],
-      "spice": 10,
+      "spice": 11,
       "cards": []
     },
     {
@@ -2702,10 +2702,10 @@
       "date": "06-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-pedrastone-2799159",
       "colors": [
-        "W",
-        "G"
+        "G",
+        "W"
       ],
-      "spice": 11,
+      "spice": 12,
       "cards": []
     },
     {
@@ -2716,10 +2716,10 @@
       "date": "20-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-m0sc0wmitch-2816272",
       "colors": [
-        "W",
-        "G"
+        "G",
+        "W"
       ],
-      "spice": 14,
+      "spice": 15,
       "cards": []
     },
     {
@@ -2730,8 +2730,8 @@
       "date": "15-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/madness-gw-decklist-by-julian-lee-2810989",
       "colors": [
-        "W",
-        "G"
+        "G",
+        "W"
       ],
       "spice": 14,
       "cards": []
@@ -2744,22 +2744,8 @@
       "date": "22-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/madness-decklist-by-sean-kamiko-tampus-2825388",
       "colors": [
-        "W",
-        "G"
-      ],
-      "spice": 11,
-      "cards": []
-    },
-    {
-      "player": "ECB",
-      "rank": "1st",
-      "players": 0,
-      "event": "MTGO Premodern League #10212",
-      "date": "24-Feb -2026",
-      "url": "https://mtgdecks.net/Premodern/deck-decklist-by-ecb-2826935",
-      "colors": [
-        "W",
-        "G"
+        "G",
+        "W"
       ],
       "spice": 10,
       "cards": []
@@ -2772,10 +2758,24 @@
       "date": "16-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-nekosuke-2811458",
       "colors": [
-        "W",
-        "G"
+        "G",
+        "W"
       ],
-      "spice": 10,
+      "spice": 11,
+      "cards": []
+    },
+    {
+      "player": "DB_d00mwake",
+      "rank": "1st",
+      "players": 0,
+      "event": "MTGO Premodern League #10212",
+      "date": "16-Feb -2026",
+      "url": "https://mtgdecks.net/Premodern/deck-decklist-by-db-d00mwake-2811456",
+      "colors": [
+        "G",
+        "W"
+      ],
+      "spice": 11,
       "cards": []
     }
   ],
@@ -2790,8 +2790,8 @@
       "date": "13-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-andrea-galbiati-2807210",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 12,
       "cards": []
@@ -2804,8 +2804,8 @@
       "date": "20-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-diego-marangone-2815426",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 8,
       "cards": []
@@ -2818,23 +2818,10 @@
       "date": "15-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/rg-goblins-decklist-by-frosty-2816422",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 13,
-      "cards": []
-    },
-    {
-      "player": "VintageCulture",
-      "rank": "2nd",
-      "players": 53,
-      "event": "MTGO Premodern Challenge 32 #12833584",
-      "date": "24-Feb -2026",
-      "url": "https://mtgdecks.net/Premodern/deck-decklist-by-vintageculture-2827080",
-      "colors": [
-        "R"
-      ],
-      "spice": 31,
       "cards": []
     },
     {
@@ -2845,8 +2832,8 @@
       "date": "07-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/goblins-decklist-by-vittorio-piatti-2804581",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 11,
       "cards": []
@@ -2859,8 +2846,8 @@
       "date": "21-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/goblins-decklist-by-ian-adams-2819010",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 18,
       "cards": []
@@ -2873,8 +2860,8 @@
       "date": "17-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-aaue-2812515",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 10,
       "cards": []
@@ -2887,8 +2874,8 @@
       "date": "12-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-aaue-2806393",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 10,
       "cards": []
@@ -2901,8 +2888,8 @@
       "date": "20-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/goblins-decklist-by-dario-noferi-2825337",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 10,
       "cards": []
@@ -2919,6 +2906,20 @@
       ],
       "spice": 31,
       "cards": []
+    },
+    {
+      "player": "Jimmy Mani",
+      "rank": "1st",
+      "players": 27,
+      "event": "$1K Premodern Sunday 9:00am @ SCG CON Milwaukee",
+      "date": "22-Feb -2026",
+      "url": "https://mtgdecks.net/Premodern/gruul-decklist-by-jimmy-mani-2821372",
+      "colors": [
+        "R",
+        "G"
+      ],
+      "spice": 11,
+      "cards": []
     }
   ],
   "Great Combo": [],
@@ -2931,10 +2932,10 @@
       "date": "29-Dec -2025",
       "url": "https://mtgdecks.net/Premodern/threshold-decklist-by-rain-2754300",
       "colors": [
-        "U",
-        "W",
+        "R",
         "G",
-        "R"
+        "W",
+        "U"
       ],
       "spice": 39,
       "cards": []
@@ -2947,10 +2948,10 @@
       "date": "10-Jan -2026",
       "url": "https://mtgdecks.net/Premodern/gro-a-tog-decklist-by-andre-luff-2770843",
       "colors": [
-        "U",
-        "W",
+        "R",
         "G",
-        "R"
+        "W",
+        "U"
       ],
       "spice": 14,
       "cards": []
@@ -2963,9 +2964,9 @@
       "date": "24-Aug -2025",
       "url": "https://mtgdecks.net/Premodern/gro-a-tog-decklist-by-federico-busso-2600114",
       "colors": [
-        "U",
+        "G",
         "W",
-        "G"
+        "U"
       ],
       "spice": 26,
       "cards": []
@@ -2978,11 +2979,11 @@
       "date": "02-Nov -2025",
       "url": "https://mtgdecks.net/Premodern/gro-a-tog-decklist-by-pascual-pena-2686625",
       "colors": [
-        "W",
-        "R",
-        "B",
         "G",
-        "U"
+        "W",
+        "U",
+        "R",
+        "B"
       ],
       "spice": 11,
       "cards": []
@@ -2995,13 +2996,13 @@
       "date": "30-Aug -2025",
       "url": "https://mtgdecks.net/Premodern/grow-decklist-by-milan-niznansky-2608595",
       "colors": [
-        "W",
-        "R",
-        "B",
         "G",
-        "U"
+        "W",
+        "U",
+        "R",
+        "B"
       ],
-      "spice": 13,
+      "spice": 12,
       "cards": []
     },
     {
@@ -3012,9 +3013,9 @@
       "date": "07-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/gro-a-tog-decklist-by-nacho-barrachina-2804582",
       "colors": [
-        "U",
-        "W",
         "R",
+        "W",
+        "U",
         "B"
       ],
       "spice": 24,
@@ -3028,13 +3029,13 @@
       "date": "19-Oct -2025",
       "url": "https://mtgdecks.net/Premodern/gro-a-tog-decklist-by-andrea-giavardi-2664234",
       "colors": [
-        "W",
-        "R",
-        "B",
         "G",
-        "U"
+        "W",
+        "U",
+        "R",
+        "B"
       ],
-      "spice": 15,
+      "spice": 14,
       "cards": []
     },
     {
@@ -3045,8 +3046,8 @@
       "date": "13-Jan -2026",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-neonmushroom77-2770617",
       "colors": [
-        "U",
         "W",
+        "U",
         "B"
       ],
       "spice": 31,
@@ -3060,9 +3061,9 @@
       "date": "25-Oct -2025",
       "url": "https://mtgdecks.net/Premodern/gro-a-tog-decklist-by-haitz-bujanda-2680066",
       "colors": [
-        "U",
+        "G",
         "W",
-        "G"
+        "U"
       ],
       "spice": 20,
       "cards": []
@@ -3075,9 +3076,9 @@
       "date": "12-Jul -2025",
       "url": "https://mtgdecks.net/Premodern/gro-a-tog-decklist-by-robert-mccoy-2551796",
       "colors": [
-        "U",
+        "G",
         "W",
-        "G"
+        "U"
       ],
       "spice": 26,
       "cards": []
@@ -3092,8 +3093,8 @@
       "date": "04-Jul -2025",
       "url": "https://mtgdecks.net/Premodern/iggy-pop-decklist-by-islandg0-2543418",
       "colors": [
-        "U",
         "W",
+        "U",
         "B"
       ],
       "spice": 15,
@@ -3107,8 +3108,8 @@
       "date": "04-Jul -2025",
       "url": "https://mtgdecks.net/Premodern/ill-gotten-gains-decklist-by-islandg0-2544981",
       "colors": [
-        "U",
         "W",
+        "U",
         "B"
       ],
       "spice": 15,
@@ -3122,8 +3123,8 @@
       "date": "27-Sep -2025",
       "url": "https://mtgdecks.net/Premodern/iggy-pop-decklist-by-jose-carlos-de-lucas-2640124",
       "colors": [
-        "U",
         "W",
+        "U",
         "B"
       ],
       "spice": 17,
@@ -3137,9 +3138,9 @@
       "date": "29-Jan -2026",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-desolutionist-2789316",
       "colors": [
-        "U",
-        "W",
         "R",
+        "W",
+        "U",
         "B"
       ],
       "spice": 28,
@@ -3153,11 +3154,11 @@
       "date": "30-Jul -2025",
       "url": "https://mtgdecks.net/Premodern/iggy-pop-decklist-by-g-22-2570330",
       "colors": [
-        "U",
         "W",
+        "U",
         "B"
       ],
-      "spice": 13,
+      "spice": 12,
       "cards": []
     },
     {
@@ -3182,8 +3183,8 @@
       "date": "30-Nov -2024",
       "url": "https://mtgdecks.net/Premodern/storm-decklist-by-philipp-altmann-2307299",
       "colors": [
-        "U",
         "W",
+        "U",
         "B"
       ],
       "spice": 20,
@@ -3197,9 +3198,9 @@
       "date": "21-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-desolutionist-2819991",
       "colors": [
-        "U",
-        "W",
         "R",
+        "W",
+        "U",
         "B"
       ],
       "spice": 26,
@@ -3213,8 +3214,8 @@
       "date": "09-Aug -2025",
       "url": "https://mtgdecks.net/Premodern/iggy-pop-decklist-by-islandg0-2581109",
       "colors": [
-        "U",
         "W",
+        "U",
         "B"
       ],
       "spice": 15,
@@ -3228,8 +3229,8 @@
       "date": "09-Aug -2025",
       "url": "https://mtgdecks.net/Premodern/ill-gotten-gains-decklist-by-islandg0-2582647",
       "colors": [
-        "U",
         "W",
+        "U",
         "B"
       ],
       "spice": 15,
@@ -3245,8 +3246,8 @@
       "date": "18-May -2025",
       "url": "https://mtgdecks.net/Premodern/rogue-decklist-by-ricardo-barros-2502213",
       "colors": [
-        "G",
         "R",
+        "G",
         "B"
       ],
       "spice": 17,
@@ -3260,9 +3261,9 @@
       "date": "31-Jan -2026",
       "url": "https://mtgdecks.net/Premodern/rogue-decklist-by-pavel-gric-2798450",
       "colors": [
+        "R",
         "G",
-        "B",
-        "R"
+        "B"
       ],
       "spice": 15,
       "cards": []
@@ -3275,8 +3276,8 @@
       "date": "12-Aug -2025",
       "url": "https://mtgdecks.net/Premodern/jund-decklist-by-simone-ricci-2591873",
       "colors": [
-        "G",
         "R",
+        "G",
         "B"
       ],
       "spice": 20,
@@ -3290,9 +3291,9 @@
       "date": "06-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/rogue-decklist-by-pavel-gric-2804127",
       "colors": [
+        "R",
         "G",
-        "B",
-        "R"
+        "B"
       ],
       "spice": 15,
       "cards": []
@@ -3305,9 +3306,9 @@
       "date": "19-Apr -2025",
       "url": "https://mtgdecks.net/Premodern/maestro-liendre-darigaaz-decklist-by-chux-darigaaz-2449630",
       "colors": [
+        "R",
         "G",
-        "B",
-        "R"
+        "B"
       ],
       "spice": 41,
       "cards": []
@@ -3320,9 +3321,9 @@
       "date": "22-Nov -2025",
       "url": "https://mtgdecks.net/Premodern/maestro-liendre-darigaaz-decklist-by-rui-chux-darigaaz-2704087",
       "colors": [
+        "R",
         "G",
-        "B",
-        "R"
+        "B"
       ],
       "spice": 36,
       "cards": []
@@ -3335,8 +3336,8 @@
       "date": "28-Jun -2025",
       "url": "https://mtgdecks.net/Premodern/jund-decklist-by-daniel-santos-2532400",
       "colors": [
-        "G",
         "R",
+        "G",
         "B"
       ],
       "spice": 27,
@@ -3350,9 +3351,9 @@
       "date": "19-Oct -2025",
       "url": "https://mtgdecks.net/Premodern/rogue-decklist-by-cyrus-bales-2669174",
       "colors": [
+        "R",
         "G",
-        "B",
-        "R"
+        "B"
       ],
       "spice": 15,
       "cards": []
@@ -3365,9 +3366,9 @@
       "date": "07-Nov -2025",
       "url": "https://mtgdecks.net/Premodern/rogue-decklist-by-marco-cavalleri-2695460",
       "colors": [
+        "R",
         "G",
-        "B",
-        "R"
+        "B"
       ],
       "spice": 18,
       "cards": []
@@ -3380,8 +3381,8 @@
       "date": "31-May -2025",
       "url": "https://mtgdecks.net/Premodern/brg-mid-range-decklist-by-ven3n0-2505883",
       "colors": [
-        "G",
         "R",
+        "G",
         "B"
       ],
       "spice": 18,
@@ -3540,9 +3541,9 @@
       "date": "28-Sep -2025",
       "url": "https://mtgdecks.net/Premodern/life-decklist-by-marco-alvarenga-2642282",
       "colors": [
-        "W",
+        "R",
         "G",
-        "R"
+        "W"
       ],
       "spice": 34,
       "cards": []
@@ -3555,10 +3556,10 @@
       "date": "23-Nov -2024",
       "url": "https://mtgdecks.net/Premodern/life-decklist-by-roberto-aguilar-2287511",
       "colors": [
-        "W",
+        "R",
         "G",
-        "B",
-        "R"
+        "W",
+        "B"
       ],
       "spice": 37,
       "cards": []
@@ -3571,10 +3572,10 @@
       "date": "16-Feb -2025",
       "url": "https://mtgdecks.net/Premodern/gw-life-combo-decklist-by-daniel-fassano-santos-2376568",
       "colors": [
-        "W",
+        "R",
         "G",
-        "B",
-        "R"
+        "W",
+        "B"
       ],
       "spice": 48,
       "cards": []
@@ -3587,8 +3588,8 @@
       "date": "01-Feb -2025",
       "url": "https://mtgdecks.net/Premodern/life-decklist-by-leonardo-maeda-2360885",
       "colors": [
-        "W",
         "G",
+        "W",
         "B"
       ],
       "spice": 36,
@@ -3602,10 +3603,10 @@
       "date": "14-Apr -2024",
       "url": "https://mtgdecks.net/Premodern/life-decklist-by-kask1-2008310",
       "colors": [
-        "W",
+        "R",
         "G",
-        "B",
-        "R"
+        "W",
+        "B"
       ],
       "spice": 33,
       "cards": []
@@ -3618,10 +3619,10 @@
       "date": "14-Apr -2024",
       "url": "https://mtgdecks.net/Premodern/all-my-life-decklist-by-micky-gasco-1989757",
       "colors": [
-        "W",
+        "R",
         "G",
-        "B",
-        "R"
+        "W",
+        "B"
       ],
       "spice": 34,
       "cards": []
@@ -3634,10 +3635,10 @@
       "date": "17-Mar -2024",
       "url": "https://mtgdecks.net/Premodern/all-my-life-decklist-by-micky-gasco-1952025",
       "colors": [
-        "W",
+        "R",
         "G",
-        "B",
-        "R"
+        "W",
+        "B"
       ],
       "spice": 33,
       "cards": []
@@ -3650,10 +3651,10 @@
       "date": "07-Apr -2024",
       "url": "https://mtgdecks.net/Premodern/technolife-decklist-by-sete-bandres-1986944",
       "colors": [
-        "W",
+        "R",
         "G",
-        "B",
-        "R"
+        "W",
+        "B"
       ],
       "spice": 31,
       "cards": []
@@ -3666,10 +3667,10 @@
       "date": "31-Mar -2024",
       "url": "https://mtgdecks.net/Premodern/all-my-life-decklist-by-micky-gasco-1976429",
       "colors": [
-        "W",
+        "R",
         "G",
-        "B",
-        "R"
+        "W",
+        "B"
       ],
       "spice": 34,
       "cards": []
@@ -3682,10 +3683,10 @@
       "date": "31-Mar -2024",
       "url": "https://mtgdecks.net/Premodern/life-decklist-by-sete-bandres-1975588",
       "colors": [
-        "W",
+        "R",
         "G",
-        "B",
-        "R"
+        "W",
+        "B"
       ],
       "spice": 31,
       "cards": []
@@ -3700,8 +3701,8 @@
       "date": "27-Sep -2025",
       "url": "https://mtgdecks.net/Premodern/mud-decklist-by-hannes-bystrom-2637819",
       "colors": [
-        "U",
-        "R"
+        "R",
+        "U"
       ],
       "spice": 36,
       "cards": []
@@ -3740,8 +3741,8 @@
       "date": "12-Apr -2025",
       "url": "https://mtgdecks.net/Premodern/mud-decklist-by-david-torres-2447265",
       "colors": [
-        "U",
-        "R"
+        "R",
+        "U"
       ],
       "spice": 40,
       "cards": []
@@ -3780,8 +3781,8 @@
       "date": "11-Oct -2025",
       "url": "https://mtgdecks.net/Premodern/izzet-decklist-by-luis-pedro-santos-2650057",
       "colors": [
-        "U",
-        "R"
+        "R",
+        "U"
       ],
       "spice": 39,
       "cards": []
@@ -3794,8 +3795,8 @@
       "date": "01-Aug -2025",
       "url": "https://mtgdecks.net/Premodern/mud-decklist-by-nicolas-castello-2577094",
       "colors": [
-        "U",
-        "R"
+        "R",
+        "U"
       ],
       "spice": 39,
       "cards": []
@@ -3821,8 +3822,8 @@
       "date": "11-Oct -2025",
       "url": "https://mtgdecks.net/Premodern/izzet-decklist-by-luis-pedro-santos-2649794",
       "colors": [
-        "U",
-        "R"
+        "R",
+        "U"
       ],
       "spice": 39,
       "cards": []
@@ -3869,20 +3870,6 @@
         "B"
       ],
       "spice": 21,
-      "cards": []
-    },
-    {
-      "player": "MIGUEL ZAPATA",
-      "rank": "Top4",
-      "players": 33,
-      "event": "LCOS PREMODERN FEBRERO 26 (ESPECIAL 50!)",
-      "date": "22-Feb -2026",
-      "url": "https://mtgdecks.net/Premodern/machine-head-decklist-by-miguel-zapata-2827038",
-      "colors": [
-        "R",
-        "B"
-      ],
-      "spice": 25,
       "cards": []
     },
     {
@@ -3968,6 +3955,20 @@
       ],
       "spice": 27,
       "cards": []
+    },
+    {
+      "player": "vedellet",
+      "rank": "1st",
+      "players": 0,
+      "event": "MTGO Premodern League #10096",
+      "date": "19-Dec -2025",
+      "url": "https://mtgdecks.net/Premodern/deck-decklist-by-vedellet-2744510",
+      "colors": [
+        "R",
+        "B"
+      ],
+      "spice": 27,
+      "cards": []
     }
   ],
   "Madness": [
@@ -3979,9 +3980,9 @@
       "date": "25-Jan -2026",
       "url": "https://mtgdecks.net/Premodern/survimadness-decklist-by-jos-baserri-2792619",
       "colors": [
-        "U",
+        "R",
         "G",
-        "R"
+        "U"
       ],
       "spice": 35,
       "cards": []
@@ -3994,9 +3995,9 @@
       "date": "15-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/survimadness-decklist-by-diliz-2816418",
       "colors": [
-        "U",
+        "R",
         "G",
-        "R"
+        "U"
       ],
       "spice": 29,
       "cards": []
@@ -4009,8 +4010,8 @@
       "date": "12-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-beicodegeia-2806394",
       "colors": [
-        "U",
-        "G"
+        "G",
+        "U"
       ],
       "spice": 24,
       "cards": []
@@ -4023,9 +4024,9 @@
       "date": "01-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/madness-decklist-by-giacomo-frangipane-2797607",
       "colors": [
-        "U",
+        "R",
         "G",
-        "R"
+        "U"
       ],
       "spice": 28,
       "cards": []
@@ -4038,8 +4039,8 @@
       "date": "21-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/simic-decklist-by-richard-wilhoyt-2819542",
       "colors": [
-        "U",
-        "G"
+        "G",
+        "U"
       ],
       "spice": 24,
       "cards": []
@@ -4052,10 +4053,10 @@
       "date": "22-Dec -2025",
       "url": "https://mtgdecks.net/Premodern/madness-decklist-by-andre-vieira-2751017",
       "colors": [
-        "U",
-        "W",
+        "R",
         "G",
-        "R"
+        "W",
+        "U"
       ],
       "spice": 49,
       "cards": []
@@ -4068,8 +4069,8 @@
       "date": "09-Jan -2026",
       "url": "https://mtgdecks.net/Premodern/madness-decklist-by-mattia-galasso-2770835",
       "colors": [
-        "U",
-        "G"
+        "G",
+        "U"
       ],
       "spice": 33,
       "cards": []
@@ -4082,9 +4083,9 @@
       "date": "22-Nov -2025",
       "url": "https://mtgdecks.net/Premodern/madness-decklist-by-diego-lavagna-2716404",
       "colors": [
-        "U",
+        "R",
         "G",
-        "R"
+        "U"
       ],
       "spice": 29,
       "cards": []
@@ -4097,8 +4098,8 @@
       "date": "23-Jan -2026",
       "url": "https://mtgdecks.net/Premodern/madness-decklist-by-gilberto-silva-2787799",
       "colors": [
-        "U",
-        "G"
+        "G",
+        "U"
       ],
       "spice": 30,
       "cards": []
@@ -4111,8 +4112,8 @@
       "date": "02-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/madness-decklist-by-connor-kirk-2796765",
       "colors": [
-        "U",
-        "G"
+        "G",
+        "U"
       ],
       "spice": 21,
       "cards": []
@@ -4240,16 +4241,16 @@
       "cards": []
     },
     {
-      "player": "Casey Moon",
+      "player": "Navarro",
       "rank": "1st",
-      "players": 22,
-      "event": "Mogg Squad Presents: Roses are Red Deck Wins",
-      "date": "14-Feb -2026",
-      "url": "https://mtgdecks.net/Premodern/deck-decklist-by-casey-moon-2808793",
+      "players": 27,
+      "event": "1 Jornada Liga Baserri Online",
+      "date": "18-Jan -2026",
+      "url": "https://mtgdecks.net/Premodern/mono-black-decklist-by-navarro-2786660",
       "colors": [
         "B"
       ],
-      "spice": 18,
+      "spice": 23,
       "cards": []
     }
   ],
@@ -4276,9 +4277,9 @@
       "date": "22-Dec -2025",
       "url": "https://mtgdecks.net/Premodern/mono-blue-decklist-by-murilo-orthusk-2751018",
       "colors": [
-        "U",
-        "W",
         "G",
+        "W",
+        "U",
         "B"
       ],
       "spice": 64,
@@ -4533,8 +4534,8 @@
       "date": "28-Sep -2025",
       "url": "https://mtgdecks.net/Premodern/oath-ponza-decklist-by-mateus-marques-2642281",
       "colors": [
-        "W",
         "G",
+        "W",
         "B"
       ],
       "spice": 40,
@@ -4548,8 +4549,8 @@
       "date": "31-Aug -2025",
       "url": "https://mtgdecks.net/Premodern/oath-decklist-by-blitz-k-2615415",
       "colors": [
-        "W",
         "G",
+        "W",
         "B"
       ],
       "spice": 35,
@@ -4563,10 +4564,10 @@
       "date": "28-Sep -2025",
       "url": "https://mtgdecks.net/Premodern/oath-decklist-by-ricardo-barros-2642284",
       "colors": [
-        "W",
+        "R",
         "G",
-        "B",
-        "R"
+        "W",
+        "B"
       ],
       "spice": 45,
       "cards": []
@@ -4579,9 +4580,9 @@
       "date": "16-Dec -2025",
       "url": "https://mtgdecks.net/Premodern/oath-decklist-by-chickensauce-2745110",
       "colors": [
+        "R",
         "G",
-        "B",
-        "R"
+        "B"
       ],
       "spice": 67,
       "cards": []
@@ -4594,8 +4595,8 @@
       "date": "19-Jul -2025",
       "url": "https://mtgdecks.net/Premodern/abzan-decklist-by-christopher-baviello-2559364",
       "colors": [
-        "W",
         "G",
+        "W",
         "B"
       ],
       "spice": 35,
@@ -4609,8 +4610,8 @@
       "date": "24-May -2025",
       "url": "https://mtgdecks.net/Premodern/black-oath-decklist-by-jeff-shuffett-2501888",
       "colors": [
-        "W",
         "G",
+        "W",
         "B"
       ],
       "spice": 38,
@@ -4624,8 +4625,8 @@
       "date": "27-Dec -2025",
       "url": "https://mtgdecks.net/Premodern/oath-decklist-by-federico-garbarino-2759657",
       "colors": [
-        "W",
-        "G"
+        "G",
+        "W"
       ],
       "spice": 43,
       "cards": []
@@ -4638,8 +4639,8 @@
       "date": "14-Apr -2024",
       "url": "https://mtgdecks.net/Premodern/prison-budget-oath-decklist-by-futson-1991640",
       "colors": [
-        "W",
-        "G"
+        "G",
+        "W"
       ],
       "spice": 48,
       "cards": []
@@ -4652,8 +4653,8 @@
       "date": "09-Mar -2024",
       "url": "https://mtgdecks.net/Premodern/rg-terra-oath-decklist-by-jon-cawley-1962003",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 60,
       "cards": []
@@ -4666,8 +4667,8 @@
       "date": "22-Feb -2025",
       "url": "https://mtgdecks.net/Premodern/terra-oath-decklist-by-patrick-burt-2387596",
       "colors": [
-        "W",
         "G",
+        "W",
         "U"
       ],
       "spice": 52,
@@ -4683,9 +4684,9 @@
       "date": "07-Apr -2024",
       "url": "https://mtgdecks.net/Premodern/blueoath-decklist-by-jorjowsky-1985150",
       "colors": [
-        "U",
+        "G",
         "W",
-        "G"
+        "U"
       ],
       "spice": 50,
       "cards": []
@@ -4698,9 +4699,9 @@
       "date": "17-Mar -2024",
       "url": "https://mtgdecks.net/Premodern/ug-oathstill-decklist-by-jorjowsky-1956213",
       "colors": [
-        "U",
+        "G",
         "W",
-        "G"
+        "U"
       ],
       "spice": 50,
       "cards": []
@@ -4713,9 +4714,9 @@
       "date": "31-Mar -2024",
       "url": "https://mtgdecks.net/Premodern/blueoath-decklist-by-jorjowsky-1975797",
       "colors": [
-        "U",
+        "G",
         "W",
-        "G"
+        "U"
       ],
       "spice": 50,
       "cards": []
@@ -4728,8 +4729,8 @@
       "date": "31-Oct -2025",
       "url": "https://mtgdecks.net/Premodern/rogue-decklist-by-christoph-sourcin-2692185",
       "colors": [
-        "U",
-        "G"
+        "G",
+        "U"
       ],
       "spice": 56,
       "cards": []
@@ -4742,9 +4743,9 @@
       "date": "14-Apr -2024",
       "url": "https://mtgdecks.net/Premodern/blueoath-decklist-by-jorjowsky-1992655",
       "colors": [
-        "U",
+        "G",
         "W",
-        "G"
+        "U"
       ],
       "spice": 50,
       "cards": []
@@ -4757,8 +4758,8 @@
       "date": "06-Jul -2024",
       "url": "https://mtgdecks.net/Premodern/oath-decklist-by-eduardo-casuscelli-2131990",
       "colors": [
-        "W",
         "G",
+        "W",
         "U"
       ],
       "spice": 46,
@@ -4772,8 +4773,8 @@
       "date": "04-Sep -2025",
       "url": "https://mtgdecks.net/Premodern/oath-control-decklist-by-mralwayswins-2612107",
       "colors": [
-        "W",
         "G",
+        "W",
         "U"
       ],
       "spice": 77,
@@ -4787,8 +4788,8 @@
       "date": "01-Nov -2025",
       "url": "https://mtgdecks.net/Premodern/turbo-lands-decklist-by-ariston-go-2688758",
       "colors": [
-        "U",
-        "G"
+        "G",
+        "U"
       ],
       "spice": 50,
       "cards": []
@@ -4801,8 +4802,8 @@
       "date": "23-Nov -2025",
       "url": "https://mtgdecks.net/Premodern/turbo-lands-decklist-by-ariston-go-2716426",
       "colors": [
-        "U",
-        "G"
+        "G",
+        "U"
       ],
       "spice": 50,
       "cards": []
@@ -4815,8 +4816,8 @@
       "date": "11-Jul -2025",
       "url": "https://mtgdecks.net/Premodern/oath-decklist-by-eduardo-casuscelli-2553706",
       "colors": [
-        "W",
         "G",
+        "W",
         "U"
       ],
       "spice": 47,
@@ -4832,8 +4833,8 @@
       "date": "21-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/gruul-decklist-by-urza1289-2817988",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 14,
       "cards": []
@@ -4846,8 +4847,8 @@
       "date": "21-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/oath-ponza-decklist-by-matt-folk-2818917",
       "colors": [
-        "W",
-        "G"
+        "G",
+        "W"
       ],
       "spice": 23,
       "cards": []
@@ -4860,8 +4861,8 @@
       "date": "21-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-radimex-2817450",
       "colors": [
-        "W",
-        "G"
+        "G",
+        "W"
       ],
       "spice": 20,
       "cards": []
@@ -4874,8 +4875,8 @@
       "date": "01-Jan -2026",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-tbundz-2755855",
       "colors": [
-        "W",
-        "G"
+        "G",
+        "W"
       ],
       "spice": 28,
       "cards": []
@@ -4888,8 +4889,8 @@
       "date": "23-Jan -2026",
       "url": "https://mtgdecks.net/Premodern/oath-ponza-decklist-by-simone-rinaldi-2783245",
       "colors": [
-        "W",
-        "G"
+        "G",
+        "W"
       ],
       "spice": 29,
       "cards": []
@@ -4902,8 +4903,8 @@
       "date": "01-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/oath-ponza-decklist-by-maximiliano-boese-2803173",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 14,
       "cards": []
@@ -4916,8 +4917,8 @@
       "date": "08-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/oathponza-decklist-by-ales-jeraj-2805300",
       "colors": [
-        "W",
-        "G"
+        "G",
+        "W"
       ],
       "spice": 25,
       "cards": []
@@ -4930,8 +4931,8 @@
       "date": "21-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/oath-ponza-decklist-by-joshua-lapointe-2818922",
       "colors": [
-        "W",
-        "G"
+        "G",
+        "W"
       ],
       "spice": 27,
       "cards": []
@@ -4944,8 +4945,8 @@
       "date": "31-Dec -2025",
       "url": "https://mtgdecks.net/Premodern/oath-ponza-decklist-by-martin-oviedo-2756901",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 18,
       "cards": []
@@ -4958,8 +4959,8 @@
       "date": "13-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/oath-ponza-decklist-by-martin-oviedo-2809209",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 25,
       "cards": []
@@ -4974,10 +4975,10 @@
       "date": "22-Nov -2025",
       "url": "https://mtgdecks.net/Premodern/quiet-oath-decklist-by-florian-friedel-2706624",
       "colors": [
-        "W",
+        "R",
         "G",
-        "U",
-        "R"
+        "W",
+        "U"
       ],
       "spice": 12,
       "cards": []
@@ -4990,10 +4991,10 @@
       "date": "01-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/oath-spec-decklist-by-roberto-di-filippo-2797606",
       "colors": [
-        "W",
+        "R",
         "G",
-        "U",
-        "R"
+        "W",
+        "U"
       ],
       "spice": 13,
       "cards": []
@@ -5006,10 +5007,10 @@
       "date": "12-Sep -2025",
       "url": "https://mtgdecks.net/Premodern/oath-spec-decklist-by-cristian-wisner-2621394",
       "colors": [
-        "W",
+        "R",
         "G",
-        "U",
-        "R"
+        "W",
+        "U"
       ],
       "spice": 12,
       "cards": []
@@ -5022,10 +5023,10 @@
       "date": "30-Aug -2025",
       "url": "https://mtgdecks.net/Premodern/oath-spec-decklist-by-pablo-marcos-2606971",
       "colors": [
-        "W",
+        "R",
         "G",
-        "U",
-        "R"
+        "W",
+        "U"
       ],
       "spice": 12,
       "cards": []
@@ -5038,10 +5039,10 @@
       "date": "09-Aug -2025",
       "url": "https://mtgdecks.net/Premodern/oath-spec-decklist-by-nick-rodrigues-2581157",
       "colors": [
-        "W",
+        "R",
         "G",
-        "U",
-        "R"
+        "W",
+        "U"
       ],
       "spice": 9,
       "cards": []
@@ -5054,10 +5055,10 @@
       "date": "19-Nov -2025",
       "url": "https://mtgdecks.net/Premodern/oath-spec-decklist-by-renan-rezende-2703183",
       "colors": [
-        "W",
+        "R",
         "G",
-        "U",
-        "R"
+        "W",
+        "U"
       ],
       "spice": 13,
       "cards": []
@@ -5070,10 +5071,10 @@
       "date": "02-Aug -2025",
       "url": "https://mtgdecks.net/Premodern/oath-spec-decklist-by-mike-kravitz-2575601",
       "colors": [
-        "W",
+        "R",
         "G",
-        "U",
-        "R"
+        "W",
+        "U"
       ],
       "spice": 10,
       "cards": []
@@ -5086,10 +5087,10 @@
       "date": "17-Oct -2025",
       "url": "https://mtgdecks.net/Premodern/w-u-r-g-decklist-by-aggroalexander-2661579",
       "colors": [
-        "W",
+        "R",
         "G",
-        "U",
-        "R"
+        "W",
+        "U"
       ],
       "spice": 11,
       "cards": []
@@ -5102,10 +5103,10 @@
       "date": "31-Aug -2025",
       "url": "https://mtgdecks.net/Premodern/oath-spec-decklist-by-tobias-van-der-neut-2615414",
       "colors": [
-        "W",
+        "R",
         "G",
-        "U",
-        "R"
+        "W",
+        "U"
       ],
       "spice": 10,
       "cards": []
@@ -5118,10 +5119,10 @@
       "date": "09-Aug -2025",
       "url": "https://mtgdecks.net/Premodern/oath-of-druids-decklist-by-thatguyfromfnm-2582650",
       "colors": [
-        "W",
+        "R",
         "G",
-        "U",
-        "R"
+        "W",
+        "U"
       ],
       "spice": 16,
       "cards": []
@@ -5137,8 +5138,8 @@
       "date": "04-Aug -2025",
       "url": "https://mtgdecks.net/Premodern/pattern-combo-decklist-by-tomeu-servera-2576373",
       "colors": [
-        "W",
         "G",
+        "W",
         "B"
       ],
       "spice": 33,
@@ -5152,11 +5153,11 @@
       "date": "06-Jan -2025",
       "url": "https://mtgdecks.net/Premodern/pattern-decklist-by-marco-leon-2323814",
       "colors": [
-        "W",
-        "R",
-        "B",
         "G",
-        "U"
+        "W",
+        "U",
+        "R",
+        "B"
       ],
       "spice": 33,
       "cards": []
@@ -5169,11 +5170,11 @@
       "date": "06-Sep -2025",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-jaakko-husso-2610730",
       "colors": [
-        "W",
-        "R",
-        "B",
         "G",
-        "U"
+        "W",
+        "U",
+        "R",
+        "B"
       ],
       "spice": 31,
       "cards": []
@@ -5186,9 +5187,9 @@
       "date": "01-Feb -2025",
       "url": "https://mtgdecks.net/Premodern/pattern-of-rebirth-decklist-by-marcin-kowalski-2363973",
       "colors": [
-        "W",
-        "G",
         "R",
+        "G",
+        "W",
         "B"
       ],
       "spice": 38,
@@ -5202,11 +5203,11 @@
       "date": "05-Apr -2025",
       "url": "https://mtgdecks.net/Premodern/pattern-combo-decklist-by-jan-schmidt-2440682",
       "colors": [
-        "W",
-        "R",
-        "B",
         "G",
-        "U"
+        "W",
+        "U",
+        "R",
+        "B"
       ],
       "spice": 32,
       "cards": []
@@ -5219,8 +5220,8 @@
       "date": "21-Jan -2026",
       "url": "https://mtgdecks.net/Premodern/pattern-combo-decklist-by-mr-hao-2778340",
       "colors": [
-        "W",
         "G",
+        "W",
         "U",
         "B"
       ],
@@ -5235,8 +5236,8 @@
       "date": "08-Aug -2025",
       "url": "https://mtgdecks.net/Premodern/pattern-combo-decklist-by-maguro-miura-2587524",
       "colors": [
-        "W",
         "G",
+        "W",
         "B"
       ],
       "spice": 33,
@@ -5250,9 +5251,9 @@
       "date": "13-Jul -2024",
       "url": "https://mtgdecks.net/Premodern/pattern-rector-decklist-by-marcin-kowalski-2132792",
       "colors": [
-        "W",
-        "G",
         "R",
+        "G",
+        "W",
         "B"
       ],
       "spice": 32,
@@ -5266,11 +5267,11 @@
       "date": "06-Dec -2025",
       "url": "https://mtgdecks.net/Premodern/pattern-combo-decklist-by-chris-hardy-2731362",
       "colors": [
-        "W",
-        "R",
-        "B",
         "G",
-        "U"
+        "W",
+        "U",
+        "R",
+        "B"
       ],
       "spice": 31,
       "cards": []
@@ -5283,10 +5284,10 @@
       "date": "09-Mar -2025",
       "url": "https://mtgdecks.net/Premodern/pattern-of-rebirth-decklist-by-thiago-maeda-2406656",
       "colors": [
-        "W",
+        "R",
         "G",
-        "B",
-        "R"
+        "W",
+        "B"
       ],
       "spice": 40,
       "cards": []
@@ -5368,7 +5369,7 @@
       "colors": [
         "B"
       ],
-      "spice": 14,
+      "spice": 15,
       "cards": []
     },
     {
@@ -5559,20 +5560,6 @@
   "Pox": [],
   "Psychatog": [
     {
-      "player": "i_b_TRUE",
-      "rank": "1st",
-      "players": 53,
-      "event": "MTGO Premodern Challenge 32 #12833584",
-      "date": "24-Feb -2026",
-      "url": "https://mtgdecks.net/Premodern/deck-decklist-by-i-b-true-2827058",
-      "colors": [
-        "U",
-        "B"
-      ],
-      "spice": 20,
-      "cards": []
-    },
-    {
       "player": "desolutionist",
       "rank": "1st",
       "players": 44,
@@ -5584,6 +5571,20 @@
         "B"
       ],
       "spice": 45,
+      "cards": []
+    },
+    {
+      "player": "walrusmadness",
+      "rank": "2nd",
+      "players": 72,
+      "event": "MTGO Premodern Challenge 32 #12827475",
+      "date": "18-Dec -2025",
+      "url": "https://mtgdecks.net/Premodern/deck-decklist-by-walrusmadness-2744214",
+      "colors": [
+        "U",
+        "B"
+      ],
+      "spice": 20,
       "cards": []
     },
     {
@@ -5708,8 +5709,8 @@
       "date": "08-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/pyroath-decklist-by-alexvv-2810314",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 18,
       "cards": []
@@ -5722,8 +5723,8 @@
       "date": "14-Apr -2024",
       "url": "https://mtgdecks.net/Premodern/pyrostatic-oath-decklist-by-eneko-1995025",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 11,
       "cards": []
@@ -5736,8 +5737,8 @@
       "date": "17-Mar -2024",
       "url": "https://mtgdecks.net/Premodern/pyrostatic-oath-decklist-by-eneko-chorro-1951837",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 11,
       "cards": []
@@ -5750,8 +5751,8 @@
       "date": "31-Mar -2024",
       "url": "https://mtgdecks.net/Premodern/pyrostatic-oath-decklist-by-eneko-1975845",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 11,
       "cards": []
@@ -5764,8 +5765,8 @@
       "date": "06-Dec -2025",
       "url": "https://mtgdecks.net/Premodern/pyrostatic-oath-decklist-by-efren-gilabert-2735132",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 15,
       "cards": []
@@ -5778,8 +5779,8 @@
       "date": "25-Jun -2024",
       "url": "https://mtgdecks.net/Premodern/pyro-oath-decklist-by-patricio-duarte-2104726",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 15,
       "cards": []
@@ -5792,8 +5793,8 @@
       "date": "02-Sep -2025",
       "url": "https://mtgdecks.net/Premodern/pyrostatic-oath-decklist-by-ricardo-abarca-2606875",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 35,
       "cards": []
@@ -5806,8 +5807,8 @@
       "date": "14-Jan -2026",
       "url": "https://mtgdecks.net/Premodern/gruul-decklist-by-mack83p-2771186",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 17,
       "cards": []
@@ -5820,8 +5821,8 @@
       "date": "10-Jan -2026",
       "url": "https://mtgdecks.net/Premodern/pyrostatic-oath-decklist-by-wilson-tsong-2768527",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 19,
       "cards": []
@@ -5834,8 +5835,8 @@
       "date": "13-May -2024",
       "url": "https://mtgdecks.net/Premodern/pyrostatic-oath-decklist-by-adrian-gladysz-2051536",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 11,
       "cards": []
@@ -5851,8 +5852,8 @@
       "date": "08-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/reanimator-decklist-by-ekxilem-2810306",
       "colors": [
-        "W",
         "G",
+        "W",
         "U",
         "B"
       ],
@@ -5867,8 +5868,8 @@
       "date": "25-Jan -2026",
       "url": "https://mtgdecks.net/Premodern/reanimator-decklist-by-ekxilem-2792623",
       "colors": [
-        "W",
         "G",
+        "W",
         "U",
         "B"
       ],
@@ -5897,8 +5898,8 @@
       "date": "17-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-bawer-2812519",
       "colors": [
-        "W",
         "G",
+        "W",
         "U",
         "B"
       ],
@@ -5913,11 +5914,11 @@
       "date": "30-Nov -2025",
       "url": "https://mtgdecks.net/Premodern/reanimator-decklist-by-ignacio-de-leo-2729746",
       "colors": [
-        "W",
-        "R",
-        "B",
         "G",
-        "U"
+        "W",
+        "U",
+        "R",
+        "B"
       ],
       "spice": 24,
       "cards": []
@@ -5930,11 +5931,11 @@
       "date": "01-Jan -2026",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-oderus-urungus-2755830",
       "colors": [
-        "W",
-        "R",
-        "B",
         "G",
-        "U"
+        "W",
+        "U",
+        "R",
+        "B"
       ],
       "spice": 24,
       "cards": []
@@ -5947,11 +5948,11 @@
       "date": "11-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/5c-reanimator-decklist-by-gabriele-metelli-2809417",
       "colors": [
-        "W",
-        "R",
-        "B",
         "G",
-        "U"
+        "W",
+        "U",
+        "R",
+        "B"
       ],
       "spice": 25,
       "cards": []
@@ -5964,8 +5965,8 @@
       "date": "16-Nov -2025",
       "url": "https://mtgdecks.net/Premodern/reanimator-decklist-by-takeshi-uwata-2745343",
       "colors": [
-        "W",
         "G",
+        "W",
         "U",
         "B"
       ],
@@ -5980,11 +5981,11 @@
       "date": "19-Dec -2025",
       "url": "https://mtgdecks.net/Premodern/reanimator-decklist-by-baldacci-mirko-2749377",
       "colors": [
-        "W",
-        "R",
-        "B",
         "G",
-        "U"
+        "W",
+        "U",
+        "R",
+        "B"
       ],
       "spice": 27,
       "cards": []
@@ -5997,11 +5998,11 @@
       "date": "21-Nov -2025",
       "url": "https://mtgdecks.net/Premodern/reanimator-decklist-by-takeshi-uwata-2746791",
       "colors": [
-        "W",
-        "R",
-        "B",
         "G",
-        "U"
+        "W",
+        "U",
+        "R",
+        "B"
       ],
       "spice": 24,
       "cards": []
@@ -6016,8 +6017,8 @@
       "date": "11-Jan -2026",
       "url": "https://mtgdecks.net/Premodern/gw-rebels-decklist-by-stefano-bonade-2770911",
       "colors": [
-        "W",
-        "G"
+        "G",
+        "W"
       ],
       "spice": 58,
       "cards": []
@@ -6044,9 +6045,9 @@
       "date": "23-Feb -2025",
       "url": "https://mtgdecks.net/Premodern/survirebels-decklist-by-ivan-de-castro-2385673",
       "colors": [
-        "W",
+        "R",
         "G",
-        "R"
+        "W"
       ],
       "spice": 90,
       "cards": []
@@ -6073,9 +6074,9 @@
       "date": "30-Mar -2025",
       "url": "https://mtgdecks.net/Premodern/survirebels-decklist-by-ivan-de-castro-2444297",
       "colors": [
-        "W",
+        "R",
         "G",
-        "R"
+        "W"
       ],
       "spice": 94,
       "cards": []
@@ -6188,9 +6189,9 @@
       "date": "08-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/5c-replenish-decklist-by-spoodman-2810319",
       "colors": [
-        "W",
+        "R",
         "G",
-        "R"
+        "W"
       ],
       "spice": 73,
       "cards": []
@@ -6303,11 +6304,11 @@
       "date": "22-Nov -2025",
       "url": "https://mtgdecks.net/Premodern/slivers-decklist-by-florian-finke-2706627",
       "colors": [
-        "W",
-        "R",
-        "B",
         "G",
-        "U"
+        "W",
+        "U",
+        "R",
+        "B"
       ],
       "spice": 24,
       "cards": []
@@ -6320,11 +6321,11 @@
       "date": "03-Jan -2026",
       "url": "https://mtgdecks.net/Premodern/slivers-decklist-by-florian-finke-2760542",
       "colors": [
-        "W",
-        "R",
-        "B",
         "G",
-        "U"
+        "W",
+        "U",
+        "R",
+        "B"
       ],
       "spice": 24,
       "cards": []
@@ -6337,11 +6338,11 @@
       "date": "31-May -2025",
       "url": "https://mtgdecks.net/Premodern/slivers-decklist-by-calisto81-2505879",
       "colors": [
-        "W",
-        "R",
-        "B",
         "G",
-        "U"
+        "W",
+        "U",
+        "R",
+        "B"
       ],
       "spice": 28,
       "cards": []
@@ -6354,11 +6355,11 @@
       "date": "28-Dec -2025",
       "url": "https://mtgdecks.net/Premodern/slivers-decklist-by-florian-finke-2759668",
       "colors": [
-        "W",
-        "R",
-        "B",
         "G",
-        "U"
+        "W",
+        "U",
+        "R",
+        "B"
       ],
       "spice": 24,
       "cards": []
@@ -6371,8 +6372,8 @@
       "date": "20-Dec -2025",
       "url": "https://mtgdecks.net/Premodern/slivers-decklist-by-florent-jacquemin-2749853",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 80,
       "cards": []
@@ -6385,11 +6386,11 @@
       "date": "25-Jan -2026",
       "url": "https://mtgdecks.net/Premodern/slivers-decklist-by-dax-montealegre-2785959",
       "colors": [
-        "W",
-        "R",
-        "B",
         "G",
-        "U"
+        "W",
+        "U",
+        "R",
+        "B"
       ],
       "spice": 39,
       "cards": []
@@ -6402,11 +6403,11 @@
       "date": "08-Jun -2025",
       "url": "https://mtgdecks.net/Premodern/slivers-decklist-by-romain-wack-2518852",
       "colors": [
-        "W",
-        "R",
-        "B",
         "G",
-        "U"
+        "W",
+        "U",
+        "R",
+        "B"
       ],
       "spice": 30,
       "cards": []
@@ -6434,11 +6435,11 @@
       "date": "08-Mar -2025",
       "url": "https://mtgdecks.net/Premodern/fragment-a-dos-decklist-by-nuevo-mordor-2396274",
       "colors": [
-        "W",
-        "R",
-        "B",
         "G",
-        "U"
+        "W",
+        "U",
+        "R",
+        "B"
       ],
       "spice": 52,
       "cards": []
@@ -6451,11 +6452,11 @@
       "date": "04-Sep -2025",
       "url": "https://mtgdecks.net/Premodern/slivers-decklist-by-fl0r1-2609403",
       "colors": [
-        "W",
-        "R",
-        "B",
         "G",
-        "U"
+        "W",
+        "U",
+        "R",
+        "B"
       ],
       "spice": 24,
       "cards": []
@@ -6470,11 +6471,11 @@
       "date": "11-Jan -2026",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-fer-magic-2767825",
       "colors": [
-        "W",
-        "R",
-        "B",
         "G",
-        "U"
+        "W",
+        "U",
+        "R",
+        "B"
       ],
       "spice": 40,
       "cards": []
@@ -6487,11 +6488,11 @@
       "date": "09-Jan -2026",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-princevogelfrei-2762803",
       "colors": [
-        "W",
-        "R",
-        "B",
         "G",
-        "U"
+        "W",
+        "U",
+        "R",
+        "B"
       ],
       "spice": 40,
       "cards": []
@@ -6504,11 +6505,11 @@
       "date": "23-Dec -2025",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-princevogelfrei-2749039",
       "colors": [
-        "W",
-        "R",
-        "B",
         "G",
-        "U"
+        "W",
+        "U",
+        "R",
+        "B"
       ],
       "spice": 39,
       "cards": []
@@ -6521,11 +6522,11 @@
       "date": "13-Dec -2025",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-princevogelfrei-2737106",
       "colors": [
-        "W",
-        "R",
-        "B",
         "G",
-        "U"
+        "W",
+        "U",
+        "R",
+        "B"
       ],
       "spice": 40,
       "cards": []
@@ -6538,11 +6539,11 @@
       "date": "28-Jun -2025",
       "url": "https://mtgdecks.net/Premodern/sneak-attack-decklist-by-toma-surynek-2536602",
       "colors": [
-        "W",
-        "R",
-        "B",
         "G",
-        "U"
+        "W",
+        "U",
+        "R",
+        "B"
       ],
       "spice": 81,
       "cards": []
@@ -6581,11 +6582,11 @@
       "date": "23-Feb -2025",
       "url": "https://mtgdecks.net/Premodern/rogue-decklist-by-eugenio-nobile-2389860",
       "colors": [
-        "W",
-        "R",
-        "B",
         "G",
-        "U"
+        "W",
+        "U",
+        "R",
+        "B"
       ],
       "spice": 63,
       "cards": []
@@ -6628,8 +6629,8 @@
       "date": "25-Jan -2026",
       "url": "https://mtgdecks.net/Premodern/stasis-decklist-by-lumart-2792627",
       "colors": [
-        "U",
-        "G"
+        "G",
+        "U"
       ],
       "spice": 14,
       "cards": []
@@ -6839,8 +6840,8 @@
       "date": "10-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-afx-2804785",
       "colors": [
-        "U",
-        "W"
+        "W",
+        "U"
       ],
       "spice": 41,
       "cards": []
@@ -6859,6 +6860,20 @@
       "cards": []
     },
     {
+      "player": "Nicola Dimatteo",
+      "rank": "Top8",
+      "players": 189,
+      "event": "Premodern Italian Nationals 2026",
+      "date": "07-Feb -2026",
+      "url": "https://mtgdecks.net/Premodern/stiflenought-decklist-by-nicola-dimatteo-2804585",
+      "colors": [
+        "U",
+        "B"
+      ],
+      "spice": 42,
+      "cards": []
+    },
+    {
       "player": "Drew Lesmerises",
       "rank": "Top8",
       "players": 131,
@@ -6869,19 +6884,6 @@
         "U"
       ],
       "spice": 23,
-      "cards": []
-    },
-    {
-      "player": "Breno Knak",
-      "rank": "1st",
-      "players": 13,
-      "event": "Liga Feijoada 2026 #2",
-      "date": "07-Feb -2026",
-      "url": "https://mtgdecks.net/Premodern/stiflenought-decklist-by-breno-knak-2805141",
-      "colors": [
-        "U"
-      ],
-      "spice": 16,
       "cards": []
     }
   ],
@@ -7160,10 +7162,10 @@
       "date": "25-Oct -2025",
       "url": "https://mtgdecks.net/Premodern/survival-other-decklist-by-jose-pousa-2676682",
       "colors": [
-        "W",
+        "R",
         "G",
-        "U",
-        "R"
+        "W",
+        "U"
       ],
       "spice": 64,
       "cards": []
@@ -7176,12 +7178,12 @@
       "date": "15-Nov -2025",
       "url": "https://mtgdecks.net/Premodern/survival-other-decklist-by-raphael-dolscheid-2700771",
       "colors": [
-        "W",
+        "R",
         "G",
-        "U",
-        "R"
+        "W",
+        "U"
       ],
-      "spice": 68,
+      "spice": 69,
       "cards": []
     },
     {
@@ -7192,10 +7194,10 @@
       "date": "22-Oct -2025",
       "url": "https://mtgdecks.net/Premodern/survival-recurring-decklist-by-lucas-martins-2669934",
       "colors": [
-        "U",
+        "R",
         "G",
-        "B",
-        "R"
+        "U",
+        "B"
       ],
       "spice": 27,
       "cards": []
@@ -7208,9 +7210,9 @@
       "date": "31-Dec -2025",
       "url": "https://mtgdecks.net/Premodern/survival-other-decklist-by-pablo-2756898",
       "colors": [
-        "W",
+        "R",
         "G",
-        "R"
+        "W"
       ],
       "spice": 53,
       "cards": []
@@ -7223,10 +7225,10 @@
       "date": "17-Oct -2025",
       "url": "https://mtgdecks.net/Premodern/w-u-r-g-decklist-by-levi-patton-2661578",
       "colors": [
-        "W",
+        "R",
         "G",
-        "U",
-        "R"
+        "W",
+        "U"
       ],
       "spice": 64,
       "cards": []
@@ -7239,11 +7241,11 @@
       "date": "21-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/survival-decklist-by-william-moore-2819009",
       "colors": [
-        "W",
+        "R",
         "G",
-        "R"
+        "W"
       ],
-      "spice": 59,
+      "spice": 60,
       "cards": []
     },
     {
@@ -7254,9 +7256,9 @@
       "date": "15-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/sisay-survival-decklist-by-william-moore-2810331",
       "colors": [
-        "W",
+        "R",
         "G",
-        "R"
+        "W"
       ],
       "spice": 56,
       "cards": []
@@ -7269,10 +7271,10 @@
       "date": "15-Sep -2025",
       "url": "https://mtgdecks.net/Premodern/survival-decklist-by-marco-leon-2622442",
       "colors": [
-        "W",
+        "R",
         "G",
-        "U",
-        "R"
+        "W",
+        "U"
       ],
       "spice": 58,
       "cards": []
@@ -7285,9 +7287,9 @@
       "date": "24-Aug -2025",
       "url": "https://mtgdecks.net/Premodern/survival-tradewind-decklist-by-maximiliano-boese-2600117",
       "colors": [
-        "U",
+        "R",
         "G",
-        "R"
+        "U"
       ],
       "spice": 59,
       "cards": []
@@ -7300,9 +7302,9 @@
       "date": "29-Jan -2026",
       "url": "https://mtgdecks.net/Premodern/survival-other-decklist-by-felipe-viegas-2792902",
       "colors": [
-        "W",
+        "R",
         "G",
-        "R"
+        "W"
       ],
       "spice": 57,
       "cards": []
@@ -7317,9 +7319,9 @@
       "date": "12-Jul -2025",
       "url": "https://mtgdecks.net/Premodern/zombie-infestation-decklist-by-aaron-lane-2551792",
       "colors": [
+        "R",
         "G",
-        "B",
-        "R"
+        "B"
       ],
       "spice": 10,
       "cards": []
@@ -7332,10 +7334,10 @@
       "date": "03-May -2024",
       "url": "https://mtgdecks.net/Premodern/survival-infestation-decklist-by-mario-dias-2101063",
       "colors": [
-        "W",
+        "R",
         "G",
-        "B",
-        "R"
+        "W",
+        "B"
       ],
       "spice": 18,
       "cards": []
@@ -7348,10 +7350,10 @@
       "date": "15-Sep -2025",
       "url": "https://mtgdecks.net/Premodern/survival-infestation-decklist-by-hugo-danobeitia-2622439",
       "colors": [
-        "W",
+        "R",
         "G",
-        "B",
-        "R"
+        "W",
+        "B"
       ],
       "spice": 10,
       "cards": []
@@ -7364,9 +7366,9 @@
       "date": "12-Apr -2025",
       "url": "https://mtgdecks.net/Premodern/zombie-infestation-decklist-by-nacho-diaz-2447273",
       "colors": [
+        "R",
         "G",
-        "B",
-        "R"
+        "B"
       ],
       "spice": 12,
       "cards": []
@@ -7379,10 +7381,10 @@
       "date": "15-Jun -2024",
       "url": "https://mtgdecks.net/Premodern/survival-decklist-by-fito-rodriguez-2100772",
       "colors": [
-        "W",
+        "R",
         "G",
-        "B",
-        "R"
+        "W",
+        "B"
       ],
       "spice": 12,
       "cards": []
@@ -7395,9 +7397,9 @@
       "date": "27-Jul -2025",
       "url": "https://mtgdecks.net/Premodern/survival-infestation-decklist-by-lucas-cattoni-2569691",
       "colors": [
+        "R",
         "G",
-        "B",
-        "R"
+        "B"
       ],
       "spice": 52,
       "cards": []
@@ -7410,10 +7412,10 @@
       "date": "20-Sep -2025",
       "url": "https://mtgdecks.net/Premodern/survival-infestation-decklist-by-bernard-sawicki-2628983",
       "colors": [
-        "W",
+        "R",
         "G",
-        "B",
-        "R"
+        "W",
+        "B"
       ],
       "spice": 12,
       "cards": []
@@ -7426,10 +7428,10 @@
       "date": "03-Jan -2026",
       "url": "https://mtgdecks.net/Premodern/survival-infestation-decklist-by-hugo-danobeitia-2758555",
       "colors": [
-        "W",
+        "R",
         "G",
-        "B",
-        "R"
+        "W",
+        "B"
       ],
       "spice": 12,
       "cards": []
@@ -7442,9 +7444,9 @@
       "date": "08-Mar -2025",
       "url": "https://mtgdecks.net/Premodern/survival-decklist-by-borja-villada-2410702",
       "colors": [
+        "R",
         "G",
-        "B",
-        "R"
+        "B"
       ],
       "spice": 25,
       "cards": []
@@ -7457,10 +7459,10 @@
       "date": "08-Nov -2025",
       "url": "https://mtgdecks.net/Premodern/survival-infestation-decklist-by-teddy-lockman-2691106",
       "colors": [
-        "W",
+        "R",
         "G",
-        "B",
-        "R"
+        "W",
+        "B"
       ],
       "spice": 11,
       "cards": []
@@ -7475,10 +7477,10 @@
       "date": "01-Nov -2025",
       "url": "https://mtgdecks.net/Premodern/survival-opposition-decklist-by-gabriel-frei-2686779",
       "colors": [
-        "U",
-        "W",
+        "R",
         "G",
-        "R"
+        "W",
+        "U"
       ],
       "spice": 17,
       "cards": []
@@ -7491,10 +7493,10 @@
       "date": "31-Jul -2025",
       "url": "https://mtgdecks.net/Premodern/survival-tradewind-decklist-by-jorge-figueroa-2577071",
       "colors": [
-        "U",
-        "W",
+        "R",
         "G",
-        "R"
+        "W",
+        "U"
       ],
       "spice": 18,
       "cards": []
@@ -7507,9 +7509,9 @@
       "date": "01-Mar -2025",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-matthew-deitz-2391420",
       "colors": [
-        "U",
+        "R",
         "G",
-        "R"
+        "U"
       ],
       "spice": 34,
       "cards": []
@@ -7522,9 +7524,9 @@
       "date": "01-Mar -2025",
       "url": "https://mtgdecks.net/Premodern/survival-opposition-decklist-by-matthew-deitz-2395230",
       "colors": [
-        "U",
+        "R",
         "G",
-        "R"
+        "U"
       ],
       "spice": 21,
       "cards": []
@@ -7537,9 +7539,9 @@
       "date": "02-Aug -2025",
       "url": "https://mtgdecks.net/Premodern/survival-opposition-decklist-by-mauro-saab-2577244",
       "colors": [
-        "U",
+        "R",
         "G",
-        "R"
+        "U"
       ],
       "spice": 17,
       "cards": []
@@ -7552,10 +7554,10 @@
       "date": "23-Feb -2025",
       "url": "https://mtgdecks.net/Premodern/survival-tradewind-decklist-by-davide-rho-2389857",
       "colors": [
-        "U",
-        "W",
+        "R",
         "G",
-        "R"
+        "W",
+        "U"
       ],
       "spice": 28,
       "cards": []
@@ -7568,10 +7570,10 @@
       "date": "17-Jan -2026",
       "url": "https://mtgdecks.net/Premodern/survival-opposition-decklist-by-jorge-figueroa-2781479",
       "colors": [
-        "U",
-        "W",
+        "R",
         "G",
-        "R"
+        "W",
+        "U"
       ],
       "spice": 18,
       "cards": []
@@ -7584,9 +7586,9 @@
       "date": "31-Jul -2025",
       "url": "https://mtgdecks.net/Premodern/survival-tradewind-decklist-by-alvaro-maulen-2577073",
       "colors": [
-        "U",
+        "R",
         "G",
-        "R"
+        "U"
       ],
       "spice": 21,
       "cards": []
@@ -7599,10 +7601,10 @@
       "date": "22-Feb -2025",
       "url": "https://mtgdecks.net/Premodern/tradewind-survival-decklist-by-avatar-2383073",
       "colors": [
-        "U",
-        "W",
+        "R",
         "G",
-        "R"
+        "W",
+        "U"
       ],
       "spice": 17,
       "cards": []
@@ -7615,10 +7617,10 @@
       "date": "22-Feb -2025",
       "url": "https://mtgdecks.net/Premodern/tradewind-survival-decklist-by-vitor-alexandre-2383879",
       "colors": [
-        "U",
-        "W",
+        "R",
         "G",
-        "R"
+        "W",
+        "U"
       ],
       "spice": 17,
       "cards": []
@@ -7633,9 +7635,9 @@
       "date": "05-Oct -2024",
       "url": "https://mtgdecks.net/Premodern/the-rock-decklist-by-anibal-carbonero-2232288",
       "colors": [
+        "R",
         "G",
-        "B",
-        "R"
+        "B"
       ],
       "spice": 12,
       "cards": []
@@ -7648,9 +7650,9 @@
       "date": "13-Oct -2024",
       "url": "https://mtgdecks.net/Premodern/survival-decklist-by-mario-dias-2238451",
       "colors": [
+        "R",
         "G",
-        "B",
-        "R"
+        "B"
       ],
       "spice": 19,
       "cards": []
@@ -7663,10 +7665,10 @@
       "date": "13-Jan -2025",
       "url": "https://mtgdecks.net/Premodern/survival-decklist-by-blackmamba-2340655",
       "colors": [
-        "W",
+        "R",
         "G",
-        "B",
-        "R"
+        "W",
+        "B"
       ],
       "spice": 35,
       "cards": []
@@ -7679,9 +7681,9 @@
       "date": "13-Oct -2024",
       "url": "https://mtgdecks.net/Premodern/survival-decklist-by-phil3579-2239635",
       "colors": [
+        "R",
         "G",
-        "B",
-        "R"
+        "B"
       ],
       "spice": 12,
       "cards": []
@@ -7694,9 +7696,9 @@
       "date": "27-Oct -2024",
       "url": "https://mtgdecks.net/Premodern/survival-rock-decklist-by-phil3579-2255978",
       "colors": [
+        "R",
         "G",
-        "B",
-        "R"
+        "B"
       ],
       "spice": 12,
       "cards": []
@@ -7709,9 +7711,9 @@
       "date": "10-Nov -2024",
       "url": "https://mtgdecks.net/Premodern/survival-rock-decklist-by-nicolas-fama-2271022",
       "colors": [
+        "R",
         "G",
-        "B",
-        "R"
+        "B"
       ],
       "spice": 13,
       "cards": []
@@ -7724,9 +7726,9 @@
       "date": "03-Jan -2026",
       "url": "https://mtgdecks.net/Premodern/the-rock-decklist-by-augusto-orellana-2758556",
       "colors": [
+        "R",
         "G",
-        "B",
-        "R"
+        "B"
       ],
       "spice": 50,
       "cards": []
@@ -7739,9 +7741,9 @@
       "date": "24-Nov -2024",
       "url": "https://mtgdecks.net/Premodern/survival-rock-decklist-by-thepharmacist-2287530",
       "colors": [
+        "R",
         "G",
-        "B",
-        "R"
+        "B"
       ],
       "spice": 13,
       "cards": []
@@ -7754,9 +7756,9 @@
       "date": "30-Aug -2025",
       "url": "https://mtgdecks.net/Premodern/survival-recurring-decklist-by-eduardo-roland-2606976",
       "colors": [
+        "R",
         "G",
-        "B",
-        "R"
+        "B"
       ],
       "spice": 14,
       "cards": []
@@ -7769,10 +7771,10 @@
       "date": "13-Dec -2025",
       "url": "https://mtgdecks.net/Premodern/survival-recurring-decklist-by-cristian-wisner-2741623",
       "colors": [
-        "U",
+        "R",
         "G",
-        "B",
-        "R"
+        "U",
+        "B"
       ],
       "spice": 15,
       "cards": []
@@ -7787,9 +7789,9 @@
       "date": "30-Mar -2025",
       "url": "https://mtgdecks.net/Premodern/survival-welder-decklist-by-sergi-herrero-2444294",
       "colors": [
-        "W",
+        "R",
         "G",
-        "R"
+        "W"
       ],
       "spice": 25,
       "cards": []
@@ -7802,8 +7804,8 @@
       "date": "17-Mar -2024",
       "url": "https://mtgdecks.net/Premodern/surviwelder-decklist-by-sardaukar-1949637",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 19,
       "cards": []
@@ -7816,8 +7818,8 @@
       "date": "17-Mar -2024",
       "url": "https://mtgdecks.net/Premodern/welder-survival-decklist-by-jaykob-tiritilli-1953485",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 18,
       "cards": []
@@ -7830,9 +7832,9 @@
       "date": "21-Apr -2024",
       "url": "https://mtgdecks.net/Premodern/surviwelder-asmorcar-decklist-by-sardaukar-2000764",
       "colors": [
-        "U",
+        "R",
         "G",
-        "R"
+        "U"
       ],
       "spice": 23,
       "cards": []
@@ -7845,9 +7847,9 @@
       "date": "15-Jul -2025",
       "url": "https://mtgdecks.net/Premodern/survi-welder-decklist-by-luis-santos-2558108",
       "colors": [
-        "W",
+        "R",
         "G",
-        "R"
+        "W"
       ],
       "spice": 26,
       "cards": []
@@ -7860,8 +7862,8 @@
       "date": "26-May -2024",
       "url": "https://mtgdecks.net/Premodern/survival-welder-decklist-by-djhodurase-2068095",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 25,
       "cards": []
@@ -7874,8 +7876,8 @@
       "date": "10-Jan -2026",
       "url": "https://mtgdecks.net/Premodern/angry-hermit-decklist-by-paul-raynes-2769724",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 18,
       "cards": []
@@ -7888,9 +7890,9 @@
       "date": "08-Mar -2025",
       "url": "https://mtgdecks.net/Premodern/survival-welder-decklist-by-luis-pedro-santos-2416980",
       "colors": [
-        "W",
+        "R",
         "G",
-        "R"
+        "W"
       ],
       "spice": 26,
       "cards": []
@@ -7903,8 +7905,8 @@
       "date": "22-Mar -2024",
       "url": "https://mtgdecks.net/Premodern/survival-welder-decklist-by-yaco-guido-1999808",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 19,
       "cards": []
@@ -7917,9 +7919,9 @@
       "date": "22-Jun -2024",
       "url": "https://mtgdecks.net/Premodern/survival-welder-decklist-by-cristian-wisner-2104278",
       "colors": [
-        "W",
+        "R",
         "G",
-        "R"
+        "W"
       ],
       "spice": 22,
       "cards": []
@@ -7993,7 +7995,7 @@
         "G",
         "B"
       ],
-      "spice": 21,
+      "spice": 20,
       "cards": []
     },
     {
@@ -8035,7 +8037,7 @@
         "G",
         "B"
       ],
-      "spice": 21,
+      "spice": 20,
       "cards": []
     },
     {
@@ -8076,8 +8078,8 @@
       "date": "07-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/oath-spec-decklist-by-ricard-tuduri-2801851",
       "colors": [
-        "W",
         "G",
+        "W",
         "U"
       ],
       "spice": 37,
@@ -8091,8 +8093,8 @@
       "date": "13-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/the-last-terronin-decklist-by-pierre-almaraz-2811243",
       "colors": [
-        "W",
-        "G"
+        "G",
+        "W"
       ],
       "spice": 22,
       "cards": []
@@ -8105,9 +8107,9 @@
       "date": "17-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-jpkp-2812520",
       "colors": [
-        "W",
+        "R",
         "G",
-        "R"
+        "W"
       ],
       "spice": 22,
       "cards": []
@@ -8120,8 +8122,8 @@
       "date": "21-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/selesnya-decklist-by-luis-pedro-santos-2817989",
       "colors": [
-        "W",
-        "G"
+        "G",
+        "W"
       ],
       "spice": 23,
       "cards": []
@@ -8134,9 +8136,9 @@
       "date": "21-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/terrageddon-decklist-by-matthew-earley-2818919",
       "colors": [
-        "W",
+        "R",
         "G",
-        "R"
+        "W"
       ],
       "spice": 23,
       "cards": []
@@ -8149,8 +8151,8 @@
       "date": "24-Jan -2026",
       "url": "https://mtgdecks.net/Premodern/terrageddon-decklist-by-checentrattacco-2785953",
       "colors": [
-        "W",
-        "G"
+        "G",
+        "W"
       ],
       "spice": 23,
       "cards": []
@@ -8163,24 +8165,10 @@
       "date": "24-Jan -2026",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-andrea-sorbo-2786952",
       "colors": [
-        "W",
-        "G"
+        "G",
+        "W"
       ],
       "spice": 23,
-      "cards": []
-    },
-    {
-      "player": "bparis15",
-      "rank": "Top4",
-      "players": 53,
-      "event": "MTGO Premodern Challenge 32 #12833584",
-      "date": "24-Feb -2026",
-      "url": "https://mtgdecks.net/Premodern/deck-decklist-by-bparis15-2827053",
-      "colors": [
-        "W",
-        "G"
-      ],
-      "spice": 33,
       "cards": []
     },
     {
@@ -8191,9 +8179,9 @@
       "date": "27-Jan -2026",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-redarmada-2787559",
       "colors": [
-        "W",
+        "R",
         "G",
-        "R"
+        "W"
       ],
       "spice": 26,
       "cards": []
@@ -8206,11 +8194,27 @@
       "date": "07-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-senorlarson-2801221",
       "colors": [
-        "W",
         "G",
+        "W",
         "B"
       ],
       "spice": 31,
+      "cards": []
+    },
+    {
+      "player": "dthatcher",
+      "rank": "Top4",
+      "players": 41,
+      "event": "$1K Premodern Friday 10:00am @ SCG CON Portland",
+      "date": "23-Jan -2026",
+      "url": "https://mtgdecks.net/Premodern/w-u-r-g-decklist-by-dthatcher-2781635",
+      "colors": [
+        "R",
+        "G",
+        "W",
+        "U"
+      ],
+      "spice": 36,
       "cards": []
     }
   ],
@@ -8481,8 +8485,8 @@
       "date": "26-Dec -2025",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-ritualsinkhole-2750844",
       "colors": [
-        "W",
         "G",
+        "W",
         "B"
       ],
       "spice": 52,
@@ -8498,9 +8502,9 @@
       "date": "31-Jan -2026",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-matt-barber-2794100",
       "colors": [
-        "U",
+        "R",
         "W",
-        "R"
+        "U"
       ],
       "spice": 21,
       "cards": []
@@ -8513,8 +8517,8 @@
       "date": "24-Jan -2026",
       "url": "https://mtgdecks.net/Premodern/the-solution-decklist-by-eli-2794831",
       "colors": [
-        "W",
         "R",
+        "W",
         "U"
       ],
       "spice": 14,
@@ -8528,8 +8532,8 @@
       "date": "09-Nov -2025",
       "url": "https://mtgdecks.net/Premodern/the-solution-decklist-by-jou-baixauli-2697771",
       "colors": [
-        "W",
         "R",
+        "W",
         "U"
       ],
       "spice": 14,
@@ -8543,11 +8547,11 @@
       "date": "02-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/the-solution-decklist-by-sage-smukler-2796392",
       "colors": [
-        "U",
+        "R",
         "W",
-        "R"
+        "U"
       ],
-      "spice": 14,
+      "spice": 15,
       "cards": []
     },
     {
@@ -8558,9 +8562,9 @@
       "date": "01-Aug -2025",
       "url": "https://mtgdecks.net/Premodern/the-solution-decklist-by-antonio-martins-2574837",
       "colors": [
-        "U",
+        "R",
         "W",
-        "R"
+        "U"
       ],
       "spice": 14,
       "cards": []
@@ -8573,9 +8577,9 @@
       "date": "24-Oct -2025",
       "url": "https://mtgdecks.net/Premodern/the-solution-decklist-by-kent-eriksson-2676748",
       "colors": [
-        "U",
+        "R",
         "W",
-        "R"
+        "U"
       ],
       "spice": 14,
       "cards": []
@@ -8588,9 +8592,9 @@
       "date": "21-Nov -2025",
       "url": "https://mtgdecks.net/Premodern/the-solution-decklist-by-bjorn-eriksson-2714258",
       "colors": [
-        "U",
+        "R",
         "W",
-        "R"
+        "U"
       ],
       "spice": 25,
       "cards": []
@@ -8603,9 +8607,9 @@
       "date": "13-Nov -2025",
       "url": "https://mtgdecks.net/Premodern/jeskai-decklist-by-telmo-dores-2696716",
       "colors": [
-        "U",
+        "R",
         "W",
-        "R"
+        "U"
       ],
       "spice": 16,
       "cards": []
@@ -8618,8 +8622,8 @@
       "date": "15-Aug -2025",
       "url": "https://mtgdecks.net/Premodern/the-solution-decklist-by-shinzo-kanue-2585747",
       "colors": [
-        "W",
         "R",
+        "W",
         "U"
       ],
       "spice": 14,
@@ -8633,8 +8637,8 @@
       "date": "09-Jul -2025",
       "url": "https://mtgdecks.net/Premodern/jeskai-decklist-by-giovanni-favetta-2547990",
       "colors": [
-        "W",
         "R",
+        "W",
         "U"
       ],
       "spice": 22,
@@ -8650,9 +8654,9 @@
       "date": "22-Dec -2024",
       "url": "https://mtgdecks.net/Premodern/rogue-decklist-by-lannynyny-2316526",
       "colors": [
-        "U",
+        "G",
         "W",
-        "G"
+        "U"
       ],
       "spice": 59,
       "cards": []
@@ -8665,10 +8669,10 @@
       "date": "09-Mar -2025",
       "url": "https://mtgdecks.net/Premodern/threshold-decklist-by-rodrigo-martins-2408690",
       "colors": [
-        "U",
-        "W",
+        "R",
         "G",
-        "R"
+        "W",
+        "U"
       ],
       "spice": 70,
       "cards": []
@@ -8681,8 +8685,8 @@
       "date": "08-Mar -2025",
       "url": "https://mtgdecks.net/Premodern/gw-threshold-decklist-by-drew-lesmerises-2401517",
       "colors": [
-        "W",
-        "G"
+        "G",
+        "W"
       ],
       "spice": 47,
       "cards": []
@@ -8695,9 +8699,9 @@
       "date": "24-Sep -2025",
       "url": "https://mtgdecks.net/Premodern/threshold-decklist-by-leandro-bitner-2632255",
       "colors": [
-        "U",
+        "R",
         "G",
-        "R"
+        "U"
       ],
       "spice": 68,
       "cards": []
@@ -8710,8 +8714,8 @@
       "date": "01-Feb -2025",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-dario-godoy-castillo-2358547",
       "colors": [
-        "W",
         "G",
+        "W",
         "U"
       ],
       "spice": 42,
@@ -8725,8 +8729,8 @@
       "date": "04-Dec -2025",
       "url": "https://mtgdecks.net/Premodern/threshold-decklist-by-alberto-campioli-2724643",
       "colors": [
-        "W",
-        "G"
+        "G",
+        "W"
       ],
       "spice": 61,
       "cards": []
@@ -8739,8 +8743,8 @@
       "date": "29-Mar -2025",
       "url": "https://mtgdecks.net/Premodern/gw-armageddon-decklist-by-niklas-scholten-2434922",
       "colors": [
-        "W",
-        "G"
+        "G",
+        "W"
       ],
       "spice": 46,
       "cards": []
@@ -8753,8 +8757,8 @@
       "date": "03-Jun -2025",
       "url": "https://mtgdecks.net/Premodern/ugw-threshold-decklist-by-marvin-amuzu-2512575",
       "colors": [
-        "W",
         "G",
+        "W",
         "U"
       ],
       "spice": 55,
@@ -8768,8 +8772,8 @@
       "date": "30-Mar -2024",
       "url": "https://mtgdecks.net/Premodern/threshold-decklist-by-jose-rivas-1988685",
       "colors": [
-        "W",
-        "G"
+        "G",
+        "W"
       ],
       "spice": 56,
       "cards": []
@@ -8782,10 +8786,10 @@
       "date": "07-Aug -2025",
       "url": "https://mtgdecks.net/Premodern/selesnya-decklist-by-zedosbodes-2576785",
       "colors": [
-        "W",
-        "G"
+        "G",
+        "W"
       ],
-      "spice": 45,
+      "spice": 46,
       "cards": []
     }
   ],
@@ -8798,8 +8802,8 @@
       "date": "18-Dec -2025",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-nahuel10-2744211",
       "colors": [
-        "U",
-        "W"
+        "W",
+        "U"
       ],
       "spice": 53,
       "cards": []
@@ -8812,8 +8816,8 @@
       "date": "31-Oct -2025",
       "url": "https://mtgdecks.net/Premodern/tide-control-decklist-by-navas-2686599",
       "colors": [
-        "U",
-        "W"
+        "W",
+        "U"
       ],
       "spice": 41,
       "cards": []
@@ -8852,8 +8856,8 @@
       "date": "10-Jan -2026",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-desolutionist-2765458",
       "colors": [
-        "U",
-        "R"
+        "R",
+        "U"
       ],
       "spice": 50,
       "cards": []
@@ -8893,8 +8897,8 @@
       "date": "22-Oct -2025",
       "url": "https://mtgdecks.net/Premodern/tide-control-decklist-by-guilherme-aguemi-2669935",
       "colors": [
-        "U",
-        "W"
+        "W",
+        "U"
       ],
       "spice": 53,
       "cards": []
@@ -8907,8 +8911,8 @@
       "date": "16-Jan -2026",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-aetavrenz-2772787",
       "colors": [
-        "U",
-        "W"
+        "W",
+        "U"
       ],
       "spice": 55,
       "cards": []
@@ -8936,8 +8940,8 @@
       "date": "19-Dec -2025",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-blue-man7-2744180",
       "colors": [
-        "U",
-        "R"
+        "R",
+        "U"
       ],
       "spice": 8,
       "cards": []
@@ -8950,8 +8954,8 @@
       "date": "31-May -2025",
       "url": "https://mtgdecks.net/Premodern/mud-decklist-by-yisu-2510156",
       "colors": [
-        "U",
-        "R"
+        "R",
+        "U"
       ],
       "spice": 11,
       "cards": []
@@ -8964,8 +8968,8 @@
       "date": "15-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/welder-tinker-decklist-by-andrew-maag-2810330",
       "colors": [
-        "U",
-        "R"
+        "R",
+        "U"
       ],
       "spice": 8,
       "cards": []
@@ -8978,8 +8982,8 @@
       "date": "27-Sep -2025",
       "url": "https://mtgdecks.net/Premodern/mud-decklist-by-david-stenberg-2637821",
       "colors": [
-        "U",
-        "R"
+        "R",
+        "U"
       ],
       "spice": 8,
       "cards": []
@@ -8992,8 +8996,8 @@
       "date": "22-Nov -2025",
       "url": "https://mtgdecks.net/Premodern/welder-tinker-decklist-by-pavel-gric-2711114",
       "colors": [
-        "U",
-        "R"
+        "R",
+        "U"
       ],
       "spice": 8,
       "cards": []
@@ -9006,8 +9010,8 @@
       "date": "15-Feb -2025",
       "url": "https://mtgdecks.net/Premodern/ur-tinker-decklist-by-jayson-chandler-2377498",
       "colors": [
-        "U",
-        "R"
+        "R",
+        "U"
       ],
       "spice": 19,
       "cards": []
@@ -9020,8 +9024,8 @@
       "date": "04-Jan -2026",
       "url": "https://mtgdecks.net/Premodern/welder-tinker-decklist-by-lutz-rinlake-2760043",
       "colors": [
-        "U",
-        "R"
+        "R",
+        "U"
       ],
       "spice": 11,
       "cards": []
@@ -9034,8 +9038,8 @@
       "date": "25-Jan -2026",
       "url": "https://mtgdecks.net/Premodern/welder-tinker-decklist-by-justin-hadley-2784833",
       "colors": [
-        "U",
-        "R"
+        "R",
+        "U"
       ],
       "spice": 8,
       "cards": []
@@ -9048,8 +9052,8 @@
       "date": "12-Dec -2025",
       "url": "https://mtgdecks.net/Premodern/welder-tinker-decklist-by-marco-fioris-2743395",
       "colors": [
-        "U",
-        "R"
+        "R",
+        "U"
       ],
       "spice": 11,
       "cards": []
@@ -9062,8 +9066,8 @@
       "date": "07-Nov -2025",
       "url": "https://mtgdecks.net/Premodern/welder-tinker-decklist-by-lodovico-de-jaegher-2695456",
       "colors": [
-        "U",
-        "R"
+        "R",
+        "U"
       ],
       "spice": 8,
       "cards": []
@@ -9078,10 +9082,10 @@
       "date": "31-Oct -2025",
       "url": "https://mtgdecks.net/Premodern/tireless-tribe-decklist-by-paco-perez-copete-2685709",
       "colors": [
-        "W",
+        "R",
         "G",
-        "U",
-        "R"
+        "W",
+        "U"
       ],
       "spice": 31,
       "cards": []
@@ -9094,10 +9098,10 @@
       "date": "12-Oct -2025",
       "url": "https://mtgdecks.net/Premodern/w-u-r-g-decklist-by-zupponn-2652173",
       "colors": [
-        "W",
+        "R",
         "G",
-        "U",
-        "R"
+        "W",
+        "U"
       ],
       "spice": 31,
       "cards": []
@@ -9110,11 +9114,11 @@
       "date": "16-Aug -2025",
       "url": "https://mtgdecks.net/Premodern/tireless-tribe-decklist-by-marco-alvarenga-2591745",
       "colors": [
-        "W",
-        "R",
-        "B",
         "G",
-        "U"
+        "W",
+        "U",
+        "R",
+        "B"
       ],
       "spice": 29,
       "cards": []
@@ -9127,11 +9131,11 @@
       "date": "19-Apr -2025",
       "url": "https://mtgdecks.net/Premodern/tireless-tribe-decklist-by-kalaboca-2453558",
       "colors": [
-        "W",
-        "R",
-        "B",
         "G",
-        "U"
+        "W",
+        "U",
+        "R",
+        "B"
       ],
       "spice": 30,
       "cards": []
@@ -9144,11 +9148,11 @@
       "date": "04-Jul -2025",
       "url": "https://mtgdecks.net/Premodern/tireless-tribe-decklist-by-kask1-2543423",
       "colors": [
-        "W",
-        "R",
-        "B",
         "G",
-        "U"
+        "W",
+        "U",
+        "R",
+        "B"
       ],
       "spice": 25,
       "cards": []
@@ -9161,10 +9165,10 @@
       "date": "12-Apr -2025",
       "url": "https://mtgdecks.net/Premodern/tireless-tribe-decklist-by-julian-criado-2448029",
       "colors": [
-        "W",
+        "R",
         "G",
-        "U",
-        "R"
+        "W",
+        "U"
       ],
       "spice": 22,
       "cards": []
@@ -9177,10 +9181,10 @@
       "date": "01-Sep -2025",
       "url": "https://mtgdecks.net/Premodern/quiet-tribe-decklist-by-henrique-golin-2607194",
       "colors": [
-        "U",
-        "W",
+        "R",
         "G",
-        "R"
+        "W",
+        "U"
       ],
       "spice": 25,
       "cards": []
@@ -9193,11 +9197,11 @@
       "date": "29-Jun -2025",
       "url": "https://mtgdecks.net/Premodern/tireless-tribe-decklist-by-jan-pavlik-2542337",
       "colors": [
-        "W",
-        "R",
-        "B",
         "G",
-        "U"
+        "W",
+        "U",
+        "R",
+        "B"
       ],
       "spice": 25,
       "cards": []
@@ -9210,11 +9214,11 @@
       "date": "02-Aug -2024",
       "url": "https://mtgdecks.net/Premodern/tireless-tribe-decklist-by-travis-schneider-2157652",
       "colors": [
-        "W",
-        "R",
-        "B",
         "G",
-        "U"
+        "W",
+        "U",
+        "R",
+        "B"
       ],
       "spice": 29,
       "cards": []
@@ -9227,11 +9231,11 @@
       "date": "18-Jun -2025",
       "url": "https://mtgdecks.net/Premodern/w-u-b-r-g-decklist-by-giovanni-favetta-2523177",
       "colors": [
-        "W",
-        "R",
-        "B",
         "G",
-        "U"
+        "W",
+        "U",
+        "R",
+        "B"
       ],
       "spice": 25,
       "cards": []
@@ -9389,8 +9393,8 @@
       "date": "17-Mar -2024",
       "url": "https://mtgdecks.net/Premodern/ur-control-decklist-by-abravo93-1949279",
       "colors": [
-        "U",
-        "R"
+        "R",
+        "U"
       ],
       "spice": 35,
       "cards": []
@@ -9403,8 +9407,8 @@
       "date": "13-Sep -2025",
       "url": "https://mtgdecks.net/Premodern/ur-control-decklist-by-oscar-gomez-2624455",
       "colors": [
-        "U",
-        "R"
+        "R",
+        "U"
       ],
       "spice": 36,
       "cards": []
@@ -9417,8 +9421,8 @@
       "date": "14-Apr -2024",
       "url": "https://mtgdecks.net/Premodern/boltstill-decklist-by-abravo93-1992791",
       "colors": [
-        "U",
-        "R"
+        "R",
+        "U"
       ],
       "spice": 33,
       "cards": []
@@ -9431,8 +9435,8 @@
       "date": "07-Apr -2024",
       "url": "https://mtgdecks.net/Premodern/boltstill-decklist-by-abravo93-1983714",
       "colors": [
-        "U",
-        "R"
+        "R",
+        "U"
       ],
       "spice": 33,
       "cards": []
@@ -9445,8 +9449,8 @@
       "date": "31-Mar -2024",
       "url": "https://mtgdecks.net/Premodern/boltstill-decklist-by-abravo93-1975306",
       "colors": [
-        "U",
-        "R"
+        "R",
+        "U"
       ],
       "spice": 33,
       "cards": []
@@ -9459,8 +9463,8 @@
       "date": "21-Apr -2024",
       "url": "https://mtgdecks.net/Premodern/boltstill-decklist-by-abravo93-2001955",
       "colors": [
-        "U",
-        "R"
+        "R",
+        "U"
       ],
       "spice": 33,
       "cards": []
@@ -9473,8 +9477,8 @@
       "date": "25-Aug -2024",
       "url": "https://mtgdecks.net/Premodern/ur-control-decklist-by-alexey-gulidin-2203996",
       "colors": [
-        "U",
-        "R"
+        "R",
+        "U"
       ],
       "spice": 37,
       "cards": []
@@ -9487,8 +9491,8 @@
       "date": "07-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/ur-control-decklist-by-jerzy-pawlowski-2806683",
       "colors": [
-        "U",
-        "R"
+        "R",
+        "U"
       ],
       "spice": 27,
       "cards": []
@@ -9501,8 +9505,8 @@
       "date": "28-Jun -2025",
       "url": "https://mtgdecks.net/Premodern/ur-control-decklist-by-angel-rodriguez-arevalo-2530587",
       "colors": [
-        "U",
-        "R"
+        "R",
+        "U"
       ],
       "spice": 36,
       "cards": []
@@ -9515,8 +9519,8 @@
       "date": "28-Jun -2025",
       "url": "https://mtgdecks.net/Premodern/ur-control-decklist-by-arthur-grillo-2538698",
       "colors": [
-        "U",
-        "R"
+        "R",
+        "U"
       ],
       "spice": 32,
       "cards": []
@@ -9629,8 +9633,8 @@
       "date": "07-Dec -2025",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-sam-black-2733131",
       "colors": [
-        "W",
         "G",
+        "W",
         "U",
         "B"
       ],
@@ -9645,8 +9649,8 @@
       "date": "16-Feb -2025",
       "url": "https://mtgdecks.net/Premodern/uw-control-decklist-by-sebastian-reich-2379094",
       "colors": [
-        "U",
-        "W"
+        "W",
+        "U"
       ],
       "spice": 29,
       "cards": []
@@ -9659,8 +9663,8 @@
       "date": "17-Jan -2026",
       "url": "https://mtgdecks.net/Premodern/mox-diamond-bant-control-decklist-by-robgladiator90-2776415",
       "colors": [
-        "W",
         "G",
+        "W",
         "U"
       ],
       "spice": 49,
@@ -9839,8 +9843,8 @@
       "date": "23-Aug -2025",
       "url": "https://mtgdecks.net/Premodern/uwb-control-decklist-by-cecilia-jupe-2597821",
       "colors": [
-        "U",
         "W",
+        "U",
         "B"
       ],
       "spice": 46,
@@ -9854,8 +9858,8 @@
       "date": "09-Mar -2025",
       "url": "https://mtgdecks.net/Premodern/uwb-control-decklist-by-slowking-2406541",
       "colors": [
-        "U",
         "W",
+        "U",
         "B"
       ],
       "spice": 48,
@@ -9869,8 +9873,8 @@
       "date": "24-Sep -2025",
       "url": "https://mtgdecks.net/Premodern/uwb-control-decklist-by-slowking-2631179",
       "colors": [
-        "U",
         "W",
+        "U",
         "B"
       ],
       "spice": 48,
@@ -9884,8 +9888,8 @@
       "date": "24-Sep -2025",
       "url": "https://mtgdecks.net/Premodern/psychatog-decklist-by-slowking-2632497",
       "colors": [
-        "U",
         "W",
+        "U",
         "B"
       ],
       "spice": 48,
@@ -9929,8 +9933,8 @@
       "date": "17-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-slowking-2812386",
       "colors": [
-        "W",
         "G",
+        "W",
         "U",
         "B"
       ],
@@ -9945,8 +9949,8 @@
       "date": "04-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-bazaaretw-2797240",
       "colors": [
-        "W",
         "G",
+        "W",
         "U",
         "B"
       ],
@@ -9961,8 +9965,8 @@
       "date": "02-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-slowking-2795424",
       "colors": [
-        "W",
         "G",
+        "W",
         "U",
         "B"
       ],
@@ -9982,7 +9986,7 @@
       "colors": [
         "W"
       ],
-      "spice": 34,
+      "spice": 35,
       "cards": []
     },
     {
@@ -10113,8 +10117,8 @@
       "date": "09-Nov -2025",
       "url": "https://mtgdecks.net/Premodern/dimir-decklist-by-andrea-riva-2692846",
       "colors": [
-        "U",
         "R",
+        "U",
         "B"
       ],
       "spice": 52,
@@ -10156,8 +10160,8 @@
       "date": "08-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/zombie-infestation-decklist-by-da-2810317",
       "colors": [
-        "U",
         "R",
+        "U",
         "B"
       ],
       "spice": 54,
@@ -10171,8 +10175,8 @@
       "date": "07-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/zombie-infestation-decklist-by-andrea-riva-2804580",
       "colors": [
-        "U",
         "R",
+        "U",
         "B"
       ],
       "spice": 54,
@@ -10186,8 +10190,8 @@
       "date": "19-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-demian77-2813787",
       "colors": [
-        "U",
         "R",
+        "U",
         "B"
       ],
       "spice": 58,
@@ -10201,11 +10205,11 @@
       "date": "18-Dec -2025",
       "url": "https://mtgdecks.net/Premodern/deck-decklist-by-il-livellatore-2743700",
       "colors": [
-        "U",
         "R",
+        "U",
         "B"
       ],
-      "spice": 54,
+      "spice": 55,
       "cards": []
     },
     {
@@ -10244,8 +10248,8 @@
       "date": "18-Jul -2025",
       "url": "https://mtgdecks.net/Premodern/zombie-infestation-decklist-by-nacho-diaz-2570313",
       "colors": [
-        "U",
         "R",
+        "U",
         "B"
       ],
       "spice": 54,
@@ -10393,8 +10397,8 @@
       "date": "02-Dec -2025",
       "url": "https://mtgdecks.net/Premodern/zoo-decklist-by-martin-oviedo-2727634",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 20,
       "cards": []
@@ -10407,8 +10411,8 @@
       "date": "25-Jan -2026",
       "url": "https://mtgdecks.net/Premodern/rg-zoo-decklist-by-rafanantuko-2792631",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 20,
       "cards": []
@@ -10421,8 +10425,8 @@
       "date": "15-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/rg-zoo-decklist-by-spoodman-2816425",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 25,
       "cards": []
@@ -10435,10 +10439,24 @@
       "date": "21-Nov -2025",
       "url": "https://mtgdecks.net/Premodern/rg-zoo-decklist-by-marco-ricci-2750559",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
-      "spice": 20,
+      "spice": 21,
+      "cards": []
+    },
+    {
+      "player": "Sun",
+      "rank": "1st",
+      "players": 26,
+      "event": "The Old Skull La Plata - 2nda Fecha Liga Primavera",
+      "date": "09-Nov -2025",
+      "url": "https://mtgdecks.net/Premodern/zoo-decklist-by-sun-2697763",
+      "colors": [
+        "R",
+        "G"
+      ],
+      "spice": 19,
       "cards": []
     },
     {
@@ -10449,8 +10467,8 @@
       "date": "26-Nov -2025",
       "url": "https://mtgdecks.net/Premodern/rg-zoo-decklist-by-gianpaolo-branca-2717084",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 14,
       "cards": []
@@ -10463,8 +10481,8 @@
       "date": "08-Feb -2026",
       "url": "https://mtgdecks.net/Premodern/zoo-decklist-by-domingo-2805158",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 21,
       "cards": []
@@ -10477,8 +10495,8 @@
       "date": "01-Dec -2025",
       "url": "https://mtgdecks.net/Premodern/zoo-decklist-by-mirko-baldacci-2813379",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 35,
       "cards": []
@@ -10491,8 +10509,8 @@
       "date": "21-Nov -2025",
       "url": "https://mtgdecks.net/Premodern/zoo-decklist-by-pablo-herrero-2720971",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 22,
       "cards": []
@@ -10505,24 +10523,10 @@
       "date": "26-Dec -2025",
       "url": "https://mtgdecks.net/Premodern/zoo-decklist-by-ricardo-esteves-2754825",
       "colors": [
-        "G",
-        "R"
+        "R",
+        "G"
       ],
       "spice": 23,
-      "cards": []
-    },
-    {
-      "player": "Firefool",
-      "rank": "1st",
-      "players": 0,
-      "event": "MTGO Premodern League #10212",
-      "date": "17-Feb -2026",
-      "url": "https://mtgdecks.net/Premodern/deck-decklist-by-firefool-2812391",
-      "colors": [
-        "G",
-        "R"
-      ],
-      "spice": 22,
       "cards": []
     }
   ]

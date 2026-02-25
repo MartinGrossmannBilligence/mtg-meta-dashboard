@@ -432,8 +432,10 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
                 # Format the header
                 header_html = (
                     f'<div style="display:flex; align-items:center; flex-wrap:wrap; gap:8px;">'
+                    f'<a href="{d.get("url", "#")}" target="_blank" style="text-decoration:none; display:flex; align-items:center; gap:6px;">'
                     f'<span style="color:#E0E0E0; font-size:14px;"><strong style="color:#FFF;">{d["rank"]}</strong> from <strong style="color:#FFF;">{d.get("players", "??")}</strong> Players</span>'
                     f'<span style="color:#6BC78E; font-size:15px; font-weight:600;">{d["player"]}</span>'
+                    f'</a>'
                     f'<span style="display:flex; align-items:center;">{color_dots}</span>'
                 )
                 if spice_badge:
