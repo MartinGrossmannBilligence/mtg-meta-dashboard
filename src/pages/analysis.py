@@ -250,7 +250,7 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
                     mode="lines+markers+text",
                     text=[f"{v:.1%}" if v is not None else "" for v in ms_display],
                     textposition="bottom center",
-                    textfont=dict(size=11, color=THEME["focus"]),
+                    textfont=dict(size=12, color="rgba(142, 167, 182, 0.52)"),
                     line=dict(color=THEME["focus"], width=3, dash="dot"),
                     marker=dict(size=8, color=THEME["focus"]),
                     connectgaps=False,
