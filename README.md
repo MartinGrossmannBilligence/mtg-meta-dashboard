@@ -7,8 +7,8 @@ Interactive metagame analytics dashboard for **Premodern Magic: The Gathering** 
 ## Features
 
 - **Deck Analysis** — Deep-dive into any archetype: overall win rate, polarity index, matchup distribution chart, Top 5 best/worst matchups, full matchup table with Wilson confidence intervals + sample quality badges, and win rate history across time windows.
-- **Meta Overview** — Full metagame stats table + interactive matchup heatmap matrix + win rate trends across time periods.
-- **Tournament Simulator** — Projected win rate calculator based on custom field compositions.
+- **Meta Overview** — Full metagame stats table + interactive matchup heatmap matrix (defaulting to the top 22 user-defined decks) + win rate trends across time periods. Custom tooltips displaying cleanly formatted values.
+- **Tournament Simulator** — Projected win rate calculator based on custom field compositions. Automatically pre-fills expected deck shares dynamically based on the real Meta Share from the selected timeframe.
 
 ## Data Source
 
