@@ -86,26 +86,21 @@ def load_period_data(data_dir, period):
             merged_records[new_name]['archetype'] = new_name
     records_data = list(merged_records.values())
 
-    # Override meta shares using mtgdecks data for 1 year and all time
-    # as mtgdecks better reflects the actual metagame share.
+    # Override meta shares and tiers using mtgdecks data for 1 year and all time
+    # as mtgdecks better reflects the actual metagame share and contains tiers.
+    mtgdecks_path = None
     if period == "1_year":
         mtgdecks_path = os.path.join(data_dir, "mtgdecks_matrix_1_year.json")
-        if os.path.exists(mtgdecks_path):
-            with open(mtgdecks_path, 'r', encoding='utf-8') as mf:
-                mtg_data = json.load(mf)
-                if "meta_shares" in mtg_data:
-                    matrix_data["meta_shares"] = mtg_data["meta_shares"]
-                    
     elif period == "all_time":
-        # Use mtgdecks all_time data for meta share (2_years file doesn't exist yet)
-        for fname in ["mtgdecks_matrix_all_time.json"]:
-            mtgdecks_path = os.path.join(data_dir, fname)
-            if os.path.exists(mtgdecks_path):
-                with open(mtgdecks_path, 'r', encoding='utf-8') as mf:
-                    mtg_data = json.load(mf)
-                    if "meta_shares" in mtg_data:
-                        matrix_data["meta_shares"] = mtg_data["meta_shares"]
-                break
+        mtgdecks_path = os.path.join(data_dir, "mtgdecks_matrix_all_time.json")
+        
+    if mtgdecks_path and os.path.exists(mtgdecks_path):
+        with open(mtgdecks_path, 'r', encoding='utf-8') as mf:
+            mtg_data = json.load(mf)
+            if "meta_shares" in mtg_data:
+                matrix_data["meta_shares"] = mtg_data["meta_shares"]
+            if "tiers" in mtg_data:
+                matrix_data["tiers"] = mtg_data["tiers"]
 
     return matrix_data, records_data
 
