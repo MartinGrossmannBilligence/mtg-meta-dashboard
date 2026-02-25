@@ -431,17 +431,22 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
 
                 # Format the header
                 header_html = (
-                    f'<div style="display:flex; align-items:center;">'
-                    f'<span style="color:#E0E0E0; margin-right:12px; font-size:14px;"><strong style="color:#FFF;">{d["rank"]}</strong> from <strong style="color:#FFF;">{d.get("players", "??")}</strong> Players</span>'
-                    f'<span style="color:#6BC78E; margin-right:10px; font-size:15px; font-weight:600;">{d["player"]}</span>'
-                    f'{color_dots}'
-                    f'{spice_badge}'
-                    f'</div>'
+                    f'<div style="display:flex; align-items:center; flex-wrap:wrap; gap:8px;">'
+                    f'<span style="color:#E0E0E0; font-size:14px;"><strong style="color:#FFF;">{d["rank"]}</strong> from <strong style="color:#FFF;">{d.get("players", "??")}</strong> Players</span>'
+                    f'<span style="color:#6BC78E; font-size:15px; font-weight:600;">{d["player"]}</span>'
+                    f'<span style="display:flex; align-items:center;">{color_dots}</span>'
                 )
+                if spice_badge:
+                    header_html += f'<span>{spice_badge}</span>'
+                
+                if decklist_html:
+                    header_html += f'<span style="background-color:#2A2A2A; color:#E0E0E0; border-radius:4px; font-size:12px; border:1px solid #444; padding:2px 8px; margin-left:12px;">👁️ View Decklist</span>'
+                
+                header_html += '</div>'
 
                 if decklist_html:
                     main_block = (
-                        f'<details style="margin-bottom:2px;"><summary style="cursor:pointer; display:inline-block; user-select:none; list-style:none;">'
+                        f'<details style="margin-bottom:2px;"><summary style="cursor:pointer; display:inline-block; user-select:none;">'
                         f'{header_html}'
                         f'</summary>'
                         f'<div style="margin-top:8px; padding:10px; background:rgba(0,0,0,0.3); border-radius:6px; font-size:12px; color:#D0D0D0; display:grid; grid-template-columns:repeat(auto-fill, minmax(180px, 1fr)); gap:4px;">{decklist_html}</div>'
