@@ -26,6 +26,12 @@ def show_simulator(matrix_dict, all_archetypes, records_data):
     # Extract real meta shares to use as defaults
     real_meta_shares = matrix_dict.get("meta_shares", {})
     
+    def reset_sliders():
+        for j, d in enumerate(top_decks):
+            pct = real_meta_shares.get(d) or real_meta_shares.get(d.upper())
+            val = int(round(pct * 100)) if pct is not None else (10 if j < 3 else 5)
+            st.session_state[f"sim_sld_{d}"] = val
+
     meta_shares = {}
     total_assigned = 0
 
@@ -60,14 +66,7 @@ def show_simulator(matrix_dict, all_archetypes, records_data):
     with col_btn1:
         calc_btn = st.button("Calculate Projected EV", type="primary")
     with col_btn2:
-        reset_btn = st.button("Reset to Default Meta")
-        
-    if reset_btn:
-        for j, d in enumerate(top_decks):
-            pct = real_meta_shares.get(d) or real_meta_shares.get(d.upper())
-            val = int(round(pct * 100)) if pct is not None else (10 if j < 3 else 5)
-            st.session_state[f"sim_sld_{d}"] = val
-        st.rerun()
+        st.button("Reset to Default Meta", on_click=reset_sliders)
 
     if calc_btn:
         with st.spinner("Simulating..."):
