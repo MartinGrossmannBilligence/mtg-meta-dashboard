@@ -238,7 +238,7 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
                 text=[f"{v:.1%}" for v in df_hist["Win Rate"]],
                 textposition="top center",
                 textfont=dict(size=13, color=[_wr_color(v) for v in df_hist["Win Rate"]]),
-                line=dict(color=THEME["border"], width=6),
+                line=dict(color="#E8E8E8", width=5),
                 marker=dict(size=9, color=[_wr_color(v) for v in df_hist["Win Rate"]], line=dict(width=0)),
             ))
 
@@ -256,7 +256,6 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
                     connectgaps=False,
                 ))
 
-            fig_hist.add_hline(y=0.5, line_dash="dash", line_color=THEME["faint"], line_width=1)
 
             # Add inline label at the last point of each line
             last_period = df_hist["Period"].iloc[-1]
