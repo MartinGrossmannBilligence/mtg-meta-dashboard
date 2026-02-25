@@ -402,6 +402,7 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
             
             for i, d in enumerate(decks):
                 # Replace title hover with actual clickable details disclosure
+                cards = d.get('cards', [])
                 if cards:
                     lines = []
                     for c in cards:
