@@ -408,7 +408,7 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
                     for c in cards:
                         lines.append(f"{c['qty']}x {c['name']}")
                     decklist_html = "<br>".join(lines)
-                    decklist_preview = f'<details style="margin-top:8px;"><summary style="cursor:pointer; color:#8A8A8A; font-size:13px; user-select:none;">&#128065; View Decklist</summary><div style="margin-top:8px; padding:10px; background:rgba(0,0,0,0.3); border-radius:6px; font-size:12px; color:#D0D0D0; display:grid; grid-template-columns:repeat(auto-fill, minmax(180px, 1fr)); gap:4px;">{decklist_html}</div></details>'
+                    decklist_preview = f'<details style="margin-top:12px;"><summary style="cursor:pointer; display:inline-block; background-color:#2A2A2A; color:#E0E0E0; padding:6px 14px; border-radius:4px; font-size:13px; font-weight:500; border:1px solid #444; user-select:none;">&#128065; View Decklist</summary><div style="margin-top:8px; padding:10px; background:rgba(0,0,0,0.3); border-radius:6px; font-size:12px; color:#D0D0D0; display:grid; grid-template-columns:repeat(auto-fill, minmax(180px, 1fr)); gap:4px;">{decklist_html}</div></details>'
                 else:
                     decklist_preview = ""
                 
@@ -439,7 +439,7 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
                     f'{color_dots}'
                     f'{spice_badge}'
                     f'</div>'
-                    f'<a href="{d["url"]}" target="_blank" style="background-color:#2A2A2A; color:#E0E0E0; text-decoration:none; padding:4px 10px; border-radius:4px; font-size:12px; border:1px solid #444;">🔗 See Decklist</a>'
+                    f'<a href="{d["url"]}" target="_blank" style="color:#8A8A8A; text-decoration:none; font-size:12px;">🔗 Source</a>'
                     f'</div>'
                     f'<div style="font-size:12px; color:#8A8A8A; display:flex; gap:12px; margin-top:4px;">'
                     f'<span>🗓️ {d["date"]}</span>'
