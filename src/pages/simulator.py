@@ -10,15 +10,29 @@ def show_simulator(matrix_dict, all_archetypes, records_data):
     st.subheader("1. Field Composition")
     st.caption("Set expected share (%) for each deck. Remaining % auto-assigned to Unknown/Other.")
 
+    # Get the top 8 decks by total matches
     top_8 = [r["archetype"] for r in sorted(records_data, key=lambda x: x.get("total_matches", 0), reverse=True)[:8]]
 
+    # Extract real meta shares to use as defaults
+    real_meta_shares = matrix_dict.get("meta_shares", {})
+    
     meta_shares = {}
     total_assigned = 0
 
     cols = st.columns(4)
     for i, deck in enumerate(top_8):
         with cols[i % 4]:
-            share = st.slider(f"{deck}", 0, 100, 10 if i < 3 else 5, key=f"sim_sld_{deck}")
+            # Get real share, fallback to 10/5 if missing
+            default_share_pct = real_meta_shares.get(deck)
+            if default_share_pct is None:
+                default_share_pct = real_meta_shares.get(deck.upper())
+                
+            if default_share_pct is not None:
+                default_val = int(round(default_share_pct * 100))
+            else:
+                default_val = 10 if i < 3 else 5
+                
+            share = st.slider(f"{deck}", 0, 100, default_val, key=f"sim_sld_{deck}")
             meta_shares[deck] = share / 100
             total_assigned += share
 
