@@ -39,8 +39,18 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
     tier1_decks = [deck for deck, tier in tiers_dict.items() if tier in ("Tier 1", "Tier 2")] if tiers_dict else []
     
     if tier1_decks:
-        # Use all tier 1 decks
+        # Use all tier 1 & 2 decks + top 5 by win rate
         custom_defaults = [d for d in tier1_decks if d in all_archetypes]
+        if records_data:
+            top_wr = sorted(records_data, key=lambda x: x.get("win_rate", 0), reverse=True)
+            added = 0
+            for r in top_wr:
+                d = r.get("archetype")
+                if d and d in all_archetypes and d not in custom_defaults:
+                    custom_defaults.append(d)
+                    added += 1
+                if added >= 5:
+                    break
     else:
         # Fallback to User's preferred default decks if tiers data is missing
         user_preferred = ["Replenish", "Goblins", "Landstill", "Burn", "Stiflenought"]
