@@ -288,6 +288,7 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
                 xaxis=dict(tickfont=dict(size=12)),
                 xaxis_title="",
                 showlegend=False,
+                hovermode=False,
             )
             st.plotly_chart(fig_hist, use_container_width=True, key="deck_trend_combined")
 
