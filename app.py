@@ -32,7 +32,7 @@ with st.sidebar:
         "Choose Timeframe", 
         list(TIMEFRAMES.keys()), 
         index=0,
-        help="Choose a timeframe to analyze aggregated data across the All-Time, 1-Year, 6-Month, or 2-Month periods."
+        help="Analyse aggregated data for the last 1-year, 6-month, or 2-month periods."
     )
     st.divider()
     
