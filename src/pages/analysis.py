@@ -412,6 +412,24 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
                 else:
                     decklist_preview = ""
                 
+                # Render colors as mana symbols
+                color_dots = ""
+                for c in d.get("colors", []):
+                    b64 = MANA_ICONS.get(c)
+                    if b64:
+                        mime = "image/svg+xml" if c == 'C' else "image/webp"
+                        color_dots += f'<img src="data:{mime};base64,{b64}" style="width:16px; height:16px; margin-right:4px; vertical-align:middle;" title="Mana {c}" alt="[{c}]">'
+                
+                # Render spiciness badge if > 0
+                spice = d.get('spice', 0)
+                spice_badge = ""
+                if spice > 0:
+                    spice_color = "#E49977" if spice > 50 else "#F59F00" if spice > 20 else "#8A8A8A"
+                    spice_badge = f'<span style="margin-left:8px; font-size:10px; color:{spice_color}; border:1px solid {spice_color}40; padding:1px 6px; border-radius:10px; background:rgba(0,0,0,0.2);">🌶️ Spice: {spice}%</span>'
+                
+                border_bottom = 'border-bottom: 1px solid #2A2A2A;' if i < len(decks) - 1 else ''
+                margin_bottom = 'margin-bottom: 12px; padding-bottom: 12px;' if i < len(decks) - 1 else ''
+                
                 html_block = (
                     f'<div style="{margin_bottom} {border_bottom}">'
                     f'<div style="display:flex; align-items:center; margin-bottom: 2px;">'
