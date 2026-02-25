@@ -8,7 +8,7 @@ def show_simulator(matrix_dict, all_archetypes, records_data):
     st.markdown('<h1 style="font-size: 24px;">Tournament Simulator</h1>', unsafe_allow_html=True)
 
     st.subheader("1. Field Composition")
-    st.caption("Set expected share (%) for each deck. Remaining % auto-assigned to Unknown/Other.")
+    st.caption("Set expected share (%) for each deck. Remaining % auto-assigned to Unknown/Other. (Defaults pre-filled based on real meta shares)")
 
     # Get the top 8 decks by total matches
     top_8 = [r["archetype"] for r in sorted(records_data, key=lambda x: x.get("total_matches", 0), reverse=True)[:8]]
