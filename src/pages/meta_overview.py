@@ -35,11 +35,19 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
     if not all_archetypes:
         all_archetypes = ["None"]
         
-    # User's preferred default decks for the overview and trends
-    user_preferred = ["Replenish", "Goblins", "Landstill", "Burn", "Stiflenought"]
-    custom_defaults = [d for d in user_preferred if d in all_archetypes]
+    # Find Tier 1 decks dynamically to use as default selections
+    tier1_decks = [deck for deck, tier in tiers_dict.items() if tier == "Tier 1"] if tiers_dict else []
+    
+    if tier1_decks:
+        # Use all tier 1 decks
+        custom_defaults = [d for d in tier1_decks if d in all_archetypes]
+    else:
+        # Fallback to User's preferred default decks if tiers data is missing
+        user_preferred = ["Replenish", "Goblins", "Landstill", "Burn", "Stiflenought"]
+        custom_defaults = [d for d in user_preferred if d in all_archetypes]
+        
     if not custom_defaults:
-        custom_defaults = tier1_decks if tier1_decks else all_archetypes[:15]
+        custom_defaults = all_archetypes[:15]
 
     def _draw_trend_chart(selected_decks_list, key_suffix=""):
         st.subheader("Win Rate Trends")
@@ -138,12 +146,14 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
             # matrix_dict is now the full matrix_data object
             matchups_matrix = matrix_dict.get("matrix", matrix_dict) 
             meta_shares     = matrix_dict.get("meta_shares", {})
-            def _get_share(deck):
+            def _get_share_num(deck):
                 s = meta_shares.get(deck)
                 if s is None: s = meta_shares.get(deck.upper())
-                return f"{s:.1%}" if s is not None else "n/a"
+                return s if s is not None else 0.0
             
-            d_all["Meta Share"] = d_all["Deck"].map(_get_share)
+            d_all["Meta Share (Num)"] = d_all["Deck"].map(_get_share_num)
+            d_all["Meta Share"] = d_all["Meta Share (Num)"].apply(lambda s: f"{s:.1%}" if s > 0 else "n/a")
+            d_all["Win Rate (Num)"] = d_all["Win Rate"]
             
             def _get_interval(row):
                 # df_rec has columns: wins (not renamed), Games (was total_matches)
@@ -154,10 +164,96 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
                 return f"{l:.1%} – {u:.1%}"
                 
             d_all["Confidence Interval"] = d_all.apply(_get_interval, axis=1)
-            d_all = d_all[["Deck", "Win Rate", "Meta Share", "Confidence Interval", "Games"]].rename(columns={"Games": "Sample Size"})
-            d_all["Win Rate"] = d_all["Win Rate"].map(lambda x: f"{x:.1%}")
+            # Create a display dataframe
+            d_table = d_all[["Deck", "Win Rate (Num)", "Meta Share", "Confidence Interval", "Games"]].copy()
+            d_table = d_table.rename(columns={"Games": "Sample Size", "Win Rate (Num)": "Win Rate"})
+            d_table["Win Rate"] = d_table["Win Rate"].map(lambda x: f"{x:.1%}")
             
-            st.markdown(html_deck_table(d_all, ["Deck", "Win Rate", "Meta Share", "Confidence Interval", "Sample Size"], data_dir=data_dir), unsafe_allow_html=True)
+            st.markdown(html_deck_table(d_table, ["Deck", "Win Rate", "Meta Share", "Confidence Interval", "Sample Size"], data_dir=data_dir), unsafe_allow_html=True)
+
+            st.markdown('<div style="margin: 30px 0 12px 0; border-top: 1px solid #222222;"></div>', unsafe_allow_html=True)
+            
+            # --- SCATTER PLOT: Metagame Share vs Win Rate ---
+            st.subheader("Metagame Share vs Win Rate")
+            scatter_df = d_all[(d_all["Meta Share (Num)"] > 0) & (d_all["Games"] >= 20)].copy()
+
+            if scatter_df.empty:
+                st.info("Meta share data not available for this timeframe.")
+            else:
+                from src.ui import get_icon_b64
+                import base64
+
+                max_share = scatter_df["Meta Share (Num)"].max() or 0.1
+                x_max = max_share * 1.18
+
+                y_max = max(0.65, scatter_df["Win Rate (Num)"].max() + 0.03)
+                y_min = min(0.35, scatter_df["Win Rate (Num)"].min() - 0.03)
+                y_range = y_max - y_min
+                x_range = x_max
+
+                fig_s = px.scatter(
+                    scatter_df,
+                    x="Meta Share (Num)",
+                    y="Win Rate (Num)",
+                    hover_name="Deck",
+                    hover_data={
+                        "Meta Share (Num)": ":.1%",
+                        "Win Rate (Num)": ":.1%",
+                        "Games": True
+                    },
+                    template="plotly_dark"
+                )
+                fig_s.add_hline(y=0.5, line_dash="dash", line_color=THEME["faint"])
+
+                # Icon sizing — roughly 7% of each axis range per icon
+                icon_sizex = x_range * 0.07
+                icon_sizey = y_range * 0.08
+
+                for _, row in scatter_df.iterrows():
+                    deck  = row["Deck"]
+                    x_val = row["Meta Share (Num)"]
+                    y_val = row["Win Rate (Num)"]
+
+                    b64 = get_icon_b64(deck, data_dir)
+                    if b64:
+                        fig_s.add_layout_image(dict(
+                            source=f"data:image/jpeg;base64,{b64}",
+                            xref="x", yref="y",
+                            x=x_val, y=y_val,
+                            sizex=icon_sizex, sizey=icon_sizey,
+                            xanchor="center", yanchor="middle",
+                            sizing="contain", layer="above"
+                        ))
+                    else:
+                        # Fallback: annotate with deck name
+                        fig_s.add_annotation(
+                            x=x_val, y=y_val,
+                            text=deck, showarrow=False,
+                            font=dict(size=9, color=THEME["muted"]),
+                            xanchor="center", yanchor="bottom",
+                            yshift=8
+                        )
+
+                # Make points invisible but large enough for hover targets
+                fig_s.update_traces(
+                    marker=dict(color="rgba(255,255,255,0.15)", size=22,
+                                line=dict(color="rgba(255,255,255,0.3)", width=1))
+                )
+
+                fig_s.update_layout(
+                    height=520,
+                    paper_bgcolor="rgba(0,0,0,0)",
+                    plot_bgcolor="rgba(0,0,0,0)",
+                    font_color=THEME["text"],
+                    margin=dict(l=20, r=20, t=30, b=20),
+                    xaxis_title="Metagame Share",
+                    yaxis_title="Win Rate",
+                    xaxis=dict(tickformat=".0%", range=[0, x_max]),
+                    yaxis=dict(tickformat=".0%", range=[y_min, y_max]),
+                    showlegend=False,
+                )
+
+                st.plotly_chart(fig_s, use_container_width=True, key="scatter_meta_winrate")
 
             st.markdown('<div style="margin: 8px 0 12px 0; border-top: 1px solid #222222;"></div>', unsafe_allow_html=True)
             selected_trend_decks_stats = st.multiselect(

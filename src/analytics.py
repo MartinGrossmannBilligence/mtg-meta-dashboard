@@ -86,6 +86,24 @@ def load_period_data(data_dir, period):
             merged_records[new_name]['archetype'] = new_name
     records_data = list(merged_records.values())
 
+    # Override meta shares using mtgdecks data for 1 year and all time
+    # as mtgdecks better reflects the actual metagame share.
+    if period == "1_year":
+        mtgdecks_path = os.path.join(data_dir, "mtgdecks_matrix_1_year.json")
+        if os.path.exists(mtgdecks_path):
+            with open(mtgdecks_path, 'r', encoding='utf-8') as mf:
+                mtg_data = json.load(mf)
+                if "meta_shares" in mtg_data:
+                    matrix_data["meta_shares"] = mtg_data["meta_shares"]
+                    
+    elif period == "all_time":
+        mtgdecks_path = os.path.join(data_dir, "mtgdecks_matrix_all_time.json")
+        if os.path.exists(mtgdecks_path):
+            with open(mtgdecks_path, 'r', encoding='utf-8') as mf:
+                mtg_data = json.load(mf)
+                if "meta_shares" in mtg_data:
+                    matrix_data["meta_shares"] = mtg_data["meta_shares"]
+
     return matrix_data, records_data
 
 def wilson_score_interval(wins, total, confidence=0.95):
