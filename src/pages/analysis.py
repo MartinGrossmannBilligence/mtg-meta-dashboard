@@ -134,9 +134,10 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
     if not df_prof.empty:
         df_prof = df_prof[df_prof["Opponent"] != "Unknown"]
 
-    # Polarity percentile
-    all_polarities = [calculate_polarity(a, matrix_dict, all_archetypes) for a in all_archetypes]
-    polarity       = calculate_polarity(target_deck, matrix_dict, all_archetypes)
+    # Polarity percentile — must use inner matchups_matrix, not the full matrix_dict
+    matchups_matrix_for_polarity = matrix_dict.get("matrix", matrix_dict)
+    all_polarities = [calculate_polarity(a, matchups_matrix_for_polarity, all_archetypes) for a in all_archetypes]
+    polarity       = calculate_polarity(target_deck, matchups_matrix_for_polarity, all_archetypes)
     pct_rank       = int(100 * sum(p <= polarity for p in all_polarities) / max(len(all_polarities), 1))
     pct_label      = (
         "high polarity — strong matchup spread (rock-paper-scissors)" if pct_rank > 66
