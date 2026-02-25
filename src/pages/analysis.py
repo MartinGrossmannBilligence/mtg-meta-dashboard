@@ -250,9 +250,9 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
                     mode="lines+markers+text",
                     text=[f"{v:.1%}" if v is not None else "" for v in ms_display],
                     textposition="top center",
-                    textfont=dict(size=13, color="rgba(142, 167, 182, 0.72)"),
-                    line=dict(color="rgba(142, 167, 182, 0.85)", width=3, dash="dot"),
-                    marker=dict(size=8, color="rgba(142, 167, 182, 0.85)"),
+                    textfont=dict(size=13, color="rgba(190, 220, 240, 0.85)"),
+                    line=dict(color="rgba(190, 220, 240, 0.95)", width=3, dash="dot"),
+                    marker=dict(size=8, color="rgba(190, 220, 240, 0.95)"),
                     connectgaps=False,
                 ))
 
@@ -276,7 +276,7 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
                         x=last_ms_period, y=last_ms,
                         text="Meta Share", showarrow=False,
                         xanchor="left", yanchor="middle", xshift=10,
-                        font=dict(size=11, color=THEME["focus"]),
+                        font=dict(size=13, color="rgba(190, 220, 240, 0.85)"),
                     )
 
             fig_hist.update_layout(
