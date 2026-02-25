@@ -12,7 +12,7 @@ def show_simulator(matrix_dict, all_archetypes, records_data):
 
     # Get the top decks by total matches, and inject user-requested specific decks
     top_decks = [r["archetype"] for r in sorted(records_data, key=lambda x: x.get("total_matches", 0), reverse=True)[:8]]
-    for extra in ["Oath Ponza", "Terrageddon"]:
+    for extra in ["Oath Ponza", "Terrageddon", "Stasis"]:
         if extra not in top_decks:
             top_decks.append(extra)
 
@@ -55,6 +55,8 @@ def show_simulator(matrix_dict, all_archetypes, records_data):
             matchups_matrix = matrix_dict.get("matrix", matrix_dict)
             evs = calculate_expected_winrate(meta_shares, matchups_matrix, all_archetypes)
             ev_df = pd.DataFrame(list(evs.items()), columns=["Deck", "Projected Win Rate"])
+            # Remove "Unknown" deck from the output pool before ranking
+            ev_df = ev_df[ev_df["Deck"] != "Unknown"]
             ev_df = ev_df.sort_values("Projected Win Rate", ascending=False).reset_index(drop=True)
             ev_df["#"] = ev_df.index + 1
 
