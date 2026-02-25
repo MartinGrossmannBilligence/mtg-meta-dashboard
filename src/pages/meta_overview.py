@@ -35,8 +35,8 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
     if not all_archetypes:
         all_archetypes = ["None"]
         
-    # Find Tier 1 decks dynamically to use as default selections
-    tier1_decks = [deck for deck, tier in tiers_dict.items() if tier == "Tier 1"] if tiers_dict else []
+    # Find Tier 1 + Tier 2 decks dynamically to use as default selections
+    tier1_decks = [deck for deck, tier in tiers_dict.items() if tier in ("Tier 1", "Tier 2")] if tiers_dict else []
     
     if tier1_decks:
         # Use all tier 1 decks
