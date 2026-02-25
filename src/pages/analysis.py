@@ -264,7 +264,7 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
                 x=last_period, y=last_wr,
                 text="Win Rate", showarrow=False,
                 xanchor="left", yanchor="middle", xshift=10,
-                font=dict(size=11, color=THEME["muted"]),
+                font=dict(size=13, color=THEME["muted"]),
             )
             if has_meta:
                 last_ms = next((v for v in reversed(ms_display) if v is not None), None)
