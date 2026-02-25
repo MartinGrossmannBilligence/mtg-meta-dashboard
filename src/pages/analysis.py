@@ -225,71 +225,57 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
                 if v < 0.50: return THEME["warning"]
                 return THEME["text"]
 
-            fig_hist = go.Figure()
-            # ── Win Rate line (left axis) ─────────────────────────────────────
-            fig_hist.add_trace(go.Scatter(
+            # ── Win Rate chart ────────────────────────────────────────────────
+            fig_wr = go.Figure()
+            fig_wr.add_trace(go.Scatter(
                 x=df_hist["Period"], y=df_hist["Win Rate"],
-                name="Win Rate",
                 mode="lines+markers+text",
                 text=[f"{v:.1%}" for v in df_hist["Win Rate"]],
                 textposition="top center",
-                textfont=dict(
-                    size=15,
-                    color=[_wr_color(v) for v in df_hist["Win Rate"]],
-                ),
-                line=dict(color=THEME["border"], width=7),
-                marker=dict(
-                    size=10,
-                    color=[_wr_color(v) for v in df_hist["Win Rate"]],
-                    line=dict(width=0),
-                ),
-                yaxis="y1",
+                textfont=dict(size=13, color=[_wr_color(v) for v in df_hist["Win Rate"]]),
+                line=dict(color=THEME["border"], width=6),
+                marker=dict(size=9, color=[_wr_color(v) for v in df_hist["Win Rate"]], line=dict(width=0)),
+                showlegend=False,
             ))
+            fig_wr.add_hline(y=0.5, line_dash="dash", line_color=THEME["faint"], line_width=1)
+            fig_wr.update_layout(
+                height=160,
+                paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
+                font_color=THEME["muted"], font_family="IBM Plex Mono",
+                margin=dict(l=0, r=0, t=24, b=4),
+                yaxis=dict(tickformat=".0%", range=[0.3, 0.7], tickfont=dict(size=11), showgrid=False, title="Win Rate", title_font=dict(size=11)),
+                xaxis=dict(tickfont=dict(size=12), showticklabels=False),
+                xaxis_title="",
+            )
+            st.plotly_chart(fig_wr, use_container_width=True, key="deck_wr_trend")
 
-            # ── Meta Share line (right axis) ──────────────────────────────────
+            # ── Meta Share chart ──────────────────────────────────────────────
             ms_vals = df_hist["Meta Share"].tolist()
             has_meta = any(v is not None for v in ms_vals)
             if has_meta:
                 ms_display = [v if v is not None else None for v in ms_vals]
-                fig_hist.add_trace(go.Scatter(
+                fig_ms = go.Figure()
+                fig_ms.add_trace(go.Scatter(
                     x=df_hist["Period"], y=ms_display,
-                    name="Meta Share",
                     mode="lines+markers+text",
                     text=[f"{v:.1%}" if v is not None else "" for v in ms_display],
-                    textposition="bottom center",
+                    textposition="top center",
                     textfont=dict(size=12, color=THEME["focus"]),
                     line=dict(color=THEME["focus"], width=3, dash="dot"),
                     marker=dict(size=8, color=THEME["focus"]),
-                    yaxis="y2",
+                    showlegend=False,
                     connectgaps=False,
                 ))
-
-            fig_hist.add_hline(y=0.5, line_dash="dash", line_color=THEME["faint"], line_width=1)
-            fig_hist.update_layout(
-                height=220,
-                paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
-                font_color=THEME["muted"],
-                font_family="IBM Plex Mono",
-                margin=dict(l=0, r=60, t=30, b=0),
-                yaxis=dict(tickformat=".0%", range=[0.3, 0.7], tickfont=dict(size=12), title="", showgrid=False),
-                yaxis2=dict(
-                    tickformat=".0%",
-                    overlaying="y", side="right",
-                    tickfont=dict(size=11, color=THEME["focus"]),
-                    showgrid=False, title="",
-                    rangemode="tozero",
-                ),
-                xaxis=dict(tickfont=dict(size=13)),
-                xaxis_title="", yaxis_title="",
-                showlegend=has_meta,
-                legend=dict(
-                    orientation="h", yanchor="bottom", y=1.02,
-                    xanchor="right", x=1,
-                    font=dict(size=11),
-                    bgcolor="rgba(0,0,0,0)",
-                ),
-            )
-            st.plotly_chart(fig_hist, use_container_width=True)
+                fig_ms.update_layout(
+                    height=130,
+                    paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
+                    font_color=THEME["muted"], font_family="IBM Plex Mono",
+                    margin=dict(l=0, r=0, t=4, b=0),
+                    yaxis=dict(tickformat=".0%", tickfont=dict(size=11), showgrid=False, title="Meta Share", title_font=dict(size=11), rangemode="tozero"),
+                    xaxis=dict(tickfont=dict(size=12)),
+                    xaxis_title="",
+                )
+                st.plotly_chart(fig_ms, use_container_width=True, key="deck_ms_trend")
 
         st.markdown('<div style="margin: 8px 0 12px 0; border-top: 1px solid #222222;"></div>', unsafe_allow_html=True)
 
