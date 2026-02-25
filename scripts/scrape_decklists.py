@@ -5,6 +5,18 @@ import re
 import json
 import time
 import os
+import shutil
+from datetime import datetime
+
+def backup_data_folder():
+    if not os.path.exists('data'): return
+    timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+    backup_dir = f'data_backups/data_{timestamp}'
+    try:
+        shutil.copytree('data', backup_dir)
+        print(f"Created backup of data/ at {backup_dir}")
+    except Exception as e:
+        print(f"Warning: Failed to create backup: {e}")
 
 DATA_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data")
 MATRIX_FILE = os.path.join(DATA_DIR, "mtgdecks_matrix_6_months.json")
@@ -62,15 +74,28 @@ def scrape_archetype_decklists(archetype_name, max_pages=10, required_decks=10):
     
     print(f"\nScraping {archetype_name} (slug: {slug})...")
     
-    valid_ranks =['1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', 'top4', 'top8', '1', '2', '3', '4', '5', '6', '7', '8']
+    # Define rank priorities for scoring
+    rank_scores = {
+        '1st': 100, '1': 100,
+        '2nd': 90,  '2': 90,
+        '3rd': 80,  '3': 80,
+        '4th': 80,  '4': 80,
+        'top4': 80,
+        '5th': 70,  '5': 70,
+        '6th': 70,  '6': 70,
+        '7th': 70,  '7': 70,
+        '8th': 70,  '8': 70,
+        'top8': 70,
+        'top16': 50,
+        'top32': 30,
+        'top64': 20,
+        'top128': 10
+    }
+    
     collected_candidates = []
     
     for page in range(1, max_pages + 1):
-        # Stop early if we already have 10 absolute Top 8s above 50 players (the golden standard)
-        top8_count = sum(1 for d in collected_candidates if d['is_top_8'])
-        if top8_count >= required_decks:
-            break
-            
+        # We search all max_pages to get the best possible selection
         url = f"https://mtgdecks.net/Premodern/{slug}"
         if page > 1:
             url += f"/page:{page}"
@@ -121,52 +146,69 @@ def scrape_archetype_decklists(archetype_name, max_pages=10, required_decks=10):
                 spice_val = int(spice_bar['aria-valuenow']) if spice_bar and 'aria-valuenow' in spice_bar.attrs else 0
                 
                 rank_lower = rank_text.lower()
-                is_top_8 = any(r == rank_lower or rank_lower.startswith(r) for r in valid_ranks)
                 
-                if players == 0:
-                    match_record = re.match(r'^(\d+)-(\d+)(?:-(\d+))?$', rank_text)
-                    if match_record:
-                        wins, losses = int(match_record.group(1)), int(match_record.group(2))
-                        draws = int(match_record.group(3)) if match_record.group(3) else 0
-                        total_rounds = wins + losses + draws
-                        if total_rounds >= 8: players = 129
-                        elif total_rounds == 7: players = 65
-                        elif total_rounds == 6: players = 33
-                        elif total_rounds == 5: players = 17
-                        if wins >= 3 and losses == 0:
-                            is_top_8 = True
-                            
-                # Relaxed rule: just needs >= 50 players. Top 8 is a bonus for sorting.
-                if players >= 50:
-                    collected_candidates.append({
-                        "player": player,
-                        "rank": rank_text,
-                        "players": players,
-                        "event": event,
-                        "date": date_text,
-                        "url": deck_url,
-                        "colors": list(set(colors_list)),
-                        "spice": spice_val,
-                        "is_top_8": is_top_8
-                    })
+                # Check eligibility
+                is_top_8 = any(r in rank_lower for r in ['1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', 'top4', 'top8', ' 1 ', ' 2 ', ' 3 ', ' 4 ', ' 5 ', ' 6 ', ' 7 ', ' 8 '])
+                if rank_lower in ['1','2','3','4','5','6','7','8']: is_top_8 = True
+                
+                is_top_4 = any(r in rank_lower for r in ['1st', '2nd', '3rd', '4th', 'top4', ' 1 ', ' 2 ', ' 3 ', ' 4 '])
+                if rank_lower in ['1','2','3','4']: is_top_4 = True
+
+                # PRIMARY CRITERIA: Top 8 / 65+ players OR Top 4 / 33+ players
+                meets_primary = (is_top_8 and players >= 65) or (is_top_4 and players >= 33)
+                
+                # Fallback ranking score
+                score = rank_scores.get(rank_lower, 0)
+                # If rank contains a number, try to extract it
+                if not score:
+                    match_rank = re.search(r'(\d+)', rank_lower)
+                    if match_rank:
+                        val = int(match_rank.group(1))
+                        if val == 1: score = 100
+                        elif val == 2: score = 90
+                        elif val <= 4: score = 80
+                        elif val <= 8: score = 70
+                        elif val <= 16: score = 50
+                        elif val <= 32: score = 30
+                
+                collected_candidates.append({
+                    "player": player,
+                    "rank": rank_text,
+                    "players": players,
+                    "event": event,
+                    "date": date_text,
+                    "url": deck_url,
+                    "colors": list(set(colors_list)),
+                    "spice": spice_val,
+                    "meets_primary": meets_primary,
+                    "score": score
+                })
             except Exception as e:
                 pass
                 
     # Sort collected candidates:
-    # 1. Top 8 finishing decks first (True > False)
-    # 2. Number of players descending (bigger tournaments are better)
-    collected_candidates.sort(key=lambda x: (x["is_top_8"], x["players"]), reverse=True)
+    # 1. Meets primary criteria first
+    # 2. Score descending (Rank weight)
+    # 3. Number of players descending (Tie-breaker)
+    collected_candidates.sort(key=lambda x: (x["meets_primary"], x["score"], x["players"]), reverse=True)
+    
+    # Remove duplicates by URL
+    seen_urls = set()
+    unique_candidates = []
+    for d in collected_candidates:
+        if d['url'] not in seen_urls:
+            unique_candidates.append(d)
+            seen_urls.add(d['url'])
     
     # Take the top N required
-    final_selection = collected_candidates[:required_decks]
+    final_selection = unique_candidates[:required_decks]
     
     # Now fetch the cards only for the selected top decks
     final_decks = []
     for count, deck in enumerate(final_selection):
-        print(f"    [{count+1}/{len(final_selection)}] Fetching cards for {deck['rank']} by {deck['player']} ({deck['players']} players; Top8: {deck['is_top_8']})")
+        print(f"    [{count+1}/{len(final_selection)}] Fetching cards for {deck['rank']} by {deck['player']} (Players: {deck['players']}, Primary: {deck['meets_primary']})")
         cards = fetch_cards(deck['url'])
         
-        # We don't need to save the is_top_8 boolean into the final JSON as the UI doesn't use it
         final_decks.append({
             "player": deck["player"],
             "rank": deck["rank"],
@@ -182,6 +224,8 @@ def scrape_archetype_decklists(archetype_name, max_pages=10, required_decks=10):
     return final_decks
 
 def main():
+    backup_data_folder()
+    
     if not os.path.exists(MATRIX_FILE):
         print(f"Matrix file not found: {MATRIX_FILE}")
         return
@@ -206,6 +250,7 @@ def main():
                 pass
                 
     for arch in tier_archetypes:
+        # User requested fresh scan of 10 pages for all Tier 1/2 archetypes
         try:
             decks = scrape_archetype_decklists(arch, max_pages=10, required_decks=10)
             decklists_db[arch] = decks

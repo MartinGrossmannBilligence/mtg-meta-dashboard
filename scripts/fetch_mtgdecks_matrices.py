@@ -6,6 +6,17 @@ import re
 import os
 from bs4 import BeautifulSoup
 from datetime import datetime
+import shutil
+
+def backup_data_folder():
+    if not os.path.exists('data'): return
+    timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+    backup_dir = f'data_backups/data_{timestamp}'
+    try:
+        shutil.copytree('data', backup_dir)
+        print(f"Created backup of data/ at {backup_dir}")
+    except Exception as e:
+        print(f"Warning: Failed to create backup: {e}")
 
 HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36',
@@ -151,6 +162,8 @@ def fetch_meta_shares(url):
     return shares
 
 def main():
+    backup_data_folder()
+    
     tiers = get_tiers()
     print(f"Loaded {len(tiers)} archetype tiers.")
     
