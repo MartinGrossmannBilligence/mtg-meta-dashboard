@@ -1,7 +1,7 @@
 {
     "time_frame": "All Time",
     "start_date": "",
-    "end_date": "2026-02-24",
+    "end_date": "2026-02-25",
     "min_percentage": 0,
     "archetypes": [
         "5 Color Control",
@@ -181,9 +181,9 @@
         "Sneak Attack": "Tier 2",
         "Balancing Tings": "Tier 3",
         "Lands": "Tier 3",
+        "Pandeburst Control": "Tier 3",
         "Gamekeeper": "Tier 3",
         "Great Combo": "Tier 3",
-        "Pandeburst Control": "Tier 3",
         "Dredgeless Dredge": "Tier 3",
         "UW Aggro": "Tier 3",
         "GW Midrange": "Tier 3",
@@ -193,8 +193,8 @@
         "Doomsday": "Tier 3",
         "Mono White Control": "Tier 3",
         "Dreams Ponza": "Tier 3",
-        "Parfait": "Tier 3",
         "Nic Fit": "Tier 3",
+        "Parfait": "Tier 3",
         "Form of Dragon": "Tier 3",
         "Mono Black Coffers": "Tier 3",
         "Mono Blue Flyers": "Tier 3",
@@ -263,10 +263,10 @@
             "Stiflenought": {
                 "archetype": "Stiflenought",
                 "wins": 41,
-                "losses": 42,
+                "losses": 41,
                 "draws": 0,
-                "total_matches": 83,
-                "win_rate": 0.49
+                "total_matches": 82,
+                "win_rate": 0.5
             },
             "Burn": {
                 "archetype": "Burn",
@@ -332,14 +332,6 @@
                 "total_matches": 19,
                 "win_rate": 0.37
             },
-            "BW Control": {
-                "archetype": "BW Control",
-                "wins": 9,
-                "losses": 14,
-                "draws": 0,
-                "total_matches": 23,
-                "win_rate": 0.39
-            },
             "Psychatog": {
                 "archetype": "Psychatog",
                 "wins": 14,
@@ -348,13 +340,21 @@
                 "total_matches": 23,
                 "win_rate": 0.61
             },
+            "BW Control": {
+                "archetype": "BW Control",
+                "wins": 9,
+                "losses": 14,
+                "draws": 0,
+                "total_matches": 23,
+                "win_rate": 0.39
+            },
             "Madness": {
                 "archetype": "Madness",
                 "wins": 10,
-                "losses": 10,
+                "losses": 9,
                 "draws": 0,
-                "total_matches": 20,
-                "win_rate": 0.5
+                "total_matches": 19,
+                "win_rate": 0.53
             },
             "The Rock": {
                 "archetype": "The Rock",
@@ -524,14 +524,6 @@
                 "total_matches": 12,
                 "win_rate": 0.33
             },
-            "Oath Spec": {
-                "archetype": "Oath Spec",
-                "wins": 2,
-                "losses": 8,
-                "draws": 0,
-                "total_matches": 10,
-                "win_rate": 0.2
-            },
             "Survival Infestation": {
                 "archetype": "Survival Infestation",
                 "wins": 3,
@@ -547,6 +539,14 @@
                 "draws": 0,
                 "total_matches": 7,
                 "win_rate": 0.29
+            },
+            "Oath Spec": {
+                "archetype": "Oath Spec",
+                "wins": 2,
+                "losses": 8,
+                "draws": 0,
+                "total_matches": 10,
+                "win_rate": 0.2
             },
             "Storm": {
                 "archetype": "Storm",
@@ -600,11 +600,11 @@
         "Stiflenought": {
             "Goblins": {
                 "archetype": "Goblins",
-                "wins": 42,
+                "wins": 41,
                 "losses": 41,
                 "draws": 0,
-                "total_matches": 83,
-                "win_rate": 0.51
+                "total_matches": 82,
+                "win_rate": 0.5
             },
             "Stiflenought": {
                 "archetype": "Stiflenought",
@@ -678,14 +678,6 @@
                 "total_matches": 19,
                 "win_rate": 0.37
             },
-            "BW Control": {
-                "archetype": "BW Control",
-                "wins": 8,
-                "losses": 8,
-                "draws": 0,
-                "total_matches": 16,
-                "win_rate": 0.5
-            },
             "Psychatog": {
                 "archetype": "Psychatog",
                 "wins": 8,
@@ -693,6 +685,14 @@
                 "draws": 0,
                 "total_matches": 16,
                 "win_rate": 0.5
+            },
+            "BW Control": {
+                "archetype": "BW Control",
+                "wins": 7,
+                "losses": 8,
+                "draws": 0,
+                "total_matches": 15,
+                "win_rate": 0.47
             },
             "Madness": {
                 "archetype": "Madness",
@@ -737,10 +737,10 @@
             "Tide Control": {
                 "archetype": "Tide Control",
                 "wins": 4,
-                "losses": 11,
+                "losses": 10,
                 "draws": 0,
-                "total_matches": 15,
-                "win_rate": 0.27
+                "total_matches": 14,
+                "win_rate": 0.29
             },
             "Pit Rack": {
                 "archetype": "Pit Rack",
@@ -870,14 +870,6 @@
                 "total_matches": 7,
                 "win_rate": 0.57
             },
-            "Oath Spec": {
-                "archetype": "Oath Spec",
-                "wins": 6,
-                "losses": 3,
-                "draws": 0,
-                "total_matches": 9,
-                "win_rate": 0.67
-            },
             "Survival Infestation": {
                 "archetype": "Survival Infestation",
                 "wins": 8,
@@ -893,6 +885,14 @@
                 "draws": 0,
                 "total_matches": 6,
                 "win_rate": 0.5
+            },
+            "Oath Spec": {
+                "archetype": "Oath Spec",
+                "wins": 6,
+                "losses": 3,
+                "draws": 0,
+                "total_matches": 9,
+                "win_rate": 0.67
             },
             "Storm": {
                 "archetype": "Storm",
@@ -1024,14 +1024,6 @@
                 "total_matches": 23,
                 "win_rate": 0.52
             },
-            "BW Control": {
-                "archetype": "BW Control",
-                "wins": 13,
-                "losses": 8,
-                "draws": 0,
-                "total_matches": 21,
-                "win_rate": 0.62
-            },
             "Psychatog": {
                 "archetype": "Psychatog",
                 "wins": 8,
@@ -1039,6 +1031,14 @@
                 "draws": 0,
                 "total_matches": 17,
                 "win_rate": 0.47
+            },
+            "BW Control": {
+                "archetype": "BW Control",
+                "wins": 13,
+                "losses": 8,
+                "draws": 0,
+                "total_matches": 21,
+                "win_rate": 0.62
             },
             "Madness": {
                 "archetype": "Madness",
@@ -1216,14 +1216,6 @@
                 "total_matches": 3,
                 "win_rate": 1.0
             },
-            "Oath Spec": {
-                "archetype": "Oath Spec",
-                "wins": 1,
-                "losses": 2,
-                "draws": 0,
-                "total_matches": 3,
-                "win_rate": 0.33
-            },
             "Survival Infestation": {
                 "archetype": "Survival Infestation",
                 "wins": 6,
@@ -1239,6 +1231,14 @@
                 "draws": 0,
                 "total_matches": 4,
                 "win_rate": 0.75
+            },
+            "Oath Spec": {
+                "archetype": "Oath Spec",
+                "wins": 1,
+                "losses": 2,
+                "draws": 0,
+                "total_matches": 3,
+                "win_rate": 0.33
             },
             "Storm": {
                 "archetype": "Storm",
@@ -1370,14 +1370,6 @@
                 "total_matches": 20,
                 "win_rate": 0.55
             },
-            "BW Control": {
-                "archetype": "BW Control",
-                "wins": 7,
-                "losses": 9,
-                "draws": 0,
-                "total_matches": 16,
-                "win_rate": 0.44
-            },
             "Psychatog": {
                 "archetype": "Psychatog",
                 "wins": 9,
@@ -1385,6 +1377,14 @@
                 "draws": 0,
                 "total_matches": 14,
                 "win_rate": 0.64
+            },
+            "BW Control": {
+                "archetype": "BW Control",
+                "wins": 7,
+                "losses": 9,
+                "draws": 0,
+                "total_matches": 16,
+                "win_rate": 0.44
             },
             "Madness": {
                 "archetype": "Madness",
@@ -1562,14 +1562,6 @@
                 "total_matches": 6,
                 "win_rate": 0.5
             },
-            "Oath Spec": {
-                "archetype": "Oath Spec",
-                "wins": 2,
-                "losses": 0,
-                "draws": 0,
-                "total_matches": 2,
-                "win_rate": 1.0
-            },
             "Survival Infestation": {
                 "archetype": "Survival Infestation",
                 "wins": 1,
@@ -1585,6 +1577,14 @@
                 "draws": 0,
                 "total_matches": 4,
                 "win_rate": 0.5
+            },
+            "Oath Spec": {
+                "archetype": "Oath Spec",
+                "wins": 2,
+                "losses": 0,
+                "draws": 0,
+                "total_matches": 2,
+                "win_rate": 1.0
             },
             "Storm": {
                 "archetype": "Storm",
@@ -1716,14 +1716,6 @@
                 "total_matches": 18,
                 "win_rate": 0.28
             },
-            "BW Control": {
-                "archetype": "BW Control",
-                "wins": 9,
-                "losses": 4,
-                "draws": 0,
-                "total_matches": 13,
-                "win_rate": 0.69
-            },
             "Psychatog": {
                 "archetype": "Psychatog",
                 "wins": 10,
@@ -1731,6 +1723,14 @@
                 "draws": 0,
                 "total_matches": 12,
                 "win_rate": 0.83
+            },
+            "BW Control": {
+                "archetype": "BW Control",
+                "wins": 9,
+                "losses": 4,
+                "draws": 0,
+                "total_matches": 13,
+                "win_rate": 0.69
             },
             "Madness": {
                 "archetype": "Madness",
@@ -1908,14 +1908,6 @@
                 "total_matches": 5,
                 "win_rate": 0.8
             },
-            "Oath Spec": {
-                "archetype": "Oath Spec",
-                "wins": 3,
-                "losses": 4,
-                "draws": 0,
-                "total_matches": 7,
-                "win_rate": 0.43
-            },
             "Survival Infestation": {
                 "archetype": "Survival Infestation",
                 "wins": 3,
@@ -1931,6 +1923,14 @@
                 "draws": 0,
                 "total_matches": 7,
                 "win_rate": 0.57
+            },
+            "Oath Spec": {
+                "archetype": "Oath Spec",
+                "wins": 3,
+                "losses": 4,
+                "draws": 0,
+                "total_matches": 7,
+                "win_rate": 0.43
             },
             "Storm": {
                 "archetype": "Storm",
@@ -2062,14 +2062,6 @@
                 "total_matches": 9,
                 "win_rate": 0.33
             },
-            "BW Control": {
-                "archetype": "BW Control",
-                "wins": 8,
-                "losses": 2,
-                "draws": 0,
-                "total_matches": 10,
-                "win_rate": 0.8
-            },
             "Psychatog": {
                 "archetype": "Psychatog",
                 "wins": 4,
@@ -2077,6 +2069,14 @@
                 "draws": 0,
                 "total_matches": 6,
                 "win_rate": 0.67
+            },
+            "BW Control": {
+                "archetype": "BW Control",
+                "wins": 8,
+                "losses": 2,
+                "draws": 0,
+                "total_matches": 10,
+                "win_rate": 0.8
             },
             "Madness": {
                 "archetype": "Madness",
@@ -2246,14 +2246,6 @@
                 "total_matches": 3,
                 "win_rate": 0.33
             },
-            "Oath Spec": {
-                "archetype": "Oath Spec",
-                "wins": 0,
-                "losses": 4,
-                "draws": 0,
-                "total_matches": 4,
-                "win_rate": 0.0
-            },
             "Survival Infestation": {
                 "archetype": "Survival Infestation",
                 "wins": 3,
@@ -2261,6 +2253,14 @@
                 "draws": 0,
                 "total_matches": 4,
                 "win_rate": 0.75
+            },
+            "Oath Spec": {
+                "archetype": "Oath Spec",
+                "wins": 0,
+                "losses": 4,
+                "draws": 0,
+                "total_matches": 4,
+                "win_rate": 0.0
             },
             "Tireless Tribe Combo": {
                 "archetype": "Tireless Tribe Combo",
@@ -2384,14 +2384,6 @@
                 "total_matches": 12,
                 "win_rate": 0.58
             },
-            "BW Control": {
-                "archetype": "BW Control",
-                "wins": 3,
-                "losses": 6,
-                "draws": 0,
-                "total_matches": 9,
-                "win_rate": 0.33
-            },
             "Psychatog": {
                 "archetype": "Psychatog",
                 "wins": 6,
@@ -2399,6 +2391,14 @@
                 "draws": 0,
                 "total_matches": 11,
                 "win_rate": 0.55
+            },
+            "BW Control": {
+                "archetype": "BW Control",
+                "wins": 3,
+                "losses": 6,
+                "draws": 0,
+                "total_matches": 9,
+                "win_rate": 0.33
             },
             "Madness": {
                 "archetype": "Madness",
@@ -2568,14 +2568,6 @@
                 "total_matches": 3,
                 "win_rate": 0.33
             },
-            "Oath Spec": {
-                "archetype": "Oath Spec",
-                "wins": 3,
-                "losses": 0,
-                "draws": 0,
-                "total_matches": 3,
-                "win_rate": 1.0
-            },
             "Survival Infestation": {
                 "archetype": "Survival Infestation",
                 "wins": 3,
@@ -2591,6 +2583,14 @@
                 "draws": 0,
                 "total_matches": 5,
                 "win_rate": 0.4
+            },
+            "Oath Spec": {
+                "archetype": "Oath Spec",
+                "wins": 3,
+                "losses": 0,
+                "draws": 0,
+                "total_matches": 3,
+                "win_rate": 1.0
             },
             "Storm": {
                 "archetype": "Storm",
@@ -2722,14 +2722,6 @@
                 "total_matches": 10,
                 "win_rate": 0.3
             },
-            "BW Control": {
-                "archetype": "BW Control",
-                "wins": 3,
-                "losses": 2,
-                "draws": 0,
-                "total_matches": 5,
-                "win_rate": 0.6
-            },
             "Psychatog": {
                 "archetype": "Psychatog",
                 "wins": 7,
@@ -2737,6 +2729,14 @@
                 "draws": 0,
                 "total_matches": 7,
                 "win_rate": 1.0
+            },
+            "BW Control": {
+                "archetype": "BW Control",
+                "wins": 3,
+                "losses": 2,
+                "draws": 0,
+                "total_matches": 5,
+                "win_rate": 0.6
             },
             "Madness": {
                 "archetype": "Madness",
@@ -2914,14 +2914,6 @@
                 "total_matches": 1,
                 "win_rate": 0.0
             },
-            "Oath Spec": {
-                "archetype": "Oath Spec",
-                "wins": 1,
-                "losses": 2,
-                "draws": 0,
-                "total_matches": 3,
-                "win_rate": 0.33
-            },
             "Survival Infestation": {
                 "archetype": "Survival Infestation",
                 "wins": 1,
@@ -2937,6 +2929,14 @@
                 "draws": 0,
                 "total_matches": 1,
                 "win_rate": 0.0
+            },
+            "Oath Spec": {
+                "archetype": "Oath Spec",
+                "wins": 1,
+                "losses": 2,
+                "draws": 0,
+                "total_matches": 3,
+                "win_rate": 0.33
             },
             "Storm": {
                 "archetype": "Storm",
@@ -3060,14 +3060,6 @@
                 "total_matches": 2,
                 "win_rate": 0.5
             },
-            "BW Control": {
-                "archetype": "BW Control",
-                "wins": 2,
-                "losses": 2,
-                "draws": 0,
-                "total_matches": 4,
-                "win_rate": 0.5
-            },
             "Psychatog": {
                 "archetype": "Psychatog",
                 "wins": 8,
@@ -3075,6 +3067,14 @@
                 "draws": 0,
                 "total_matches": 11,
                 "win_rate": 0.73
+            },
+            "BW Control": {
+                "archetype": "BW Control",
+                "wins": 2,
+                "losses": 2,
+                "draws": 0,
+                "total_matches": 4,
+                "win_rate": 0.5
             },
             "Madness": {
                 "archetype": "Madness",
@@ -3244,14 +3244,6 @@
                 "total_matches": 2,
                 "win_rate": 1.0
             },
-            "Oath Spec": {
-                "archetype": "Oath Spec",
-                "wins": 1,
-                "losses": 1,
-                "draws": 0,
-                "total_matches": 2,
-                "win_rate": 0.5
-            },
             "Survival Infestation": {
                 "archetype": "Survival Infestation",
                 "wins": 0,
@@ -3267,6 +3259,14 @@
                 "draws": 0,
                 "total_matches": 2,
                 "win_rate": 1.0
+            },
+            "Oath Spec": {
+                "archetype": "Oath Spec",
+                "wins": 1,
+                "losses": 1,
+                "draws": 0,
+                "total_matches": 2,
+                "win_rate": 0.5
             },
             "Storm": {
                 "archetype": "Storm",
@@ -3398,14 +3398,6 @@
                 "total_matches": 12,
                 "win_rate": 0.5
             },
-            "BW Control": {
-                "archetype": "BW Control",
-                "wins": 11,
-                "losses": 2,
-                "draws": 0,
-                "total_matches": 13,
-                "win_rate": 0.85
-            },
             "Psychatog": {
                 "archetype": "Psychatog",
                 "wins": 2,
@@ -3413,6 +3405,14 @@
                 "draws": 0,
                 "total_matches": 2,
                 "win_rate": 1.0
+            },
+            "BW Control": {
+                "archetype": "BW Control",
+                "wins": 11,
+                "losses": 2,
+                "draws": 0,
+                "total_matches": 13,
+                "win_rate": 0.85
             },
             "Madness": {
                 "archetype": "Madness",
@@ -3574,6 +3574,22 @@
                 "total_matches": 1,
                 "win_rate": 1.0
             },
+            "Survival Infestation": {
+                "archetype": "Survival Infestation",
+                "wins": 3,
+                "losses": 1,
+                "draws": 0,
+                "total_matches": 4,
+                "win_rate": 0.75
+            },
+            "Ponza": {
+                "archetype": "Ponza",
+                "wins": 2,
+                "losses": 0,
+                "draws": 0,
+                "total_matches": 2,
+                "win_rate": 1.0
+            },
             "Oath Spec": {
                 "archetype": "Oath Spec",
                 "wins": 5,
@@ -3582,22 +3598,6 @@
                 "total_matches": 6,
                 "win_rate": 0.83
             },
-            "Survival Infestation": {
-                "archetype": "Survival Infestation",
-                "wins": 3,
-                "losses": 1,
-                "draws": 0,
-                "total_matches": 4,
-                "win_rate": 0.75
-            },
-            "Ponza": {
-                "archetype": "Ponza",
-                "wins": 2,
-                "losses": 0,
-                "draws": 0,
-                "total_matches": 2,
-                "win_rate": 1.0
-            },
             "Storm": {
                 "archetype": "Storm",
                 "wins": 1,
@@ -3629,344 +3629,6 @@
                 "draws": 0,
                 "total_matches": 2,
                 "win_rate": 1.0
-            }
-        },
-        "BW Control": {
-            "Goblins": {
-                "archetype": "Goblins",
-                "wins": 14,
-                "losses": 9,
-                "draws": 0,
-                "total_matches": 23,
-                "win_rate": 0.61
-            },
-            "Stiflenought": {
-                "archetype": "Stiflenought",
-                "wins": 8,
-                "losses": 8,
-                "draws": 0,
-                "total_matches": 16,
-                "win_rate": 0.5
-            },
-            "Burn": {
-                "archetype": "Burn",
-                "wins": 8,
-                "losses": 13,
-                "draws": 0,
-                "total_matches": 21,
-                "win_rate": 0.38
-            },
-            "Landstill": {
-                "archetype": "Landstill",
-                "wins": 9,
-                "losses": 7,
-                "draws": 0,
-                "total_matches": 16,
-                "win_rate": 0.56
-            },
-            "Enchantress": {
-                "archetype": "Enchantress",
-                "wins": 4,
-                "losses": 9,
-                "draws": 0,
-                "total_matches": 13,
-                "win_rate": 0.31
-            },
-            "Terrageddon": {
-                "archetype": "Terrageddon",
-                "wins": 2,
-                "losses": 8,
-                "draws": 0,
-                "total_matches": 10,
-                "win_rate": 0.2
-            },
-            "Mono Black": {
-                "archetype": "Mono Black",
-                "wins": 6,
-                "losses": 3,
-                "draws": 0,
-                "total_matches": 9,
-                "win_rate": 0.67
-            },
-            "Elves": {
-                "archetype": "Elves",
-                "wins": 2,
-                "losses": 3,
-                "draws": 0,
-                "total_matches": 5,
-                "win_rate": 0.4
-            },
-            "Stasis": {
-                "archetype": "Stasis",
-                "wins": 2,
-                "losses": 2,
-                "draws": 0,
-                "total_matches": 4,
-                "win_rate": 0.5
-            },
-            "Replenish": {
-                "archetype": "Replenish",
-                "wins": 2,
-                "losses": 11,
-                "draws": 0,
-                "total_matches": 13,
-                "win_rate": 0.15
-            },
-            "BW Control": {
-                "archetype": "BW Control",
-                "wins": 2,
-                "losses": 2,
-                "draws": 0,
-                "total_matches": 4,
-                "win_rate": 0.5
-            },
-            "Psychatog": {
-                "archetype": "Psychatog",
-                "wins": 6,
-                "losses": 1,
-                "draws": 0,
-                "total_matches": 7,
-                "win_rate": 0.86
-            },
-            "Madness": {
-                "archetype": "Madness",
-                "wins": 3,
-                "losses": 2,
-                "draws": 0,
-                "total_matches": 5,
-                "win_rate": 0.6
-            },
-            "The Rock": {
-                "archetype": "The Rock",
-                "wins": 4,
-                "losses": 1,
-                "draws": 0,
-                "total_matches": 5,
-                "win_rate": 0.8
-            },
-            "Oath Ponza": {
-                "archetype": "Oath Ponza",
-                "wins": 6,
-                "losses": 4,
-                "draws": 0,
-                "total_matches": 10,
-                "win_rate": 0.6
-            },
-            "Reanimator": {
-                "archetype": "Reanimator",
-                "wins": 8,
-                "losses": 1,
-                "draws": 0,
-                "total_matches": 9,
-                "win_rate": 0.89
-            },
-            "Devourer Combo": {
-                "archetype": "Devourer Combo",
-                "wins": 3,
-                "losses": 6,
-                "draws": 0,
-                "total_matches": 9,
-                "win_rate": 0.33
-            },
-            "Tide Control": {
-                "archetype": "Tide Control",
-                "wins": 0,
-                "losses": 3,
-                "draws": 0,
-                "total_matches": 3,
-                "win_rate": 0.0
-            },
-            "Pit Rack": {
-                "archetype": "Pit Rack",
-                "wins": 4,
-                "losses": 2,
-                "draws": 0,
-                "total_matches": 6,
-                "win_rate": 0.67
-            },
-            "Gro-a-Tog": {
-                "archetype": "Gro-a-Tog",
-                "wins": 2,
-                "losses": 6,
-                "draws": 0,
-                "total_matches": 8,
-                "win_rate": 0.25
-            },
-            "Zoo": {
-                "archetype": "Zoo",
-                "wins": 4,
-                "losses": 0,
-                "draws": 0,
-                "total_matches": 4,
-                "win_rate": 1.0
-            },
-            "Aluren": {
-                "archetype": "Aluren",
-                "wins": 0,
-                "losses": 3,
-                "draws": 0,
-                "total_matches": 3,
-                "win_rate": 0.0
-            },
-            "Full English Breakfast": {
-                "archetype": "Full English Breakfast",
-                "wins": 1,
-                "losses": 5,
-                "draws": 0,
-                "total_matches": 6,
-                "win_rate": 0.17
-            },
-            "Deadguy Ale": {
-                "archetype": "Deadguy Ale",
-                "wins": 0,
-                "losses": 1,
-                "draws": 0,
-                "total_matches": 1,
-                "win_rate": 0.0
-            },
-            "The Solution": {
-                "archetype": "The Solution",
-                "wins": 4,
-                "losses": 1,
-                "draws": 0,
-                "total_matches": 5,
-                "win_rate": 0.8
-            },
-            "Contamination": {
-                "archetype": "Contamination",
-                "wins": 2,
-                "losses": 1,
-                "draws": 0,
-                "total_matches": 3,
-                "win_rate": 0.67
-            },
-            "Survival": {
-                "archetype": "Survival",
-                "wins": 2,
-                "losses": 3,
-                "draws": 0,
-                "total_matches": 5,
-                "win_rate": 0.4
-            },
-            "White Weenie": {
-                "archetype": "White Weenie",
-                "wins": 1,
-                "losses": 1,
-                "draws": 0,
-                "total_matches": 2,
-                "win_rate": 0.5
-            },
-            "MUD": {
-                "archetype": "MUD",
-                "wins": 0,
-                "losses": 1,
-                "draws": 0,
-                "total_matches": 1,
-                "win_rate": 0.0
-            },
-            "UW Control": {
-                "archetype": "UW Control",
-                "wins": 1,
-                "losses": 1,
-                "draws": 0,
-                "total_matches": 2,
-                "win_rate": 0.5
-            },
-            "Clerics": {
-                "archetype": "Clerics",
-                "wins": 1,
-                "losses": 1,
-                "draws": 0,
-                "total_matches": 2,
-                "win_rate": 0.5
-            },
-            "Tinker Welder": {
-                "archetype": "Tinker Welder",
-                "wins": 3,
-                "losses": 0,
-                "draws": 0,
-                "total_matches": 3,
-                "win_rate": 1.0
-            },
-            "Survival Opposition": {
-                "archetype": "Survival Opposition",
-                "wins": 1,
-                "losses": 2,
-                "draws": 0,
-                "total_matches": 3,
-                "win_rate": 0.33
-            },
-            "Oath Spec": {
-                "archetype": "Oath Spec",
-                "wins": 0,
-                "losses": 2,
-                "draws": 0,
-                "total_matches": 2,
-                "win_rate": 0.0
-            },
-            "Survival Infestation": {
-                "archetype": "Survival Infestation",
-                "wins": 1,
-                "losses": 1,
-                "draws": 0,
-                "total_matches": 2,
-                "win_rate": 0.5
-            },
-            "Ponza": {
-                "archetype": "Ponza",
-                "wins": 3,
-                "losses": 1,
-                "draws": 0,
-                "total_matches": 4,
-                "win_rate": 0.75
-            },
-            "Storm": {
-                "archetype": "Storm",
-                "wins": 0,
-                "losses": 2,
-                "draws": 0,
-                "total_matches": 2,
-                "win_rate": 0.0
-            },
-            "Tireless Tribe Combo": {
-                "archetype": "Tireless Tribe Combo",
-                "wins": 1,
-                "losses": 0,
-                "draws": 0,
-                "total_matches": 1,
-                "win_rate": 1.0
-            },
-            "Angry Hermit": {
-                "archetype": "Angry Hermit",
-                "wins": 2,
-                "losses": 1,
-                "draws": 0,
-                "total_matches": 3,
-                "win_rate": 0.67
-            },
-            "Zombie Infestation": {
-                "archetype": "Zombie Infestation",
-                "wins": 2,
-                "losses": 2,
-                "draws": 0,
-                "total_matches": 4,
-                "win_rate": 0.5
-            },
-            "Astral Slide": {
-                "archetype": "Astral Slide",
-                "wins": 1,
-                "losses": 0,
-                "draws": 0,
-                "total_matches": 1,
-                "win_rate": 1.0
-            },
-            "GW Madness": {
-                "archetype": "GW Madness",
-                "wins": 0,
-                "losses": 1,
-                "draws": 0,
-                "total_matches": 1,
-                "win_rate": 0.0
             }
         },
         "Psychatog": {
@@ -4050,14 +3712,6 @@
                 "total_matches": 2,
                 "win_rate": 0.0
             },
-            "BW Control": {
-                "archetype": "BW Control",
-                "wins": 1,
-                "losses": 6,
-                "draws": 0,
-                "total_matches": 7,
-                "win_rate": 0.14
-            },
             "Psychatog": {
                 "archetype": "Psychatog",
                 "wins": 8,
@@ -4065,6 +3719,14 @@
                 "draws": 0,
                 "total_matches": 16,
                 "win_rate": 0.5
+            },
+            "BW Control": {
+                "archetype": "BW Control",
+                "wins": 1,
+                "losses": 6,
+                "draws": 0,
+                "total_matches": 7,
+                "win_rate": 0.14
             },
             "Madness": {
                 "archetype": "Madness",
@@ -4242,14 +3904,6 @@
                 "total_matches": 1,
                 "win_rate": 0.0
             },
-            "Oath Spec": {
-                "archetype": "Oath Spec",
-                "wins": 2,
-                "losses": 1,
-                "draws": 0,
-                "total_matches": 3,
-                "win_rate": 0.67
-            },
             "Survival Infestation": {
                 "archetype": "Survival Infestation",
                 "wins": 0,
@@ -4265,6 +3919,14 @@
                 "draws": 0,
                 "total_matches": 2,
                 "win_rate": 0.5
+            },
+            "Oath Spec": {
+                "archetype": "Oath Spec",
+                "wins": 2,
+                "losses": 1,
+                "draws": 0,
+                "total_matches": 3,
+                "win_rate": 0.67
             },
             "Storm": {
                 "archetype": "Storm",
@@ -4299,14 +3961,352 @@
                 "win_rate": 0.0
             }
         },
+        "BW Control": {
+            "Goblins": {
+                "archetype": "Goblins",
+                "wins": 14,
+                "losses": 9,
+                "draws": 0,
+                "total_matches": 23,
+                "win_rate": 0.61
+            },
+            "Stiflenought": {
+                "archetype": "Stiflenought",
+                "wins": 8,
+                "losses": 7,
+                "draws": 0,
+                "total_matches": 15,
+                "win_rate": 0.53
+            },
+            "Burn": {
+                "archetype": "Burn",
+                "wins": 8,
+                "losses": 13,
+                "draws": 0,
+                "total_matches": 21,
+                "win_rate": 0.38
+            },
+            "Landstill": {
+                "archetype": "Landstill",
+                "wins": 9,
+                "losses": 7,
+                "draws": 0,
+                "total_matches": 16,
+                "win_rate": 0.56
+            },
+            "Enchantress": {
+                "archetype": "Enchantress",
+                "wins": 4,
+                "losses": 9,
+                "draws": 0,
+                "total_matches": 13,
+                "win_rate": 0.31
+            },
+            "Terrageddon": {
+                "archetype": "Terrageddon",
+                "wins": 2,
+                "losses": 8,
+                "draws": 0,
+                "total_matches": 10,
+                "win_rate": 0.2
+            },
+            "Mono Black": {
+                "archetype": "Mono Black",
+                "wins": 6,
+                "losses": 3,
+                "draws": 0,
+                "total_matches": 9,
+                "win_rate": 0.67
+            },
+            "Elves": {
+                "archetype": "Elves",
+                "wins": 2,
+                "losses": 3,
+                "draws": 0,
+                "total_matches": 5,
+                "win_rate": 0.4
+            },
+            "Stasis": {
+                "archetype": "Stasis",
+                "wins": 2,
+                "losses": 2,
+                "draws": 0,
+                "total_matches": 4,
+                "win_rate": 0.5
+            },
+            "Replenish": {
+                "archetype": "Replenish",
+                "wins": 2,
+                "losses": 11,
+                "draws": 0,
+                "total_matches": 13,
+                "win_rate": 0.15
+            },
+            "Psychatog": {
+                "archetype": "Psychatog",
+                "wins": 6,
+                "losses": 1,
+                "draws": 0,
+                "total_matches": 7,
+                "win_rate": 0.86
+            },
+            "BW Control": {
+                "archetype": "BW Control",
+                "wins": 2,
+                "losses": 2,
+                "draws": 0,
+                "total_matches": 4,
+                "win_rate": 0.5
+            },
+            "Madness": {
+                "archetype": "Madness",
+                "wins": 3,
+                "losses": 1,
+                "draws": 0,
+                "total_matches": 4,
+                "win_rate": 0.75
+            },
+            "The Rock": {
+                "archetype": "The Rock",
+                "wins": 4,
+                "losses": 1,
+                "draws": 0,
+                "total_matches": 5,
+                "win_rate": 0.8
+            },
+            "Oath Ponza": {
+                "archetype": "Oath Ponza",
+                "wins": 6,
+                "losses": 4,
+                "draws": 0,
+                "total_matches": 10,
+                "win_rate": 0.6
+            },
+            "Reanimator": {
+                "archetype": "Reanimator",
+                "wins": 8,
+                "losses": 1,
+                "draws": 0,
+                "total_matches": 9,
+                "win_rate": 0.89
+            },
+            "Devourer Combo": {
+                "archetype": "Devourer Combo",
+                "wins": 3,
+                "losses": 6,
+                "draws": 0,
+                "total_matches": 9,
+                "win_rate": 0.33
+            },
+            "Tide Control": {
+                "archetype": "Tide Control",
+                "wins": 0,
+                "losses": 3,
+                "draws": 0,
+                "total_matches": 3,
+                "win_rate": 0.0
+            },
+            "Pit Rack": {
+                "archetype": "Pit Rack",
+                "wins": 4,
+                "losses": 2,
+                "draws": 0,
+                "total_matches": 6,
+                "win_rate": 0.67
+            },
+            "Gro-a-Tog": {
+                "archetype": "Gro-a-Tog",
+                "wins": 2,
+                "losses": 6,
+                "draws": 0,
+                "total_matches": 8,
+                "win_rate": 0.25
+            },
+            "Zoo": {
+                "archetype": "Zoo",
+                "wins": 4,
+                "losses": 0,
+                "draws": 0,
+                "total_matches": 4,
+                "win_rate": 1.0
+            },
+            "Aluren": {
+                "archetype": "Aluren",
+                "wins": 0,
+                "losses": 3,
+                "draws": 0,
+                "total_matches": 3,
+                "win_rate": 0.0
+            },
+            "Full English Breakfast": {
+                "archetype": "Full English Breakfast",
+                "wins": 1,
+                "losses": 5,
+                "draws": 0,
+                "total_matches": 6,
+                "win_rate": 0.17
+            },
+            "Deadguy Ale": {
+                "archetype": "Deadguy Ale",
+                "wins": 0,
+                "losses": 1,
+                "draws": 0,
+                "total_matches": 1,
+                "win_rate": 0.0
+            },
+            "The Solution": {
+                "archetype": "The Solution",
+                "wins": 3,
+                "losses": 1,
+                "draws": 0,
+                "total_matches": 4,
+                "win_rate": 0.75
+            },
+            "Contamination": {
+                "archetype": "Contamination",
+                "wins": 2,
+                "losses": 1,
+                "draws": 0,
+                "total_matches": 3,
+                "win_rate": 0.67
+            },
+            "Survival": {
+                "archetype": "Survival",
+                "wins": 2,
+                "losses": 3,
+                "draws": 0,
+                "total_matches": 5,
+                "win_rate": 0.4
+            },
+            "White Weenie": {
+                "archetype": "White Weenie",
+                "wins": 1,
+                "losses": 1,
+                "draws": 0,
+                "total_matches": 2,
+                "win_rate": 0.5
+            },
+            "MUD": {
+                "archetype": "MUD",
+                "wins": 0,
+                "losses": 1,
+                "draws": 0,
+                "total_matches": 1,
+                "win_rate": 0.0
+            },
+            "UW Control": {
+                "archetype": "UW Control",
+                "wins": 1,
+                "losses": 1,
+                "draws": 0,
+                "total_matches": 2,
+                "win_rate": 0.5
+            },
+            "Clerics": {
+                "archetype": "Clerics",
+                "wins": 1,
+                "losses": 1,
+                "draws": 0,
+                "total_matches": 2,
+                "win_rate": 0.5
+            },
+            "Tinker Welder": {
+                "archetype": "Tinker Welder",
+                "wins": 3,
+                "losses": 0,
+                "draws": 0,
+                "total_matches": 3,
+                "win_rate": 1.0
+            },
+            "Survival Opposition": {
+                "archetype": "Survival Opposition",
+                "wins": 1,
+                "losses": 2,
+                "draws": 0,
+                "total_matches": 3,
+                "win_rate": 0.33
+            },
+            "Survival Infestation": {
+                "archetype": "Survival Infestation",
+                "wins": 1,
+                "losses": 1,
+                "draws": 0,
+                "total_matches": 2,
+                "win_rate": 0.5
+            },
+            "Ponza": {
+                "archetype": "Ponza",
+                "wins": 3,
+                "losses": 1,
+                "draws": 0,
+                "total_matches": 4,
+                "win_rate": 0.75
+            },
+            "Oath Spec": {
+                "archetype": "Oath Spec",
+                "wins": 0,
+                "losses": 2,
+                "draws": 0,
+                "total_matches": 2,
+                "win_rate": 0.0
+            },
+            "Storm": {
+                "archetype": "Storm",
+                "wins": 0,
+                "losses": 2,
+                "draws": 0,
+                "total_matches": 2,
+                "win_rate": 0.0
+            },
+            "Tireless Tribe Combo": {
+                "archetype": "Tireless Tribe Combo",
+                "wins": 1,
+                "losses": 0,
+                "draws": 0,
+                "total_matches": 1,
+                "win_rate": 1.0
+            },
+            "Angry Hermit": {
+                "archetype": "Angry Hermit",
+                "wins": 2,
+                "losses": 1,
+                "draws": 0,
+                "total_matches": 3,
+                "win_rate": 0.67
+            },
+            "Zombie Infestation": {
+                "archetype": "Zombie Infestation",
+                "wins": 2,
+                "losses": 2,
+                "draws": 0,
+                "total_matches": 4,
+                "win_rate": 0.5
+            },
+            "Astral Slide": {
+                "archetype": "Astral Slide",
+                "wins": 1,
+                "losses": 0,
+                "draws": 0,
+                "total_matches": 1,
+                "win_rate": 1.0
+            },
+            "GW Madness": {
+                "archetype": "GW Madness",
+                "wins": 0,
+                "losses": 1,
+                "draws": 0,
+                "total_matches": 1,
+                "win_rate": 0.0
+            }
+        },
         "Madness": {
             "Goblins": {
                 "archetype": "Goblins",
-                "wins": 10,
+                "wins": 9,
                 "losses": 10,
                 "draws": 0,
-                "total_matches": 20,
-                "win_rate": 0.5
+                "total_matches": 19,
+                "win_rate": 0.47
             },
             "Stiflenought": {
                 "archetype": "Stiflenought",
@@ -4380,14 +4380,6 @@
                 "total_matches": 4,
                 "win_rate": 0.25
             },
-            "BW Control": {
-                "archetype": "BW Control",
-                "wins": 2,
-                "losses": 3,
-                "draws": 0,
-                "total_matches": 5,
-                "win_rate": 0.4
-            },
             "Psychatog": {
                 "archetype": "Psychatog",
                 "wins": 4,
@@ -4395,6 +4387,14 @@
                 "draws": 0,
                 "total_matches": 6,
                 "win_rate": 0.67
+            },
+            "BW Control": {
+                "archetype": "BW Control",
+                "wins": 1,
+                "losses": 3,
+                "draws": 0,
+                "total_matches": 4,
+                "win_rate": 0.25
             },
             "Madness": {
                 "archetype": "Madness",
@@ -4564,14 +4564,6 @@
                 "total_matches": 3,
                 "win_rate": 0.33
             },
-            "Oath Spec": {
-                "archetype": "Oath Spec",
-                "wins": 0,
-                "losses": 2,
-                "draws": 0,
-                "total_matches": 2,
-                "win_rate": 0.0
-            },
             "Survival Infestation": {
                 "archetype": "Survival Infestation",
                 "wins": 0,
@@ -4582,6 +4574,14 @@
             },
             "Ponza": {
                 "archetype": "Ponza",
+                "wins": 0,
+                "losses": 1,
+                "draws": 0,
+                "total_matches": 1,
+                "win_rate": 0.0
+            },
+            "Oath Spec": {
+                "archetype": "Oath Spec",
                 "wins": 0,
                 "losses": 1,
                 "draws": 0,
@@ -4718,14 +4718,6 @@
                 "total_matches": 6,
                 "win_rate": 0.33
             },
-            "BW Control": {
-                "archetype": "BW Control",
-                "wins": 1,
-                "losses": 4,
-                "draws": 0,
-                "total_matches": 5,
-                "win_rate": 0.2
-            },
             "Psychatog": {
                 "archetype": "Psychatog",
                 "wins": 6,
@@ -4733,6 +4725,14 @@
                 "draws": 0,
                 "total_matches": 9,
                 "win_rate": 0.67
+            },
+            "BW Control": {
+                "archetype": "BW Control",
+                "wins": 1,
+                "losses": 4,
+                "draws": 0,
+                "total_matches": 5,
+                "win_rate": 0.2
             },
             "Madness": {
                 "archetype": "Madness",
@@ -4910,14 +4910,6 @@
                 "total_matches": 1,
                 "win_rate": 0.0
             },
-            "Oath Spec": {
-                "archetype": "Oath Spec",
-                "wins": 5,
-                "losses": 0,
-                "draws": 0,
-                "total_matches": 5,
-                "win_rate": 1.0
-            },
             "Survival Infestation": {
                 "archetype": "Survival Infestation",
                 "wins": 1,
@@ -4932,6 +4924,14 @@
                 "losses": 0,
                 "draws": 0,
                 "total_matches": 1,
+                "win_rate": 1.0
+            },
+            "Oath Spec": {
+                "archetype": "Oath Spec",
+                "wins": 5,
+                "losses": 0,
+                "draws": 0,
+                "total_matches": 5,
                 "win_rate": 1.0
             },
             "Storm": {
@@ -5056,20 +5056,20 @@
                 "total_matches": 10,
                 "win_rate": 0.3
             },
-            "BW Control": {
-                "archetype": "BW Control",
-                "wins": 4,
-                "losses": 6,
-                "draws": 0,
-                "total_matches": 10,
-                "win_rate": 0.4
-            },
             "Psychatog": {
                 "archetype": "Psychatog",
                 "wins": 2,
                 "losses": 3,
                 "draws": 0,
                 "total_matches": 5,
+                "win_rate": 0.4
+            },
+            "BW Control": {
+                "archetype": "BW Control",
+                "wins": 4,
+                "losses": 6,
+                "draws": 0,
+                "total_matches": 10,
                 "win_rate": 0.4
             },
             "Madness": {
@@ -5248,14 +5248,6 @@
                 "total_matches": 4,
                 "win_rate": 0.75
             },
-            "Oath Spec": {
-                "archetype": "Oath Spec",
-                "wins": 1,
-                "losses": 1,
-                "draws": 0,
-                "total_matches": 2,
-                "win_rate": 0.5
-            },
             "Survival Infestation": {
                 "archetype": "Survival Infestation",
                 "wins": 2,
@@ -5271,6 +5263,14 @@
                 "draws": 0,
                 "total_matches": 3,
                 "win_rate": 1.0
+            },
+            "Oath Spec": {
+                "archetype": "Oath Spec",
+                "wins": 1,
+                "losses": 1,
+                "draws": 0,
+                "total_matches": 2,
+                "win_rate": 0.5
             },
             "Storm": {
                 "archetype": "Storm",
@@ -5386,14 +5386,6 @@
                 "total_matches": 2,
                 "win_rate": 0.5
             },
-            "BW Control": {
-                "archetype": "BW Control",
-                "wins": 1,
-                "losses": 8,
-                "draws": 0,
-                "total_matches": 9,
-                "win_rate": 0.11
-            },
             "Psychatog": {
                 "archetype": "Psychatog",
                 "wins": 2,
@@ -5401,6 +5393,14 @@
                 "draws": 0,
                 "total_matches": 4,
                 "win_rate": 0.5
+            },
+            "BW Control": {
+                "archetype": "BW Control",
+                "wins": 1,
+                "losses": 8,
+                "draws": 0,
+                "total_matches": 9,
+                "win_rate": 0.11
             },
             "Madness": {
                 "archetype": "Madness",
@@ -5562,14 +5562,6 @@
                 "total_matches": 3,
                 "win_rate": 0.67
             },
-            "Oath Spec": {
-                "archetype": "Oath Spec",
-                "wins": 1,
-                "losses": 1,
-                "draws": 0,
-                "total_matches": 2,
-                "win_rate": 0.5
-            },
             "Survival Infestation": {
                 "archetype": "Survival Infestation",
                 "wins": 0,
@@ -5585,6 +5577,14 @@
                 "draws": 0,
                 "total_matches": 3,
                 "win_rate": 0.33
+            },
+            "Oath Spec": {
+                "archetype": "Oath Spec",
+                "wins": 1,
+                "losses": 1,
+                "draws": 0,
+                "total_matches": 2,
+                "win_rate": 0.5
             },
             "Tireless Tribe Combo": {
                 "archetype": "Tireless Tribe Combo",
@@ -5700,14 +5700,6 @@
                 "total_matches": 6,
                 "win_rate": 0.67
             },
-            "BW Control": {
-                "archetype": "BW Control",
-                "wins": 6,
-                "losses": 3,
-                "draws": 0,
-                "total_matches": 9,
-                "win_rate": 0.67
-            },
             "Psychatog": {
                 "archetype": "Psychatog",
                 "wins": 3,
@@ -5715,6 +5707,14 @@
                 "draws": 0,
                 "total_matches": 5,
                 "win_rate": 0.6
+            },
+            "BW Control": {
+                "archetype": "BW Control",
+                "wins": 6,
+                "losses": 3,
+                "draws": 0,
+                "total_matches": 9,
+                "win_rate": 0.67
             },
             "Madness": {
                 "archetype": "Madness",
@@ -5936,11 +5936,11 @@
             },
             "Stiflenought": {
                 "archetype": "Stiflenought",
-                "wins": 11,
+                "wins": 10,
                 "losses": 4,
                 "draws": 0,
-                "total_matches": 15,
-                "win_rate": 0.73
+                "total_matches": 14,
+                "win_rate": 0.71
             },
             "Burn": {
                 "archetype": "Burn",
@@ -6006,14 +6006,6 @@
                 "total_matches": 5,
                 "win_rate": 1.0
             },
-            "BW Control": {
-                "archetype": "BW Control",
-                "wins": 3,
-                "losses": 0,
-                "draws": 0,
-                "total_matches": 3,
-                "win_rate": 1.0
-            },
             "Psychatog": {
                 "archetype": "Psychatog",
                 "wins": 1,
@@ -6021,6 +6013,14 @@
                 "draws": 0,
                 "total_matches": 3,
                 "win_rate": 0.33
+            },
+            "BW Control": {
+                "archetype": "BW Control",
+                "wins": 3,
+                "losses": 0,
+                "draws": 0,
+                "total_matches": 3,
+                "win_rate": 1.0
             },
             "Madness": {
                 "archetype": "Madness",
@@ -6182,14 +6182,6 @@
                 "total_matches": 4,
                 "win_rate": 0.25
             },
-            "Oath Spec": {
-                "archetype": "Oath Spec",
-                "wins": 1,
-                "losses": 0,
-                "draws": 0,
-                "total_matches": 1,
-                "win_rate": 1.0
-            },
             "Survival Infestation": {
                 "archetype": "Survival Infestation",
                 "wins": 2,
@@ -6304,14 +6296,6 @@
                 "total_matches": 5,
                 "win_rate": 0.8
             },
-            "BW Control": {
-                "archetype": "BW Control",
-                "wins": 2,
-                "losses": 4,
-                "draws": 0,
-                "total_matches": 6,
-                "win_rate": 0.33
-            },
             "Psychatog": {
                 "archetype": "Psychatog",
                 "wins": 3,
@@ -6319,6 +6303,14 @@
                 "draws": 0,
                 "total_matches": 4,
                 "win_rate": 0.75
+            },
+            "BW Control": {
+                "archetype": "BW Control",
+                "wins": 2,
+                "losses": 4,
+                "draws": 0,
+                "total_matches": 6,
+                "win_rate": 0.33
             },
             "Madness": {
                 "archetype": "Madness",
@@ -6594,14 +6586,6 @@
                 "total_matches": 5,
                 "win_rate": 0.6
             },
-            "BW Control": {
-                "archetype": "BW Control",
-                "wins": 6,
-                "losses": 2,
-                "draws": 0,
-                "total_matches": 8,
-                "win_rate": 0.75
-            },
             "Psychatog": {
                 "archetype": "Psychatog",
                 "wins": 1,
@@ -6609,6 +6593,14 @@
                 "draws": 0,
                 "total_matches": 5,
                 "win_rate": 0.2
+            },
+            "BW Control": {
+                "archetype": "BW Control",
+                "wins": 6,
+                "losses": 2,
+                "draws": 0,
+                "total_matches": 8,
+                "win_rate": 0.75
             },
             "Madness": {
                 "archetype": "Madness",
@@ -6884,14 +6876,6 @@
                 "total_matches": 2,
                 "win_rate": 0.0
             },
-            "BW Control": {
-                "archetype": "BW Control",
-                "wins": 0,
-                "losses": 4,
-                "draws": 0,
-                "total_matches": 4,
-                "win_rate": 0.0
-            },
             "Psychatog": {
                 "archetype": "Psychatog",
                 "wins": 2,
@@ -6899,6 +6883,14 @@
                 "draws": 0,
                 "total_matches": 3,
                 "win_rate": 0.67
+            },
+            "BW Control": {
+                "archetype": "BW Control",
+                "wins": 0,
+                "losses": 4,
+                "draws": 0,
+                "total_matches": 4,
+                "win_rate": 0.0
             },
             "Madness": {
                 "archetype": "Madness",
@@ -7044,14 +7036,6 @@
                 "total_matches": 3,
                 "win_rate": 0.67
             },
-            "Oath Spec": {
-                "archetype": "Oath Spec",
-                "wins": 1,
-                "losses": 0,
-                "draws": 0,
-                "total_matches": 1,
-                "win_rate": 1.0
-            },
             "Survival Infestation": {
                 "archetype": "Survival Infestation",
                 "wins": 0,
@@ -7067,6 +7051,14 @@
                 "draws": 0,
                 "total_matches": 2,
                 "win_rate": 0.5
+            },
+            "Oath Spec": {
+                "archetype": "Oath Spec",
+                "wins": 1,
+                "losses": 0,
+                "draws": 0,
+                "total_matches": 1,
+                "win_rate": 1.0
             },
             "Storm": {
                 "archetype": "Storm",
@@ -7174,14 +7166,6 @@
                 "total_matches": 8,
                 "win_rate": 0.25
             },
-            "BW Control": {
-                "archetype": "BW Control",
-                "wins": 3,
-                "losses": 0,
-                "draws": 0,
-                "total_matches": 3,
-                "win_rate": 1.0
-            },
             "Psychatog": {
                 "archetype": "Psychatog",
                 "wins": 2,
@@ -7189,6 +7173,14 @@
                 "draws": 0,
                 "total_matches": 3,
                 "win_rate": 0.67
+            },
+            "BW Control": {
+                "archetype": "BW Control",
+                "wins": 3,
+                "losses": 0,
+                "draws": 0,
+                "total_matches": 3,
+                "win_rate": 1.0
             },
             "Madness": {
                 "archetype": "Madness",
@@ -7350,14 +7342,6 @@
                 "total_matches": 2,
                 "win_rate": 0.5
             },
-            "Oath Spec": {
-                "archetype": "Oath Spec",
-                "wins": 0,
-                "losses": 1,
-                "draws": 0,
-                "total_matches": 1,
-                "win_rate": 0.0
-            },
             "Survival Infestation": {
                 "archetype": "Survival Infestation",
                 "wins": 1,
@@ -7368,6 +7352,14 @@
             },
             "Ponza": {
                 "archetype": "Ponza",
+                "wins": 0,
+                "losses": 1,
+                "draws": 0,
+                "total_matches": 1,
+                "win_rate": 0.0
+            },
+            "Oath Spec": {
+                "archetype": "Oath Spec",
                 "wins": 0,
                 "losses": 1,
                 "draws": 0,
@@ -7480,14 +7472,6 @@
                 "total_matches": 2,
                 "win_rate": 0.5
             },
-            "BW Control": {
-                "archetype": "BW Control",
-                "wins": 5,
-                "losses": 1,
-                "draws": 0,
-                "total_matches": 6,
-                "win_rate": 0.83
-            },
             "Psychatog": {
                 "archetype": "Psychatog",
                 "wins": 5,
@@ -7495,6 +7479,14 @@
                 "draws": 0,
                 "total_matches": 5,
                 "win_rate": 1.0
+            },
+            "BW Control": {
+                "archetype": "BW Control",
+                "wins": 5,
+                "losses": 1,
+                "draws": 0,
+                "total_matches": 6,
+                "win_rate": 0.83
             },
             "Madness": {
                 "archetype": "Madness",
@@ -7672,14 +7664,6 @@
                 "total_matches": 1,
                 "win_rate": 1.0
             },
-            "Oath Spec": {
-                "archetype": "Oath Spec",
-                "wins": 1,
-                "losses": 3,
-                "draws": 0,
-                "total_matches": 4,
-                "win_rate": 0.25
-            },
             "Ponza": {
                 "archetype": "Ponza",
                 "wins": 1,
@@ -7687,6 +7671,14 @@
                 "draws": 0,
                 "total_matches": 2,
                 "win_rate": 0.5
+            },
+            "Oath Spec": {
+                "archetype": "Oath Spec",
+                "wins": 1,
+                "losses": 3,
+                "draws": 0,
+                "total_matches": 4,
+                "win_rate": 0.25
             },
             "Storm": {
                 "archetype": "Storm",
@@ -7810,14 +7802,6 @@
                 "total_matches": 2,
                 "win_rate": 0.5
             },
-            "BW Control": {
-                "archetype": "BW Control",
-                "wins": 1,
-                "losses": 0,
-                "draws": 0,
-                "total_matches": 1,
-                "win_rate": 1.0
-            },
             "Psychatog": {
                 "archetype": "Psychatog",
                 "wins": 2,
@@ -7825,6 +7809,14 @@
                 "draws": 0,
                 "total_matches": 7,
                 "win_rate": 0.29
+            },
+            "BW Control": {
+                "archetype": "BW Control",
+                "wins": 1,
+                "losses": 0,
+                "draws": 0,
+                "total_matches": 1,
+                "win_rate": 1.0
             },
             "Madness": {
                 "archetype": "Madness",
@@ -8084,14 +8076,6 @@
                 "total_matches": 5,
                 "win_rate": 0.4
             },
-            "BW Control": {
-                "archetype": "BW Control",
-                "wins": 1,
-                "losses": 4,
-                "draws": 0,
-                "total_matches": 5,
-                "win_rate": 0.2
-            },
             "Psychatog": {
                 "archetype": "Psychatog",
                 "wins": 3,
@@ -8099,6 +8083,14 @@
                 "draws": 0,
                 "total_matches": 6,
                 "win_rate": 0.5
+            },
+            "BW Control": {
+                "archetype": "BW Control",
+                "wins": 1,
+                "losses": 3,
+                "draws": 0,
+                "total_matches": 4,
+                "win_rate": 0.25
             },
             "Madness": {
                 "archetype": "Madness",
@@ -8247,9 +8239,9 @@
             "Oath Spec": {
                 "archetype": "Oath Spec",
                 "wins": 0,
-                "losses": 2,
+                "losses": 1,
                 "draws": 0,
-                "total_matches": 2,
+                "total_matches": 1,
                 "win_rate": 0.0
             },
             "Storm": {
@@ -8366,14 +8358,6 @@
                 "total_matches": 9,
                 "win_rate": 0.56
             },
-            "BW Control": {
-                "archetype": "BW Control",
-                "wins": 1,
-                "losses": 2,
-                "draws": 0,
-                "total_matches": 3,
-                "win_rate": 0.33
-            },
             "Psychatog": {
                 "archetype": "Psychatog",
                 "wins": 2,
@@ -8381,6 +8365,14 @@
                 "draws": 0,
                 "total_matches": 4,
                 "win_rate": 0.5
+            },
+            "BW Control": {
+                "archetype": "BW Control",
+                "wins": 1,
+                "losses": 2,
+                "draws": 0,
+                "total_matches": 3,
+                "win_rate": 0.33
             },
             "Madness": {
                 "archetype": "Madness",
@@ -8648,14 +8640,6 @@
                 "total_matches": 5,
                 "win_rate": 0.4
             },
-            "BW Control": {
-                "archetype": "BW Control",
-                "wins": 3,
-                "losses": 2,
-                "draws": 0,
-                "total_matches": 5,
-                "win_rate": 0.6
-            },
             "Psychatog": {
                 "archetype": "Psychatog",
                 "wins": 3,
@@ -8663,6 +8647,14 @@
                 "draws": 0,
                 "total_matches": 4,
                 "win_rate": 0.75
+            },
+            "BW Control": {
+                "archetype": "BW Control",
+                "wins": 3,
+                "losses": 2,
+                "draws": 0,
+                "total_matches": 5,
+                "win_rate": 0.6
             },
             "Madness": {
                 "archetype": "Madness",
@@ -8824,14 +8816,6 @@
                 "total_matches": 2,
                 "win_rate": 0.5
             },
-            "Oath Spec": {
-                "archetype": "Oath Spec",
-                "wins": 0,
-                "losses": 2,
-                "draws": 0,
-                "total_matches": 2,
-                "win_rate": 0.0
-            },
             "Survival Infestation": {
                 "archetype": "Survival Infestation",
                 "wins": 1,
@@ -8846,6 +8830,14 @@
                 "losses": 1,
                 "draws": 0,
                 "total_matches": 1,
+                "win_rate": 0.0
+            },
+            "Oath Spec": {
+                "archetype": "Oath Spec",
+                "wins": 0,
+                "losses": 2,
+                "draws": 0,
+                "total_matches": 2,
                 "win_rate": 0.0
             },
             "Storm": {
@@ -8954,14 +8946,6 @@
                 "total_matches": 1,
                 "win_rate": 0.0
             },
-            "BW Control": {
-                "archetype": "BW Control",
-                "wins": 1,
-                "losses": 1,
-                "draws": 0,
-                "total_matches": 2,
-                "win_rate": 0.5
-            },
             "Psychatog": {
                 "archetype": "Psychatog",
                 "wins": 3,
@@ -8969,6 +8953,14 @@
                 "draws": 0,
                 "total_matches": 4,
                 "win_rate": 0.75
+            },
+            "BW Control": {
+                "archetype": "BW Control",
+                "wins": 1,
+                "losses": 1,
+                "draws": 0,
+                "total_matches": 2,
+                "win_rate": 0.5
             },
             "Madness": {
                 "archetype": "Madness",
@@ -9114,14 +9106,6 @@
                 "total_matches": 1,
                 "win_rate": 1.0
             },
-            "Oath Spec": {
-                "archetype": "Oath Spec",
-                "wins": 1,
-                "losses": 2,
-                "draws": 0,
-                "total_matches": 3,
-                "win_rate": 0.33
-            },
             "Ponza": {
                 "archetype": "Ponza",
                 "wins": 2,
@@ -9129,6 +9113,14 @@
                 "draws": 0,
                 "total_matches": 2,
                 "win_rate": 1.0
+            },
+            "Oath Spec": {
+                "archetype": "Oath Spec",
+                "wins": 1,
+                "losses": 2,
+                "draws": 0,
+                "total_matches": 3,
+                "win_rate": 0.33
             },
             "Tireless Tribe Combo": {
                 "archetype": "Tireless Tribe Combo",
@@ -9220,20 +9212,20 @@
                 "total_matches": 3,
                 "win_rate": 0.33
             },
-            "BW Control": {
-                "archetype": "BW Control",
-                "wins": 1,
-                "losses": 0,
-                "draws": 0,
-                "total_matches": 1,
-                "win_rate": 1.0
-            },
             "Psychatog": {
                 "archetype": "Psychatog",
                 "wins": 2,
                 "losses": 0,
                 "draws": 0,
                 "total_matches": 2,
+                "win_rate": 1.0
+            },
+            "BW Control": {
+                "archetype": "BW Control",
+                "wins": 1,
+                "losses": 0,
+                "draws": 0,
+                "total_matches": 1,
                 "win_rate": 1.0
             },
             "Madness": {
@@ -9470,14 +9462,6 @@
                 "total_matches": 2,
                 "win_rate": 1.0
             },
-            "BW Control": {
-                "archetype": "BW Control",
-                "wins": 1,
-                "losses": 1,
-                "draws": 0,
-                "total_matches": 2,
-                "win_rate": 0.5
-            },
             "Psychatog": {
                 "archetype": "Psychatog",
                 "wins": 1,
@@ -9485,6 +9469,14 @@
                 "draws": 0,
                 "total_matches": 3,
                 "win_rate": 0.33
+            },
+            "BW Control": {
+                "archetype": "BW Control",
+                "wins": 1,
+                "losses": 1,
+                "draws": 0,
+                "total_matches": 2,
+                "win_rate": 0.5
             },
             "Madness": {
                 "archetype": "Madness",
@@ -9638,14 +9630,6 @@
                 "total_matches": 1,
                 "win_rate": 0.0
             },
-            "Oath Spec": {
-                "archetype": "Oath Spec",
-                "wins": 2,
-                "losses": 0,
-                "draws": 0,
-                "total_matches": 2,
-                "win_rate": 1.0
-            },
             "Survival Infestation": {
                 "archetype": "Survival Infestation",
                 "wins": 0,
@@ -9660,6 +9644,14 @@
                 "losses": 0,
                 "draws": 0,
                 "total_matches": 1,
+                "win_rate": 1.0
+            },
+            "Oath Spec": {
+                "archetype": "Oath Spec",
+                "wins": 2,
+                "losses": 0,
+                "draws": 0,
+                "total_matches": 2,
                 "win_rate": 1.0
             },
             "Storm": {
@@ -9768,14 +9760,6 @@
                 "total_matches": 2,
                 "win_rate": 1.0
             },
-            "BW Control": {
-                "archetype": "BW Control",
-                "wins": 1,
-                "losses": 1,
-                "draws": 0,
-                "total_matches": 2,
-                "win_rate": 0.5
-            },
             "Psychatog": {
                 "archetype": "Psychatog",
                 "wins": 2,
@@ -9783,6 +9767,14 @@
                 "draws": 0,
                 "total_matches": 3,
                 "win_rate": 0.67
+            },
+            "BW Control": {
+                "archetype": "BW Control",
+                "wins": 1,
+                "losses": 1,
+                "draws": 0,
+                "total_matches": 2,
+                "win_rate": 0.5
             },
             "Madness": {
                 "archetype": "Madness",
@@ -9912,14 +9904,6 @@
                 "total_matches": 1,
                 "win_rate": 0.0
             },
-            "Oath Spec": {
-                "archetype": "Oath Spec",
-                "wins": 2,
-                "losses": 0,
-                "draws": 0,
-                "total_matches": 2,
-                "win_rate": 1.0
-            },
             "Survival Infestation": {
                 "archetype": "Survival Infestation",
                 "wins": 1,
@@ -9935,6 +9919,14 @@
                 "draws": 0,
                 "total_matches": 1,
                 "win_rate": 0.0
+            },
+            "Oath Spec": {
+                "archetype": "Oath Spec",
+                "wins": 2,
+                "losses": 0,
+                "draws": 0,
+                "total_matches": 2,
+                "win_rate": 1.0
             },
             "Tireless Tribe Combo": {
                 "archetype": "Tireless Tribe Combo",
@@ -10050,14 +10042,6 @@
                 "total_matches": 2,
                 "win_rate": 1.0
             },
-            "BW Control": {
-                "archetype": "BW Control",
-                "wins": 0,
-                "losses": 3,
-                "draws": 0,
-                "total_matches": 3,
-                "win_rate": 0.0
-            },
             "Psychatog": {
                 "archetype": "Psychatog",
                 "wins": 2,
@@ -10065,6 +10049,14 @@
                 "draws": 0,
                 "total_matches": 2,
                 "win_rate": 1.0
+            },
+            "BW Control": {
+                "archetype": "BW Control",
+                "wins": 0,
+                "losses": 3,
+                "draws": 0,
+                "total_matches": 3,
+                "win_rate": 0.0
             },
             "Madness": {
                 "archetype": "Madness",
@@ -10332,14 +10324,6 @@
                 "total_matches": 3,
                 "win_rate": 0.33
             },
-            "BW Control": {
-                "archetype": "BW Control",
-                "wins": 2,
-                "losses": 1,
-                "draws": 0,
-                "total_matches": 3,
-                "win_rate": 0.67
-            },
             "Psychatog": {
                 "archetype": "Psychatog",
                 "wins": 3,
@@ -10347,6 +10331,14 @@
                 "draws": 0,
                 "total_matches": 3,
                 "win_rate": 1.0
+            },
+            "BW Control": {
+                "archetype": "BW Control",
+                "wins": 2,
+                "losses": 1,
+                "draws": 0,
+                "total_matches": 3,
+                "win_rate": 0.67
             },
             "The Rock": {
                 "archetype": "The Rock",
@@ -10719,232 +10711,6 @@
                 "win_rate": 0.0
             }
         },
-        "Oath Spec": {
-            "Goblins": {
-                "archetype": "Goblins",
-                "wins": 8,
-                "losses": 2,
-                "draws": 0,
-                "total_matches": 10,
-                "win_rate": 0.8
-            },
-            "Stiflenought": {
-                "archetype": "Stiflenought",
-                "wins": 3,
-                "losses": 6,
-                "draws": 0,
-                "total_matches": 9,
-                "win_rate": 0.33
-            },
-            "Burn": {
-                "archetype": "Burn",
-                "wins": 2,
-                "losses": 1,
-                "draws": 0,
-                "total_matches": 3,
-                "win_rate": 0.67
-            },
-            "Landstill": {
-                "archetype": "Landstill",
-                "wins": 0,
-                "losses": 2,
-                "draws": 0,
-                "total_matches": 2,
-                "win_rate": 0.0
-            },
-            "Enchantress": {
-                "archetype": "Enchantress",
-                "wins": 4,
-                "losses": 3,
-                "draws": 0,
-                "total_matches": 7,
-                "win_rate": 0.57
-            },
-            "Terrageddon": {
-                "archetype": "Terrageddon",
-                "wins": 4,
-                "losses": 0,
-                "draws": 0,
-                "total_matches": 4,
-                "win_rate": 1.0
-            },
-            "Mono Black": {
-                "archetype": "Mono Black",
-                "wins": 0,
-                "losses": 3,
-                "draws": 0,
-                "total_matches": 3,
-                "win_rate": 0.0
-            },
-            "Elves": {
-                "archetype": "Elves",
-                "wins": 2,
-                "losses": 1,
-                "draws": 0,
-                "total_matches": 3,
-                "win_rate": 0.67
-            },
-            "Stasis": {
-                "archetype": "Stasis",
-                "wins": 1,
-                "losses": 1,
-                "draws": 0,
-                "total_matches": 2,
-                "win_rate": 0.5
-            },
-            "Replenish": {
-                "archetype": "Replenish",
-                "wins": 1,
-                "losses": 5,
-                "draws": 0,
-                "total_matches": 6,
-                "win_rate": 0.17
-            },
-            "BW Control": {
-                "archetype": "BW Control",
-                "wins": 2,
-                "losses": 0,
-                "draws": 0,
-                "total_matches": 2,
-                "win_rate": 1.0
-            },
-            "Psychatog": {
-                "archetype": "Psychatog",
-                "wins": 1,
-                "losses": 2,
-                "draws": 0,
-                "total_matches": 3,
-                "win_rate": 0.33
-            },
-            "Madness": {
-                "archetype": "Madness",
-                "wins": 2,
-                "losses": 0,
-                "draws": 0,
-                "total_matches": 2,
-                "win_rate": 1.0
-            },
-            "The Rock": {
-                "archetype": "The Rock",
-                "wins": 0,
-                "losses": 5,
-                "draws": 0,
-                "total_matches": 5,
-                "win_rate": 0.0
-            },
-            "Oath Ponza": {
-                "archetype": "Oath Ponza",
-                "wins": 1,
-                "losses": 1,
-                "draws": 0,
-                "total_matches": 2,
-                "win_rate": 0.5
-            },
-            "Reanimator": {
-                "archetype": "Reanimator",
-                "wins": 1,
-                "losses": 1,
-                "draws": 0,
-                "total_matches": 2,
-                "win_rate": 0.5
-            },
-            "Tide Control": {
-                "archetype": "Tide Control",
-                "wins": 0,
-                "losses": 1,
-                "draws": 0,
-                "total_matches": 1,
-                "win_rate": 0.0
-            },
-            "Zoo": {
-                "archetype": "Zoo",
-                "wins": 0,
-                "losses": 1,
-                "draws": 0,
-                "total_matches": 1,
-                "win_rate": 0.0
-            },
-            "Aluren": {
-                "archetype": "Aluren",
-                "wins": 1,
-                "losses": 0,
-                "draws": 0,
-                "total_matches": 1,
-                "win_rate": 1.0
-            },
-            "Full English Breakfast": {
-                "archetype": "Full English Breakfast",
-                "wins": 3,
-                "losses": 1,
-                "draws": 0,
-                "total_matches": 4,
-                "win_rate": 0.75
-            },
-            "The Solution": {
-                "archetype": "The Solution",
-                "wins": 2,
-                "losses": 0,
-                "draws": 0,
-                "total_matches": 2,
-                "win_rate": 1.0
-            },
-            "Survival": {
-                "archetype": "Survival",
-                "wins": 2,
-                "losses": 0,
-                "draws": 0,
-                "total_matches": 2,
-                "win_rate": 1.0
-            },
-            "White Weenie": {
-                "archetype": "White Weenie",
-                "wins": 2,
-                "losses": 1,
-                "draws": 0,
-                "total_matches": 3,
-                "win_rate": 0.67
-            },
-            "UW Control": {
-                "archetype": "UW Control",
-                "wins": 0,
-                "losses": 2,
-                "draws": 0,
-                "total_matches": 2,
-                "win_rate": 0.0
-            },
-            "Clerics": {
-                "archetype": "Clerics",
-                "wins": 0,
-                "losses": 2,
-                "draws": 0,
-                "total_matches": 2,
-                "win_rate": 0.0
-            },
-            "Survival Infestation": {
-                "archetype": "Survival Infestation",
-                "wins": 1,
-                "losses": 0,
-                "draws": 0,
-                "total_matches": 1,
-                "win_rate": 1.0
-            },
-            "Tireless Tribe Combo": {
-                "archetype": "Tireless Tribe Combo",
-                "wins": 1,
-                "losses": 0,
-                "draws": 0,
-                "total_matches": 1,
-                "win_rate": 1.0
-            },
-            "GW Madness": {
-                "archetype": "GW Madness",
-                "wins": 1,
-                "losses": 1,
-                "draws": 0,
-                "total_matches": 2,
-                "win_rate": 0.5
-            }
-        },
         "Survival Infestation": {
             "Goblins": {
                 "archetype": "Goblins",
@@ -11026,14 +10792,6 @@
                 "total_matches": 4,
                 "win_rate": 0.25
             },
-            "BW Control": {
-                "archetype": "BW Control",
-                "wins": 1,
-                "losses": 1,
-                "draws": 0,
-                "total_matches": 2,
-                "win_rate": 0.5
-            },
             "Psychatog": {
                 "archetype": "Psychatog",
                 "wins": 1,
@@ -11041,6 +10799,14 @@
                 "draws": 0,
                 "total_matches": 1,
                 "win_rate": 1.0
+            },
+            "BW Control": {
+                "archetype": "BW Control",
+                "wins": 1,
+                "losses": 1,
+                "draws": 0,
+                "total_matches": 2,
+                "win_rate": 0.5
             },
             "Madness": {
                 "archetype": "Madness",
@@ -11244,14 +11010,6 @@
                 "total_matches": 2,
                 "win_rate": 0.0
             },
-            "BW Control": {
-                "archetype": "BW Control",
-                "wins": 1,
-                "losses": 3,
-                "draws": 0,
-                "total_matches": 4,
-                "win_rate": 0.25
-            },
             "Psychatog": {
                 "archetype": "Psychatog",
                 "wins": 1,
@@ -11259,6 +11017,14 @@
                 "draws": 0,
                 "total_matches": 2,
                 "win_rate": 0.5
+            },
+            "BW Control": {
+                "archetype": "BW Control",
+                "wins": 1,
+                "losses": 3,
+                "draws": 0,
+                "total_matches": 4,
+                "win_rate": 0.25
             },
             "Madness": {
                 "archetype": "Madness",
@@ -11429,6 +11195,224 @@
                 "win_rate": 0.0
             }
         },
+        "Oath Spec": {
+            "Goblins": {
+                "archetype": "Goblins",
+                "wins": 8,
+                "losses": 2,
+                "draws": 0,
+                "total_matches": 10,
+                "win_rate": 0.8
+            },
+            "Stiflenought": {
+                "archetype": "Stiflenought",
+                "wins": 3,
+                "losses": 6,
+                "draws": 0,
+                "total_matches": 9,
+                "win_rate": 0.33
+            },
+            "Burn": {
+                "archetype": "Burn",
+                "wins": 2,
+                "losses": 1,
+                "draws": 0,
+                "total_matches": 3,
+                "win_rate": 0.67
+            },
+            "Landstill": {
+                "archetype": "Landstill",
+                "wins": 0,
+                "losses": 2,
+                "draws": 0,
+                "total_matches": 2,
+                "win_rate": 0.0
+            },
+            "Enchantress": {
+                "archetype": "Enchantress",
+                "wins": 4,
+                "losses": 3,
+                "draws": 0,
+                "total_matches": 7,
+                "win_rate": 0.57
+            },
+            "Terrageddon": {
+                "archetype": "Terrageddon",
+                "wins": 4,
+                "losses": 0,
+                "draws": 0,
+                "total_matches": 4,
+                "win_rate": 1.0
+            },
+            "Mono Black": {
+                "archetype": "Mono Black",
+                "wins": 0,
+                "losses": 3,
+                "draws": 0,
+                "total_matches": 3,
+                "win_rate": 0.0
+            },
+            "Elves": {
+                "archetype": "Elves",
+                "wins": 2,
+                "losses": 1,
+                "draws": 0,
+                "total_matches": 3,
+                "win_rate": 0.67
+            },
+            "Stasis": {
+                "archetype": "Stasis",
+                "wins": 1,
+                "losses": 1,
+                "draws": 0,
+                "total_matches": 2,
+                "win_rate": 0.5
+            },
+            "Replenish": {
+                "archetype": "Replenish",
+                "wins": 1,
+                "losses": 5,
+                "draws": 0,
+                "total_matches": 6,
+                "win_rate": 0.17
+            },
+            "Psychatog": {
+                "archetype": "Psychatog",
+                "wins": 1,
+                "losses": 2,
+                "draws": 0,
+                "total_matches": 3,
+                "win_rate": 0.33
+            },
+            "BW Control": {
+                "archetype": "BW Control",
+                "wins": 2,
+                "losses": 0,
+                "draws": 0,
+                "total_matches": 2,
+                "win_rate": 1.0
+            },
+            "Madness": {
+                "archetype": "Madness",
+                "wins": 1,
+                "losses": 0,
+                "draws": 0,
+                "total_matches": 1,
+                "win_rate": 1.0
+            },
+            "The Rock": {
+                "archetype": "The Rock",
+                "wins": 0,
+                "losses": 5,
+                "draws": 0,
+                "total_matches": 5,
+                "win_rate": 0.0
+            },
+            "Oath Ponza": {
+                "archetype": "Oath Ponza",
+                "wins": 1,
+                "losses": 1,
+                "draws": 0,
+                "total_matches": 2,
+                "win_rate": 0.5
+            },
+            "Reanimator": {
+                "archetype": "Reanimator",
+                "wins": 1,
+                "losses": 1,
+                "draws": 0,
+                "total_matches": 2,
+                "win_rate": 0.5
+            },
+            "Zoo": {
+                "archetype": "Zoo",
+                "wins": 0,
+                "losses": 1,
+                "draws": 0,
+                "total_matches": 1,
+                "win_rate": 0.0
+            },
+            "Aluren": {
+                "archetype": "Aluren",
+                "wins": 1,
+                "losses": 0,
+                "draws": 0,
+                "total_matches": 1,
+                "win_rate": 1.0
+            },
+            "Full English Breakfast": {
+                "archetype": "Full English Breakfast",
+                "wins": 3,
+                "losses": 1,
+                "draws": 0,
+                "total_matches": 4,
+                "win_rate": 0.75
+            },
+            "The Solution": {
+                "archetype": "The Solution",
+                "wins": 1,
+                "losses": 0,
+                "draws": 0,
+                "total_matches": 1,
+                "win_rate": 1.0
+            },
+            "Survival": {
+                "archetype": "Survival",
+                "wins": 2,
+                "losses": 0,
+                "draws": 0,
+                "total_matches": 2,
+                "win_rate": 1.0
+            },
+            "White Weenie": {
+                "archetype": "White Weenie",
+                "wins": 2,
+                "losses": 1,
+                "draws": 0,
+                "total_matches": 3,
+                "win_rate": 0.67
+            },
+            "UW Control": {
+                "archetype": "UW Control",
+                "wins": 0,
+                "losses": 2,
+                "draws": 0,
+                "total_matches": 2,
+                "win_rate": 0.0
+            },
+            "Clerics": {
+                "archetype": "Clerics",
+                "wins": 0,
+                "losses": 2,
+                "draws": 0,
+                "total_matches": 2,
+                "win_rate": 0.0
+            },
+            "Survival Infestation": {
+                "archetype": "Survival Infestation",
+                "wins": 1,
+                "losses": 0,
+                "draws": 0,
+                "total_matches": 1,
+                "win_rate": 1.0
+            },
+            "Tireless Tribe Combo": {
+                "archetype": "Tireless Tribe Combo",
+                "wins": 1,
+                "losses": 0,
+                "draws": 0,
+                "total_matches": 1,
+                "win_rate": 1.0
+            },
+            "GW Madness": {
+                "archetype": "GW Madness",
+                "wins": 1,
+                "losses": 1,
+                "draws": 0,
+                "total_matches": 2,
+                "win_rate": 0.5
+            }
+        },
         "Storm": {
             "Goblins": {
                 "archetype": "Goblins",
@@ -11502,14 +11486,6 @@
                 "total_matches": 1,
                 "win_rate": 0.0
             },
-            "BW Control": {
-                "archetype": "BW Control",
-                "wins": 2,
-                "losses": 0,
-                "draws": 0,
-                "total_matches": 2,
-                "win_rate": 1.0
-            },
             "Psychatog": {
                 "archetype": "Psychatog",
                 "wins": 1,
@@ -11517,6 +11493,14 @@
                 "draws": 0,
                 "total_matches": 4,
                 "win_rate": 0.25
+            },
+            "BW Control": {
+                "archetype": "BW Control",
+                "wins": 2,
+                "losses": 0,
+                "draws": 0,
+                "total_matches": 2,
+                "win_rate": 1.0
             },
             "Madness": {
                 "archetype": "Madness",
@@ -11880,14 +11864,6 @@
                 "total_matches": 1,
                 "win_rate": 0.0
             },
-            "Oath Spec": {
-                "archetype": "Oath Spec",
-                "wins": 0,
-                "losses": 1,
-                "draws": 0,
-                "total_matches": 1,
-                "win_rate": 0.0
-            },
             "Ponza": {
                 "archetype": "Ponza",
                 "wins": 1,
@@ -11895,6 +11871,14 @@
                 "draws": 0,
                 "total_matches": 1,
                 "win_rate": 1.0
+            },
+            "Oath Spec": {
+                "archetype": "Oath Spec",
+                "wins": 0,
+                "losses": 1,
+                "draws": 0,
+                "total_matches": 1,
+                "win_rate": 0.0
             },
             "Storm": {
                 "archetype": "Storm",
@@ -11994,14 +11978,6 @@
                 "total_matches": 1,
                 "win_rate": 0.0
             },
-            "BW Control": {
-                "archetype": "BW Control",
-                "wins": 1,
-                "losses": 2,
-                "draws": 0,
-                "total_matches": 3,
-                "win_rate": 0.33
-            },
             "Psychatog": {
                 "archetype": "Psychatog",
                 "wins": 1,
@@ -12009,6 +11985,14 @@
                 "draws": 0,
                 "total_matches": 1,
                 "win_rate": 1.0
+            },
+            "BW Control": {
+                "archetype": "BW Control",
+                "wins": 1,
+                "losses": 2,
+                "draws": 0,
+                "total_matches": 3,
+                "win_rate": 0.33
             },
             "Madness": {
                 "archetype": "Madness",
@@ -12196,14 +12180,6 @@
                 "total_matches": 1,
                 "win_rate": 1.0
             },
-            "BW Control": {
-                "archetype": "BW Control",
-                "wins": 2,
-                "losses": 2,
-                "draws": 0,
-                "total_matches": 4,
-                "win_rate": 0.5
-            },
             "Psychatog": {
                 "archetype": "Psychatog",
                 "wins": 2,
@@ -12211,6 +12187,14 @@
                 "draws": 0,
                 "total_matches": 2,
                 "win_rate": 1.0
+            },
+            "BW Control": {
+                "archetype": "BW Control",
+                "wins": 2,
+                "losses": 2,
+                "draws": 0,
+                "total_matches": 4,
+                "win_rate": 0.5
             },
             "Madness": {
                 "archetype": "Madness",
@@ -12414,14 +12398,6 @@
                 "total_matches": 1,
                 "win_rate": 0.0
             },
-            "BW Control": {
-                "archetype": "BW Control",
-                "wins": 0,
-                "losses": 1,
-                "draws": 0,
-                "total_matches": 1,
-                "win_rate": 0.0
-            },
             "Psychatog": {
                 "archetype": "Psychatog",
                 "wins": 1,
@@ -12429,6 +12405,14 @@
                 "draws": 0,
                 "total_matches": 1,
                 "win_rate": 1.0
+            },
+            "BW Control": {
+                "archetype": "BW Control",
+                "wins": 0,
+                "losses": 1,
+                "draws": 0,
+                "total_matches": 1,
+                "win_rate": 0.0
             },
             "Madness": {
                 "archetype": "Madness",
@@ -12834,14 +12818,6 @@
                 "total_matches": 2,
                 "win_rate": 0.5
             },
-            "BW Control": {
-                "archetype": "BW Control",
-                "wins": 1,
-                "losses": 1,
-                "draws": 0,
-                "total_matches": 2,
-                "win_rate": 0.5
-            },
             "Psychatog": {
                 "archetype": "Psychatog",
                 "wins": 1,
@@ -12849,6 +12825,14 @@
                 "draws": 0,
                 "total_matches": 3,
                 "win_rate": 0.33
+            },
+            "BW Control": {
+                "archetype": "BW Control",
+                "wins": 1,
+                "losses": 1,
+                "draws": 0,
+                "total_matches": 2,
+                "win_rate": 0.5
             },
             "Oath Ponza": {
                 "archetype": "Oath Ponza",
@@ -12947,216 +12931,6 @@
                 "win_rate": 0.0
             }
         },
-        "UW Midrange": {
-            "Goblins": {
-                "archetype": "Goblins",
-                "wins": 1,
-                "losses": 3,
-                "draws": 0,
-                "total_matches": 4,
-                "win_rate": 0.25
-            },
-            "Stiflenought": {
-                "archetype": "Stiflenought",
-                "wins": 3,
-                "losses": 0,
-                "draws": 0,
-                "total_matches": 3,
-                "win_rate": 1.0
-            },
-            "Burn": {
-                "archetype": "Burn",
-                "wins": 1,
-                "losses": 3,
-                "draws": 0,
-                "total_matches": 4,
-                "win_rate": 0.25
-            },
-            "Enchantress": {
-                "archetype": "Enchantress",
-                "wins": 1,
-                "losses": 0,
-                "draws": 0,
-                "total_matches": 1,
-                "win_rate": 1.0
-            },
-            "Mono Black": {
-                "archetype": "Mono Black",
-                "wins": 1,
-                "losses": 2,
-                "draws": 0,
-                "total_matches": 3,
-                "win_rate": 0.33
-            },
-            "Elves": {
-                "archetype": "Elves",
-                "wins": 0,
-                "losses": 1,
-                "draws": 0,
-                "total_matches": 1,
-                "win_rate": 0.0
-            },
-            "Replenish": {
-                "archetype": "Replenish",
-                "wins": 1,
-                "losses": 0,
-                "draws": 0,
-                "total_matches": 1,
-                "win_rate": 1.0
-            },
-            "BW Control": {
-                "archetype": "BW Control",
-                "wins": 0,
-                "losses": 1,
-                "draws": 0,
-                "total_matches": 1,
-                "win_rate": 0.0
-            },
-            "Psychatog": {
-                "archetype": "Psychatog",
-                "wins": 0,
-                "losses": 1,
-                "draws": 0,
-                "total_matches": 1,
-                "win_rate": 0.0
-            },
-            "Oath Ponza": {
-                "archetype": "Oath Ponza",
-                "wins": 1,
-                "losses": 1,
-                "draws": 0,
-                "total_matches": 2,
-                "win_rate": 0.5
-            },
-            "Devourer Combo": {
-                "archetype": "Devourer Combo",
-                "wins": 3,
-                "losses": 0,
-                "draws": 0,
-                "total_matches": 3,
-                "win_rate": 1.0
-            },
-            "Tide Control": {
-                "archetype": "Tide Control",
-                "wins": 1,
-                "losses": 1,
-                "draws": 0,
-                "total_matches": 2,
-                "win_rate": 0.5
-            },
-            "Pit Rack": {
-                "archetype": "Pit Rack",
-                "wins": 3,
-                "losses": 1,
-                "draws": 0,
-                "total_matches": 4,
-                "win_rate": 0.75
-            },
-            "Gro-a-Tog": {
-                "archetype": "Gro-a-Tog",
-                "wins": 1,
-                "losses": 0,
-                "draws": 0,
-                "total_matches": 1,
-                "win_rate": 1.0
-            },
-            "Aluren": {
-                "archetype": "Aluren",
-                "wins": 0,
-                "losses": 1,
-                "draws": 0,
-                "total_matches": 1,
-                "win_rate": 0.0
-            },
-            "Deadguy Ale": {
-                "archetype": "Deadguy Ale",
-                "wins": 2,
-                "losses": 0,
-                "draws": 0,
-                "total_matches": 2,
-                "win_rate": 1.0
-            },
-            "The Solution": {
-                "archetype": "The Solution",
-                "wins": 0,
-                "losses": 1,
-                "draws": 0,
-                "total_matches": 1,
-                "win_rate": 0.0
-            },
-            "Contamination": {
-                "archetype": "Contamination",
-                "wins": 1,
-                "losses": 2,
-                "draws": 0,
-                "total_matches": 3,
-                "win_rate": 0.33
-            },
-            "UW Control": {
-                "archetype": "UW Control",
-                "wins": 1,
-                "losses": 1,
-                "draws": 0,
-                "total_matches": 2,
-                "win_rate": 0.5
-            },
-            "Clerics": {
-                "archetype": "Clerics",
-                "wins": 1,
-                "losses": 0,
-                "draws": 0,
-                "total_matches": 1,
-                "win_rate": 1.0
-            },
-            "Machine Head": {
-                "archetype": "Machine Head",
-                "wins": 0,
-                "losses": 1,
-                "draws": 0,
-                "total_matches": 1,
-                "win_rate": 0.0
-            },
-            "Ponza": {
-                "archetype": "Ponza",
-                "wins": 1,
-                "losses": 1,
-                "draws": 0,
-                "total_matches": 2,
-                "win_rate": 0.5
-            },
-            "Storm": {
-                "archetype": "Storm",
-                "wins": 1,
-                "losses": 0,
-                "draws": 0,
-                "total_matches": 1,
-                "win_rate": 1.0
-            },
-            "Tireless Tribe Combo": {
-                "archetype": "Tireless Tribe Combo",
-                "wins": 3,
-                "losses": 0,
-                "draws": 0,
-                "total_matches": 3,
-                "win_rate": 1.0
-            },
-            "Zombie Infestation": {
-                "archetype": "Zombie Infestation",
-                "wins": 1,
-                "losses": 0,
-                "draws": 0,
-                "total_matches": 1,
-                "win_rate": 1.0
-            },
-            "GW Madness": {
-                "archetype": "GW Madness",
-                "wins": 1,
-                "losses": 0,
-                "draws": 0,
-                "total_matches": 1,
-                "win_rate": 1.0
-            }
-        },
         "Slivers": {
             "Goblins": {
                 "archetype": "Goblins",
@@ -13230,14 +13004,6 @@
                 "total_matches": 1,
                 "win_rate": 1.0
             },
-            "BW Control": {
-                "archetype": "BW Control",
-                "wins": 2,
-                "losses": 0,
-                "draws": 0,
-                "total_matches": 2,
-                "win_rate": 1.0
-            },
             "Psychatog": {
                 "archetype": "Psychatog",
                 "wins": 2,
@@ -13245,6 +13011,14 @@
                 "draws": 0,
                 "total_matches": 3,
                 "win_rate": 0.67
+            },
+            "BW Control": {
+                "archetype": "BW Control",
+                "wins": 2,
+                "losses": 0,
+                "draws": 0,
+                "total_matches": 2,
+                "win_rate": 1.0
             },
             "The Rock": {
                 "archetype": "The Rock",
@@ -13343,6 +13117,208 @@
                 "win_rate": 0.0
             }
         },
+        "UW Midrange": {
+            "Goblins": {
+                "archetype": "Goblins",
+                "wins": 1,
+                "losses": 2,
+                "draws": 0,
+                "total_matches": 3,
+                "win_rate": 0.33
+            },
+            "Stiflenought": {
+                "archetype": "Stiflenought",
+                "wins": 3,
+                "losses": 0,
+                "draws": 0,
+                "total_matches": 3,
+                "win_rate": 1.0
+            },
+            "Burn": {
+                "archetype": "Burn",
+                "wins": 1,
+                "losses": 3,
+                "draws": 0,
+                "total_matches": 4,
+                "win_rate": 0.25
+            },
+            "Enchantress": {
+                "archetype": "Enchantress",
+                "wins": 1,
+                "losses": 0,
+                "draws": 0,
+                "total_matches": 1,
+                "win_rate": 1.0
+            },
+            "Mono Black": {
+                "archetype": "Mono Black",
+                "wins": 1,
+                "losses": 2,
+                "draws": 0,
+                "total_matches": 3,
+                "win_rate": 0.33
+            },
+            "Elves": {
+                "archetype": "Elves",
+                "wins": 0,
+                "losses": 1,
+                "draws": 0,
+                "total_matches": 1,
+                "win_rate": 0.0
+            },
+            "Replenish": {
+                "archetype": "Replenish",
+                "wins": 1,
+                "losses": 0,
+                "draws": 0,
+                "total_matches": 1,
+                "win_rate": 1.0
+            },
+            "Psychatog": {
+                "archetype": "Psychatog",
+                "wins": 0,
+                "losses": 1,
+                "draws": 0,
+                "total_matches": 1,
+                "win_rate": 0.0
+            },
+            "BW Control": {
+                "archetype": "BW Control",
+                "wins": 0,
+                "losses": 1,
+                "draws": 0,
+                "total_matches": 1,
+                "win_rate": 0.0
+            },
+            "Oath Ponza": {
+                "archetype": "Oath Ponza",
+                "wins": 1,
+                "losses": 1,
+                "draws": 0,
+                "total_matches": 2,
+                "win_rate": 0.5
+            },
+            "Devourer Combo": {
+                "archetype": "Devourer Combo",
+                "wins": 3,
+                "losses": 0,
+                "draws": 0,
+                "total_matches": 3,
+                "win_rate": 1.0
+            },
+            "Tide Control": {
+                "archetype": "Tide Control",
+                "wins": 1,
+                "losses": 0,
+                "draws": 0,
+                "total_matches": 1,
+                "win_rate": 1.0
+            },
+            "Pit Rack": {
+                "archetype": "Pit Rack",
+                "wins": 3,
+                "losses": 1,
+                "draws": 0,
+                "total_matches": 4,
+                "win_rate": 0.75
+            },
+            "Gro-a-Tog": {
+                "archetype": "Gro-a-Tog",
+                "wins": 1,
+                "losses": 0,
+                "draws": 0,
+                "total_matches": 1,
+                "win_rate": 1.0
+            },
+            "Aluren": {
+                "archetype": "Aluren",
+                "wins": 0,
+                "losses": 1,
+                "draws": 0,
+                "total_matches": 1,
+                "win_rate": 0.0
+            },
+            "Deadguy Ale": {
+                "archetype": "Deadguy Ale",
+                "wins": 2,
+                "losses": 0,
+                "draws": 0,
+                "total_matches": 2,
+                "win_rate": 1.0
+            },
+            "Contamination": {
+                "archetype": "Contamination",
+                "wins": 1,
+                "losses": 2,
+                "draws": 0,
+                "total_matches": 3,
+                "win_rate": 0.33
+            },
+            "UW Control": {
+                "archetype": "UW Control",
+                "wins": 1,
+                "losses": 1,
+                "draws": 0,
+                "total_matches": 2,
+                "win_rate": 0.5
+            },
+            "Clerics": {
+                "archetype": "Clerics",
+                "wins": 1,
+                "losses": 0,
+                "draws": 0,
+                "total_matches": 1,
+                "win_rate": 1.0
+            },
+            "Machine Head": {
+                "archetype": "Machine Head",
+                "wins": 0,
+                "losses": 1,
+                "draws": 0,
+                "total_matches": 1,
+                "win_rate": 0.0
+            },
+            "Ponza": {
+                "archetype": "Ponza",
+                "wins": 1,
+                "losses": 1,
+                "draws": 0,
+                "total_matches": 2,
+                "win_rate": 0.5
+            },
+            "Storm": {
+                "archetype": "Storm",
+                "wins": 1,
+                "losses": 0,
+                "draws": 0,
+                "total_matches": 1,
+                "win_rate": 1.0
+            },
+            "Tireless Tribe Combo": {
+                "archetype": "Tireless Tribe Combo",
+                "wins": 3,
+                "losses": 0,
+                "draws": 0,
+                "total_matches": 3,
+                "win_rate": 1.0
+            },
+            "Zombie Infestation": {
+                "archetype": "Zombie Infestation",
+                "wins": 1,
+                "losses": 0,
+                "draws": 0,
+                "total_matches": 1,
+                "win_rate": 1.0
+            },
+            "GW Madness": {
+                "archetype": "GW Madness",
+                "wins": 1,
+                "losses": 0,
+                "draws": 0,
+                "total_matches": 1,
+                "win_rate": 1.0
+            }
+        },
         "Mono Green Stompy": {
             "Goblins": {
                 "archetype": "Goblins",
@@ -13416,14 +13392,6 @@
                 "total_matches": 1,
                 "win_rate": 1.0
             },
-            "BW Control": {
-                "archetype": "BW Control",
-                "wins": 0,
-                "losses": 1,
-                "draws": 0,
-                "total_matches": 1,
-                "win_rate": 0.0
-            },
             "Psychatog": {
                 "archetype": "Psychatog",
                 "wins": 2,
@@ -13431,6 +13399,14 @@
                 "draws": 0,
                 "total_matches": 2,
                 "win_rate": 1.0
+            },
+            "BW Control": {
+                "archetype": "BW Control",
+                "wins": 0,
+                "losses": 1,
+                "draws": 0,
+                "total_matches": 1,
+                "win_rate": 0.0
             },
             "Reanimator": {
                 "archetype": "Reanimator",
@@ -13756,14 +13732,6 @@
                 "total_matches": 3,
                 "win_rate": 0.33
             },
-            "BW Control": {
-                "archetype": "BW Control",
-                "wins": 0,
-                "losses": 3,
-                "draws": 0,
-                "total_matches": 3,
-                "win_rate": 0.0
-            },
             "Psychatog": {
                 "archetype": "Psychatog",
                 "wins": 1,
@@ -13771,6 +13739,14 @@
                 "draws": 0,
                 "total_matches": 1,
                 "win_rate": 1.0
+            },
+            "BW Control": {
+                "archetype": "BW Control",
+                "wins": 0,
+                "losses": 3,
+                "draws": 0,
+                "total_matches": 3,
+                "win_rate": 0.0
             },
             "Madness": {
                 "archetype": "Madness",
@@ -14030,20 +14006,20 @@
                 "total_matches": 1,
                 "win_rate": 0.0
             },
-            "Oath Spec": {
-                "archetype": "Oath Spec",
-                "wins": 1,
-                "losses": 0,
-                "draws": 0,
-                "total_matches": 1,
-                "win_rate": 1.0
-            },
             "Ponza": {
                 "archetype": "Ponza",
                 "wins": 2,
                 "losses": 0,
                 "draws": 0,
                 "total_matches": 2,
+                "win_rate": 1.0
+            },
+            "Oath Spec": {
+                "archetype": "Oath Spec",
+                "wins": 1,
+                "losses": 0,
+                "draws": 0,
+                "total_matches": 1,
                 "win_rate": 1.0
             },
             "Storm": {
@@ -14282,14 +14258,6 @@
                 "total_matches": 1,
                 "win_rate": 0.0
             },
-            "BW Control": {
-                "archetype": "BW Control",
-                "wins": 0,
-                "losses": 1,
-                "draws": 0,
-                "total_matches": 1,
-                "win_rate": 0.0
-            },
             "Psychatog": {
                 "archetype": "Psychatog",
                 "wins": 1,
@@ -14297,6 +14265,14 @@
                 "draws": 0,
                 "total_matches": 2,
                 "win_rate": 0.5
+            },
+            "BW Control": {
+                "archetype": "BW Control",
+                "wins": 0,
+                "losses": 1,
+                "draws": 0,
+                "total_matches": 1,
+                "win_rate": 0.0
             },
             "Madness": {
                 "archetype": "Madness",
@@ -14370,14 +14346,6 @@
                 "total_matches": 1,
                 "win_rate": 1.0
             },
-            "Oath Spec": {
-                "archetype": "Oath Spec",
-                "wins": 1,
-                "losses": 0,
-                "draws": 0,
-                "total_matches": 1,
-                "win_rate": 1.0
-            },
             "Survival Infestation": {
                 "archetype": "Survival Infestation",
                 "wins": 0,
@@ -14393,6 +14361,14 @@
                 "draws": 0,
                 "total_matches": 1,
                 "win_rate": 0.0
+            },
+            "Oath Spec": {
+                "archetype": "Oath Spec",
+                "wins": 1,
+                "losses": 0,
+                "draws": 0,
+                "total_matches": 1,
+                "win_rate": 1.0
             },
             "Storm": {
                 "archetype": "Storm",
@@ -15068,14 +15044,6 @@
                 "total_matches": 1,
                 "win_rate": 0.0
             },
-            "BW Control": {
-                "archetype": "BW Control",
-                "wins": 1,
-                "losses": 0,
-                "draws": 0,
-                "total_matches": 1,
-                "win_rate": 1.0
-            },
             "Psychatog": {
                 "archetype": "Psychatog",
                 "wins": 0,
@@ -15083,6 +15051,14 @@
                 "draws": 0,
                 "total_matches": 1,
                 "win_rate": 0.0
+            },
+            "BW Control": {
+                "archetype": "BW Control",
+                "wins": 1,
+                "losses": 0,
+                "draws": 0,
+                "total_matches": 1,
+                "win_rate": 1.0
             },
             "Madness": {
                 "archetype": "Madness",
@@ -15278,14 +15254,6 @@
                 "total_matches": 1,
                 "win_rate": 1.0
             },
-            "Oath Spec": {
-                "archetype": "Oath Spec",
-                "wins": 0,
-                "losses": 1,
-                "draws": 0,
-                "total_matches": 1,
-                "win_rate": 0.0
-            },
             "Survival Infestation": {
                 "archetype": "Survival Infestation",
                 "wins": 1,
@@ -15296,6 +15264,14 @@
             },
             "Ponza": {
                 "archetype": "Ponza",
+                "wins": 0,
+                "losses": 1,
+                "draws": 0,
+                "total_matches": 1,
+                "win_rate": 0.0
+            },
+            "Oath Spec": {
+                "archetype": "Oath Spec",
                 "wins": 0,
                 "losses": 1,
                 "draws": 0,
@@ -15620,16 +15596,16 @@
                 "total_matches": 2,
                 "win_rate": 0.5
             },
-            "BW Control": {
-                "archetype": "BW Control",
+            "Psychatog": {
+                "archetype": "Psychatog",
                 "wins": 1,
                 "losses": 0,
                 "draws": 0,
                 "total_matches": 1,
                 "win_rate": 1.0
             },
-            "Psychatog": {
-                "archetype": "Psychatog",
+            "BW Control": {
+                "archetype": "BW Control",
                 "wins": 1,
                 "losses": 0,
                 "draws": 0,
@@ -15888,14 +15864,6 @@
                 "total_matches": 2,
                 "win_rate": 0.0
             },
-            "BW Control": {
-                "archetype": "BW Control",
-                "wins": 1,
-                "losses": 0,
-                "draws": 0,
-                "total_matches": 1,
-                "win_rate": 1.0
-            },
             "Psychatog": {
                 "archetype": "Psychatog",
                 "wins": 0,
@@ -15903,6 +15871,14 @@
                 "draws": 0,
                 "total_matches": 1,
                 "win_rate": 0.0
+            },
+            "BW Control": {
+                "archetype": "BW Control",
+                "wins": 1,
+                "losses": 0,
+                "draws": 0,
+                "total_matches": 1,
+                "win_rate": 1.0
             },
             "Madness": {
                 "archetype": "Madness",
@@ -16124,14 +16100,6 @@
                 "total_matches": 1,
                 "win_rate": 0.0
             },
-            "BW Control": {
-                "archetype": "BW Control",
-                "wins": 1,
-                "losses": 0,
-                "draws": 0,
-                "total_matches": 1,
-                "win_rate": 1.0
-            },
             "Psychatog": {
                 "archetype": "Psychatog",
                 "wins": 0,
@@ -16139,6 +16107,14 @@
                 "draws": 0,
                 "total_matches": 1,
                 "win_rate": 0.0
+            },
+            "BW Control": {
+                "archetype": "BW Control",
+                "wins": 1,
+                "losses": 0,
+                "draws": 0,
+                "total_matches": 1,
+                "win_rate": 1.0
             },
             "Madness": {
                 "archetype": "Madness",
@@ -18574,159 +18550,5 @@
             }
         }
     },
-    "meta_shares": {
-        "Burn": 0.0802,
-        "Stiflenought": 0.0771,
-        "Goblins": 0.0705,
-        "Replenish": 0.0407,
-        "Landstill": 0.0374,
-        "Enchantress": 0.0373,
-        "Terrageddon": 0.0345,
-        "Elves": 0.0344,
-        "Oath Ponza": 0.0332,
-        "Madness": 0.0285,
-        "Tide Control": 0.0269,
-        "BW Control": 0.0248,
-        "Devourer Combo": 0.024300000000000002,
-        "Stasis": 0.023399999999999997,
-        "The Rock": 0.0231,
-        "Reanimator": 0.0192,
-        "Pit Rack": 0.0184,
-        "Mono Black": 0.0181,
-        "Survival": 0.0179,
-        "Psychatog": 0.0173,
-        "Deadguy Ale": 0.0163,
-        "Rogue": 0.0161,
-        "Zoo": 0.0141,
-        "Full English Breakfast": 0.0128,
-        "Gro-a-Tog": 0.0125,
-        "White Weenie": 0.011200000000000002,
-        "Ponza": 0.010700000000000001,
-        "Machine Head": 0.0096,
-        "Storm": 0.0095,
-        "Contamination": 0.0092,
-        "Clerics": 0.0092,
-        "The Solution": 0.008,
-        "MUD": 0.0079,
-        "Aluren": 0.0076,
-        "Astral Slide": 0.0072,
-        "Survival Opposition": 0.0070999999999999995,
-        "UW Midrange": 0.0058,
-        "UW Control": 0.005699999999999999,
-        "Tireless Tribe Combo": 0.0053,
-        "Oath Spec": 0.0049,
-        "Angry Hermit": 0.004699999999999999,
-        "Survival Infestation": 0.004699999999999999,
-        "Iggy Pop": 0.004699999999999999,
-        "Tinker Welder": 0.0042,
-        "Temping Rack": 0.0040999999999999995,
-        "Zombie Infestation": 0.0039000000000000003,
-        "BUG Control": 0.0036,
-        "Mono Green Stompy": 0.0034999999999999996,
-        "Broccoli Soup": 0.0034999999999999996,
-        "Survival Rock": 0.0033,
-        "Rebels": 0.0033,
-        "Tron": 0.0032,
-        "UWB Control": 0.0032,
-        "Suicide": 0.003,
-        "UR Control": 0.0029,
-        "Zombies": 0.0029,
-        "The Rack": 0.0029,
-        "Survival Welder": 0.0028000000000000004,
-        "Threshold": 0.0027,
-        "Oath Control": 0.0026,
-        "GW Madness": 0.0025,
-        "Slivers": 0.0024,
-        "GR Aggro": 0.0023,
-        "Life": 0.0021,
-        "Dream Halls": 0.002,
-        "Pyrostatic Oath": 0.0019,
-        "Mono White Control": 0.0019,
-        "Pattern Combo": 0.0019,
-        "Fires": 0.0018,
-        "Oath": 0.0016,
-        "Balancing Tings": 0.0015,
-        "Fluctuator": 0.0015,
-        "UW Aggro": 0.0013,
-        "Mono Blue Control": 0.0013,
-        "Gamekeeper": 0.0012,
-        "Sneak Attack": 0.0011,
-        "Jund": 0.0011,
-        "Lands": 0.0011,
-        "Parfait": 0.0011,
-        "Pandeburst Control": 0.0011,
-        "Dredgeless Dredge": 0.0009,
-        "Mono Black Ponza": 0.0009,
-        "Merfolks": 0.0008,
-        "Form of Dragon": 0.0008,
-        "Great Combo": 0.0008,
-        "Nic Fit": 0.0007000000000000001,
-        "Dreams Ponza": 0.0007000000000000001,
-        "5 Color Control": 0.0007000000000000001,
-        "Mono Black Coffers": 0.0007000000000000001,
-        "GW Midrange": 0.0007000000000000001,
-        "Frenetic Encounter": 0.0006,
-        "Doomsday": 0.0006,
-        "Draco Blast": 0.0006,
-        "RW Aggro": 0.0006,
-        "Trix": 0.0005,
-        "Mono Blue Flyers": 0.0005,
-        "Pox": 0.0005,
-        "UWG Control": 0.0004,
-        "Mono Green Order": 0.0004,
-        "GW Aggro": 0.0004,
-        "Soldiers": 0.0004,
-        "UB Control": 0.0004,
-        "Cephalid Breakfast": 0.0003,
-        "Manabond": 0.0003,
-        "UWR Control": 0.0003,
-        "False Cure": 0.0003,
-        "Battle of Wits": 0.0003,
-        "Spec Midrange": 0.0003,
-        "Wake Control": 0.0002,
-        "Beasts": 0.0002,
-        "Birds": 0.0002,
-        "WGu Aggro": 0.0002,
-        "4 Color Control": 0.0002,
-        "Kavus Aggro": 0.0002,
-        "Minotaurs": 0.0002,
-        "Mon Blue Bounce": 0.0002,
-        "GWR Aggro": 0.0002,
-        "UW Familiar": 0.0002,
-        "GR Madness": 0.0002,
-        "UW Prison": 0.0002,
-        "Dragonstorm": 0.0002,
-        "BW Aggro": 0.0001,
-        "Mono Black Discard": 0.0001,
-        "Mono Green": 0.0001,
-        "Abzan Control": 0.0001,
-        "Mono Black Control": 0.0001,
-        "Wildfire": 0.0001,
-        "Altar of Dementia": 0.0001,
-        "Goblin Welder": 0.0001,
-        "Oath Tron": 0.0001,
-        "Mercenaries": 0.0001,
-        "Cats": 0.0001,
-        "Angels": 0.0001,
-        "Horrors": 0.0001,
-        "Phyrexian Tyranny": 0.0001,
-        "Wurms": 0.0001,
-        "Oath Burn": 0.0001,
-        "Tainted Pact": 0.0001,
-        "UBr Control": 0.0001,
-        "Upheaval Oath": 0.0,
-        "UW Glasses": 0.0,
-        "Opposition": 0.0,
-        "Draco Zoo": 0.0,
-        "Druids": 0.0,
-        "Big Red": 0.0,
-        "5 Color Aggro": 0.0,
-        "Magnivore": 0.0,
-        "Oath and Tell": 0.0,
-        "UR Landstill": 0.0,
-        "White Enchantments": 0.0,
-        "BR Cycling Rift": 0.0,
-        "Mono White Tron": 0.0,
-        "GW Control": 0.0
-    }
+    "meta_shares": {}
 }
