@@ -32,7 +32,7 @@ with st.sidebar:
         "Choose Timeframe", 
         list(TIMEFRAMES.keys()), 
         index=0,
-        help="Aggregated performance data summarizing all recorded matches within the selected time window (e.g., last 6 months or 1 year)."
+        help="Aggregated performance data summarizing all recorded matches within the selected time window (All time, last year, last 6 months, 2 months)."
     )
     st.divider()
     
