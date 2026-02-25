@@ -368,7 +368,7 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
             st.info("No recent decklists found matching the criteria (>=50 players, Top 8).")
         else:
             st.markdown("<br>", unsafe_allow_html=True)
-            info_text = "Offline snapshots from MTGDecks.net. Prioritizes Top 8 finishes in events with 50+ players. Searches up to 10 pages deep per archetype. Max 10 decks."
+            info_text = "Offline snapshots scraped from MTGDecks.net. Shows recent high-performing decks from events with 50+ players. Maximum 10 decklists per archetype."
             st.markdown(f"<h3>Recent Top Decklists <span title='{info_text}' style='cursor:help; font-size:16px; color:#8A8A8A; opacity:0.8;'>&#9432;</span></h3>", unsafe_allow_html=True)
             
             # Load Official MTG Mana Symbols from local assets
@@ -432,13 +432,14 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
                 
                 html_block = (
                     f'<div style="{margin_bottom} {border_bottom}">'
-                    f'<div style="display:flex; align-items:center; margin-bottom: 2px;">'
-                    f'<a href="{d["url"]}" target="_blank" style="text-decoration:none; color:inherit; margin-right:12px; font-size:14px;">'
-                    f'<span style="color:#E0E0E0;"><strong style="color:#FFF;">{d["rank"]}</strong> from <strong style="color:#FFF;">{d.get("players", "??")}</strong> Players</span>'
-                    f'</a>'
-                    f'<a href="{d["url"]}" target="_blank" style="color:#6BC78E; text-decoration:none; margin-right:10px; font-size:15px; font-weight:600;">{d["player"]}</a>'
+                    f'<div style="display:flex; align-items:center; justify-content:space-between; margin-bottom: 2px;">'
+                    f'<div style="display:flex; align-items:center;">'
+                    f'<span style="color:#E0E0E0; margin-right:12px; font-size:14px;"><strong style="color:#FFF;">{d["rank"]}</strong> from <strong style="color:#FFF;">{d.get("players", "??")}</strong> Players</span>'
+                    f'<span style="color:#6BC78E; margin-right:10px; font-size:15px; font-weight:600;">{d["player"]}</span>'
                     f'{color_dots}'
                     f'{spice_badge}'
+                    f'</div>'
+                    f'<a href="{d["url"]}" target="_blank" style="background-color:#2A2A2A; color:#E0E0E0; text-decoration:none; padding:4px 10px; border-radius:4px; font-size:12px; border:1px solid #444;">🔗 See Decklist</a>'
                     f'</div>'
                     f'<div style="font-size:12px; color:#8A8A8A; display:flex; gap:12px; margin-top:4px;">'
                     f'<span>🗓️ {d["date"]}</span>'
