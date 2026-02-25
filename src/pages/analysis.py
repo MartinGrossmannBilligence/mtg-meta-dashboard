@@ -459,10 +459,7 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
 
                 html_block = (
                     f'<div style="{margin_bottom} {border_bottom}">'
-                    f'<div style="display:flex; align-items:flex-start; justify-content:space-between; margin-bottom: 2px;">'
-                    f'{main_block}'
-                    f'<a href="{d["url"]}" target="_blank" style="color:#8A8A8A; text-decoration:none; font-size:12px; padding-top:4px;">🔗 Source</a>'
-                    f'</div>'
+                    f'<div style="margin-bottom: 2px;">{main_block}</div>'
                     f'<div style="font-size:12px; color:#8A8A8A; display:flex; gap:12px; margin-top:4px;">'
                     f'<span>🗓️ {d["date"]}</span>'
                     f'<span>🏆 {d["event"]}</span>'
