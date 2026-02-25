@@ -36,22 +36,22 @@ with st.sidebar:
     )
     st.divider()
     
-    st.markdown(
-        '<div class="source-pill">This app is based on data from <b>MTGDecks.net</b> & <a href="https://data.duresscrew.com/" target="_blank">Duress Crew</a>.</div>',
-        unsafe_allow_html=True,
+    help_text = (
+        "Data Sources & Mapping&#10;&#10;"
+        "• 6 Months & 2 Months data, along with the overall Meta Share metric, are sourced from MTGDecks.net. "
+        "These provide a highly granular view of recent tournament results.&#10;&#10;"
+        "• All-Time & 1 Year data is sourced from the Duress Crew data project, providing a robust "
+        "historical foundation for matchups.&#10;&#10;"
+        "• To ensure continuity, decks from both sources are mapped together so you can analyze a deck's "
+        "performance seamlessly across all timeframes."
     )
     
-    with st.expander("ℹ️ How to read this app", expanded=False):
-        st.markdown(
-            """
-            <div style="font-size: 13px; color: #E0E0E0;">
-            <b>Data Sources & Mapping</b><br>
-            • <b>6 Months & 2 Months</b> data, along with the overall <b>Meta Share</b> metric, are sourced from <a href='https://mtgdecks.net' target='_blank'>MTGDecks.net</a>. These provide a highly granular view of recent tournament results.<br><br>
-            • <b>All-Time & 1 Year</b> data is sourced from the <a href='https://data.duresscrew.com/' target='_blank'>Duress Crew</a> data project, providing a robust historical foundation for matchups.<br><br>
-            • To ensure continuity, decks from both sources are mapped together so you can analyze a deck's performance seamlessly across all timeframes.
-            </div>
-            """, unsafe_allow_html=True
-        )
+    st.markdown(
+        f'<div class="source-pill">This app is based on data from <b>MTGDecks.net</b> & <a href="https://data.duresscrew.com/" target="_blank">Duress Crew</a>. '
+        f'<span title="{help_text}" style="cursor:help; font-size:14px; color:#8A8A8A; opacity:0.8;">&#9432;</span></div>',
+        unsafe_allow_html=True,
+    )
+
 
     st.markdown('<div style="flex-grow:1;"></div>', unsafe_allow_html=True)
     st.markdown(
