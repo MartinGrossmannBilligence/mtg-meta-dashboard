@@ -42,7 +42,7 @@ with st.sidebar:
     )
     st.markdown('<div style="flex-grow:1;"></div>', unsafe_allow_html=True)
     st.markdown(
-        '<div class="source-pill" style="margin-top:auto;">Feel free to contact me via <a href="mailto:grossmann.martin.cz@gmail.com">Email</a> or <a href="https://m.me/martin.grossmann.5" target="_blank">Messenger</a></div>',
+        '<div class="source-pill" style="margin-top:auto;"><span style="color:#BEBEBE;">Created by Martin Grossmann</span><br>Feel free to contact me via <a href="mailto:grossmann.martin.cz@gmail.com">Email</a> or <a href="https://m.me/martin.grossmann.5" target="_blank">Messenger</a></div>',
         unsafe_allow_html=True,
     )
 
