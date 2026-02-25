@@ -171,19 +171,23 @@ def main():
     sources = {
         "All Time": (
             "https://mtgdecks.net/Premodern/winrates/range:last2years",
-            "https://mtgdecks.net/Premodern/metagame:last-2-years"
+            "https://mtgdecks.net/Premodern/metagame/range:last2years"
         ),
         "1 Year": (
             "https://mtgdecks.net/Premodern/winrates/range:last1year",
-            "https://mtgdecks.net/Premodern/metagame:last-year"
+            "https://mtgdecks.net/Premodern/metagame/range:last1year"
         ),
         "6 Months": (
-            "https://mtgdecks.net/Premodern/winrates",
-            "https://mtgdecks.net/Premodern/metagame:last-6-months"
+            "https://mtgdecks.net/Premodern/winrates/range:last6months",
+            "https://mtgdecks.net/Premodern/metagame/range:last6months"
         ),
         "2 Months": (
-            "https://mtgdecks.net/Premodern/winrates/range:last60days",
-            "https://mtgdecks.net/Premodern/metagame:last-2-months"
+            "https://mtgdecks.net/Premodern/winrates/range:last2months",
+            "https://mtgdecks.net/Premodern/metagame/range:last2months"
+        ),
+        "1 Month": (
+            "https://mtgdecks.net/Premodern/winrates/range:last1month",
+            "https://mtgdecks.net/Premodern/metagame/range:last1month"
         )
     }
     

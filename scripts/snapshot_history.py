@@ -6,7 +6,7 @@ from datetime import datetime
 # Paths
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR = os.path.join(BASE_DIR, "data")
-SOURCE_MATRIX = os.path.join(DATA_DIR, "mtgdecks_matrix_2_months.json")
+SOURCE_MATRIX = os.path.join(DATA_DIR, "mtgdecks_matrix_1_month.json")
 OUTPUT_CSV = os.path.join(DATA_DIR, "historical_snapshots.csv")
 
 def run_snapshot():
