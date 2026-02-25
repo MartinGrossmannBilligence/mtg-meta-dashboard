@@ -156,6 +156,10 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
                         "Win Rate (Num)": ":.1%",
                         "Games": True
                     },
+                    labels={
+                        "Meta Share (Num)": "Meta Share",
+                        "Win Rate (Num)": "Win Rate",
+                    },
                     template="plotly_dark"
                 )
                 fig_s.add_hline(y=0.5, line_dash="dash", line_color=THEME["faint"])
@@ -213,15 +217,17 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
                 
             with c_top:
                 st.markdown("<h3>Best 5 Decks <span title='Decks with fewer than 20 games are excluded to ensure statistical reliability.' style='cursor:help; font-size:14px; color:#8A8A8A; opacity:0.8;'>&#9432;</span></h3>", unsafe_allow_html=True)
-                d = df_reliable.head(5)[["Deck", "Win Rate", "Games"]].copy()
+                d = df_reliable.head(5)[["Deck", "Win Rate", "Meta Share (Num)", "Games"]].copy()
                 d["Win Rate"] = d["Win Rate"].map(lambda x: f"{x:.1%}")
-                st.markdown(html_deck_table(d, ["Deck", "Win Rate", "Games"], data_dir=data_dir), unsafe_allow_html=True)
+                d["Meta Share"] = d["Meta Share (Num)"].apply(lambda s: f"{s:.1%}" if s > 0 else "n/a")
+                st.markdown(html_deck_table(d, ["Deck", "Win Rate", "Meta Share", "Games"], data_dir=data_dir), unsafe_allow_html=True)
 
             with c_bot:
                 st.markdown("<h3>Worst 5 Decks <span title='Decks with fewer than 20 games are excluded to ensure statistical reliability.' style='cursor:help; font-size:14px; color:#8A8A8A; opacity:0.8;'>&#9432;</span></h3>", unsafe_allow_html=True)
-                d = df_reliable.tail(5).sort_values("Win Rate", ascending=True)[["Deck", "Win Rate", "Games"]].copy()
+                d = df_reliable.tail(5).sort_values("Win Rate", ascending=True)[["Deck", "Win Rate", "Meta Share (Num)", "Games"]].copy()
                 d["Win Rate"] = d["Win Rate"].map(lambda x: f"{x:.1%}")
-                st.markdown(html_deck_table(d, ["Deck", "Win Rate", "Games"], data_dir=data_dir), unsafe_allow_html=True)
+                d["Meta Share"] = d["Meta Share (Num)"].apply(lambda s: f"{s:.1%}" if s > 0 else "n/a")
+                st.markdown(html_deck_table(d, ["Deck", "Win Rate", "Meta Share", "Games"], data_dir=data_dir), unsafe_allow_html=True)
 
             st.markdown('<div style="margin: 8px 0 12px 0; border-top: 1px solid #222222;"></div>', unsafe_allow_html=True)
 
