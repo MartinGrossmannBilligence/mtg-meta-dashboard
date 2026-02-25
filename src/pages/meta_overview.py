@@ -130,7 +130,7 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
             df_rec["Win Rate (Num)"]   = df_rec["Win Rate"]
 
             # --- SCATTER PLOT: Metagame Share vs Win Rate ---
-            st.subheader("Metagame Share vs Win Rate")
+            st.subheader("Win Rate vs Metagame Share")
             scatter_df = df_rec[(df_rec["Meta Share (Num)"] > 0) & (df_rec["Games"] >= 20)].copy()
 
             if scatter_df.empty:
