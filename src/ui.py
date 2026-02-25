@@ -4,6 +4,7 @@ import base64
 from src.bg_data import BG_TOG_V10_B64
 
 _icon_cache = {}
+_circular_icon_cache = {}
 _PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 def get_icon_b64(deck_name, data_dir="data"):
     """Return base64-encoded JPEG art_crop for a deck (cached)."""
@@ -17,6 +18,38 @@ def get_icon_b64(deck_name, data_dir="data"):
     else:
         _icon_cache[deck_name] = None
     return _icon_cache[deck_name]
+
+def get_circular_icon_b64(deck_name, data_dir="data", size=128):
+    """Return base64-encoded PNG with circular crop for a deck (cached).
+    Falls back to plain JPEG if Pillow is not available."""
+    if deck_name in _circular_icon_cache:
+        return _circular_icon_cache[deck_name]
+    try:
+        from PIL import Image, ImageDraw
+        import io
+        slug = deck_name.lower().replace(" ", "_").replace("/", "_").replace("'", "")
+        path = os.path.join(_PROJECT_ROOT, "assets", "deck_icons", f"{slug}.jpg")
+        if not os.path.exists(path):
+            _circular_icon_cache[deck_name] = get_icon_b64(deck_name, data_dir)
+            return _circular_icon_cache[deck_name]
+        img = Image.open(path).convert("RGBA")
+        # Crop to square from center, then resize
+        w, h = img.size
+        side = min(w, h)
+        left = (w - side) // 2
+        top  = (h - side) // 2
+        img = img.crop((left, top, left + side, top + side)).resize((size, size), Image.LANCZOS)
+        # Apply circular mask
+        mask = Image.new("L", (size, size), 0)
+        draw = ImageDraw.Draw(mask)
+        draw.ellipse((0, 0, size, size), fill=255)
+        img.putalpha(mask)
+        buf = io.BytesIO()
+        img.save(buf, format="PNG")
+        _circular_icon_cache[deck_name] = base64.b64encode(buf.getvalue()).decode()
+    except Exception:
+        _circular_icon_cache[deck_name] = get_icon_b64(deck_name, data_dir)
+    return _circular_icon_cache[deck_name]
 
 def html_deck_table(df, columns, deck_col="Deck", wr_col="Win Rate", data_dir="data"):
     """Render a dataframe as HTML table with deck icons and colored win rates."""

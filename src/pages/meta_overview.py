@@ -136,7 +136,7 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
             if scatter_df.empty:
                 st.info("Meta share data not available for this timeframe.")
             else:
-                from src.ui import get_icon_b64
+                from src.ui import get_circular_icon_b64
 
                 max_share = scatter_df["Meta Share (Num)"].max() or 0.1
                 x_max = max_share * 1.18
@@ -167,10 +167,10 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
                     deck  = row["Deck"]
                     x_val = row["Meta Share (Num)"]
                     y_val = row["Win Rate (Num)"]
-                    b64 = get_icon_b64(deck, data_dir)
+                    b64 = get_circular_icon_b64(deck, data_dir)
                     if b64:
                         fig_s.add_layout_image(dict(
-                            source=f"data:image/jpeg;base64,{b64}",
+                            source=f"data:image/png;base64,{b64}",
                             xref="x", yref="y",
                             x=x_val, y=y_val,
                             sizex=icon_sizex, sizey=icon_sizey,

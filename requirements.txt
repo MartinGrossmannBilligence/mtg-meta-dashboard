@@ -6,3 +6,4 @@ numpy
 requests
 statsmodels
 beautifulsoup4
+Pillow
