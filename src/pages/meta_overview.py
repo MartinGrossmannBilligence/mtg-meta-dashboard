@@ -156,22 +156,19 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
                 y_range = y_max - y_min
                 x_range = x_max
 
+                scatter_df["tooltip"] = scatter_df.apply(
+                    lambda r: f"<b>{r['Deck']}</b><br><br>Meta Share: {r['Meta Share (Num)']:.1%}<br>Win Rate: {r['Win Rate (Num)']:.1%}<br>Games: {r['Games']}",
+                    axis=1
+                )
+
                 fig_s = px.scatter(
                     scatter_df,
                     x="Meta Share (Num)",
                     y="Win Rate (Num)",
-                    hover_name="Deck",
-                    hover_data={
-                        "Meta Share (Num)": ":.1%",
-                        "Win Rate (Num)": ":.1%",
-                        "Games": True
-                    },
-                    labels={
-                        "Meta Share (Num)": "Meta Share",
-                        "Win Rate (Num)": "Win Rate",
-                    },
+                    hover_name="tooltip",
                     template="plotly_dark"
                 )
+                fig_s.update_traces(hovertemplate="%{hovertext}<extra></extra>")
                 fig_s.add_hline(y=0.5, line_dash="dash", line_color=THEME["faint"])
 
                 icon_sizex = x_range * 0.095
