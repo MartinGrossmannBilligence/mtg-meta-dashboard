@@ -257,19 +257,38 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
                 ))
 
             fig_hist.add_hline(y=0.5, line_dash="dash", line_color=THEME["faint"], line_width=1)
+
+            # Add inline label at the last point of each line
+            last_period = df_hist["Period"].iloc[-1]
+            last_wr     = df_hist["Win Rate"].iloc[-1]
+            fig_hist.add_annotation(
+                x=last_period, y=last_wr,
+                text="Win Rate", showarrow=False,
+                xanchor="left", yanchor="middle", xshift=10,
+                font=dict(size=11, color=THEME["muted"]),
+            )
+            if has_meta:
+                last_ms = next((v for v in reversed(ms_display) if v is not None), None)
+                last_ms_period = df_hist["Period"].iloc[
+                    max(i for i, v in enumerate(ms_display) if v is not None)
+                ]
+                if last_ms is not None:
+                    fig_hist.add_annotation(
+                        x=last_ms_period, y=last_ms,
+                        text="Meta Share", showarrow=False,
+                        xanchor="left", yanchor="middle", xshift=10,
+                        font=dict(size=11, color=THEME["focus"]),
+                    )
+
             fig_hist.update_layout(
                 height=210,
                 paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
                 font_color=THEME["muted"], font_family="IBM Plex Mono",
-                margin=dict(l=0, r=0, t=28, b=0),
+                margin=dict(l=0, r=90, t=28, b=0),
                 yaxis=dict(tickformat=".0%", range=[0, 0.7], tickfont=dict(size=11), showgrid=False),
                 xaxis=dict(tickfont=dict(size=12)),
                 xaxis_title="",
-                showlegend=has_meta,
-                legend=dict(
-                    orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1,
-                    font=dict(size=11), bgcolor="rgba(0,0,0,0)",
-                ),
+                showlegend=False,
             )
             st.plotly_chart(fig_hist, use_container_width=True, key="deck_trend_combined")
 
