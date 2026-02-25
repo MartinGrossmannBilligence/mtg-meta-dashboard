@@ -14,24 +14,7 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
     if tiers_dict is None: tiers_dict = {}
     st.markdown('<h1 style="font-size: 24px;">Meta Overview</h1>', unsafe_allow_html=True)
 
-    available_tiers = sorted(list(set(tiers_dict.values()))) if tiers_dict else []
-    default_tiers = ["Tier 1"] if "Tier 1" in available_tiers else available_tiers
-    selected_tiers = []
-    
-    if available_tiers and show_tier_filter:
-        st.markdown("###### Filter Metagame")
-        selected_tiers = st.multiselect(
-            "Select Tiers",
-            available_tiers,
-            default=default_tiers,
-            key="overview_global_tier_select",
-            label_visibility="collapsed"
-        )
-        if selected_tiers and tiers_dict:
-            all_archetypes = [a for a in all_archetypes if tiers_dict.get(a) in selected_tiers]
-        if records_data:
-            records_data = [r for r in records_data if r.get("archetype") in all_archetypes]
-            
+    # Tier filtering UI removed per user request. Show all decks by default.
     if not all_archetypes:
         all_archetypes = ["None"]
         
