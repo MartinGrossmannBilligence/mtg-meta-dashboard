@@ -283,7 +283,7 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
                 height=210,
                 paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
                 font_color=THEME["muted"], font_family="IBM Plex Mono",
-                margin=dict(l=20, r=90, t=28, b=0),
+                margin=dict(l=35, r=90, t=28, b=0),
                 yaxis=dict(tickformat=".0%", range=[0, 0.7], tickfont=dict(size=11), showgrid=False),
                 xaxis=dict(tickfont=dict(size=12)),
                 xaxis_title="",
