@@ -238,7 +238,7 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
                 text=[f"{v:.1%}" for v in df_hist["Win Rate"]],
                 textposition="top center",
                 textfont=dict(size=13, color=[_wr_color(v) for v in df_hist["Win Rate"]]),
-                line=dict(color="#E8E8E8", width=5),
+                line=dict(color="#E8E8E8", width=3, dash="dot"),
                 marker=dict(size=9, color=[_wr_color(v) for v in df_hist["Win Rate"]], line=dict(width=0)),
             ))
 
@@ -401,44 +401,18 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
             html_content = '<div style="background-color: #1A1A1A; border: 1px solid #2A2A2A; border-radius: 8px; padding: 16px;">'
             
             for i, d in enumerate(decks):
-                # Get the actual cards for hover and format them compactly with safe escaping
-                cards = d.get('cards', [])
+                # Replace title hover with actual clickable details disclosure
                 if cards:
                     lines = []
-                    current_line = []
                     for c in cards:
-                        current_line.append(f"{c['qty']}x {c['name']}")
-                        if len(current_line) == 3:
-                            lines.append(" | ".join(current_line))
-                            current_line = []
-                    if current_line:
-                        lines.append(" | ".join(current_line))
-                    hover_text = "&#10;".join(lines).replace('"', '&quot;').replace("'", "&#39;")
+                        lines.append(f"{c['qty']}x {c['name']}")
+                    decklist_html = "<br>".join(lines)
+                    decklist_preview = f'<details style="margin-top:8px;"><summary style="cursor:pointer; color:#8A8A8A; font-size:13px; user-select:none;">&#128065; View Decklist</summary><div style="margin-top:8px; padding:10px; background:rgba(0,0,0,0.3); border-radius:6px; font-size:12px; color:#D0D0D0; display:grid; grid-template-columns:repeat(auto-fill, minmax(180px, 1fr)); gap:4px;">{decklist_html}</div></details>'
                 else:
-                    hover_text = "Preview not available"
+                    decklist_preview = ""
                 
-                # Render colors as mana symbols
-                color_dots = ""
-                for c in d.get("colors", []):
-                    b64 = MANA_ICONS.get(c)
-                    if b64:
-                        mime = "image/svg+xml" if c == 'C' else "image/webp"
-                        color_dots += f'<img src="data:{mime};base64,{b64}" style="width:16px; height:16px; margin-right:4px; vertical-align:middle;" title="Mana {c}" alt="[{c}]">'
-                
-                # Render spiciness badge if > 0
-                spice = d.get('spice', 0)
-                spice_badge = ""
-                if spice > 0:
-                    spice_color = "#E49977" if spice > 50 else "#F59F00" if spice > 20 else "#8A8A8A"
-                    spice_badge = f'<span style="margin-left:8px; font-size:10px; color:{spice_color}; border:1px solid {spice_color}40; padding:1px 6px; border-radius:10px; background:rgba(0,0,0,0.2);">🌶️ Spice: {spice}%</span>'
-                
-                border_bottom = 'border-bottom: 1px solid #2A2A2A;' if i < len(decks) - 1 else ''
-                margin_bottom = 'margin-bottom: 12px; padding-bottom: 12px;' if i < len(decks) - 1 else ''
-                
-                # Build row HTML without any leading indentation to avoid Streamlit code-block parsing
-                # Entire rank/player block is now clickable
                 html_block = (
-                    f'<div style="{margin_bottom} {border_bottom}" title="{hover_text}">'
+                    f'<div style="{margin_bottom} {border_bottom}">'
                     f'<div style="display:flex; align-items:center; margin-bottom: 2px;">'
                     f'<a href="{d["url"]}" target="_blank" style="text-decoration:none; color:inherit; margin-right:12px; font-size:14px;">'
                     f'<span style="color:#E0E0E0;"><strong style="color:#FFF;">{d["rank"]}</strong> from <strong style="color:#FFF;">{d.get("players", "??")}</strong> Players</span>'
@@ -452,6 +426,7 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
                     f'<span>🏆 {d["event"]}</span>'
                     f'<span>👥 {d["players"]} players</span>'
                     f'</div>'
+                    f'{decklist_preview}'
                     f'</div>'
                 )
                 

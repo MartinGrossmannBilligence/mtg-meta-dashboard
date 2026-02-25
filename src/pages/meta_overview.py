@@ -283,7 +283,7 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
                 wr    = cell.get("win_rate", 0.5)
                 if total >= min_games:
                     row.append(wr)
-                    hover_row.append(f"WR: {wr:.1%}<br>{cell.get('wins',0)}W – {cell.get('losses',0)}L<br>n={total}")
+                    hover_row.append(f"Win Rate {wr:.1%} (Based on {total} matches)<br>{cell.get('wins',0)}W – {cell.get('losses',0)}L")
                 else:
                     row.append(None)
                     hover_row.append("Insufficient data")

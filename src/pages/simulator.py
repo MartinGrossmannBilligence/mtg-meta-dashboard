@@ -56,7 +56,20 @@ def show_simulator(matrix_dict, all_archetypes, records_data):
 
     meta_shares["Other Decks"] = remaining / 100
 
-    if st.button("Calculate Projected EV", type="primary"):
+    col_btn1, col_btn2 = st.columns([0.25, 0.75])
+    with col_btn1:
+        calc_btn = st.button("Calculate Projected EV", type="primary")
+    with col_btn2:
+        reset_btn = st.button("Reset to Default Meta")
+        
+    if reset_btn:
+        for j, d in enumerate(top_decks):
+            pct = real_meta_shares.get(d) or real_meta_shares.get(d.upper())
+            val = int(round(pct * 100)) if pct is not None else (10 if j < 3 else 5)
+            st.session_state[f"sim_sld_{d}"] = val
+        st.rerun()
+
+    if calc_btn:
         with st.spinner("Simulating..."):
             # matrix_dict is now the full matrix_data object
             matchups_matrix = matrix_dict.get("matrix", matrix_dict)
