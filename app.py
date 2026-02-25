@@ -37,9 +37,22 @@ with st.sidebar:
     st.divider()
     
     st.markdown(
-        '<div class="source-pill">Primary data from <b>MTGDecks.net</b>.<br>All-Time & 1 Year data based on <a href="https://data.duresscrew.com/" target="_blank">Duress Crew</a> data.</div>',
+        '<div class="source-pill">This app is based on data from <b>MTGDecks.net</b> & <a href="https://data.duresscrew.com/" target="_blank">Duress Crew</a>.</div>',
         unsafe_allow_html=True,
     )
+    
+    with st.expander("ℹ️ How to read this app", expanded=False):
+        st.markdown(
+            """
+            <div style="font-size: 13px; color: #E0E0E0;">
+            <b>Data Sources & Mapping</b><br>
+            • <b>6 Months & 2 Months</b> data, along with the overall <b>Meta Share</b> metric, are sourced from <a href='https://mtgdecks.net' target='_blank'>MTGDecks.net</a>. These provide a highly granular view of recent tournament results.<br><br>
+            • <b>All-Time & 1 Year</b> data is sourced from the <a href='https://data.duresscrew.com/' target='_blank'>Duress Crew</a> data project, providing a robust historical foundation for matchups.<br><br>
+            • To ensure continuity, decks from both sources are mapped together so you can analyze a deck's performance seamlessly across all timeframes.
+            </div>
+            """, unsafe_allow_html=True
+        )
+
     st.markdown('<div style="flex-grow:1;"></div>', unsafe_allow_html=True)
     st.markdown(
         '<div class="source-pill" style="margin-top:auto;"><span style="color:#BEBEBE;">Created by Martin Grossmann</span><br>Feel free to contact me via <a href="mailto:grossmann.martin.cz@gmail.com">Email</a> or <a href="https://m.me/martin.grossmann.5" target="_blank">Messenger</a></div>',
