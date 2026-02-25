@@ -241,7 +241,7 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
                 )
 
                 fig_s.update_layout(
-                    height=520,
+                    height=380,
                     paper_bgcolor="rgba(0,0,0,0)",
                     plot_bgcolor="rgba(0,0,0,0)",
                     font_color=THEME["text"],

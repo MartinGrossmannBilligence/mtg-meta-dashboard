@@ -97,12 +97,15 @@ def load_period_data(data_dir, period):
                     matrix_data["meta_shares"] = mtg_data["meta_shares"]
                     
     elif period == "all_time":
-        mtgdecks_path = os.path.join(data_dir, "mtgdecks_matrix_all_time.json")
-        if os.path.exists(mtgdecks_path):
-            with open(mtgdecks_path, 'r', encoding='utf-8') as mf:
-                mtg_data = json.load(mf)
-                if "meta_shares" in mtg_data:
-                    matrix_data["meta_shares"] = mtg_data["meta_shares"]
+        # Use mtgdecks all_time data for meta share (2_years file doesn't exist yet)
+        for fname in ["mtgdecks_matrix_all_time.json"]:
+            mtgdecks_path = os.path.join(data_dir, fname)
+            if os.path.exists(mtgdecks_path):
+                with open(mtgdecks_path, 'r', encoding='utf-8') as mf:
+                    mtg_data = json.load(mf)
+                    if "meta_shares" in mtg_data:
+                        matrix_data["meta_shares"] = mtg_data["meta_shares"]
+                break
 
     return matrix_data, records_data
 
