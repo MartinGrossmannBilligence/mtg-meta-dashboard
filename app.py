@@ -13,10 +13,10 @@ apply_custom_css()
 # ── 2. Constants ──────────────────────────────────────────────────────────────
 DATA_DIR = "data"
 TIMEFRAMES = {
-    "2 Years": "all_time",
-    "1 Year":   "1_year",
-    "6 Months": "mtgdecks_matrix_6_months",
-    "2 Months": "mtgdecks_matrix_2_months",
+    "2Y": "all_time",
+    "1Y": "1_year",
+    "6M": "mtgdecks_matrix_6_months",
+    "2M": "mtgdecks_matrix_2_months",
 }
 
 @st.cache_data(ttl=3600)
@@ -27,12 +27,12 @@ def get_cached_period_data(period_key):
 # "Premodern Meta Lab" title is injected above the nav links via CSS ::before
 # in apply_custom_css().
 with st.sidebar:
-
-    period_name = st.selectbox(
+    st.markdown('<p style="font-size: 0.85rem; margin-bottom: 0.2rem; opacity: 0.7;">Choose Timeframe</p>', unsafe_allow_html=True)
+    period_name = st.segmented_control(
         "Choose Timeframe", 
-        list(TIMEFRAMES.keys()), 
-        index=0,
-        help="Analyse aggregated data for the last 1-year, 6-month, or 2-month periods."
+        options=list(TIMEFRAMES.keys()), 
+        default="2Y",
+        label_visibility="collapsed"
     )
     st.divider()
     
