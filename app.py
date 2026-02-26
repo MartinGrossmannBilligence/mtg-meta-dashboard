@@ -27,6 +27,7 @@ def get_cached_period_data(period_key):
 # "Premodern Meta Lab" title is injected above the nav links via CSS ::before
 # in apply_custom_css().
 with st.sidebar:
+    st.markdown('<h2 style="font-size: 18px; font-weight: 600; margin-top: 0; margin-bottom: 16px;">MTG Premodern Lab</h2>', unsafe_allow_html=True)
 
     period_name = st.selectbox(
         "Choose Timeframe", 

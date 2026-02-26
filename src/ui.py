@@ -206,25 +206,11 @@ def apply_custom_css():
             border-right: 1px solid {THEME['border']};
         }}
 
-        /* ── Sidebar Nav: title injected via ::before ─────────────────────── */
+        /* ── Sidebar Nav: reordered via flexbox ───────────────────────────── */
         [data-testid="stSidebarNav"] {{
-            padding-top: 72px;
+            order: 2;
+            padding-top: 0;
             position: relative;
-        }}
-        [data-testid="stSidebarNav"]::before {{
-            content: "MTG Premodern Lab";
-            display: block;
-            position: absolute;
-            top: 16px;
-            left: 16px;
-            right: 16px;
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 18px;
-            font-weight: 600;
-            color: {THEME['text']};
-            letter-spacing: -0.3px;
-            line-height: 1.2;
-            white-space: nowrap;
         }}
 
         [data-testid="stSidebarNav"] ul {{
@@ -262,6 +248,10 @@ def apply_custom_css():
         [data-testid="stSidebarContent"] {{
             display: flex;
             flex-direction: column;
+        }}
+        /* Reposition widgets above navigation */
+        [data-testid="stSidebarUserContent"] {{
+            order: 1;
         }}
         /* Timeframe label */
         [data-testid="stSidebar"] .stSelectbox label {{
