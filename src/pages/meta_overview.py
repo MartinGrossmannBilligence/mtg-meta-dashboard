@@ -21,10 +21,10 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
     # Hardcoded default list of decks for the Matchup Matrix as requested by the user
     preferred_defaults = [
         "Replenish", "Enchantress", "Terrageddon", "Oath Ponza", "Elves",
-        "Tide Control", "Stasis", "Devourer Combo", "Stiflenought", "Burn",
+        "Stasis", "Devourer Combo", "Stiflenought", "Burn",
         "Madness", "Survival Rock", "Gro-a-Tog", "Psychatog", "Landstill",
         "Goblins", "White Weenie", "BW Control", "Machine Head", "The Rock",
-        "Contamination", "Deadguy Ale"
+        "Deadguy Ale"
     ]
     custom_defaults = [d for d in preferred_defaults if d in all_archetypes]
     if not custom_defaults:
@@ -249,7 +249,6 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
             return
 
         # ─── MATCHUP MATRIX ───────────────────────────────────────────────
-        st.subheader("Matchup Matrix")
         decks_for_matrix = list(selected_decks)
         if sort_by == "Win Rate":
             stats = [
@@ -293,13 +292,14 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
             paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
             font_color=THEME["text"],
             margin=dict(l=0, r=0, t=40, b=0),
+            coloraxis_showscale=False,
+            xaxis={'side': 'top'},
         )
         fig.update_traces(
             hovertemplate="<b>%{y} vs %{x}</b><br>%{customdata}<extra></extra>",
             customdata=hover_data,
         )
         st.plotly_chart(fig, use_container_width=True)
-        st.caption("Scale centered at 50% (35%–65%). Blank cells = insufficient data.")
 
         st.markdown('<div style="margin: 8px 0 12px 0; border-top: 1px solid #222222;"></div>', unsafe_allow_html=True)
 
