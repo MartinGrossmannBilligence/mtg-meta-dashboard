@@ -70,9 +70,9 @@ def run_simulator():
     show_simulator(matrix_data, all_archetypes, records_data)
 
 # ── 6. Navigation ─────────────────────────────────────────────────────────────
-pg_analysis = st.Page(run_analysis,      title="Deck Analysis",         default=True)
-pg_overview  = st.Page(run_meta_overview, title="Meta Overview")
+pg_overview  = st.Page(run_meta_overview, title="Meta Overview",      default=True)
+pg_analysis = st.Page(run_analysis,      title="Deck Analysis")
 pg_simulator = st.Page(run_simulator,    title="Tournament Simulator")
 
-pg = st.navigation([pg_analysis, pg_overview, pg_simulator])
+pg = st.navigation([pg_overview, pg_analysis, pg_simulator])
 pg.run()
