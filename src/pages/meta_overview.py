@@ -67,29 +67,29 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
                 if diff < -0.02: return "🔴 ↓"
                 return "⚪ →"
 
-            heatmap_data["Trend"] = heatmap_data.apply(get_trend_icon, axis=1)
+            heatmap_data["Recent Trend"] = heatmap_data.apply(get_trend_icon, axis=1)
             
             # Prepare numeric data for color and text data for labels
             # Heatmap needs a numeric matrix for colors
-            # We'll use the original WR values and a dummy value for the Trend column
+            # We'll use the original WR values and a dummy value for the Recent Trend column
             display_data = heatmap_data[existing].copy()
-            # For the Trend column, we use the last period's WR as a background color base 
+            # For the Recent Trend column, we use the last period's WR as a background color base 
             # or just a neutral value. Let's use the last period value to keep color consistent.
-            display_data["Trend"] = display_data[last_p] 
+            display_data["Recent Trend"] = display_data[last_p] 
             
             # Create text matrix for display
             text_data = heatmap_data[existing].applymap(lambda x: f"{x:.1%}" if pd.notna(x) else "")
-            text_data["Trend"] = heatmap_data["Trend"]
+            text_data["Recent Trend"] = heatmap_data["Recent Trend"]
 
             # Create hover text
             hover_text = []
             for deck in heatmap_data.index:
                 row_hover = []
                 for col in heatmap_data.columns:
-                    if col == "Trend":
+                    if col == "Recent Trend":
                         v1, v2 = heatmap_data.loc[deck, first_p], heatmap_data.loc[deck, last_p]
                         diff_str = f"{(v2-v1):+.1%}" if pd.notna(v1) and pd.notna(v2) else "N/A"
-                        row_hover.append(f"<b>{deck}</b><br>Overall Trend: {diff_str}<br>({first_p} → {last_p})")
+                        row_hover.append(f"<b>{deck}</b><br>Recent Trend: {diff_str}<br>({first_p} → {last_p})")
                     else:
                         val = heatmap_data.loc[deck, col]
                         row_hover.append(f"<b>{deck}</b><br>Period: {col}<br>Win Rate: {val:.1%}" if pd.notna(val) else "No data")
