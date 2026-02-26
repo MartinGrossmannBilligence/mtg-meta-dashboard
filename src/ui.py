@@ -206,8 +206,9 @@ def apply_custom_css():
             border-right: 1px solid {THEME['border']};
         }}
 
-        /* ── Sidebar Nav ─────────────────────────────────────────────── */
+        /* ── Sidebar Nav: position in middle via order ───────────────────── */
         [data-testid="stSidebarNav"] {{
+            order: 5 !important;
             padding-top: 0;
             position: relative;
         }}
@@ -247,6 +248,34 @@ def apply_custom_css():
         [data-testid="stSidebarContent"] {{
             display: flex;
             flex-direction: column;
+        }}
+        
+        /* God-mode reordering: flatten the user content container */
+        [data-testid="stSidebarUserContent"], 
+        [data-testid="stSidebarUserContent"] > div {{
+            display: contents;
+        }}
+        
+        /* 1. App Title (Top) */
+        .app-title-container {{ order: 1 !important; }}
+        
+        /* 2. Timeframe Selector (Under Title) */
+        [data-testid="stSidebar"] [data-testid="stWidgetLabel"] + div,
+        [data-testid="stSidebar"] .stSelectbox {{ 
+            order: 2 !important; 
+        }}
+        
+        /* 3. Divider */
+        [data-testid="stSidebar"] .stDivider {{ 
+            order: 3 !important; 
+        }}
+        
+        /* 4. Navigation Links (order: 5) - defined above */
+        
+        /* 5. Footer (Bottom) */
+        .source-pill {{ 
+            order: 10 !important; 
+            margin-top: 20px; 
         }}
         
         /* Timeframe label */
