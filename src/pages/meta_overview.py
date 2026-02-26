@@ -50,40 +50,81 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
 
             ordered_periods = list(timeframes.keys())
             existing = [p for p in ordered_periods if p in pivot_wr.columns]
-            trend_df = pivot_wr.loc[valid_trend_decks][existing].T
+            # Calculate Trend: Last Period - First Period
+            # We assume 'existing' is ordered from oldest to newest (2 Years -> 2 Months)
+            first_p = existing[0]
+            last_p = existing[-1]
+            
+            heatmap_data = pivot_wr.loc[valid_trend_decks][existing].copy()
+            
+            # Add Trend Column
+            def get_trend_icon(deck_row):
+                v1 = deck_row[first_p]
+                v2 = deck_row[last_p]
+                if pd.isna(v1) or pd.isna(v2): return "⚪" # Neutral if data missing
+                diff = v2 - v1
+                if diff > 0.02: return "🟢 ↑"
+                if diff < -0.02: return "🔴 ↓"
+                return "⚪ →"
 
-            fig_t = px.line(
-                trend_df, markers=True,
-                labels={"value": "Win Rate", "index": "Period"},
+            heatmap_data["Trend"] = heatmap_data.apply(get_trend_icon, axis=1)
+            
+            # Prepare numeric data for color and text data for labels
+            # Heatmap needs a numeric matrix for colors
+            # We'll use the original WR values and a dummy value for the Trend column
+            display_data = heatmap_data[existing].copy()
+            # For the Trend column, we use the last period's WR as a background color base 
+            # or just a neutral value. Let's use the last period value to keep color consistent.
+            display_data["Trend"] = display_data[last_p] 
+            
+            # Create text matrix for display
+            text_data = heatmap_data[existing].applymap(lambda x: f"{x:.1%}" if pd.notna(x) else "")
+            text_data["Trend"] = heatmap_data["Trend"]
+
+            # Create hover text
+            hover_text = []
+            for deck in heatmap_data.index:
+                row_hover = []
+                for col in heatmap_data.columns:
+                    if col == "Trend":
+                        v1, v2 = heatmap_data.loc[deck, first_p], heatmap_data.loc[deck, last_p]
+                        diff_str = f"{(v2-v1):+.1%}" if pd.notna(v1) and pd.notna(v2) else "N/A"
+                        row_hover.append(f"<b>{deck}</b><br>Overall Trend: {diff_str}<br>({first_p} → {last_p})")
+                    else:
+                        val = heatmap_data.loc[deck, col]
+                        row_hover.append(f"<b>{deck}</b><br>Period: {col}<br>Win Rate: {val:.1%}" if pd.notna(val) else "No data")
+                hover_text.append(row_hover)
+
+            fig_t = px.imshow(
+                display_data,
+                labels=dict(x="Period", y="Deck", color="Win Rate"),
+                x=display_data.columns,
+                y=display_data.index,
+                color_continuous_scale=[[0, "#C76B6B"], [0.5, "#222222"], [1, "#6BC78E"]],
+                zmin=0.35, zmax=0.65,
+                aspect="auto",
                 template="plotly_dark",
-                color_discrete_sequence=px.colors.qualitative.Safe,
             )
-            fig_t.add_hline(y=0.5, line_dash="dash", line_color=THEME["faint"])
+            
+            # Add text labels manually to handle the Trend icons
+            fig_t.update_traces(
+                text=text_data.values,
+                texttemplate="%{text}",
+                hovertemplate="%{customdata}<extra></extra>",
+                customdata=hover_text
+            )
+            
             fig_t.update_layout(
-                height=420, hovermode="closest",
+                height=max(300, len(valid_trend_decks) * 35), # Scale height by number of decks
                 paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
                 font_color=THEME["text"],
-                showlegend=False,
+                coloraxis_showscale=False,
                 margin=dict(l=0, r=0, t=20, b=0),
-                xaxis_title="",
+                xaxis={'side': 'top'},
             )
-            fig_t.update_yaxes(tickformat=".0%", range=[0.35, 0.65])
-            # Add deck names at the last data point of each line
-            last_period = existing[-1] if existing else None
-            if last_period:
-                for deck in valid_trend_decks:
-                    wr_val = pivot_wr.loc[deck].get(last_period)
-                    if pd.notna(wr_val):
-                        fig_t.add_annotation(
-                            x=last_period, y=wr_val,
-                            text=deck, showarrow=False,
-                            xanchor="left", yanchor="middle",
-                            xshift=8,
-                            font=dict(size=10, family="IBM Plex Mono"),
-                        )
             
-            # Horizontally shrink the chart by placing it in a centered column
-            _, chart_col, _ = st.columns([0.1, 0.8, 0.1])
+            # Use columns for layout to make the chart narrower (centered)
+            _, chart_col, _ = st.columns([0.2, 0.6, 0.2])
             with chart_col:
                 st.plotly_chart(fig_t, use_container_width=True, key=f"trend_chart_{key_suffix}")
 
