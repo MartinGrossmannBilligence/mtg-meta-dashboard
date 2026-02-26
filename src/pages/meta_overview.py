@@ -111,7 +111,8 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
                 text=text_data.values,
                 texttemplate="%{text}",
                 hovertemplate="%{customdata}<extra></extra>",
-                customdata=hover_text
+                customdata=hover_text,
+                hoverlabel=dict(font_size=14, font_family="IBM Plex Mono")
             )
             
             fig_t.update_layout(
@@ -128,7 +129,7 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
             with chart_col:
                 st.plotly_chart(fig_t, use_container_width=True, key=f"trend_chart_{key_suffix}")
 
-    tab_stats, tab_matchups = st.tabs(["Metagame Stats", "Matchup Matrix"])
+    tab_stats, tab_matchups = st.tabs(["Metagame Stats", "Matchup Matrix & Trends"])
 
     # ─── TAB 1: METAGAME STATS ───────────────────────────────────────────────
     with tab_stats:
@@ -178,7 +179,10 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
                     hover_name="tooltip",
                     template="plotly_dark"
                 )
-                fig_s.update_traces(hovertemplate="%{hovertext}<extra></extra>")
+                fig_s.update_traces(
+                    hovertemplate="%{hovertext}<extra></extra>",
+                    hoverlabel=dict(font_size=14, font_family="IBM Plex Mono")
+                )
                 fig_s.add_hline(y=0.5, line_dash="dash", line_color=THEME["faint"])
 
                 icon_sizex = x_range * 0.095
@@ -313,7 +317,7 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
                 wr    = cell.get("win_rate", 0.5)
                 if total >= min_games:
                     row.append(wr)
-                    hover_row.append(f"Win Rate {wr:.1%} (Based on {total} matches)<br>{cell.get('wins',0)}W – {cell.get('losses',0)}L")
+                    hover_row.append(f"Win Rate {wr:.1%}<br>{cell.get('wins',0)}W – {cell.get('losses',0)}L")
                 else:
                     row.append(None)
                     hover_row.append("Insufficient data")
@@ -339,6 +343,7 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
         fig.update_traces(
             hovertemplate="<b>%{y} vs %{x}</b><br>%{customdata}<extra></extra>",
             customdata=hover_data,
+            hoverlabel=dict(font_size=14, font_family="IBM Plex Mono")
         )
         st.plotly_chart(fig, use_container_width=True)
 
