@@ -431,6 +431,12 @@ def apply_custom_css():
             text-decoration: underline;
             text-underline-offset: 2px;
         }}
+
+        /* ── Center Segmented Control ─────────────────────────────────────── */
+        [data-testid="stSidebar"] div.stSegmentedControl {{
+            display: flex;
+            justify-content: center;
+        }}
         </style>
     """, unsafe_allow_html=True)
 

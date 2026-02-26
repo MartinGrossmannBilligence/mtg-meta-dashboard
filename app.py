@@ -27,7 +27,7 @@ def get_cached_period_data(period_key):
 # "Premodern Meta Lab" title is injected above the nav links via CSS ::before
 # in apply_custom_css().
 with st.sidebar:
-    st.markdown('<p style="font-size: 0.85rem; margin-bottom: 0.2rem; opacity: 0.7;">Data from the last:</p>', unsafe_allow_html=True)
+    st.markdown('<p style="text-align: center; font-size: 0.85rem; margin-bottom: 0.2rem; opacity: 0.7;">Data from the last:</p>', unsafe_allow_html=True)
     period_name = st.segmented_control(
         "Data from the last:", 
         options=list(TIMEFRAMES.keys()), 
