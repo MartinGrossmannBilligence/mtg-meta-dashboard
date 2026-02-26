@@ -36,16 +36,7 @@ with st.sidebar:
         help="Analyse aggregated data for the last 1-year, 6-month, or 2-month periods."
     )
     st.divider()
-    
-    st.markdown(
-        '<div class="source-pill">This app is based on <a href="https://mtgdecks.net/Premodern" target="_blank" style="text-decoration: underline;">MTGDecks.net</a> data.</div>',
-        unsafe_allow_html=True,
-    )
 
-    st.markdown(
-        '<div class="source-pill" style="margin-top:10px;">Feel free to contact me via <a href="mailto:grossmann.martin.cz@gmail.com">Email</a> or <a href="https://m.me/martin.grossmann.5" target="_blank">Messenger</a>. Martin Grossmann</div>',
-        unsafe_allow_html=True,
-    )
 
 # ── 4. Data ───────────────────────────────────────────────────────────────────
 try:
@@ -73,4 +64,17 @@ pg_analysis = st.Page(run_analysis,      title="Deck Analysis")
 pg_simulator = st.Page(run_simulator,    title="Tournament Simulator")
 
 pg = st.navigation([pg_overview, pg_analysis, pg_simulator])
+
+# Sidebar footer - placed at the end to ensure it appears below navigation
+with st.sidebar:
+    st.markdown('<div style="margin-top: 40px;"></div>', unsafe_allow_html=True)
+    st.markdown(
+        '<div class="source-pill">This app is based on <a href="https://mtgdecks.net/Premodern" target="_blank" style="text-decoration: underline;">MTGDecks.net</a> data.</div>',
+        unsafe_allow_html=True,
+    )
+    st.markdown(
+        '<div class="source-pill" style="margin-top:10px;">Feel free to contact me via <a href="mailto:grossmann.martin.cz@gmail.com">Email</a> or <a href="https://m.me/martin.grossmann.5" target="_blank">Messenger</a>. Martin Grossmann</div>',
+        unsafe_allow_html=True,
+    )
+
 pg.run()

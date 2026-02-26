@@ -206,9 +206,8 @@ def apply_custom_css():
             border-right: 1px solid {THEME['border']};
         }}
 
-        /* ── Sidebar Nav: position in middle via flex order ──────────────── */
+        /* ── Sidebar Nav ─────────────────────────────────────────────── */
         [data-testid="stSidebarNav"] {{
-            order: 2 !important;
             padding-top: 0;
             position: relative;
         }}
@@ -248,27 +247,6 @@ def apply_custom_css():
         [data-testid="stSidebarContent"] {{
             display: flex;
             flex-direction: column;
-        }}
-        /* God-mode reordering: skip intermediate containers */
-        [data-testid="stSidebarUserContent"], 
-        [data-testid="stSidebarUserContent"] > div[data-testid="stVerticalBlock"] {{
-            display: contents;
-        }}
-        
-        /* Top elements */
-        .app-title-container {{ order: 0 !important; }}
-        [data-testid="stSidebar"] .stSelectbox {{ order: 1 !important; }}
-        [data-testid="stSidebar"] [data-testid="stHorizontalBlock"] {{ order: 1 !important; }} /* for dividers or extra top widgets */
-        [data-testid="stSidebar"] .stDivider {{ order: 1.5 !important; }}
-        
-        /* Bottom elements */
-        .source-pill {{ 
-            order: 10 !important; 
-            margin-top: auto; 
-            padding-bottom: 2px;
-        }}
-        .source-pill:last-child {{
-            padding-bottom: 24px;
         }}
         
         /* Timeframe label */
