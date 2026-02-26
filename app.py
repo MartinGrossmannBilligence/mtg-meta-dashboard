@@ -27,7 +27,6 @@ def get_cached_period_data(period_key):
 # "Premodern Meta Lab" title is injected above the nav links via CSS ::before
 # in apply_custom_css().
 with st.sidebar:
-    st.markdown('<div class="app-title-container"><h2 style="font-size: 18px; font-weight: 600; margin-top: 0; margin-bottom: 16px;">MTG Premodern Lab</h2></div>', unsafe_allow_html=True)
 
     period_name = st.selectbox(
         "Choose Timeframe", 
@@ -36,6 +35,19 @@ with st.sidebar:
         help="Analyse aggregated data for the last 1-year, 6-month, or 2-month periods."
     )
     st.divider()
+    
+    # Push items to bottom
+    st.markdown('<div style="flex-grow:1;"></div><br><br><br>', unsafe_allow_html=True)
+    
+    st.markdown(
+        '<div class="source-pill">This app is based on <a href="https://mtgdecks.net/Premodern" target="_blank" style="text-decoration: underline;">MTGDecks.net</a> data.</div>',
+        unsafe_allow_html=True,
+    )
+
+    st.markdown(
+        '<div class="source-pill" style="margin-top:10px;">Feel free to contact me via <a href="mailto:grossmann.martin.cz@gmail.com">Email</a> or <a href="https://m.me/martin.grossmann.5" target="_blank">Messenger</a>. Martin Grossmann</div>',
+        unsafe_allow_html=True,
+    )
 
 
 # ── 4. Data ───────────────────────────────────────────────────────────────────
@@ -64,17 +76,5 @@ pg_analysis = st.Page(run_analysis,      title="Deck Analysis")
 pg_simulator = st.Page(run_simulator,    title="Tournament Simulator")
 
 pg = st.navigation([pg_overview, pg_analysis, pg_simulator])
-
-# Sidebar footer - placed at the end to ensure it appears below navigation
-with st.sidebar:
-    st.markdown('<div style="margin-top: 40px;"></div>', unsafe_allow_html=True)
-    st.markdown(
-        '<div class="source-pill">This app is based on <a href="https://mtgdecks.net/Premodern" target="_blank" style="text-decoration: underline;">MTGDecks.net</a> data.</div>',
-        unsafe_allow_html=True,
-    )
-    st.markdown(
-        '<div class="source-pill" style="margin-top:10px;">Feel free to contact me via <a href="mailto:grossmann.martin.cz@gmail.com">Email</a> or <a href="https://m.me/martin.grossmann.5" target="_blank">Messenger</a>. Martin Grossmann</div>',
-        unsafe_allow_html=True,
-    )
 
 pg.run()

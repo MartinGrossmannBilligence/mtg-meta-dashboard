@@ -206,11 +206,25 @@ def apply_custom_css():
             border-right: 1px solid {THEME['border']};
         }}
 
-        /* ── Sidebar Nav: position in middle via order ───────────────────── */
+        /* ── Sidebar Nav: title injected via ::before ─────────────────────── */
         [data-testid="stSidebarNav"] {{
-            order: 5 !important;
-            padding-top: 0;
+            padding-top: 72px;
             position: relative;
+        }}
+        [data-testid="stSidebarNav"]::before {{
+            content: "MTG Premodern Lab";
+            display: block;
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            right: 16px;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 18px;
+            font-weight: 600;
+            color: {THEME['text']};
+            letter-spacing: -0.3px;
+            line-height: 1.2;
+            white-space: nowrap;
         }}
 
         [data-testid="stSidebarNav"] ul {{
@@ -248,34 +262,6 @@ def apply_custom_css():
         [data-testid="stSidebarContent"] {{
             display: flex;
             flex-direction: column;
-        }}
-        
-        /* God-mode reordering: flatten the user content container */
-        [data-testid="stSidebarUserContent"], 
-        [data-testid="stSidebarUserContent"] > div {{
-            display: contents;
-        }}
-        
-        /* 1. App Title (Top) */
-        .app-title-container {{ order: 1 !important; }}
-        
-        /* 2. Timeframe Selector (Under Title) */
-        [data-testid="stSidebar"] [data-testid="stWidgetLabel"] + div,
-        [data-testid="stSidebar"] .stSelectbox {{ 
-            order: 2 !important; 
-        }}
-        
-        /* 3. Divider */
-        [data-testid="stSidebar"] .stDivider {{ 
-            order: 3 !important; 
-        }}
-        
-        /* 4. Navigation Links (order: 5) - defined above */
-        
-        /* 5. Footer (Bottom) */
-        .source-pill {{ 
-            order: 10 !important; 
-            margin-top: 20px; 
         }}
         
         /* Timeframe label */
