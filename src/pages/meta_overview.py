@@ -225,15 +225,7 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
             
             st.markdown(html_deck_table(d_table, ["Deck", "Win Rate", "Meta Share", "Win Rate Confidence Interval", "Sample Size"], data_dir=data_dir), unsafe_allow_html=True)
 
-            st.markdown('<div style="margin: 8px 0 12px 0; border-top: 1px solid #222222;"></div>', unsafe_allow_html=True)
-            selected_trend_decks_stats = st.multiselect(
-                "Select Decks for Trends",
-                all_archetypes,
-                default=custom_defaults,
-                key="stats_trend_decks",
-            )
-            if selected_trend_decks_stats:
-                _draw_trend_chart(selected_trend_decks_stats, key_suffix="stats")
+
 
 
     # ─── TAB 2: MATCHUP MATRIX ───────────────────────────────────────────────
