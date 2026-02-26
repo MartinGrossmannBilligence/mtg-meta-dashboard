@@ -12,7 +12,7 @@ Interactive metagame analytics dashboard for **Premodern Magic: The Gathering** 
 
 ## Data Source
 
-All metagame data is provided by [Duress Crew](https://data.duresscrew.com/).
+All data comes from MTGDecks.net
 
 ## How to Run Locally
 
