@@ -284,14 +284,15 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
                 margin=dict(l=35, r=90, t=28, b=0),
                 yaxis=dict(
                     tickformat=".0%", range=[0, 0.7], tickfont=dict(size=11), 
-                    showgrid=True, dtick=0.2, gridcolor="rgba(255, 255, 255, 0.1)"
+                    showgrid=True, dtick=0.2, gridcolor="rgba(255, 255, 255, 0.1)",
+                    fixedrange=True
                 ),
-                xaxis=dict(tickfont=dict(size=12)),
+                xaxis=dict(tickfont=dict(size=12), fixedrange=True),
                 xaxis_title="",
                 showlegend=False,
                 hovermode=False,
             )
-            st.plotly_chart(fig_hist, use_container_width=True, key="deck_trend_combined")
+            st.plotly_chart(fig_hist, use_container_width=True, key="deck_trend_combined", config={'displayModeBar': False})
 
         st.markdown('<div style="margin: 8px 0 12px 0; border-top: 1px solid #222222;"></div>', unsafe_allow_html=True)
 
