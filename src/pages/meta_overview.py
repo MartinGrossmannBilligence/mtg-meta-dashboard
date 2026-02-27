@@ -124,13 +124,14 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
                 font_color=THEME["text"],
                 coloraxis_showscale=False,
                 margin=dict(l=0, r=0, t=20, b=0),
-                xaxis={'side': 'top'},
+                xaxis={'side': 'top', 'fixedrange': True},
+                yaxis={'fixedrange': True},
             )
             
             # Use columns for layout to make the chart narrower (centered)
             _, chart_col, _ = st.columns([0.2, 0.6, 0.2])
             with chart_col:
-                st.plotly_chart(fig_t, use_container_width=True, key=f"trend_chart_{key_suffix}")
+                st.plotly_chart(fig_t, use_container_width=True, key=f"trend_chart_{key_suffix}", config={'displayModeBar': False})
 
     tab_stats, tab_matchups = st.tabs(["Metagame Stats", "Matchup Matrix & Trends"])
 
@@ -225,11 +226,11 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
                     margin=dict(l=20, r=20, t=30, b=20),
                     xaxis_title="Metagame Share",
                     yaxis_title="Win Rate",
-                    xaxis=dict(tickformat=".0%", range=[0, x_max]),
-                    yaxis=dict(tickformat=".0%", range=[y_min, y_max]),
+                    xaxis=dict(tickformat=".0%", range=[0, x_max], fixedrange=True),
+                    yaxis=dict(tickformat=".0%", range=[y_min, y_max], fixedrange=True),
                     showlegend=False,
                 )
-                st.plotly_chart(fig_s, use_container_width=True, key="scatter_meta_winrate")
+                st.plotly_chart(fig_s, use_container_width=True, key="scatter_meta_winrate", config={'displayModeBar': False})
 
             st.markdown('<div style="margin: 8px 0 12px 0; border-top: 1px solid #222222;"></div>', unsafe_allow_html=True)
 
@@ -342,14 +343,15 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
             font_color=THEME["text"],
             margin=dict(l=0, r=0, t=40, b=0),
             coloraxis_showscale=False,
-            xaxis={'side': 'top'},
+            xaxis={'side': 'top', 'fixedrange': True},
+            yaxis={'fixedrange': True},
         )
         fig.update_traces(
             hovertemplate="<b>%{y} vs %{x}</b><br>%{customdata}<extra></extra>",
             customdata=hover_data,
             hoverlabel=dict(font_size=14, font_family="IBM Plex Mono")
         )
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, use_container_width=True, config={'displayModeBar': False})
 
         st.markdown('<div style="margin: 8px 0 12px 0; border-top: 1px solid #222222;"></div>', unsafe_allow_html=True)
 
