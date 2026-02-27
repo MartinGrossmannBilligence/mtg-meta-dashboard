@@ -42,7 +42,10 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
                 st.error("Could not load trend data.")
                 return
 
-            valid_trend_decks = [d for d in selected_decks_list if d in pivot_wr.index]
+            # Filter by sample size (total games across all periods must be > 5)
+            # pivot_wr contains win rates, games_df contains game counts
+            decks_with_enough_games = games_df.fillna(0).sum(axis=1) > 5
+            valid_trend_decks = [d for d in selected_decks_list if d in pivot_wr.index and decks_with_enough_games.get(d, False)]
 
             if not valid_trend_decks:
                 st.warning("No selected decks have enough historical data.")
@@ -139,7 +142,7 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
                 .rename(columns={"archetype": "Deck", "win_rate": "Win Rate", "total_matches": "Games"})
                 .sort_values("Win Rate", ascending=False)
             )
-            df_rec = df_rec[df_rec["Deck"] != "Unknown"]
+            df_rec = df_rec[(df_rec["Deck"] != "Unknown") & (df_rec["Games"] > 5)]
 
             # ─── Compute meta shares early (used by scatter + table) ─────────
             matchups_matrix = matrix_dict.get("matrix", matrix_dict) 
@@ -152,6 +155,7 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
 
             # --- SCATTER PLOT: Metagame Share vs Win Rate ---
             st.subheader("Win Rate vs Metagame Share")
+            # Note: df_rec is already filtered for Games > 5
             scatter_df = df_rec[(df_rec["Meta Share (Num)"] > 0) & (df_rec["Games"] >= 20)].copy()
 
             if scatter_df.empty:
