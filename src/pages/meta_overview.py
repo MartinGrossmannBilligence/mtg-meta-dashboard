@@ -185,8 +185,8 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
                 )
                 fig_s.add_hline(y=0.5, line_dash="dash", line_color=THEME["faint"])
 
-                icon_sizex = x_range * 0.095
-                icon_sizey = y_range * 0.115
+                icon_sizex = x_range * 0.11
+                icon_sizey = y_range * 0.132
 
                 for _, row in scatter_df.iterrows():
                     deck  = row["Deck"]
