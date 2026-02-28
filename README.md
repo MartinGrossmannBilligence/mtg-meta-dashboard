@@ -12,7 +12,11 @@ Interactive metagame analytics dashboard for **Premodern Magic: The Gathering** 
 
 ## Data Source
 
-All metagame data is provided by [Duress Crew](https://data.duresscrew.com/).
+Primary metagame data and decklists are fetched from [MTGDecks.net](https://mtgdecks.net/Premodern), integrated with historic data from [Duress Crew](https://data.duresscrew.com/).
+
+## Technical Documentation
+
+For details on data flow, archetype mapping, and automation scripts, see [DATA_ARCHITECTURE.md](file:///c:/Users/MartinGrossmann/Documents/Antigravity/mtg-meta-dashboard/DATA_ARCHITECTURE.md).
 
 ## How to Run Locally
 

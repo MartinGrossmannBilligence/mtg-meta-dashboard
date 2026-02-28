@@ -16,6 +16,7 @@ def get_icon_b64(deck_name, data_dir="data"):
         with open(path, "rb") as f:
             _icon_cache[deck_name] = base64.b64encode(f.read()).decode()
     else:
+        # st.write(f"Icon not found: {path}") # Debug
         _icon_cache[deck_name] = None
     return _icon_cache[deck_name]
 

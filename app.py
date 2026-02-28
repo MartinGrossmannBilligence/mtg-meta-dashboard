@@ -13,10 +13,10 @@ apply_custom_css()
 # ── 2. Constants ──────────────────────────────────────────────────────────────
 DATA_DIR = "data"
 TIMEFRAMES = {
-    "2Y": "all_time",
+    "2Y": "2_years",
     "1Y": "1_year",
     "6M": "mtgdecks_matrix_6_months",
-    "2M": "mtgdecks_matrix_2_months",
+    "2M": "mtgdecks_matrix_60_days"
 }
 
 @st.cache_data(ttl=3600)
@@ -64,7 +64,7 @@ def run_analysis():
     show_analysis(matrix_data, all_archetypes, records_data, DATA_DIR, TIMEFRAMES)
 
 def run_meta_overview():
-    show_tier_filter = period_name not in ["6 Months", "2 Months"]
+    show_tier_filter = period_name not in ["6M", "2M", "1M"]
     show_meta_overview(matrix_data, all_archetypes, records_data, DATA_DIR, TIMEFRAMES, tiers_dict, show_tier_filter)
 
 def run_simulator():
