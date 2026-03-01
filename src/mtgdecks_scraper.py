@@ -200,27 +200,53 @@ def get_decklist(url):
         soup = BeautifulSoup(html, 'html.parser')
         cards = []
         
-        # Mtgdecks uses <td class="number"> for card counts
-        number_tds = soup.find_all('td', class_='number')
-        for td in number_tds:
-            row = td.find_parent('tr')
-            if not row: continue
+        # Iterate through tables or rows to find section headers and cards
+        current_section = "Maindeck"
+        current_type = "Other"
+        
+        # MTGDecks often organizes by tables or headers
+        # We'll look for <th> for headers and <tr> for cards
+        all_elements = soup.find_all(['th', 'tr'])
+        
+        for elem in all_elements:
+            if elem.name == 'th':
+                header_text = elem.get_text(strip=True)
+                if "Sideboard" in header_text:
+                    current_section = "Sideboard"
+                    current_type = "Sideboard"
+                elif header_text:
+                    current_type = header_text
             
-            qty_text = td.get_text(strip=True)
-            if not qty_text.isdigit(): continue
+            elif elem.name == 'tr' and 'cardItem' in elem.get('class', []):
+                qty = elem.get('data-required')
+                name = elem.get('data-card-id')
+                if qty and name:
+                    try:
+                        cards.append({
+                            "qty": int(qty), 
+                            "name": name, 
+                            "section": current_section,
+                            "type": current_type
+                        })
+                    except ValueError:
+                        continue
+        
+        # Fallback to old behavior if no cardItems found (unlikely with modern site)
+        if not cards:
+            # Simple fallback logic similar to before but without type info
+            number_tds = soup.find_all('td', class_='number')
+            for td in number_tds:
+                row = td.find_parent('tr')
+                if not row: continue
+                qty_text = re.sub(r'\D', '', td.get_text(strip=True))
+                if not qty_text: continue
+                qty = int(qty_text)
+                name_tag = row.find('a')
+                if name_tag:
+                    name = name_tag.get_text(strip=True)
+                    cards.append({"qty": qty, "name": name, "section": "Maindeck", "type": "Unknown"})
                 
-            qty = int(qty_text)
-            
-            # Name is usually an <a> tag
-            name_tag = row.find('a')
-            if name_tag:
-                name = name_tag.get_text(strip=True)
-                cards.append({"qty": qty, "name": name})
-                
-        # Split into mainboard/sideboard simply by counting to 60ish?
-        # Actually, mtgdecks often separates them by different tables, but a flat list is fine for a quick preview.
-        # Let's cap it at 75 cards total just in case.
-        return cards[:75]
+        return cards[:100] # Increase cap to accommodate sideboard
         
     except Exception as e:
         print(f"Error fetching decklist {url}: {e}")

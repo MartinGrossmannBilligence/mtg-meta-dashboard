@@ -367,7 +367,7 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
             st.info("No recent decklists found matching the criteria (>=50 players, Top 8).")
         else:
             st.markdown("<br>", unsafe_allow_html=True)
-            info_text = "Offline snapshots scraped from MTGDecks.net. Shows recent high-performing decks from events with 50+ players. Maximum 10 decklists per archetype."
+            info_text = "Offline snapshots scraped from MTGDecks.net. Shows recent high-performing decks. Click to expand."
             st.markdown(f"<h3>Recent Top Decklists <span title='{info_text}' style='cursor:help; font-size:16px; color:#8A8A8A; opacity:0.8;'>&#9432;</span></h3>", unsafe_allow_html=True)
             
             # Load Official MTG Mana Symbols from local assets
@@ -376,98 +376,130 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
                 code = mapping.get(color_code)
                 if not code: return None, "No Code"
                 fname = f"mana_{code}_128.webp"
-                # Use same logic as deck icons
                 path = os.path.join(data_dir, "..", "assets", "mana_symbols", fname)
-                
                 if not os.path.exists(path):
-                    # Fallback to absolute check as secondary
                     base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
                     path = os.path.join(base_dir, "assets", "mana_symbols", fname)
-                
                 if not os.path.exists(path):
                     return None, path
-                    
                 with open(path, "rb") as f:
                     return base64.b64encode(f.read()).decode(), path
 
             MANA_ICONS = {c: _get_mana_b64(c)[0] for c in ['W', 'U', 'B', 'R', 'G']}
-            # Add a generic colorless diamond
             MANA_ICONS['C'] = 'PHN2ZyB2aWV3Qm94PSIwIDAgMzIgMzIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTUiIGZpbGw9IiNBM0EzQTMiIC8+PHBhdGggZD0iTTE2IDhsNiA4bC02IDhsLTYtOHoiIGZpbGw9IiMwMDAiIC8+PC9zdmc+'
             
-            import textwrap
-            
-            # Wrap in a styled container
-            html_content = '<div style="background-color: #1A1A1A; border: 1px solid #2A2A2A; border-radius: 8px; padding: 16px;">'
-            
-            for i, d in enumerate(decks):
-                # Replace title hover with actual clickable details disclosure
-                cards = d.get('cards', [])
-                if cards:
-                    lines = []
-                    for c in cards:
-                        lines.append(f"{c['qty']}x {c['name']}")
-                    decklist_html = "<br>".join(lines)
-                else:
-                    decklist_html = ""
-                
-                # Render colors as mana symbols
-                color_dots = ""
-                for c in d.get("colors", []):
-                    b64 = MANA_ICONS.get(c)
-                    if b64:
-                        mime = "image/svg+xml" if c == 'C' else "image/webp"
-                        color_dots += f'<img src="data:{mime};base64,{b64}" style="width:16px; height:16px; margin-right:4px; vertical-align:middle;" title="Mana {c}" alt="[{c}]">'
-                
-                # Render spiciness badge if > 0
-                spice = d.get('spice', 0)
-                spice_badge = ""
-                if spice > 0:
-                    spice_color = "#E49977" if spice > 50 else "#F59F00" if spice > 20 else "#8A8A8A"
-                    spice_badge = f'<span style="margin-left:8px; font-size:10px; color:{spice_color}; border:1px solid {spice_color}40; padding:1px 6px; border-radius:10px; background:rgba(0,0,0,0.2);">🌶️ Spice: {spice}%</span>'
-                
-                border_bottom = 'border-bottom: 1px solid #2A2A2A;' if i < len(decks) - 1 else ''
-                margin_bottom = 'margin-bottom: 12px; padding-bottom: 12px;' if i < len(decks) - 1 else ''
+            # Load Official Mana Symbols (Base64)
+            MANA_MAP = {}
+            try:
+                mana_json_path = os.path.join(data_dir, "mana_symbols.json")
+                with open(mana_json_path, "r", encoding="utf-8") as f:
+                    MANA_MAP = json.load(f)
+            except:
+                MANA_MAP = {'W': '☀️', 'U': '💧', 'B': '💀', 'R': '🔥', 'G': '🌲', 'C': '💎'}
 
-                # Format the header
-                header_html = (
-                    f'<div style="display:flex; align-items:center; flex-wrap:wrap; gap:8px;">'
-                    f'<a href="{d.get("url", "#")}" target="_blank" style="text-decoration:none; display:flex; align-items:center; gap:6px;">'
-                    f'<span style="color:#E0E0E0; font-size:14px;"><strong style="color:#FFF;">{d["rank"]}</strong> from <strong style="color:#FFF;">{d.get("players", "??")}</strong> Players</span>'
-                    f'<span style="color:#6BC78E; font-size:15px; font-weight:600;">{d["player"]}</span>'
-                    f'</a>'
-                    f'<span style="display:flex; align-items:center;">{color_dots}</span>'
-                )
-                if spice_badge:
-                    header_html += f'<span>{spice_badge}</span>'
-                
-                if decklist_html:
-                    header_html += f'<span style="background-color:#2A2A2A; color:#E0E0E0; border-radius:4px; font-size:12px; border:1px solid #444; padding:2px 8px; margin-left:12px;">👁️ View Decklist</span>'
-                
-                header_html += '</div>'
+            # Custom CSS for the unified decklist results table
+            st.markdown("""
+                <style>
+                /* Target the bordered container that follows our unique anchor */
+                .decklist-results-anchor + div [data-testid="stVerticalBlockBorderWrapper"] {
+                    background-color: #1E1E1E !important;
+                    border: 1px solid rgba(255,255,255,0.1) !important;
+                    border-radius: 8px !important;
+                    padding: 10px !important; /* Some padding for the container itself */
+                }
+                /* Style the individual decklist headers (expanders) to be individual blocks */
+                .stExpander, [data-testid="stExpander"] {
+                    background-color: #1E1E1E !important;
+                    border: 1px solid rgba(255,255,255,0.1) !important;
+                    border-radius: 8px !important;
+                    margin-bottom: 2px !important; /* Extremely tight spacing */
+                    box-shadow: none !important;
+                }
+                /* Ensure the header (summary) is solid grey */
+                .stExpander summary {
+                    background-color: #1E1E1E !important;
+                    padding: 12px !important;
+                    border-radius: 8px !important;
+                }
+                /* Hover effect for the header */
+                .stExpander summary:hover {
+                    background-color: #262626 !important;
+                }
+                /* Ensure the content area also has the same background when expanded */
+                .stExpander [data-testid="stVerticalBlock"] {
+                    background-color: #1E1E1E !important;
+                }
+                </style>
+            """, unsafe_allow_html=True)
 
-                if decklist_html:
-                    main_block = (
-                        f'<details style="margin-bottom:2px;"><summary style="cursor:pointer; display:inline-block; user-select:none;">'
-                        f'{header_html}'
-                        f'</summary>'
-                        f'<div style="margin-top:8px; padding:10px; background:rgba(0,0,0,0.3); border-radius:6px; font-size:12px; color:#D0D0D0; display:grid; grid-template-columns:repeat(auto-fill, minmax(180px, 1fr)); gap:4px;">{decklist_html}</div>'
-                        f'</details>'
-                    )
-                else:
-                    main_block = f'<div style="margin-bottom:2px;">{header_html}</div>'
+            # Anchor for precise CSS targeting of the results block
+            st.markdown('<div class="decklist-results-anchor"></div>', unsafe_allow_html=True)
+            with st.container(border=True):
+                for i, d in enumerate(decks):
+                    cards = d.get('cards', [])
+                    
+                    # Header Data
+                    rank = d.get('rank', '??')
+                    player = d.get('player', 'Unknown')
+                    players_count = d.get('players', '??')
+                    event = d.get('event', 'Unknown')
+                    date = d.get('date', 'Unknown')
+                    url = d.get('url', '#')
+                    
+                    # Title Strings (using Official Symbols or Emojis)
+                    mana_icons = "".join([MANA_MAP.get(c, f"[{c}]") for c in d.get("colors", [])])
+                    spice_text = f"🌶️ {d.get('spice', 0)}%" if d.get('spice', 0) > 0 else ""
+                    
+                    # Combined format: [Position] [Players] | [Player Name] | [Colors] | [Spice] | [Tournament] | [Date]
+                    expander_title = f"**{rank}** from **{players_count}** Players | **{player}** | {mana_icons} | {spice_text} | 🏆 {event} | 🗓️ {date}"
 
-                html_block = (
-                    f'<div style="{margin_bottom} {border_bottom}">'
-                    f'<div style="margin-bottom: 2px;">{main_block}</div>'
-                    f'<div style="font-size:12px; color:#8A8A8A; display:flex; gap:12px; margin-top:4px;">'
-                    f'<span>🗓️ {d["date"]}</span>'
-                    f'<span>🏆 {d["event"]}</span>'
-                    f'<span>👥 {d["players"]} players</span>'
-                    f'</div>'
-                    f'</div>'
-                )
-                
-                html_content += html_block
-            
-            html_content += '</div>'
-            st.markdown(html_content, unsafe_allow_html=True)
+                    # Full-width row (Expander)
+                    with st.expander(expander_title, expanded=False):
+                        if not cards:
+                            st.info("No card data available for this snapshot.")
+                            st.link_button("View on MTGDecks", url, use_container_width=True)
+                        else:
+                            # Grouping logic
+                            maindeck = [c for c in cards if c.get('section', 'Maindeck') == 'Maindeck']
+                            sideboard = [c for c in cards if c.get('section') == 'Sideboard']
+                            
+                            def group_by_type(card_list):
+                                grouped = {}
+                                for c in card_list:
+                                    ctype = c.get('type', 'Other').split('[')[0].strip()
+                                    if ctype not in grouped: grouped[ctype] = []
+                                    grouped[ctype].append(c)
+                                return grouped
+
+                            col1, col2, col3 = st.columns(3)
+                            
+                            with col1:
+                                st.markdown('<p style="color:#6BC78E; font-weight:bold; border-bottom:1px solid #333; margin-bottom:8px;">Mainboard</p>', unsafe_allow_html=True)
+                                m_grouped = group_by_type(maindeck)
+                                # Order excluding Lands for the first column
+                                spell_types = ["Creature", "Planeswalker", "Instant", "Sorcery", "Artifact", "Enchantment", "Other"]
+                                for t in spell_types:
+                                    if t in m_grouped:
+                                        header_html = f'<p style="color:#8A8A8A; font-size:12px; font-weight:bold; margin-top:6px; margin-bottom:2px; text-transform:uppercase;">{t} ({sum(c["qty"] for c in m_grouped[t])})</p>'
+                                        cards_html = "".join([f'<div style="font-size:14px; color:#E0E0E0; line-height:1.2; margin-bottom:1px;">{c["qty"]}x {c["name"]}</div>' for c in m_grouped[t]])
+                                        st.markdown(header_html + cards_html, unsafe_allow_html=True)
+
+                            with col2:
+                                # Render only Land in the middle column
+                                st.markdown('<p style="color:#6BC78E; font-weight:bold; border-bottom:1px solid #333; margin-bottom:8px;">&nbsp;</p>', unsafe_allow_html=True)
+                                if "Land" in m_grouped:
+                                    t = "Land"
+                                    header_html = f'<p style="color:#8A8A8A; font-size:12px; font-weight:bold; margin-top:6px; margin-bottom:2px; text-transform:uppercase;">{t} ({sum(c["qty"] for c in m_grouped[t])})</p>'
+                                    cards_html = "".join([f'<div style="font-size:14px; color:#E0E0E0; line-height:1.2; margin-bottom:1px;">{c["qty"]}x {c["name"]}</div>' for c in m_grouped[t]])
+                                    st.markdown(header_html + cards_html, unsafe_allow_html=True)
+
+                            with col3:
+                                st.markdown('<p style="color:#E49977; font-weight:bold; border-bottom:1px solid #333; margin-bottom:8px;">Sideboard</p>', unsafe_allow_html=True)
+                                if sideboard:
+                                    sb_html = "".join([f'<div style="font-size:14px; color:#E0E0E0; line-height:1.2; margin-bottom:1px;">{c["qty"]}x {c["name"]}</div>' for c in sideboard])
+                                    st.markdown(sb_html, unsafe_allow_html=True)
+                                else:
+                                    st.write("No sideboard.")
+                            
+                            st.divider()
+                            st.link_button("View on MTGDecks", url, use_container_width=True)
