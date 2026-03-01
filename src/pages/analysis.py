@@ -412,8 +412,8 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
                     background-color: #262626 !important;
                     border: 1px solid rgba(255,255,255,0.1) !important;
                     border-radius: 8px !important;
-                    margin-bottom: 8px !important;
-                    box-shadow: 0 4px 6px rgba(0,0,0,0.3) !important;
+                    margin-bottom: 2px !important; /* Extremely tight spacing */
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;
                 }
                 .stExpander summary {
                     background-color: #262626 !important;
