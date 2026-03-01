@@ -366,9 +366,8 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
         if not decks:
             st.info("No recent decklists found matching the criteria (>=50 players, Top 8).")
         else:
-            st.markdown("<br>", unsafe_allow_html=True)
             info_text = "Offline snapshots scraped from MTGDecks.net. Shows recent high-performing decks. Click to expand."
-            st.markdown(f"<h3>Recent Top Decklists <span title='{info_text}' style='cursor:help; font-size:16px; color:#8A8A8A; opacity:0.8;'>&#9432;</span></h3>", unsafe_allow_html=True)
+            st.markdown(f'<div style="margin-top: 5px; margin-bottom: -25px;"><h3>Recent Top Decklists <span title="{info_text}" style="cursor:help; font-size:16px; color:#8A8A8A; opacity:0.8;">&#9432;</span></h3></div>', unsafe_allow_html=True)
             
             # Load Official MTG Mana Symbols from local assets
             def _get_mana_b64(color_code):
@@ -400,41 +399,39 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
             # Custom CSS for the unified decklist results table
             st.markdown("""
                 <style>
-                /* Target the bordered container that follows our unique anchor */
-                .decklist-results-anchor + div [data-testid="stVerticalBlockBorderWrapper"] {
-                    background-color: #1E1E1E !important;
+                /* Target the container specifically by looking for our marker inside it */
+                div[data-testid="stVerticalBlock"]:has(> div > div > .decklist-container-marker) {
+                    background-color: #1A1A1A !important;
                     border: 1px solid rgba(255,255,255,0.1) !important;
-                    border-radius: 8px !important;
-                    padding: 10px !important; /* Some padding for the container itself */
+                    border-radius: 12px !important;
+                    padding: 20px !important;
+                    opacity: 1 !important;
                 }
-                /* Style the individual decklist headers (expanders) to be individual blocks */
+                /* Style the individual decklist headers (expanders) */
                 .stExpander, [data-testid="stExpander"] {
-                    background-color: #1E1E1E !important;
+                    background-color: #262626 !important;
                     border: 1px solid rgba(255,255,255,0.1) !important;
                     border-radius: 8px !important;
                     margin-bottom: 2px !important; /* Extremely tight spacing */
-                    box-shadow: none !important;
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;
                 }
-                /* Ensure the header (summary) is solid grey */
                 .stExpander summary {
-                    background-color: #1E1E1E !important;
+                    background-color: #262626 !important;
                     padding: 12px !important;
                     border-radius: 8px !important;
                 }
-                /* Hover effect for the header */
                 .stExpander summary:hover {
-                    background-color: #262626 !important;
+                    background-color: #333333 !important;
                 }
-                /* Ensure the content area also has the same background when expanded */
                 .stExpander [data-testid="stVerticalBlock"] {
-                    background-color: #1E1E1E !important;
+                    background-color: #262626 !important;
                 }
                 </style>
             """, unsafe_allow_html=True)
 
-            # Anchor for precise CSS targeting of the results block
-            st.markdown('<div class="decklist-results-anchor"></div>', unsafe_allow_html=True)
+            # Container with internal marker for targeting
             with st.container(border=True):
+                st.markdown('<div class="decklist-container-marker"></div>', unsafe_allow_html=True)
                 for i, d in enumerate(decks):
                     cards = d.get('cards', [])
                     
