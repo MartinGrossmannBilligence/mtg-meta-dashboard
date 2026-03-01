@@ -49,20 +49,45 @@ def fetch_cards(deck_url):
     
     soup = BeautifulSoup(html, 'html.parser')
     cards = []
-    for td in soup.find_all('td', class_='number'):
-        row = td.find_parent('tr')
-        if not row: continue
-        
-        qty_text = td.get_text(strip=True)
-        if not qty_text.isdigit(): continue
+    
+    current_section = "Maindeck"
+    current_type = "Other"
+    
+    # MTGDecks often uses <th> for types/sections
+    rows = soup.find_all('tr')
+    for row in rows:
+        # Check for header rows that define sections/types
+        th = row.find('th')
+        if th:
+            txt = th.get_text(strip=True).lower()
+            if 'sideboard' in txt:
+                current_section = "Sideboard"
+                current_type = "Other"
+            elif '[' in txt and '(' not in txt: # Likely a type like "Creatures [15]"
+                current_type = txt.split('[')[0].strip().capitalize()
+            continue
             
+        td_num = row.find('td', class_='number')
+        if not td_num: continue
+        
+        # Quantity is usually the text DIRECTLY inside td.number, 
+        # but sometimes there's an <a> or <span> first.
+        # Cleanly extract just the digits.
+        qty_text = "".join(filter(str.isdigit, td_num.get_text(separator=' ', strip=True)))
+        if not qty_text: continue
         qty = int(qty_text)
+        
         name_tag = row.find('a')
         if name_tag:
             name = name_tag.get_text(strip=True)
-            cards.append({"qty": qty, "name": name})
+            cards.append({
+                "qty": qty, 
+                "name": name,
+                "section": current_section,
+                "type": current_type
+            })
             
-    return cards[:75]
+    return cards[:100]
 
 def scrape_archetype_decklists(archetype_name, max_pages=10, required_decks=10):
     slug = archetype_name.replace(" ", "-").replace("(", "").replace(")", "").replace("'", "")
@@ -71,6 +96,11 @@ def scrape_archetype_decklists(archetype_name, max_pages=10, required_decks=10):
     if archetype_name == "RG Oath": slug = "rg-oath"
     if archetype_name == "Suicide Black": slug = "suicide-black"
     if archetype_name == "UW Standstill": slug = "uw-standstill"
+    if archetype_name == "Lands": slug = "lands"
+    if archetype_name == "Pyrostatic Oath": slug = "pyrostatic-oath"
+    if archetype_name == "Sneak Attack": slug = "sneak-and-show"
+    if archetype_name == "Temping Rack": slug = "tempting-rack"
+    if archetype_name == "UR Control": slug = "u-r-control"
     
     print(f"\nScraping {archetype_name} (slug: {slug})...")
     
@@ -226,19 +256,21 @@ def scrape_archetype_decklists(archetype_name, max_pages=10, required_decks=10):
 def main():
     backup_data_folder()
     
-    if not os.path.exists(MATRIX_FILE):
-        print(f"Matrix file not found: {MATRIX_FILE}")
+    # Use 90 days as primary source if exists, fallback to 6 months
+    matrix_path = os.path.join(DATA_DIR, "mtgdecks_matrix_90_days.json")
+    if not os.path.exists(matrix_path):
+        matrix_path = MATRIX_FILE
+        
+    if not os.path.exists(matrix_path):
+        print(f"Matrix file not found: {matrix_path}")
         return
         
-    with open(MATRIX_FILE, 'r', encoding='utf-8') as f:
+    print(f"Loading archetypes from: {matrix_path}")
+    with open(matrix_path, 'r', encoding='utf-8') as f:
         matrix_data = json.load(f)
         
     archetypes = matrix_data.get('archetypes', [])
-    tiers = matrix_data.get('tiers', {})
-    
-    # Filter to only Tier 1 and Tier 2 archetypes
-    tier_archetypes = [arch for arch in archetypes if tiers.get(arch) in ["Tier 1", "Tier 2"]]
-    print(f"Found {len(tier_archetypes)} Tier 1 & 2 archetypes to scrape out of {len(archetypes)} total.")
+    print(f"Found {len(archetypes)} total archetypes to process.")
     
     # We will load existing decklists so we can resume/update without destroying everything
     decklists_db = {}
@@ -249,16 +281,25 @@ def main():
             except:
                 pass
                 
-    for arch in tier_archetypes:
-        # User requested fresh scan of 10 pages for all Tier 1/2 archetypes
+    for arch in archetypes:
+        # RESUME LOGIC: Skip if we already have 10 decklists AND they have card data
+        existing_decks = decklists_db.get(arch, [])
+        has_cards = any(d.get('cards') for d in existing_decks)
+        
+        if len(existing_decks) >= 10 and has_cards:
+            print(f"Skipping {arch} - already have {len(existing_decks)} decklists with card data.")
+            continue
+
         try:
+            # Fresh scan of 10 pages to find the best 10 decks
             decks = scrape_archetype_decklists(arch, max_pages=10, required_decks=10)
-            decklists_db[arch] = decks
-            
-            # Save progressively in case it crashes
-            with open(DECKLISTS_FILE, 'w', encoding='utf-8') as f:
-                json.dump(decklists_db, f, indent=2)
+            if decks:
+                decklists_db[arch] = decks
                 
+                # Save progressively
+                with open(DECKLISTS_FILE, 'w', encoding='utf-8') as f:
+                    json.dump(decklists_db, f, indent=2)
+            
         except Exception as e:
             print(f"Critical error on {arch}: {e}")
             

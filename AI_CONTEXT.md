@@ -11,7 +11,7 @@ There are **two separate data providers** with different strengths:
 ### 1. Duress Crew (`data.duresscrew.com`)
 - Source of **win/loss records** and **matchup matrix** for long-term timeframes.
 - Data files: `archetype_matrix_{period}.json`, `win_loss_records_{period}.json`
-- Periods: `all_time`, `1_year`, `2_years`, `6_months`, `3_months`
+- Periods: `1_year`, `2_years`, `6_months`, `3_months`
 - **Does NOT contain `meta_shares`** — the archetype matrix JSON from Duress has no metagame share data.
 - Deck names use Duress Crew naming conventions (mapped to MTGDecks names via `src/mappings.py → DURESS_TO_MTGDECKS`).
 
@@ -97,7 +97,7 @@ Central function. Behavior:
 
 | Script | Purpose |
 |--------|---------|
-| `scripts/scrape_decklists.py` | Scrapes decklists from Duress Crew / MTGDecks |
-| `scripts/fetch_mtgdecks_matrices.py` | Downloads MTGDecks matrix JSON files |
+| `scripts/update_data_monthly.py` | Main ingestion script for MTGDecks win rates and meta shares |
+| `scripts/scrape_decklists.py` | Scrapes top decklists and card data |
 | `scripts/fetch_deck_icons.py` | Downloads art_crop JPEG icons per deck from Scryfall |
 | `scripts/encode_mana_json.py` | Encodes mana symbol SVGs to base64 for inline use |
