@@ -12,7 +12,7 @@ Interactive metagame analytics dashboard for **Premodern Magic: The Gathering** 
 
 ## Data Source
 
-Primary metagame data and decklists are fetched from [MTGDecks.net](https://mtgdecks.net/Premodern), integrated with historic data from [Duress Crew](https://data.duresscrew.com/).
+Primary metagame data and decklists are fetched from [MTGDecks.net](https://mtgdecks.net/Premodern) (updated monthly on the 1st), integrated with historic data from [Duress Crew](https://data.duresscrew.com/).
 
 ## Technical Documentation
 

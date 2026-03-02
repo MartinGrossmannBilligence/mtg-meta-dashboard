@@ -1,0 +1,784 @@
+[
+  {
+    "TID": "3049400",
+    "tournamentName": "premodern milan SECOND LEAGUE FINAL NIGHT - Premodern & Friends",
+    "format": "Premodern",
+    "bracketUrl": "https://www.spicerack.gg/events/3049400/tournament",
+    "players": 32,
+    "startDate": 1772222400,
+    "swissRounds": 4,
+    "topCut": 0,
+    "standings": [
+      {
+        "name": "Davide Rho",
+        "decklist": "https://www.moxfield.com/decks/1B83HomRAEqRt6oFZ70xxQ",
+        "winsSwiss": 4,
+        "lossesSwiss": 0,
+        "draws": 0,
+        "winsBracket": 0,
+        "lossesBracket": 0,
+        "mapped_archetype": "Gro-a-Tog",
+        "confidence": 0.41935483870967744,
+        "deck_data": {
+          "name": "Davide Rho - premodern milan SECOND LEAGUE FINAL NIGHT",
+          "author": "evf",
+          "url": "https://www.moxfield.com/decks/1B83HomRAEqRt6oFZ70xxQ",
+          "mainboard": [
+            {
+              "name": "Opt",
+              "qty": 4,
+              "type": ""
+            },
+            {
+              "name": "Quirion Dryad",
+              "qty": 4,
+              "type": ""
+            },
+            {
+              "name": "Gush",
+              "qty": 4,
+              "type": ""
+            },
+            {
+              "name": "Accumulated Knowledge",
+              "qty": 4,
+              "type": ""
+            },
+            {
+              "name": "City of Brass",
+              "qty": 4,
+              "type": ""
+            },
+            {
+              "name": "Counterspell",
+              "qty": 4,
+              "type": ""
+            },
+            {
+              "name": "Portent",
+              "qty": 4,
+              "type": ""
+            },
+            {
+              "name": "Swords to Plowshares",
+              "qty": 4,
+              "type": ""
+            },
+            {
+              "name": "Flooded Strand",
+              "qty": 4,
+              "type": ""
+            },
+            {
+              "name": "Psychatog",
+              "qty": 4,
+              "type": ""
+            },
+            {
+              "name": "Treva's Ruins",
+              "qty": 1,
+              "type": ""
+            },
+            {
+              "name": "Plains",
+              "qty": 1,
+              "type": ""
+            },
+            {
+              "name": "Gemstone Mine",
+              "qty": 1,
+              "type": ""
+            },
+            {
+              "name": "Foil",
+              "qty": 2,
+              "type": ""
+            },
+            {
+              "name": "Fire // Ice",
+              "qty": 2,
+              "type": ""
+            },
+            {
+              "name": "Armageddon",
+              "qty": 2,
+              "type": ""
+            },
+            {
+              "name": "Island",
+              "qty": 8,
+              "type": ""
+            },
+            {
+              "name": "Mox Diamond",
+              "qty": 3,
+              "type": ""
+            }
+          ],
+          "sideboard": [
+            {
+              "name": "Tsabo's Web",
+              "qty": 2,
+              "type": ""
+            },
+            {
+              "name": "Annul",
+              "qty": 2,
+              "type": ""
+            },
+            {
+              "name": "Disenchant",
+              "qty": 2,
+              "type": ""
+            },
+            {
+              "name": "Ivory Tower",
+              "qty": 2,
+              "type": ""
+            },
+            {
+              "name": "Hydroblast",
+              "qty": 1,
+              "type": ""
+            },
+            {
+              "name": "Pyroclasm",
+              "qty": 3,
+              "type": ""
+            },
+            {
+              "name": "Call of the Herd",
+              "qty": 3,
+              "type": ""
+            }
+          ]
+        }
+      },
+      {
+        "name": "Francesco Messina",
+        "decklist": "https://www.moxfield.com/decks/Zlk17-ylwkiITEZ_PoV71Q",
+        "winsSwiss": 4,
+        "lossesSwiss": 0,
+        "draws": 0,
+        "winsBracket": 0,
+        "lossesBracket": 0,
+        "mapped_archetype": "Elves",
+        "confidence": 0.5142857142857142,
+        "deck_data": {
+          "name": "Francesco Messina - premodern milan SECOND LEAGUE FINAL NIGHT",
+          "author": "evf",
+          "url": "https://www.moxfield.com/decks/Zlk17-ylwkiITEZ_PoV71Q",
+          "mainboard": [
+            {
+              "name": "Anger",
+              "qty": 1,
+              "type": ""
+            },
+            {
+              "name": "Squee, Goblin Nabob",
+              "qty": 1,
+              "type": ""
+            },
+            {
+              "name": "Yavimaya Granger",
+              "qty": 1,
+              "type": ""
+            },
+            {
+              "name": "Kamahl, Fist of Krosa",
+              "qty": 1,
+              "type": ""
+            },
+            {
+              "name": "Mountain",
+              "qty": 1,
+              "type": ""
+            },
+            {
+              "name": "Sylvan Library",
+              "qty": 1,
+              "type": ""
+            },
+            {
+              "name": "Nantuko Vigilante",
+              "qty": 2,
+              "type": ""
+            },
+            {
+              "name": "Deranged Hermit",
+              "qty": 2,
+              "type": ""
+            },
+            {
+              "name": "Masticore",
+              "qty": 2,
+              "type": ""
+            },
+            {
+              "name": "Survival of the Fittest",
+              "qty": 4,
+              "type": ""
+            },
+            {
+              "name": "Llanowar Elves",
+              "qty": 4,
+              "type": ""
+            },
+            {
+              "name": "Tangle Wire",
+              "qty": 4,
+              "type": ""
+            },
+            {
+              "name": "Multani's Acolyte",
+              "qty": 4,
+              "type": ""
+            },
+            {
+              "name": "Gaea's Cradle",
+              "qty": 4,
+              "type": ""
+            },
+            {
+              "name": "Fyndhorn Elves",
+              "qty": 4,
+              "type": ""
+            },
+            {
+              "name": "Wooded Foothills",
+              "qty": 4,
+              "type": ""
+            },
+            {
+              "name": "Wirewood Symbiote",
+              "qty": 4,
+              "type": ""
+            },
+            {
+              "name": "Quirion Ranger",
+              "qty": 3,
+              "type": ""
+            },
+            {
+              "name": "Priest of Titania",
+              "qty": 3,
+              "type": ""
+            },
+            {
+              "name": "Forest",
+              "qty": 10,
+              "type": ""
+            }
+          ],
+          "sideboard": [
+            {
+              "name": "Naturalize",
+              "qty": 3,
+              "type": ""
+            },
+            {
+              "name": "Call of the Herd",
+              "qty": 3,
+              "type": ""
+            },
+            {
+              "name": "Tormod's Crypt",
+              "qty": 2,
+              "type": ""
+            },
+            {
+              "name": "Tranquil Domain",
+              "qty": 2,
+              "type": ""
+            },
+            {
+              "name": "Shield Sphere",
+              "qty": 2,
+              "type": ""
+            },
+            {
+              "name": "Biorhythm",
+              "qty": 1,
+              "type": ""
+            },
+            {
+              "name": "Caller of the Claw",
+              "qty": 1,
+              "type": ""
+            },
+            {
+              "name": "Uktabi Orangutan",
+              "qty": 1,
+              "type": ""
+            }
+          ]
+        }
+      },
+      {
+        "name": "Federica Di Paola",
+        "decklist": "https://www.moxfield.com/decks/HLaUy9dTtke8Fi8_tWk-YA",
+        "winsSwiss": 3,
+        "lossesSwiss": 0,
+        "draws": 1,
+        "winsBracket": 0,
+        "lossesBracket": 0,
+        "mapped_archetype": "Enchantress",
+        "confidence": 0.5172413793103449,
+        "deck_data": {
+          "name": "Federica Di Paola - premodern milan SECOND LEAGUE FINAL NIGHT",
+          "author": "evf",
+          "url": "https://www.moxfield.com/decks/HLaUy9dTtke8Fi8_tWk-YA",
+          "mainboard": [
+            {
+              "name": "Argothian Enchantress",
+              "qty": 4,
+              "type": ""
+            },
+            {
+              "name": "Serra's Sanctum",
+              "qty": 4,
+              "type": ""
+            },
+            {
+              "name": "Wild Growth",
+              "qty": 4,
+              "type": ""
+            },
+            {
+              "name": "Exploration",
+              "qty": 4,
+              "type": ""
+            },
+            {
+              "name": "Sterling Grove",
+              "qty": 4,
+              "type": ""
+            },
+            {
+              "name": "Enchantress's Presence",
+              "qty": 4,
+              "type": ""
+            },
+            {
+              "name": "Windswept Heath",
+              "qty": 4,
+              "type": ""
+            },
+            {
+              "name": "Mirri's Guile",
+              "qty": 4,
+              "type": ""
+            },
+            {
+              "name": "Brushland",
+              "qty": 4,
+              "type": ""
+            },
+            {
+              "name": "Opalescence",
+              "qty": 3,
+              "type": ""
+            },
+            {
+              "name": "Parallax Wave",
+              "qty": 3,
+              "type": ""
+            },
+            {
+              "name": "Seal of Cleansing",
+              "qty": 3,
+              "type": ""
+            },
+            {
+              "name": "Replenish",
+              "qty": 2,
+              "type": ""
+            },
+            {
+              "name": "Swords to Plowshares",
+              "qty": 2,
+              "type": ""
+            },
+            {
+              "name": "Plains",
+              "qty": 2,
+              "type": ""
+            },
+            {
+              "name": "Solitary Confinement",
+              "qty": 1,
+              "type": ""
+            },
+            {
+              "name": "Treva's Ruins",
+              "qty": 1,
+              "type": ""
+            },
+            {
+              "name": "Forest",
+              "qty": 7,
+              "type": ""
+            }
+          ],
+          "sideboard": [
+            {
+              "name": "Aura of Silence",
+              "qty": 2,
+              "type": ""
+            },
+            {
+              "name": "Solitary Confinement",
+              "qty": 2,
+              "type": ""
+            },
+            {
+              "name": "Tsabo's Web",
+              "qty": 2,
+              "type": ""
+            },
+            {
+              "name": "Xantid Swarm",
+              "qty": 3,
+              "type": ""
+            },
+            {
+              "name": "Carpet of Flowers",
+              "qty": 3,
+              "type": ""
+            },
+            {
+              "name": "Replenish",
+              "qty": 1,
+              "type": ""
+            },
+            {
+              "name": "Swords to Plowshares",
+              "qty": 1,
+              "type": ""
+            }
+          ]
+        }
+      },
+      {
+        "name": "Ema Missa",
+        "decklist": "https://www.moxfield.com/decks/dEWN0vABFEe7ug7dQDiLlg",
+        "winsSwiss": 3,
+        "lossesSwiss": 1,
+        "draws": 0,
+        "winsBracket": 0,
+        "lossesBracket": 0,
+        "mapped_archetype": "Stasis",
+        "confidence": 0.5357142857142857,
+        "deck_data": {
+          "name": "Ema Missa - premodern milan SECOND LEAGUE FINAL NIGHT",
+          "author": "evf",
+          "url": "https://www.moxfield.com/decks/dEWN0vABFEe7ug7dQDiLlg",
+          "mainboard": [
+            {
+              "name": "Arcane Denial",
+              "qty": 1,
+              "type": ""
+            },
+            {
+              "name": "Upheaval",
+              "qty": 1,
+              "type": ""
+            },
+            {
+              "name": "Cursed Totem",
+              "qty": 1,
+              "type": ""
+            },
+            {
+              "name": "Shivan Reef",
+              "qty": 1,
+              "type": ""
+            },
+            {
+              "name": "Propaganda",
+              "qty": 1,
+              "type": ""
+            },
+            {
+              "name": "Counterspell",
+              "qty": 4,
+              "type": ""
+            },
+            {
+              "name": "Gush",
+              "qty": 4,
+              "type": ""
+            },
+            {
+              "name": "Impulse",
+              "qty": 4,
+              "type": ""
+            },
+            {
+              "name": "Daze",
+              "qty": 4,
+              "type": ""
+            },
+            {
+              "name": "Stasis",
+              "qty": 4,
+              "type": ""
+            },
+            {
+              "name": "Forsaken City",
+              "qty": 4,
+              "type": ""
+            },
+            {
+              "name": "Chain of Vapor",
+              "qty": 4,
+              "type": ""
+            },
+            {
+              "name": "Misdirection",
+              "qty": 2,
+              "type": ""
+            },
+            {
+              "name": "Foil",
+              "qty": 2,
+              "type": ""
+            },
+            {
+              "name": "Black Vise",
+              "qty": 3,
+              "type": ""
+            },
+            {
+              "name": "Thwart",
+              "qty": 3,
+              "type": ""
+            },
+            {
+              "name": "Island",
+              "qty": 17,
+              "type": ""
+            }
+          ],
+          "sideboard": [
+            {
+              "name": "Pyroclasm",
+              "qty": 4,
+              "type": ""
+            },
+            {
+              "name": "Hibernation",
+              "qty": 1,
+              "type": ""
+            },
+            {
+              "name": "Powder Keg",
+              "qty": 1,
+              "type": ""
+            },
+            {
+              "name": "Chill",
+              "qty": 1,
+              "type": ""
+            },
+            {
+              "name": "Cursed Totem",
+              "qty": 1,
+              "type": ""
+            },
+            {
+              "name": "Ivory Tower",
+              "qty": 1,
+              "type": ""
+            },
+            {
+              "name": "Blue Elemental Blast",
+              "qty": 2,
+              "type": ""
+            },
+            {
+              "name": "Annul",
+              "qty": 2,
+              "type": ""
+            },
+            {
+              "name": "Brain Freeze",
+              "qty": 2,
+              "type": ""
+            }
+          ]
+        }
+      },
+      {
+        "name": "Andrea Buttinelli",
+        "decklist": "https://www.moxfield.com/decks/0z12VFqNdEqUdLx_fJyyvA",
+        "winsSwiss": 3,
+        "lossesSwiss": 1,
+        "draws": 0,
+        "winsBracket": 0,
+        "lossesBracket": 0,
+        "mapped_archetype": "Tinker Welder",
+        "confidence": 0.6060606060606061,
+        "deck_data": {
+          "name": "Andrea Buttinelli - premodern milan SECOND LEAGUE FINAL NIGHT",
+          "author": "evf",
+          "url": "https://www.moxfield.com/decks/0z12VFqNdEqUdLx_fJyyvA",
+          "mainboard": [
+            {
+              "name": "Fire // Ice",
+              "qty": 2,
+              "type": ""
+            },
+            {
+              "name": "Icy Manipulator",
+              "qty": 1,
+              "type": ""
+            },
+            {
+              "name": "Thopter Squadron",
+              "qty": 1,
+              "type": ""
+            },
+            {
+              "name": "Altar of Dementia",
+              "qty": 1,
+              "type": ""
+            },
+            {
+              "name": "Karn, Silver Golem",
+              "qty": 1,
+              "type": ""
+            },
+            {
+              "name": "Phyrexian Devourer",
+              "qty": 1,
+              "type": ""
+            },
+            {
+              "name": "Phyrexian Furnace",
+              "qty": 1,
+              "type": ""
+            },
+            {
+              "name": "Mishra's Helix",
+              "qty": 1,
+              "type": ""
+            },
+            {
+              "name": "Gemstone Mine",
+              "qty": 1,
+              "type": ""
+            },
+            {
+              "name": "Triskelion",
+              "qty": 1,
+              "type": ""
+            },
+            {
+              "name": "Smokestack",
+              "qty": 1,
+              "type": ""
+            },
+            {
+              "name": "Thran Dynamo",
+              "qty": 4,
+              "type": ""
+            },
+            {
+              "name": "Goblin Welder",
+              "qty": 4,
+              "type": ""
+            },
+            {
+              "name": "City of Traitors",
+              "qty": 4,
+              "type": ""
+            },
+            {
+              "name": "Ancient Tomb",
+              "qty": 4,
+              "type": ""
+            },
+            {
+              "name": "Tangle Wire",
+              "qty": 4,
+              "type": ""
+            },
+            {
+              "name": "Rishadan Port",
+              "qty": 4,
+              "type": ""
+            },
+            {
+              "name": "Mind Stone",
+              "qty": 4,
+              "type": ""
+            },
+            {
+              "name": "Crosis's Catacombs",
+              "qty": 4,
+              "type": ""
+            },
+            {
+              "name": "Winter Orb",
+              "qty": 4,
+              "type": ""
+            },
+            {
+              "name": "Sphere of Resistance",
+              "qty": 4,
+              "type": ""
+            },
+            {
+              "name": "Shivan Reef",
+              "qty": 4,
+              "type": ""
+            },
+            {
+              "name": "Tinker",
+              "qty": 4,
+              "type": ""
+            }
+          ],
+          "sideboard": [
+            {
+              "name": "Pyroclasm",
+              "qty": 4,
+              "type": ""
+            },
+            {
+              "name": "Rushing River",
+              "qty": 2,
+              "type": ""
+            },
+            {
+              "name": "Ensnaring Bridge",
+              "qty": 1,
+              "type": ""
+            },
+            {
+              "name": "Masticore",
+              "qty": 1,
+              "type": ""
+            },
+            {
+              "name": "Powder Keg",
+              "qty": 1,
+              "type": ""
+            },
+            {
+              "name": "Chill",
+              "qty": 3,
+              "type": ""
+            },
+            {
+              "name": "Defense Grid",
+              "qty": 3,
+              "type": ""
+            }
+          ]
+        }
+      }
+    ]
+  }
+]
