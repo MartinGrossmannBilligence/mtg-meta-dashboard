@@ -21,7 +21,7 @@ TIMEFRAMES = {
 
 @st.cache_data(ttl=3600)
 def get_cached_period_data(period_key):
-    # Cache busting: v8
+    # Cache busting: v11
     return load_period_data(DATA_DIR, TIMEFRAMES[period_key])
 
 # "Premodern Meta Lab" title is injected above the nav links via CSS ::before
@@ -40,7 +40,7 @@ with st.sidebar:
     st.markdown('<div style="flex-grow:1;"></div><br><br><br>', unsafe_allow_html=True)
     
     st.markdown(
-        '<div class="source-pill">This app is based on <a href="https://mtgdecks.net/Premodern" target="_blank" style="text-decoration: underline;">MTGDecks.net</a> data.</div>',
+        '<div class="source-pill">This app is based on <a href="https://mtgdecks.net/Premodern" target="_blank" style="text-decoration: underline;">MTGDecks.net</a> data. Updated monthly on the 1st.</div>',
         unsafe_allow_html=True,
     )
 

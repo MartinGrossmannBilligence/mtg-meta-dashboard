@@ -1,0 +1,25 @@
+{
+    "time_frame": "60_days",
+    "end_date": "2026-01-01",
+    "archetypes": [
+        "Stiflenought"
+    ],
+    "tiers": {
+        "Stiflenought": "Tier 1"
+    },
+    "matrix": {
+        "Stiflenought": {
+            "Stiflenought": {
+                "archetype": "Stiflenought",
+                "wins": 10,
+                "losses": 10,
+                "draws": 0,
+                "total_matches": 20,
+                "win_rate": 0.5
+            }
+        }
+    },
+    "meta_shares": {
+        "Stiflenought": 0.1
+    }
+}
