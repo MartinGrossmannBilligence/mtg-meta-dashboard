@@ -31,7 +31,7 @@ with st.sidebar:
     period_name = st.segmented_control(
         "Data from the last:", 
         options=list(TIMEFRAMES.keys()), 
-        default="2Y",
+        default="6M",
         label_visibility="collapsed"
     )
     st.divider()
