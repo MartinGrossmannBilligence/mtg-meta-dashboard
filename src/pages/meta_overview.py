@@ -12,7 +12,20 @@ def _style(df, col):
 
 def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, timeframes, tiers_dict=None, show_tier_filter=True):
     if tiers_dict is None: tiers_dict = {}
-    st.markdown('<h1 style="font-size: 24px;">Meta Overview</h1>', unsafe_allow_html=True)
+    st.markdown('<h1 style="font-size: 24px; margin-bottom: 8px;">Meta Overview</h1>', unsafe_allow_html=True)
+
+    # Custom Tab Navigation + Global Filter on the same row
+    col_nav, col_filt = st.columns([0.7, 0.3])
+    with col_nav:
+        tab_selection = st.segmented_control(
+            "Navigation",
+            options=["Metagame Stats", "Matchup Matrix & Trends"],
+            default="Metagame Stats",
+            label_visibility="collapsed",
+            key="meta_nav_segmented"
+        )
+    with col_filt:
+        stats_min_games = st.slider("Min. games per deck", 0, 100, 20, key="stats_min_games")
 
     # Tier filtering UI removed per user request. Show all decks by default.
     if not all_archetypes:
@@ -32,8 +45,6 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
 
     def _draw_trend_chart(selected_decks_list, key_suffix=""):
         st.subheader("Win Rate Trends")
-        
-
         
         with st.spinner("Loading historical data..."):
             pivot_wr, games_df = get_period_comparison(data_dir, timeframes)
@@ -133,15 +144,9 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
             with chart_col:
                 st.plotly_chart(fig_t, use_container_width=True, key=f"trend_chart_{key_suffix}", config={'displayModeBar': False})
 
-    tab_stats, tab_matchups = st.tabs(["Metagame Stats", "Matchup Matrix & Trends"])
-
-    # ─── TAB 1: METAGAME STATS ───────────────────────────────────────────────
-    with tab_stats:
+    # ─── NAVIGATION CONTENT ──────────────────────────────────────────────────
+    if tab_selection == "Metagame Stats":
         if records_data:
-            c_filter, _ = st.columns([0.5, 0.5])
-            with c_filter:
-                stats_min_games = st.slider("Min. games per deck", 0, 100, 20, key="stats_min_games")
-            
             df_rec = (
                 pd.DataFrame(records_data)
                 .rename(columns={"archetype": "Deck", "win_rate": "Win Rate", "total_matches": "Games"})
@@ -282,10 +287,10 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
 
 
 
-    # ─── TAB 2: MATCHUP MATRIX ───────────────────────────────────────────────
-    with tab_matchups:
+    else:
+        # ─── MATCHUP MATRIX ───────────────────────────────────────────────
         # ── SHARED DECK SELECTOR ─────────────────────────────────────────
-        f1, f2, f3 = st.columns([3, 1, 1])
+        f1, f2 = st.columns([4, 1])
         with f1:
             selected_decks = st.multiselect(
                 "Select Decks",
@@ -294,8 +299,6 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
                 key="overview_deck_select",
             )
         with f2:
-            min_games = st.slider("Min Games (matrix)", 0, 50, 5, key="overview_min_games")
-        with f3:
             sort_by = st.selectbox("Sort By", ["Win Rate", "Alphabet"], key="overview_sort")
 
         if not selected_decks:
@@ -324,7 +327,8 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
                 cell  = matchups_matrix.get(arch1, {}).get(arch2, {})
                 total = cell.get("total_matches", 0)
                 wr    = cell.get("win_rate", 0.5)
-                if total >= min_games:
+                # Use the global filter from the header
+                if total >= stats_min_games:
                     row.append(wr)
                     hover_row.append(f"Win Rate {wr:.1%}<br>{cell.get('wins',0)}W – {cell.get('losses',0)}L")
                 else:
