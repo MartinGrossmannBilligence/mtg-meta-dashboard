@@ -12,6 +12,7 @@ def _style(df, col):
 
 def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, timeframes, tiers_dict=None, show_tier_filter=True):
     if tiers_dict is None: tiers_dict = {}
+<<<<<<< HEAD
     st.markdown('<h1 style="font-size: 24px; margin-bottom: 8px;">Meta Overview</h1>', unsafe_allow_html=True)
 
     # Custom Tab Navigation + Global Filter on the same row
@@ -25,6 +26,14 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
             key="meta_nav_segmented"
         )
     with col_filt:
+=======
+    
+    # Header with title and global filter
+    c_title, c_filter = st.columns([0.7, 0.3])
+    with c_title:
+        st.markdown('<h1 style="font-size: 24px; margin-bottom: 0;">Meta Overview</h1>', unsafe_allow_html=True)
+    with c_filter:
+>>>>>>> main
         stats_min_games = st.slider("Min. games per deck", 0, 100, 20, key="stats_min_games")
 
     # Tier filtering UI removed per user request. Show all decks by default.
@@ -147,6 +156,10 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
     # ─── NAVIGATION CONTENT ──────────────────────────────────────────────────
     if tab_selection == "Metagame Stats":
         if records_data:
+<<<<<<< HEAD
+=======
+            
+>>>>>>> main
             df_rec = (
                 pd.DataFrame(records_data)
                 .rename(columns={"archetype": "Deck", "win_rate": "Win Rate", "total_matches": "Games"})
