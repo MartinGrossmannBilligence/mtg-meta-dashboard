@@ -138,7 +138,9 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
     # ─── TAB 1: METAGAME STATS ───────────────────────────────────────────────
     with tab_stats:
         if records_data:
-            stats_min_games = st.slider("Min Games", 0, 100, 20, key="stats_min_games")
+            c_filter, _ = st.columns([0.5, 0.5])
+            with c_filter:
+                stats_min_games = st.slider("Min. games per deck", 0, 100, 20, key="stats_min_games")
             
             df_rec = (
                 pd.DataFrame(records_data)
