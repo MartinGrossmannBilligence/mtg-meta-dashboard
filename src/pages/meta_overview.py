@@ -12,29 +12,8 @@ def _style(df, col):
 
 def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, timeframes, tiers_dict=None, show_tier_filter=True):
     if tiers_dict is None: tiers_dict = {}
-<<<<<<< HEAD
-    st.markdown('<h1 style="font-size: 24px; margin-bottom: 8px;">Meta Overview</h1>', unsafe_allow_html=True)
-
-    # Custom Tab Navigation + Global Filter on the same row
-    col_nav, col_filt = st.columns([0.7, 0.3])
-    with col_nav:
-        tab_selection = st.segmented_control(
-            "Navigation",
-            options=["Metagame Stats", "Matchup Matrix & Trends"],
-            default="Metagame Stats",
-            label_visibility="collapsed",
-            key="meta_nav_segmented"
-        )
-    with col_filt:
-=======
-    
-    # Header with title and global filter
-    c_title, c_filter = st.columns([0.7, 0.3])
-    with c_title:
-        st.markdown('<h1 style="font-size: 24px; margin-bottom: 0;">Meta Overview</h1>', unsafe_allow_html=True)
-    with c_filter:
->>>>>>> main
-        stats_min_games = st.slider("Min. games per deck", 0, 100, 20, key="stats_min_games")
+    # Header with title
+    st.markdown('<h1 style="font-size: 24px; margin-bottom: 12px;">Meta Overview</h1>', unsafe_allow_html=True)
 
     # Tier filtering UI removed per user request. Show all decks by default.
     if not all_archetypes:
@@ -153,13 +132,16 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
             with chart_col:
                 st.plotly_chart(fig_t, use_container_width=True, key=f"trend_chart_{key_suffix}", config={'displayModeBar': False})
 
-    # ─── NAVIGATION CONTENT ──────────────────────────────────────────────────
-    if tab_selection == "Metagame Stats":
+    tab_stats, tab_matchups = st.tabs(["Metagame Stats", "Matchup Matrix & Trends"])
+
+    # ─── TAB 1: METAGAME STATS ───────────────────────────────────────────────
+    with tab_stats:
+        # Local filter for Tab 1
+        _, f_col = st.columns([0.7, 0.3])
+        with f_col:
+            stats_min_games = st.slider("Min. games per deck", 0, 100, 30, key="stats_min_tab1")
+
         if records_data:
-<<<<<<< HEAD
-=======
-            
->>>>>>> main
             df_rec = (
                 pd.DataFrame(records_data)
                 .rename(columns={"archetype": "Deck", "win_rate": "Win Rate", "total_matches": "Games"})
@@ -300,10 +282,10 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
 
 
 
-    else:
-        # ─── MATCHUP MATRIX ───────────────────────────────────────────────
-        # ── SHARED DECK SELECTOR ─────────────────────────────────────────
-        f1, f2 = st.columns([4, 1])
+    # ─── TAB 2: MATCHUP MATRIX ───────────────────────────────────────────────
+    with tab_matchups:
+        # ── SHARED DECK SELECTOR & FILTERS ───────────────────────────────
+        f1, f2, f3 = st.columns([2.5, 1, 1.5])
         with f1:
             selected_decks = st.multiselect(
                 "Select Decks",
@@ -313,6 +295,8 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
             )
         with f2:
             sort_by = st.selectbox("Sort By", ["Win Rate", "Alphabet"], key="overview_sort")
+        with f3:
+            matrix_min_games = st.slider("Min. games per deck", 0, 100, 5, key="stats_min_tab2")
 
         if not selected_decks:
             st.warning("Select at least one deck.")
@@ -340,8 +324,8 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
                 cell  = matchups_matrix.get(arch1, {}).get(arch2, {})
                 total = cell.get("total_matches", 0)
                 wr    = cell.get("win_rate", 0.5)
-                # Use the global filter from the header
-                if total >= stats_min_games:
+                # Use the local filter for Tab 2
+                if total >= matrix_min_games:
                     row.append(wr)
                     hover_row.append(f"Win Rate {wr:.1%}<br>{cell.get('wins',0)}W – {cell.get('losses',0)}L")
                 else:
