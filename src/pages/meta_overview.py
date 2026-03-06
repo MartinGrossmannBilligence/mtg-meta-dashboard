@@ -12,7 +12,13 @@ def _style(df, col):
 
 def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, timeframes, tiers_dict=None, show_tier_filter=True):
     if tiers_dict is None: tiers_dict = {}
-    st.markdown('<h1 style="font-size: 24px;">Meta Overview</h1>', unsafe_allow_html=True)
+    
+    # Header with title and global filter
+    c_title, c_filter = st.columns([0.7, 0.3])
+    with c_title:
+        st.markdown('<h1 style="font-size: 24px; margin-bottom: 0;">Meta Overview</h1>', unsafe_allow_html=True)
+    with c_filter:
+        stats_min_games = st.slider("Min. games per deck", 0, 100, 20, key="stats_min_games")
 
     # Tier filtering UI removed per user request. Show all decks by default.
     if not all_archetypes:
@@ -138,12 +144,13 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
     # ─── TAB 1: METAGAME STATS ───────────────────────────────────────────────
     with tab_stats:
         if records_data:
+            
             df_rec = (
                 pd.DataFrame(records_data)
                 .rename(columns={"archetype": "Deck", "win_rate": "Win Rate", "total_matches": "Games"})
                 .sort_values("Win Rate", ascending=False)
             )
-            df_rec = df_rec[(df_rec["Deck"] != "Unknown") & (df_rec["Games"] > 5)]
+            df_rec = df_rec[(df_rec["Deck"] != "Unknown") & (df_rec["Games"] >= stats_min_games)]
 
             # ─── Compute meta shares early (used by scatter + table) ─────────
             matchups_matrix = matrix_dict.get("matrix", matrix_dict) 
@@ -157,7 +164,7 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
             # --- SCATTER PLOT: Metagame Share vs Win Rate ---
             st.subheader("Win Rate vs Metagame Share")
             # Note: df_rec is already filtered for Games > 5
-            scatter_df = df_rec[(df_rec["Meta Share (Num)"] > 0) & (df_rec["Games"] >= 20)].copy()
+            scatter_df = df_rec[(df_rec["Meta Share (Num)"] > 0)].copy()
 
             if scatter_df.empty:
                 st.info("Meta share data not available for this timeframe.")
@@ -237,7 +244,7 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
             c_top, c_bot = st.columns(2)
             
             # Filter for meaningful sample size (e.g. >= 20 games) 
-            df_reliable = df_rec[df_rec["Games"] >= 20]
+            df_reliable = df_rec # Already filtered by stats_min_games at the top
             if len(df_reliable) < 5:
                 df_reliable = df_rec.sort_values("Games", ascending=False).head(10).sort_values("Win Rate", ascending=False)
                 
