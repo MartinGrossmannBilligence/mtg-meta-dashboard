@@ -40,7 +40,8 @@ class SpicerackIntegrator:
                 if deck:
                     mainboard_names = [c['name'] for c in deck.get('mainboard', [])]
                     archetype, confidence = self.mapper.map_deck(mainboard_names)
-                    print(f"  [OK] {player:<20} -> {archetype:<20} (Conf: {confidence:.2f})")
+                    display_player = player if player else "Unknown"
+                    print(f"  [OK] {display_player:<20} -> {archetype:<20} (Conf: {confidence:.2f})")
                     
                     mapped_standings.append({
                         **standing,

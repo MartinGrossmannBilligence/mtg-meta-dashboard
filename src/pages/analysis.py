@@ -84,13 +84,16 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
         current_idx = 0
 
     # Icon + selectbox side by side
-    col_icon, col_select = st.columns([0.08, 0.92])
+    col_icon, col_select, col_slider = st.columns([0.08, 0.62, 0.3])
     with col_select:
         target_deck = st.selectbox(
             "Select Deck", 
             all_archetypes, 
             index=current_idx
         )
+    with col_slider:
+        stats_min_games = st.slider("Min. games per deck", 0, 100, 5, key="analysis_min_games")
+            
     st.session_state["analysis_saved_deck"] = target_deck
 
     with col_icon:
@@ -148,6 +151,10 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
     tab_stats, tab_decks = st.tabs(["Statistics", "Top Decklists"])
 
     with tab_stats:
+
+        if not df_prof.empty:
+            df_prof = df_prof[df_prof["Games"] >= stats_min_games]
+            
         # matrix_dict is now the full matrix_data object
         matchups_matrix = matrix_dict.get("matrix", matrix_dict)
         meta_shares     = matrix_dict.get("meta_shares", {})
@@ -306,25 +313,11 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
             return d
 
         with col_best:
-            col_best.markdown("<h3>Best Matchups <span title='Matchups with fewer than 20 games are deprioritized to ensure statistical reliability.' style='cursor:help; font-size:14px; color:#8A8A8A; opacity:0.8;'>&#9432;</span></h3>", unsafe_allow_html=True)
+            col_best.markdown("<h3>Best Matchups</h3>", unsafe_allow_html=True)
         
-        # Split into reliable (>= 20 games) and unreliable (< 20 games)
         if not df_prof.empty:
-            df_reliable = df_prof[df_prof["Games"] >= 20].sort_values("WR", ascending=False)
-            df_unreliable = df_prof[df_prof["Games"] < 20].sort_values("WR", ascending=False)
-            
-            best_matchups = df_reliable.head(5)
-            if len(best_matchups) < 5:
-                needed = 5 - len(best_matchups)
-                best_matchups = pd.concat([best_matchups, df_unreliable.head(needed)])
-                
-            df_reliable_worst = df_reliable.sort_values("WR", ascending=True)
-            df_unreliable_worst = df_unreliable.sort_values("WR", ascending=True)
-            
-            worst_matchups = df_reliable_worst.head(5)
-            if len(worst_matchups) < 5:
-                needed = 5 - len(worst_matchups)
-                worst_matchups = pd.concat([worst_matchups, df_unreliable_worst.head(needed)])
+            best_matchups = df_prof.sort_values("WR", ascending=False).head(5)
+            worst_matchups = df_prof.sort_values("WR", ascending=True).head(5)
         else:
             best_matchups = pd.DataFrame()
             worst_matchups = pd.DataFrame()
@@ -332,7 +325,7 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
         if not best_matchups.empty:
             col_best.markdown(_html_matchup_table(_prep(best_matchups), ["Opponent", "Win Rate", "Games", "Record"], data_dir), unsafe_allow_html=True)
 
-        col_worst.markdown("<h3>Worst Matchups <span title='Matchups with fewer than 20 games are deprioritized to ensure statistical reliability.' style='cursor:help; font-size:14px; color:#8A8A8A; opacity:0.8;'>&#9432;</span></h3>", unsafe_allow_html=True)
+        col_worst.markdown("<h3>Worst Matchups</h3>", unsafe_allow_html=True)
         if not worst_matchups.empty:
             col_worst.markdown(_html_matchup_table(_prep(worst_matchups), ["Opponent", "Win Rate", "Games", "Record"], data_dir), unsafe_allow_html=True)
 
@@ -364,7 +357,7 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
                     pass
                     
         if not decks:
-            st.info("No recent decklists found matching the criteria (>=50 players, Top 8).")
+            st.info("No recent decklists found.")
         else:
             info_text = "Offline snapshots scraped from MTGDecks.net. Shows recent high-performing decks. Click to expand."
             st.markdown(f'<div style="margin-top: 5px; margin-bottom: -25px;"><h3>Recent Top Decklists <span title="{info_text}" style="cursor:help; font-size:16px; color:#8A8A8A; opacity:0.8;">&#9432;</span></h3></div>', unsafe_allow_html=True)
@@ -411,14 +404,14 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
                 .stExpander, [data-testid="stExpander"] {
                     background-color: #262626 !important;
                     border: 1px solid rgba(255,255,255,0.1) !important;
-                    border-radius: 8px !important;
-                    margin-bottom: 2px !important; /* Extremely tight spacing */
-                    box-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;
+                    border-radius: 6px !important;
+                    margin-bottom: 0px !important; /* Extremely tight spacing */
+                    box-shadow: 0 1px 2px rgba(0,0,0,0.1) !important;
                 }
                 .stExpander summary {
                     background-color: #262626 !important;
-                    padding: 12px !important;
-                    border-radius: 8px !important;
+                    padding: 8px 12px !important; /* Reduced vertical padding */
+                    border-radius: 6px !important;
                 }
                 .stExpander summary:hover {
                     background-color: #333333 !important;

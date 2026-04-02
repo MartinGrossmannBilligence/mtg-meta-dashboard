@@ -134,6 +134,10 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
 
     tab_stats, tab_matchups = st.tabs(["Metagame Stats", "Matchup Matrix & Trends"])
 
+    # ─── Compute meta shares early (used by scatter + table and matchups) ─────────
+    matchups_matrix = matrix_dict.get("matrix", matrix_dict) 
+    meta_shares     = matrix_dict.get("meta_shares", {})
+
     # ─── TAB 1: METAGAME STATS ───────────────────────────────────────────────
     with tab_stats:
         # Local filter for Tab 1
@@ -150,8 +154,6 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
             df_rec = df_rec[(df_rec["Deck"] != "Unknown") & (df_rec["Games"] >= stats_min_games)]
 
             # ─── Compute meta shares early (used by scatter + table) ─────────
-            matchups_matrix = matrix_dict.get("matrix", matrix_dict) 
-            meta_shares     = matrix_dict.get("meta_shares", {})
             def _get_share_num(deck):
                 return meta_shares.get(deck.upper(), 0.0)
 

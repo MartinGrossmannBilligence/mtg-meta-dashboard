@@ -86,17 +86,24 @@ def merge():
             added_count += 1
 
     # Sort each archetype by date (newest first)
-    # Note: Our date format "15-Aug-2025" is hard to sort directly, but we can try
     for arch in decklists_data:
         try:
+            # Clean date string (MTGDecks: "15-Aug -2025" -> "15-Aug-2025")
+            def parse_date(date_str):
+                if not date_str: return datetime.min
+                clean_date = date_str.replace(" ", "")
+                return datetime.strptime(clean_date, "%d-%b-%Y")
+
             decklists_data[arch].sort(
-                key=lambda x: datetime.strptime(x["date"], "%d-%b-%Y") if x.get("date") else datetime.min,
+                key=lambda x: parse_date(x.get("date", "")),
                 reverse=True
             )
-            # Limit to top 20 or so to keep file size manageable?
-            # decklists_data[arch] = decklists_data[arch][:20]
-        except:
-            pass
+            # Limit to top 20
+            decklists_data[arch] = decklists_data[arch][:20]
+        except Exception as e:
+            print(f"Warning: Failed to sort/trim {arch}: {e}")
+            # Still attempt to trim even if sort fails
+            decklists_data[arch] = decklists_data[arch][:20]
 
     with open(DECKLISTS_FILE, 'w', encoding='utf-8') as f:
         json.dump(decklists_data, f, indent=2)

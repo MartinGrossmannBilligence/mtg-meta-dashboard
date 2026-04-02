@@ -1,6 +1,3 @@
-import urllib.request
-import urllib.error
-import gzip
 import json
 import re
 import os
@@ -8,15 +5,10 @@ import shutil
 from bs4 import BeautifulSoup
 from datetime import datetime, timedelta
 
+from playwright.sync_api import sync_playwright
+
 # --- Configuration ---
-HEADERS = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36',
-    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
-    'Accept-Language': 'en-US,en;q=0.9',
-    'Accept-Encoding': 'gzip, deflate',
-    'Connection': 'keep-alive',
-    'Upgrade-Insecure-Requests': '1'
-}
+# Heads up: Playwright manages these automatically, some aren't needed but kept for structural purity.
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR = os.path.join(BASE_DIR, 'data')
@@ -28,29 +20,28 @@ HISTORICAL_DIR = os.path.join(DATA_DIR, 'historical')
 SOURCES = [
     ("30_days", "range:last30days", "metagame:last-month"),
     ("60_days", "range:last60days", "metagame:last-2-months"),
-    ("180_days", "range:last180days", "metagame:last-6-months"),
-    ("1_year", None, "metagame:last-year"),
-    ("2_years", None, "metagame:last-2-years")
+    ("180_days", "range:last180days", "metagame:last-6-months")
 ]
 
 # --- Helper Functions ---
 
-def fetch_html(url):
+def fetch_html(url, page):
     print(f"Fetching: {url}")
-    req = urllib.request.Request(url, headers=HEADERS)
     try:
-        with urllib.request.urlopen(req, timeout=15) as response:
-            html_bytes = response.read()
-            if response.info().get('Content-Encoding') == 'gzip':
-                html_bytes = gzip.decompress(html_bytes)
-            return html_bytes.decode('utf-8', errors='ignore')
+        page.goto(url)
+        # Wait up to 60 seconds for a table to appear to give time to manually clear Cloudflare if needed
+        try:
+            page.wait_for_selector('table', timeout=60000)
+        except Exception:
+            print(f"Warning: Cloudflare timeout or no table found at {url}. Proceeding anyway...")
+        return page.content()
     except Exception as e:
         print(f"Error fetching {url}: {e}")
         return None
 
-def get_tiers():
+def get_tiers(page):
     print("Fetching tiers from MTGDecks...")
-    html = fetch_html('https://mtgdecks.net/Premodern')
+    html = fetch_html('https://mtgdecks.net/Premodern', page)
     if not html: return {}
     
     soup = BeautifulSoup(html, 'html.parser')
@@ -193,6 +184,18 @@ def average_meta_shares(s1, s2):
         merged_shares[arch] = (v1 + v2) / 2.0
     return merged_shares
 
+def weighted_average_meta_shares(s60, s30):
+    """Weight 60 days as 2/3 and 30 days as 1/3 of the total 90 days share."""
+    if not s60: return s30
+    if not s30: return s60
+    all_archs = set(list(s60.keys()) + list(s30.keys()))
+    merged_shares = {}
+    for arch in all_archs:
+        v60 = s60.get(arch, 0.0)
+        v30 = s30.get(arch, 0.0)
+        merged_shares[arch] = (v60 * 2.0 + v30 * 1.0) / 3.0
+    return merged_shares
+
 import sys
 import argparse
 
@@ -203,6 +206,7 @@ def main():
     parser.add_argument('--no-replace', action='store_true', help='Do not overwrite root data files, only create historical backup')
     args = parser.parse_args()
 
+    # Identify current date and the previous month's backup folder
     current_date = datetime.now()
     # Normalize to 1st of the current month
     folder_name = current_date.strftime('%Y-%m-01')
@@ -213,51 +217,176 @@ def main():
     print(f"Starting monthly update for {folder_name}")
     if args.no_replace:
         print("!!! RUNNING IN NO-REPLACE MODE - Root data will NOT be updated !!!")
-    
-    tiers = get_tiers()
-    
-    all_data = {} # store results for current run
-    
-    for label, wr_path, meta_path in SOURCES:
-        data = None
         
-        # 1. Fetch Metagame Shares
-        meta_url = f"https://mtgdecks.net/Premodern/{meta_path}"
-        meta_shares = parse_meta_shares(fetch_html(meta_url))
+    print("---------------------------------------------------------------")
+    print("Pripojuji se na tvuj Chrome! Zapni si ho s parametrem pro debug:")
+    print("chrome.exe --remote-debugging-port=9222")
+    print("Pote si rucne nacti mtgdecks.net, odklikej Cloudflare a pak tenhle skript najdi to bezi bez tve pomoci dal.")
+    print("---------------------------------------------------------------")
+
+    with sync_playwright() as p:
+        try:
+            browser = p.chromium.connect_over_cdp('http://localhost:9222')
+        except Exception as e:
+            print("\n[CHYBA] Nepodarilo se pripojit k tvemu prohlizeci!")
+            print("Zavri VSECHNA stavajici okna Chromu a pust do terminalu / prikazove radky tento prikaz:")
+            print("  \"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --remote-debugging-port=9222 --user-data-dir=\"C:\\Temp\\ChromeDebug\"")
+            print("Jakmile se okno otevre, zadej mtgdecks.net preklikej CAPTCHU a spust tento skript znovu.\n")
+            return
+            
+        context = browser.contexts[0]
+        # Use the already open tab to ensure Cloudflare clearance holds
+        if len(context.pages) > 0:
+            page = context.pages[0]
+        else:
+            page = context.new_page()
+    
+        tiers = get_tiers(page)
         
-        # 2. Fetch Win Rates (if available)
-        if wr_path:
-            wr_url = f"https://mtgdecks.net/Premodern/winrates/{wr_path}"
-            data = parse_matrix(fetch_html(wr_url), label, tiers)
-        
-        if not data:
-            # Create stub for meta-only timeframes
-            data = {
-                "time_frame": label,
+        all_data = {} # store results for current run
+    
+        for label, wr_path, meta_path in SOURCES:
+            data = None
+            
+            # 1. Fetch Metagame Shares
+            meta_url = f"https://mtgdecks.net/Premodern/{meta_path}"
+            meta_shares = parse_meta_shares(fetch_html(meta_url, page))
+            
+            # 2. Fetch Win Rates (if available)
+            if wr_path:
+                wr_url = f"https://mtgdecks.net/Premodern/winrates/{wr_path}"
+                data = parse_matrix(fetch_html(wr_url, page), label, tiers)
+            
+            if not data:
+                # Create stub for meta-only timeframes
+                data = {
+                    "time_frame": label,
+                    "end_date": datetime.now().strftime("%Y-%m-%d"),
+                    "archetypes": sorted(list(meta_shares.keys())),
+                    "tiers": tiers,
+                    "matrix": {}
+                }
+                
+            data["meta_shares"] = meta_shares
+            all_data[label] = data
+            
+            # Save to historical
+            hist_path = os.path.join(output_historical_dir, f"mtgdecks_matrix_{label}.json")
+            with open(hist_path, 'w', encoding='utf-8') as f:
+                json.dump(data, f, indent=4)
+                
+            # Optional save to root
+            if not args.no_replace:
+                root_path = os.path.join(DATA_DIR, f"mtgdecks_matrix_{label}.json")
+                with open(root_path, 'w', encoding='utf-8') as f:
+                    json.dump(data, f, indent=4)
+                print(f"Saved {label} data to root and historical.")
+            else:
+                print(f"Saved {label} data to historical backup.")
+
+    # --- SYNTHESIZING 90_DAYS DATA ---
+    print("\nAttempting to synthesize 90_days data (prev 60_days + current 30_days)...")
+    # Calculate the exact previous month folder name
+    first_of_current = current_date.replace(day=1)
+    prev_month_date = first_of_current - timedelta(days=1)
+    prev_folder_name = prev_month_date.strftime('%Y-%m-01')
+    prev_60_days_path = os.path.join(HISTORICAL_DIR, prev_folder_name, "mtgdecks_matrix_60_days.json")
+    
+    if "30_days" in all_data and os.path.exists(prev_60_days_path):
+        try:
+            with open(prev_60_days_path, 'r', encoding='utf-8') as f:
+                prev_60_data = json.load(f)
+                
+            cur_30_data = all_data["30_days"]
+            
+            merged_matrix = merge_matrices(prev_60_data.get("matrix", {}), cur_30_data.get("matrix", {}))
+            merged_meta = weighted_average_meta_shares(prev_60_data.get("meta_shares", {}), cur_30_data.get("meta_shares", {}))
+            
+            data_90 = {
+                "time_frame": "90_days",
                 "end_date": datetime.now().strftime("%Y-%m-%d"),
-                "archetypes": sorted(list(meta_shares.keys())),
+                "archetypes": sorted(list(set(prev_60_data.get("archetypes", []) + cur_30_data.get("archetypes", [])))),
                 "tiers": tiers,
-                "matrix": {}
+                "matrix": merged_matrix,
+                "meta_shares": merged_meta
             }
             
-        data["meta_shares"] = meta_shares
-        all_data[label] = data
-        
-        # Save to historical
-        hist_path = os.path.join(output_historical_dir, f"mtgdecks_matrix_{label}.json")
-        with open(hist_path, 'w', encoding='utf-8') as f:
-            json.dump(data, f, indent=4)
-            
-        # Optional save to root
-        if not args.no_replace:
-            root_path = os.path.join(DATA_DIR, f"mtgdecks_matrix_{label}.json")
-            with open(root_path, 'w', encoding='utf-8') as f:
-                json.dump(data, f, indent=4)
-            print(f"Saved {label} data to root and historical.")
+            label_90 = "90_days"
+            hist_path_90 = os.path.join(output_historical_dir, f"mtgdecks_matrix_{label_90}.json")
+            with open(hist_path_90, 'w', encoding='utf-8') as f:
+                json.dump(data_90, f, indent=4)
+                
+            if not args.no_replace:
+                root_path_90 = os.path.join(DATA_DIR, f"mtgdecks_matrix_{label_90}.json")
+                with open(root_path_90, 'w', encoding='utf-8') as f:
+                    json.dump(data_90, f, indent=4)
+                print(f"Successfully synthesized and saved 90_days data to root and historical using backup from {prev_folder_name}.")
+            else:
+                print(f"Successfully synthesized and saved 90_days data to historical backup using backup from {prev_folder_name}.")
+                
+        except Exception as e:
+            print(f"Error synthesizing 90_days data: {e}")
+    else:
+        if "30_days" not in all_data:
+            print("Failed to synthesize 90_days: 30_days data wasn't fetched today.")
         else:
-            print(f"Saved {label} data to historical backup.")
+            print(f"Failed to synthesize 90_days: Previous month backup not found at {prev_60_days_path}.")
 
-    print("Update complete.")
+    # --- SYNTHESIZING MAX TIMEFRAME (7 Months / 210 Days) ---
+    print("\nAttempting to synthesize 210_days (7 month) data (prev 6 month + current 1 month)...")
+    prev_180_days_path = os.path.join(HISTORICAL_DIR, prev_folder_name, "mtgdecks_matrix_180_days.json")
+    
+    if "30_days" in all_data and os.path.exists(prev_180_days_path):
+        try:
+            with open(prev_180_days_path, 'r', encoding='utf-8') as f:
+                prev_180_data = json.load(f)
+                
+            cur_30_data = all_data["30_days"]
+            
+            merged_matrix = merge_matrices(prev_180_data.get("matrix", {}), cur_30_data.get("matrix", {}))
+            
+            # Combine meta shares (6 months weight vs 1 month weight)
+            merged_meta = {}
+            s180 = prev_180_data.get("meta_shares", {})
+            s30 = cur_30_data.get("meta_shares", {})
+            
+            all_archs = set(list(s180.keys()) + list(s30.keys()))
+            for arch in all_archs:
+                v180 = s180.get(arch, 0.0)
+                v30 = s30.get(arch, 0.0)
+                merged_meta[arch] = (v180 * 6.0 + v30 * 1.0) / 7.0
+            
+            data_210 = {
+                "time_frame": "210_days",
+                "end_date": datetime.now().strftime("%Y-%m-%d"),
+                "archetypes": sorted(list(set(prev_180_data.get("archetypes", []) + cur_30_data.get("archetypes", [])))),
+                "tiers": tiers,
+                "matrix": merged_matrix,
+                "meta_shares": merged_meta
+            }
+            
+            label_max = "210_days"
+            hist_path_max = os.path.join(output_historical_dir, f"mtgdecks_matrix_{label_max}.json")
+            with open(hist_path_max, 'w', encoding='utf-8') as f:
+                json.dump(data_210, f, indent=4)
+                
+            if not args.no_replace:
+                root_path_max = os.path.join(DATA_DIR, f"mtgdecks_matrix_{label_max}.json")
+                with open(root_path_max, 'w', encoding='utf-8') as f:
+                    json.dump(data_210, f, indent=4)
+                print(f"Successfully synthesized and saved {label_max} data to root and historical using 6M backup from {prev_folder_name}.")
+            else:
+                print(f"Successfully synthesized and saved {label_max} data to historical backup using 6M backup from {prev_folder_name}.")
+                
+        except Exception as e:
+            print(f"Error synthesizing {label_max} data: {e}")
+    else:
+        if "30_days" not in all_data:
+            print("Failed to synthesize 210_days: 30_days data wasn't fetched today.")
+        else:
+            print(f"Failed to synthesize 210_days: Previous month 180_days backup not found at {prev_180_days_path}.")
+
+    print("\nUpdate complete.")
 
 if __name__ == "__main__":
     main()

@@ -19,7 +19,7 @@ def show_simulator(matrix_dict, all_archetypes, records_data):
         if len(top_decks) >= 8:
             break
             
-    for extra in ["Oath Ponza", "Terrageddon", "Stasis"]:
+    for extra in ["Oath Ponza", "Terrageddon", "Stasis", "Replenish"]:
         if extra not in top_decks:
             top_decks.append(extra)
 

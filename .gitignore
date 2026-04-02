@@ -9,7 +9,7 @@ env/
 .env
 
 # Streamlit (Allow config for deployment)
-# .streamlit/ 
+# .streamlit/
 
 # Data (Sensitive or large files)
 # data/*.json
@@ -17,3 +17,7 @@ env/
 # OS
 .DS_Store
 Thumbs.db
+
+# Backups and tests
+data_backups/
+mtg_pw_test.html

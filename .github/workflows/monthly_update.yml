@@ -1,0 +1,45 @@
+name: Monthly Data Update
+
+on:
+  schedule:
+    # Běží každý 1. den v měsíci v 08:00 UTC (10:00 CET/CEST)
+    - cron: '0 8 1 * *'
+  workflow_dispatch:
+    # Povoluje ruční spuštění přímo z GitHub repozitáře přes záložku Actions
+
+jobs:
+  run-monthly-update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Fetch Matrix Data & Synthesize Timeframes
+        run: python scripts/update_data_monthly.py
+
+      - name: Fetch Top Decklists
+        run: python scripts/scrape_decklists.py
+
+      - name: Commit and Push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/ data_backups/
+          
+          # Check if there are changes to commit. If there are, commit and push them.
+          # We add [skip ci] to prevent triggering other actions by accident.
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: automaticky mesicni data update [skip ci]" && git push)

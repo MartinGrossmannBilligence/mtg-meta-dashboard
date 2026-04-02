@@ -20,28 +20,34 @@ def backup_data_folder():
         print(f"Warning: Failed to create backup: {e}")
 
 DATA_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data")
-MATRIX_FILE = os.path.join(DATA_DIR, "mtgdecks_matrix_6_months.json")
+MATRIX_FILE = os.path.join(DATA_DIR, "mtgdecks_matrix_90_days.json")
 DECKLISTS_FILE = os.path.join(DATA_DIR, "decklists.json")
 
+from playwright.sync_api import sync_playwright
+
+global_page = None
+
 def get_html(url):
-    req = urllib.request.Request(
-        url,
-        headers={
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
-            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
-            "Accept-Language": "en-US,en;q=0.9",
-            "Accept-Encoding": "gzip, deflate",
-        }
-    )
+    global global_page
+    if not global_page:
+        print("Playwright CDP not initialized.")
+        return None
     time.sleep(1.5)  # Be nice to the server
     try:
-        with urllib.request.urlopen(req, timeout=15) as r:
-            html_bytes = r.read()
-            if r.info().get('Content-Encoding') == 'gzip':
-                return gzip.decompress(html_bytes).decode('utf-8', errors='ignore')
-            return html_bytes.decode('utf-8', errors='ignore')
+        global_page.goto(url, wait_until="domcontentloaded", timeout=15000)
+        
+        # Check for Cloudflare Turnstile block implicitly
+        if "Just a moment..." in global_page.title():
+            print("\n🚨 CLOUDFLARE BLOCK DETECTED! 🚨")
+            print("Please solve the CAPTCHA manually in your Chrome window (port 9222).")
+            print("Waiting 15 seconds for you to solve it...")
+            time.sleep(15)
+            # Try reloading once
+            global_page.goto(url, wait_until="domcontentloaded", timeout=15000)
+            
+        return global_page.content()
     except Exception as e:
-        print(f"Error fetching {url}: {e}")
+        print(f"Error fetching {url} with Playwright: {e}")
         return None
 
 def fetch_cards(deck_url):
@@ -90,7 +96,7 @@ def fetch_cards(deck_url):
             
     return cards[:100]
 
-def scrape_archetype_decklists(archetype_name, max_pages=10, required_decks=10):
+def scrape_archetype_decklists(archetype_name, max_pages=10, required_decks=20):
     slug = archetype_name.replace(" ", "-").replace("(", "").replace(")", "").replace("'", "")
     
     # Custom slug overrides for MTGDecks
@@ -112,6 +118,7 @@ def scrape_archetype_decklists(archetype_name, max_pages=10, required_decks=10):
         '3rd': 70,  '3': 70,
         '4th': 70,  '4': 70,
         'top4': 70,
+        '5-0': 100, # MTGO League 5-0
         '5th': 55,  '5': 55,
         '6th': 55,  '6': 55,
         '7th': 55,  '7': 55,
@@ -197,7 +204,12 @@ def scrape_archetype_decklists(archetype_name, max_pages=10, required_decks=10):
                 # 64 players -> 6.0/5.0 = 1.2x
                 # 128 players -> 7.0/5.0 = 1.4x
                 # Ensure players is at least 8 to avoid negative/too low multipliers
-                effective_players = max(players, 8)
+                if rank_lower == '5-0':
+                    # Treat MTGO leagues as a 32-player equivalent for scoring so they aren't penalized for having 0 players listed
+                    effective_players = max(players, 32) 
+                else:
+                    effective_players = max(players, 8)
+
                 multiplier = math.log2(effective_players) / 5.0
                 tps_score = rank_points * multiplier
                 
@@ -257,8 +269,19 @@ def main():
     
     backup_data_folder()
     
-    # Use 60 days as primary source, fallback to 6 months
-    matrix_path = os.path.join(DATA_DIR, "mtgdecks_matrix_60_days.json")
+    global global_page
+    print("Connecting to Chrome on debug port 9222...")
+    try:
+        p = sync_playwright().start()
+        browser = p.chromium.connect_over_cdp('http://localhost:9222')
+        context = browser.contexts[0]
+        global_page = context.pages[0]
+    except Exception as e:
+        print(f"\nCRITICAL: Make sure Chrome is running with CDP flag:\nchrome.exe --remote-debugging-port=9222 --user-data-dir=\"C:\\Temp\\ChromeDebug\"\nError: {e}")
+        return
+
+    # Use 90 days as primary source to check for at least 20 games
+    matrix_path = os.path.join(DATA_DIR, "mtgdecks_matrix_90_days.json")
     if not os.path.exists(matrix_path):
         matrix_path = MATRIX_FILE
         
@@ -271,7 +294,18 @@ def main():
         matrix_data = json.load(f)
         
     archetypes = matrix_data.get('archetypes', [])
-    print(f"Found {len(archetypes)} total archetypes to process.")
+    full_matrix = matrix_data.get('matrix', {})
+    
+    valid_archetypes = []
+    print("\nFiltering archetypes with >= 20 overall matches...")
+    for arch in archetypes:
+        row = full_matrix.get(arch, {})
+        # Count all matches they played in 90 days against anyone
+        total_matches = sum(opponent_data.get('total_matches', 0) for opponent_data in row.values())
+        if total_matches >= 20:
+            valid_archetypes.append(arch)
+            
+    print(f"Found {len(valid_archetypes)} archetypes with >= 20 matches (out of {len(archetypes)} total).")
     
     # We will load existing decklists so we can resume/update without destroying everything
     decklists_db = {}
@@ -282,19 +316,19 @@ def main():
             except:
                 pass
                 
-    for arch in archetypes:
-        # RESUME LOGIC: Skip if we already have 10 decklists AND they have card data (unless --force)
+    for arch in valid_archetypes:
+        # RESUME LOGIC: Skip if we already have 20 decklists AND they have card data (unless --force)
         if not args.force:
             existing_decks = decklists_db.get(arch, [])
             has_cards = any(d.get('cards') for d in existing_decks)
             
-            if len(existing_decks) >= 10 and has_cards:
+            if len(existing_decks) >= 20 and has_cards:
                 print(f"Skipping {arch} - already have {len(existing_decks)} decklists with card data.")
                 continue
 
         try:
-            # Fresh scan of 10 pages to find the best 10 decks
-            decks = scrape_archetype_decklists(arch, max_pages=10, required_decks=10)
+            # Fresh scan of 10 pages to find the best 20 decks
+            decks = scrape_archetype_decklists(arch, max_pages=10, required_decks=20)
             if decks:
                 decklists_db[arch] = decks
                 
