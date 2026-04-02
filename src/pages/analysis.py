@@ -206,6 +206,8 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
 
 
         history_rows = []
+        # Current data for the current period comes from matrix_data / records_data
+        # We also want to show historical snapshots if available
         for period_label, period_key in timeframes.items():
             try:
                 mdata, rdata = load_period_data(data_dir, period_key)
@@ -219,8 +221,8 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
                         "Meta Share":  share,
                         "Games":       rec["total_matches"],
                     })
-            except Exception:
-                pass
+            except Exception as e:
+                st.sidebar.warning(f"Could not load data for {period_label}: {e}")
 
         if history_rows:
             df_hist = pd.DataFrame(history_rows)
@@ -236,15 +238,19 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
             has_meta = any(v is not None for v in ms_vals)
 
             fig_hist = go.Figure()
+            
+            # Simple colors for the line and markers to avoid list-based color mapping errors in some environments
+            wr_color_base = "#E8E8E8"
+            
             fig_hist.add_trace(go.Scatter(
                 x=df_hist["Period"], y=df_hist["Win Rate"],
                 name="Win Rate",
                 mode="lines+markers+text",
                 text=[f"{v:.1%}" for v in df_hist["Win Rate"]],
                 textposition="top center",
-                textfont=dict(size=13, color=[_wr_color(v) for v in df_hist["Win Rate"]]),
-                line=dict(color="#E8E8E8", width=3, dash="dot"),
-                marker=dict(size=9, color=[_wr_color(v) for v in df_hist["Win Rate"]], line=dict(width=0)),
+                textfont=dict(size=12, color="#CCC"),
+                line=dict(color=wr_color_base, width=3, dash="dot"),
+                marker=dict(size=8, color="#00CC96", line=dict(width=0)), # Constant color for robustness
             ))
 
             if has_meta:
@@ -255,9 +261,9 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
                     mode="lines+markers+text",
                     text=[f"{v:.1%}" if v is not None else "" for v in ms_display],
                     textposition="top center",
-                    textfont=dict(size=13, color="rgba(190, 220, 240, 0.85)"),
-                    line=dict(color="rgba(190, 220, 240, 0.95)", width=3, dash="dot"),
-                    marker=dict(size=8, color="rgba(190, 220, 240, 0.95)"),
+                    textfont=dict(size=12, color="rgba(190, 220, 240, 0.85)"),
+                    line=dict(color="rgba(190, 220, 240, 0.75)", width=2, dash="dash"),
+                    marker=dict(size=6, color="rgba(190, 220, 240, 0.85)"),
                     connectgaps=False,
                 ))
 
@@ -294,10 +300,10 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
                     showgrid=True, dtick=0.2, gridcolor="rgba(255, 255, 255, 0.1)",
                     fixedrange=True
                 ),
-                xaxis=dict(tickfont=dict(size=12), fixedrange=True),
+                xaxis=dict(tickfont=dict(size=12), fixedrange=True, categoryorder='array', categoryarray=list(timeframes.keys())),
                 xaxis_title="",
                 showlegend=False,
-                hovermode=False,
+                hovermode="x unified",
             )
             st.plotly_chart(fig_hist, use_container_width=True, key="deck_trend_combined", config={'displayModeBar': False})
 
@@ -359,27 +365,6 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
         if not decks:
             st.info("No recent decklists found.")
         else:
-            info_text = "Offline snapshots scraped from MTGDecks.net. Shows recent high-performing decks. Click to expand."
-            st.markdown(f'<div style="margin-top: 5px; margin-bottom: -25px;"><h3>Recent Top Decklists <span title="{info_text}" style="cursor:help; font-size:16px; color:#8A8A8A; opacity:0.8;">&#9432;</span></h3></div>', unsafe_allow_html=True)
-            
-            # Load Official MTG Mana Symbols from local assets
-            def _get_mana_b64(color_code):
-                mapping = {'W': 'W', 'U': 'U', 'B': 'B', 'R': 'R', 'G': 'G'}
-                code = mapping.get(color_code)
-                if not code: return None, "No Code"
-                fname = f"mana_{code}_128.webp"
-                path = os.path.join(data_dir, "..", "assets", "mana_symbols", fname)
-                if not os.path.exists(path):
-                    base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-                    path = os.path.join(base_dir, "assets", "mana_symbols", fname)
-                if not os.path.exists(path):
-                    return None, path
-                with open(path, "rb") as f:
-                    return base64.b64encode(f.read()).decode(), path
-
-            MANA_ICONS = {c: _get_mana_b64(c)[0] for c in ['W', 'U', 'B', 'R', 'G']}
-            MANA_ICONS['C'] = 'PHN2ZyB2aWV3Qm94PSIwIDAgMzIgMzIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTUiIGZpbGw9IiNBM0EzQTMiIC8+PHBhdGggZD0iTTE2IDhsNiA4bC02IDhsLTYtOHoiIGZpbGw9IiMwMDAiIC8+PC9zdmc+'
-            
             # Load Official Mana Symbols (Base64)
             MANA_MAP = {}
             try:
@@ -388,108 +373,149 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
                     MANA_MAP = json.load(f)
             except:
                 MANA_MAP = {'W': '☀️', 'U': '💧', 'B': '💀', 'R': '🔥', 'G': '🌲', 'C': '💎'}
+            
+            # --- FILTERING & SORTING UI ---
+            col_search, col_sort = st.columns([0.7, 0.3])
+            with col_search:
+                search_q = st.text_input("🔍 Search by cards", "", placeholder="Seperate cards by ;")
+            with col_sort:
+                sort_option = st.selectbox("Sort by", ["Date", "Size", "Rank", "Spice"], index=0)
 
-            # Custom CSS for the unified decklist results table
-            st.markdown("""
-                <style>
-                /* Target the container specifically by looking for our marker inside it */
-                div[data-testid="stVerticalBlock"]:has(> div > div > .decklist-container-marker) {
-                    background-color: #1A1A1A !important;
-                    border: 1px solid rgba(255,255,255,0.1) !important;
-                    border-radius: 12px !important;
-                    padding: 20px !important;
-                    opacity: 1 !important;
-                }
-                /* Style the individual decklist headers (expanders) */
-                .stExpander, [data-testid="stExpander"] {
-                    background-color: #262626 !important;
-                    border: 1px solid rgba(255,255,255,0.1) !important;
-                    border-radius: 6px !important;
-                    margin-bottom: 0px !important; /* Extremely tight spacing */
-                    box-shadow: 0 1px 2px rgba(0,0,0,0.1) !important;
-                }
-                .stExpander summary {
-                    background-color: #262626 !important;
-                    padding: 8px 12px !important; /* Reduced vertical padding */
-                    border-radius: 6px !important;
-                }
-                .stExpander summary:hover {
-                    background-color: #333333 !important;
-                }
-                .stExpander [data-testid="stVerticalBlock"] {
-                    background-color: #262626 !important;
-                }
-                </style>
-            """, unsafe_allow_html=True)
+            # --- SORTING LOGIC ---
+            def _rank_val(r):
+                r = str(r).upper().strip()
+                if "1ST" in r: return 1
+                if "2ND" in r: return 2
+                if "TOP4" in r: return 4
+                if "TOP8" in r: return 8
+                if "TOP16" in r: return 16
+                return 100
 
-            # Container with internal marker for targeting
-            with st.container(border=True):
-                st.markdown('<div class="decklist-container-marker"></div>', unsafe_allow_html=True)
-                for i, d in enumerate(decks):
-                    cards = d.get('cards', [])
+            if sort_option == "Rank":
+                decks = sorted(decks, key=lambda x: _rank_val(x.get('rank', '??')))
+            elif sort_option == "Size":
+                decks = sorted(decks, key=lambda x: int(str(x.get('players', 0))) if str(x.get('players',0)).isdigit() else 0, reverse=True)
+            elif sort_option == "Spice":
+                decks = sorted(decks, key=lambda x: x.get('spice', 0), reverse=True)
+            else: # Date
+                decks = sorted(decks, key=lambda x: str(x.get('date', '')), reverse=True)
+
+            st.markdown('<p style="color:#888; font-size:12px; margin-top:-15px; margin-bottom:0px;">💡 <i>Click rows to see decklists</i></p>', unsafe_allow_html=True)
+
+            # Filtering
+            if search_q:
+                qs = [q.strip().lower() for q in search_q.split(';') if q.strip()]
+                decks = [d for d in decks if all(any(q in c.get('name','').lower() for c in d.get('cards', [])) for q in qs)]
+
+            if not decks:
+                st.info("No decklists match your filters.")
+            else:
+                # --- CSS (Unified Style) ---
+                st.markdown(f"""
+                    <style>
+                    .d-table {{
+                        width: 100%;
+                        background: #1A1A1A;
+                        border: 1px solid rgba(255,255,255,0.05);
+                        border-radius: 6px;
+                        overflow: hidden;
+                        font-family: 'Inter', system-ui, sans-serif;
+                    }}
+                    .d-header {{
+                        display: grid;
+                        grid-template-columns: 65px 75px 200px 90px 75px 1fr 110px;
+                        background: #262626;
+                        padding: 12px 16px;
+                        border-bottom: 2px solid #333;
+                        color: #8A8A8A;
+                        font-size: 13px;
+                        font-weight: 700;
+                        letter-spacing: 0.5px;
+                    }}
+                    .d-summary {{
+                        display: grid;
+                        grid-template-columns: 65px 75px 200px 90px 75px 1fr 110px;
+                        padding: 14px 16px;
+                        cursor: pointer;
+                        align-items: center;
+                        border-bottom: 1px solid rgba(255,255,255,0.05);
+                        list-style: none;
+                        background: transparent;
+                        transition: background 0.1s;
+                    }}
+                    .d-summary::-webkit-details-marker {{ display: none; }}
+                    .d-summary:hover {{ background: #222; }}
+                    .d-row[open] .d-summary {{ background: #2A2A2A; border-bottom: 1px solid rgba(255,255,255,0.1); }}
+
+                    .c-rank {{ color: #6BC78E; font-size: 13px; }}
+                    .c-players {{ color: #EEE; font-size: 13px; }}
+                    .c-player {{ color: #EEE; font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }}
+                    .c-spice {{ font-size: 13px; color: #FFD700; }}
+                    .c-event {{ color: #AAA; font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }}
+                    .c-date {{ color: #8A8A8A; font-size: 13px; text-align: right; }}
+
+                    .d-content {{ padding: 24px; background: #111; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }}
+                    .sect-t {{ color: #6BC78E; font-size: 13px; font-weight: bold; text-transform: uppercase; margin-bottom: 10px; border-bottom: 1px solid #333; }}
+                    .card-i {{ color: #DDD; font-size: 13px; line-height: 1.6; display: flex; align-items: start; }}
+                    .qty-s {{ color: #888; font-weight: bold; margin-right: 8px; min-width: 24px; display: inline-block; }}
+                    </style>
+                """, unsafe_allow_html=True)
+
+                # --- RENDER TABLE ---
+                # Static Header Row (HTML)
+                table_html = f'<div class="d-table">'
+                table_html += f'<div class="d-header">'
+                table_html += '<div>Rank</div><div>Size</div><div>Player</div><div>Colors</div><div>Spice</div><div>Event</div><div style="text-align:right;">Date</div>'
+                table_html += '</div>'
+
+                # Body
+                for d in decks:
+                    def _mana(m_str):
+                        if "![" in str(m_str):
+                            import re
+                            match = re.search(r'\((data:image/[^)]+)\)', str(m_str))
+                            if match: return f'<img src="{match.group(1)}" style="width:14px; height:14px; margin-right:2px; vertical-align:middle; border-radius:50%;">'
+                        return str(m_str)
                     
-                    # Header Data
-                    rank = d.get('rank', '??')
-                    player = d.get('player', 'Unknown')
-                    players_count = d.get('players', '??')
-                    event = d.get('event', 'Unknown')
-                    date = d.get('date', 'Unknown')
-                    url = d.get('url', '#')
+                    icons = "".join([_mana(MANA_MAP.get(c, f"[{c}]")) for c in d.get("colors", [])])
+                    spice_html = f'<span class="c-spice">{d.get("spice",0)}%</span>' if d.get("spice", 0) > 0 else '—'
                     
-                    # Title Strings (using Official Symbols or Emojis)
-                    mana_icons = "".join([MANA_MAP.get(c, f"[{c}]") for c in d.get("colors", [])])
-                    spice_text = f"🌶️ {d.get('spice', 0)}%" if d.get('spice', 0) > 0 else ""
-                    
-                    # Combined format: [Position] [Players] | [Player Name] | [Colors] | [Spice] | [Tournament] | [Date]
-                    expander_title = f"**{rank}** from **{players_count}** Players | **{player}** | {mana_icons} | {spice_text} | 🏆 {event} | 🗓️ {date}"
+                    c_html = '<div class="d-content">'
+                    c_list = d.get('cards', [])
+                    if not c_list:
+                        c_html += '<div style="grid-column: span 3; color: #888;">No cards found.</div>'
+                    else:
+                        # Split cards into 3 categories
+                        maindeck_non_land = [c for c in c_list if c.get('section') == 'Maindeck' and 'Land' not in c.get('type', '')]
+                        lands = [c for c in c_list if c.get('section') == 'Maindeck' and 'Land' in c.get('type', '')]
+                        sideboard = [c for c in c_list if c.get('section') == 'Sideboard']
 
-                    # Full-width row (Expander)
-                    with st.expander(expander_title, expanded=False):
-                        if not cards:
-                            st.info("No card data available for this snapshot.")
-                            st.link_button("View on MTGDecks", url, use_container_width=True)
-                        else:
-                            # Grouping logic
-                            maindeck = [c for c in cards if c.get('section', 'Maindeck') == 'Maindeck']
-                            sideboard = [c for c in cards if c.get('section') == 'Sideboard']
-                            
-                            def group_by_type(card_list):
-                                grouped = {}
-                                for c in card_list:
-                                    ctype = c.get('type', 'Other').split('[')[0].strip()
-                                    if ctype not in grouped: grouped[ctype] = []
-                                    grouped[ctype].append(c)
-                                return grouped
+                        # Column 1: Maindeck (Non-Land)
+                        c_html += '<div><div class="sect-t">Maindeck</div>'
+                        for c in maindeck_non_land:
+                            c_html += f'<div class="card-i"><span class="qty-s">{c["qty"]}x</span> {c["name"]}</div>'
+                        c_html += '</div>'
 
-                            col1, col2, col3 = st.columns(3)
-                            
-                            with col1:
-                                st.markdown('<p style="color:#6BC78E; font-weight:bold; border-bottom:1px solid #333; margin-bottom:8px;">Mainboard</p>', unsafe_allow_html=True)
-                                m_grouped = group_by_type(maindeck)
-                                # Order excluding Lands for the first column
-                                spell_types = ["Creature", "Planeswalker", "Instant", "Sorcery", "Artifact", "Enchantment", "Other"]
-                                for t in spell_types:
-                                    if t in m_grouped:
-                                        header_html = f'<p style="color:#8A8A8A; font-size:12px; font-weight:bold; margin-top:6px; margin-bottom:2px; text-transform:uppercase;">{t} ({sum(c["qty"] for c in m_grouped[t])})</p>'
-                                        cards_html = "".join([f'<div style="font-size:14px; color:#E0E0E0; line-height:1.2; margin-bottom:1px;">{c["qty"]}x {c["name"]}</div>' for c in m_grouped[t]])
-                                        st.markdown(header_html + cards_html, unsafe_allow_html=True)
+                        # Column 2: Lands
+                        c_html += '<div><div class="sect-t">Lands</div>'
+                        for c in lands:
+                            c_html += f'<div class="card-i"><span class="qty-s">{c["qty"]}x</span> {c["name"]}</div>'
+                        if not lands:
+                            c_html += '<div style="color:#666; font-size:12px; font-style:italic;">No land data.</div>'
+                        c_html += '</div>'
 
-                            with col2:
-                                # Render only Land in the middle column
-                                st.markdown('<p style="color:#6BC78E; font-weight:bold; border-bottom:1px solid #333; margin-bottom:8px;">&nbsp;</p>', unsafe_allow_html=True)
-                                if "Land" in m_grouped:
-                                    t = "Land"
-                                    header_html = f'<p style="color:#8A8A8A; font-size:12px; font-weight:bold; margin-top:6px; margin-bottom:2px; text-transform:uppercase;">{t} ({sum(c["qty"] for c in m_grouped[t])})</p>'
-                                    cards_html = "".join([f'<div style="font-size:14px; color:#E0E0E0; line-height:1.2; margin-bottom:1px;">{c["qty"]}x {c["name"]}</div>' for c in m_grouped[t]])
-                                    st.markdown(header_html + cards_html, unsafe_allow_html=True)
+                        # Column 3: Sideboard
+                        c_html += '<div><div class="sect-t">Sideboard</div>'
+                        for c in sideboard:
+                            c_html += f'<div class="card-i"><span class="qty-s">{c["qty"]}x</span> {c["name"]}</div>'
+                        if not sideboard:
+                            c_html += '<div style="color:#666; font-size:12px; font-style:italic;">No sideboard.</div>'
+                        c_html += '</div>'
 
-                            with col3:
-                                st.markdown('<p style="color:#E49977; font-weight:bold; border-bottom:1px solid #333; margin-bottom:8px;">Sideboard</p>', unsafe_allow_html=True)
-                                if sideboard:
-                                    sb_html = "".join([f'<div style="font-size:14px; color:#E0E0E0; line-height:1.2; margin-bottom:1px;">{c["qty"]}x {c["name"]}</div>' for c in sideboard])
-                                    st.markdown(sb_html, unsafe_allow_html=True)
-                                else:
-                                    st.write("No sideboard.")
-                            
-                            st.divider()
-                            st.link_button("View on MTGDecks", url, use_container_width=True)
+                        c_html += f'<div style="grid-column: span 3; border-top: 1px solid #333; padding-top: 12px; text-align: center;"><a href="{d.get("url","#")}" target="_blank" style="color: #6BC78E; text-decoration: none; font-size: 13px; font-weight: bold;">View on MTGDecks ↗</a></div>'
+                    c_html += '</div>'
+
+                    table_html += f'<details class="d-row"><summary class="d-summary"><div class="c-rank">{d.get("rank","??")}</div><div class="c-players">{d.get("players","??")}</div><div class="c-player">{d.get("player","")}</div><div>{icons}</div>{spice_html}<div class="c-event">{d.get("event","")}</div><div class="c-date">{d.get("date","")}</div></summary>{c_html}</details>'
+                
+                table_html += '</div>'
+                st.html(table_html)

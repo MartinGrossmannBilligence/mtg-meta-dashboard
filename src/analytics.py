@@ -310,7 +310,8 @@ DECK_CARD_MAP = {
     "Suicide Black": "Carnophage",
     "Mono White Control": "Eternal Dragon",
     "White Weenie": "Savannah Lions",
-    "Tempting Rack": "Tempting Wurm"
+    "Tempting Rack": "Tempting Wurm",
+    "Stiflenought": "Phyrexian Dreadnought"
 }
 
 def get_card_image_url(archetype_name):
