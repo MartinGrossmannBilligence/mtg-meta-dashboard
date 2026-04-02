@@ -486,9 +486,26 @@ def show_analysis(matrix_dict, all_archetypes, records_data, data_dir, timeframe
                         c_html += '<div style="grid-column: span 3; color: #888;">No cards found.</div>'
                     else:
                         # Split cards into 3 categories
-                        maindeck_non_land = [c for c in c_list if c.get('section') == 'Maindeck' and 'Land' not in c.get('type', '')]
-                        lands = [c for c in c_list if c.get('section') == 'Maindeck' and 'Land' in c.get('type', '')]
-                        sideboard = [c for c in c_list if c.get('section') == 'Sideboard']
+                        def is_land(card):
+                            name = card.get("name", "").lower()
+                            ctype = card.get("type", "").lower()
+                            if "land" in ctype: 
+                                return True
+                            land_keywords = {
+                                "plains", "island", "swamp", "mountain", "forest",
+                                "strand", "heath", "delta", "mire", "foothills",
+                                "tarn", "mesa", "rainforest", "catacombs", "marsh",
+                                "tomb", "city", "mine", "port", "waste", "tower", "factory",
+                                "conclave", "treetop", "village", "brushland", "karplusan", 
+                                "adarkar", "underground", "volcanic", "tropical", "bayou", 
+                                "scrubland", "badlands", "savannah", "taiga", "plateau",
+                                "ancient tomb", "wasteland", "gemstone mine"
+                            }
+                            return any(kw in name for kw in land_keywords)
+
+                        maindeck_non_land = [c for c in c_list if c.get("section") == "Maindeck" and not is_land(c)]
+                        lands = [c for c in c_list if c.get("section") == "Maindeck" and is_land(c)]
+                        sideboard = [c for c in c_list if c.get("section") == "Sideboard"]
 
                         # Column 1: Maindeck (Non-Land)
                         c_html += '<div><div class="sect-t">Maindeck</div>'

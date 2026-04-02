@@ -205,9 +205,12 @@ def apply_custom_css():
         [data-testid="stSidebar"] {{
             background-color: {THEME['surface']};
             border-right: 1px solid {THEME['border']};
-            font-family: 'IBM Plex Mono', monospace !important;
         }}
-        [data-testid="stSidebar"] * {{
+        /* Target text in sidebar specifically to avoid breaking icons */
+        [data-testid="stSidebar"] .stMarkdown, 
+        [data-testid="stSidebar"] p, 
+        [data-testid="stSidebar"] span:not([data-testid="stIcon"]), 
+        [data-testid="stSidebar"] label {{
             font-family: 'IBM Plex Mono', monospace !important;
         }}
 
