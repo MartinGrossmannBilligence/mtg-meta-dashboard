@@ -116,14 +116,14 @@ def apply_custom_css():
     st.markdown(f"""
         <style>
         /* ── Global & Typography ─────────────────────────────────────────── */
-        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
 
         * {{
             font-variant-numeric: tabular-nums;
         }}
 
-        html, body, [class*="css"] {{
-            font-family: 'IBM Plex Mono', monospace !important;
+        html, body, [data-testid="stAppViewContainer"] {{
+            font-family: 'Inter', sans-serif !important;
         }}
 
         .block-container {{
@@ -161,17 +161,17 @@ def apply_custom_css():
 
         /* ── Typography hierarchy ─────────────────────────────────────────── */
         h1 {{
-            font-family: 'IBM Plex Mono', monospace !important;
+            font-family: 'Inter', sans-serif !important;
             font-size: 36px !important;
-            font-weight: 400 !important;
+            font-weight: 500 !important;
             line-height: 1.1 !important;
             margin-bottom: 4px !important;
             margin-top: 0 !important;
             color: {THEME['text']} !important;
-            letter-spacing: -0.5px !important;
+            letter-spacing: -1px !important;
         }}
         h2 {{
-            font-family: 'IBM Plex Mono', monospace !important;
+            font-family: 'Inter', sans-serif !important;
             font-size: 24px !important;
             font-weight: 600 !important;
             color: {THEME['text']} !important;
@@ -179,9 +179,9 @@ def apply_custom_css():
             margin-bottom: 8px !important;
         }}
         h3 {{
-            font-family: 'IBM Plex Mono', monospace !important;
+            font-family: 'Inter', sans-serif !important;
             font-size: 18px !important;
-            font-weight: 400 !important;
+            font-weight: 500 !important;
             color: {THEME['text']} !important;
             margin-top: 0 !important;
             margin-bottom: 8px !important;
@@ -205,6 +205,10 @@ def apply_custom_css():
         [data-testid="stSidebar"] {{
             background-color: {THEME['surface']};
             border-right: 1px solid {THEME['border']};
+            font-family: 'IBM Plex Mono', monospace !important;
+        }}
+        [data-testid="stSidebar"] * {{
+            font-family: 'IBM Plex Mono', monospace !important;
         }}
 
         /* ── Sidebar Nav: title injected via ::before ─────────────────────── */
@@ -283,14 +287,14 @@ def apply_custom_css():
             box-shadow: none !important;
         }}
         [data-testid="stMetricLabel"] {{
-            font-family: 'IBM Plex Mono', monospace !important;
+            font-family: 'Inter', sans-serif !important;
             font-size: 12px !important;
             color: {THEME['faint']} !important;
             text-transform: uppercase;
-            letter-spacing: 0.06em;
+            letter-spacing: 0.08em;
         }}
         [data-testid="stMetricValue"] {{
-            font-family: 'IBM Plex Mono', monospace !important;
+            font-family: 'Inter', sans-serif !important;
             font-size: 28px !important;
             font-weight: 700 !important;
             color: {THEME['text']} !important;
@@ -310,7 +314,7 @@ def apply_custom_css():
         [data-testid="stDataFrame"] td, [data-testid="stDataFrame"] th {{
             border-bottom: 1px solid {THEME['border']} !important;
             padding: 8px 12px !important;
-            font-family: 'IBM Plex Mono', monospace !important;
+            font-family: 'Inter', sans-serif !important;
             font-size: 13px !important;
         }}
         [data-testid="stDataFrame"] th {{
@@ -335,7 +339,7 @@ def apply_custom_css():
             border: 1px solid {THEME['border']} !important;
             color: {THEME['text']} !important;
             border-radius: 10px !important;
-            font-family: 'IBM Plex Mono', monospace !important;
+            font-family: 'Inter', sans-serif !important;
             font-size: 14px !important;
             font-weight: 500 !important;
             padding: 8px 20px !important;
@@ -359,7 +363,7 @@ def apply_custom_css():
             border: 1px solid {THEME['border']} !important;
             border-radius: 10px !important;
             color: {THEME['text']} !important;
-            font-family: 'IBM Plex Mono', monospace !important;
+            font-family: 'Inter', sans-serif !important;
         }}
         .stSelectbox div[data-baseweb="select"] {{
             font-size: 15px !important;
@@ -385,7 +389,7 @@ def apply_custom_css():
         [data-testid="stTabs"] [data-baseweb="tab"] {{
             background: transparent !important;
             color: {THEME['muted']} !important;
-            font-family: 'IBM Plex Mono', monospace !important;
+            font-family: 'Inter', sans-serif !important;
             font-size: 14px !important;
             border: none !important;
             border-radius: 0 !important;
