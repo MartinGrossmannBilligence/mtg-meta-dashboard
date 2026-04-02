@@ -27,12 +27,10 @@ def get_cached_period_data(period_key):
 # "Premodern Meta Lab" title is injected above the nav links via CSS ::before
 # in apply_custom_css().
 with st.sidebar:
-    st.markdown('<p style="text-align: center; font-size: 0.85rem; margin-bottom: 0.2rem; opacity: 0.7;">Data from the last cummulative:</p>', unsafe_allow_html=True)
     period_name = st.segmented_control(
-        "Data from the last cummulative:", 
+        "Timeframe:", 
         options=list(TIMEFRAMES.keys()), 
         default="6M",
-        label_visibility="collapsed"
     )
     st.divider()
     
