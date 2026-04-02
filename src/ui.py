@@ -206,12 +206,19 @@ def apply_custom_css():
             background-color: {THEME['surface']};
             border-right: 1px solid {THEME['border']};
         }}
-        /* Target text in sidebar specifically to avoid breaking icons */
-        [data-testid="stSidebar"] .stMarkdown, 
-        [data-testid="stSidebar"] p, 
-        [data-testid="stSidebar"] span:not([data-testid="stIcon"]), 
-        [data-testid="stSidebar"] label {{
+        /* Target ONLY specific text in sidebar. Avoid generic tags like 'span' or 'p' to prevent breaking icons. */
+        [data-testid="stSidebar"] [data-testid="stSidebarNav"] span,
+        [data-testid="stSidebar"] .stMarkdown p,
+        [data-testid="stSidebar"] .stMarkdown span,
+        [data-testid="stSidebar"] .stSegmentedControl label,
+        [data-testid="stSidebar"] .source-pill {{
             font-family: 'IBM Plex Mono', monospace !important;
+        }}
+        /* Explicitly force icons back to default if they were caught by any rule */
+        [data-testid="stSidebar"] span[data-testid="stIcon"],
+        [data-testid="stSidebar"] i,
+        [data-testid="stSidebar"] svg {{
+            font-family: inherit !important;
         }}
 
         /* ── Sidebar Nav: title injected via ::before ─────────────────────── */
