@@ -90,7 +90,7 @@ def html_kpi_card(label, value, color=None, help_text=None):
         height: 100%;
     ">
         <div style="color: #8A8A8A; font-size: 12px; margin-bottom: 4px; font-family: 'IBM Plex Mono', monospace;">{label}</div>
-        <div style="color: {color}; font-size: 24px; font-weight: 700;">{value}</div>
+        <div style="color: {color}; font-size: 22px; font-weight: 700;">{value}</div>
     </div>
     """
 
@@ -295,7 +295,7 @@ def apply_custom_css():
         }}
         [data-testid="stMetricValue"] {{
             font-family: 'Inter', sans-serif !important;
-            font-size: 28px !important;
+            font-size: 22px !important;
             font-weight: 700 !important;
             color: {THEME['text']} !important;
         }}
