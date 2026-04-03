@@ -80,7 +80,7 @@ def show_meta_overview(matrix_dict, all_archetypes, records_data, data_dir, time
             display_data["Recent Trend"] = display_data[last_p] 
             
             # Create text matrix for display
-            text_data = heatmap_data[existing].applymap(lambda x: f"{x:.1%}" if pd.notna(x) else "")
+            text_data = heatmap_data[existing].map(lambda x: f"{x:.1%}" if pd.notna(x) else "")
             text_data["Recent Trend"] = heatmap_data["Recent Trend"]
 
             # Create hover text
