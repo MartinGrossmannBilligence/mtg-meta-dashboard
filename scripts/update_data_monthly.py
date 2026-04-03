@@ -172,29 +172,29 @@ def merge_matrices(m1, m2):
             
     return merged_matrix
 
-def average_meta_shares(s1, s2):
-    """Average meta shares. Ideally would be weighted by matches, but matches aren't available for meta shares easily."""
-    if not s1: return s2
-    if not s2: return s1
-    all_archs = set(list(s1.keys()) + list(s2.keys()))
-    merged_shares = {}
-    for arch in all_archs:
-        v1 = s1.get(arch, 0.0)
-        v2 = s2.get(arch, 0.0)
-        merged_shares[arch] = (v1 + v2) / 2.0
-    return merged_shares
+def total_matches_in_matrix(matrix):
+    """Sum total_matches across the entire matrix (each game is counted twice: A vs B and B vs A)."""
+    total = 0
+    for arch, matchups in matrix.items():
+        for opp, stats in matchups.items():
+            total += stats.get('total_matches', 0)
+    return total
 
-def weighted_average_meta_shares(s60, s30):
-    """Weight 60 days as 2/3 and 30 days as 1/3 of the total 90 days share."""
-    if not s60: return s30
-    if not s30: return s60
-    all_archs = set(list(s60.keys()) + list(s30.keys()))
-    merged_shares = {}
+def merge_meta_shares(shares_list, matrices_list):
+    """
+    Merge meta share dicts weighted by actual match count in the corresponding matrices.
+    shares_list:   [s1, s2, ...]
+    matrices_list: [m1, m2, ...] — must be same length
+    """
+    weights = [max(total_matches_in_matrix(m), 1) for m in matrices_list]
+    total_weight = sum(weights)
+    all_archs = set()
+    for s in shares_list:
+        all_archs.update(s.keys())
+    merged = {}
     for arch in all_archs:
-        v60 = s60.get(arch, 0.0)
-        v30 = s30.get(arch, 0.0)
-        merged_shares[arch] = (v60 * 2.0 + v30 * 1.0) / 3.0
-    return merged_shares
+        merged[arch] = sum(s.get(arch, 0.0) * w for s, w in zip(shares_list, weights)) / total_weight
+    return merged
 
 import sys
 import argparse
@@ -300,7 +300,10 @@ def main():
             cur_30_data = all_data["30_days"]
             
             merged_matrix = merge_matrices(prev_60_data.get("matrix", {}), cur_30_data.get("matrix", {}))
-            merged_meta = weighted_average_meta_shares(prev_60_data.get("meta_shares", {}), cur_30_data.get("meta_shares", {}))
+            merged_meta = merge_meta_shares(
+                [prev_60_data.get("meta_shares", {}), cur_30_data.get("meta_shares", {})],
+                [prev_60_data.get("matrix", {}), cur_30_data.get("matrix", {})]
+            )
             
             data_90 = {
                 "time_frame": "90_days",
@@ -345,16 +348,11 @@ def main():
             
             merged_matrix = merge_matrices(prev_180_data.get("matrix", {}), cur_30_data.get("matrix", {}))
             
-            # Combine meta shares (6 months weight vs 1 month weight)
-            merged_meta = {}
-            s180 = prev_180_data.get("meta_shares", {})
-            s30 = cur_30_data.get("meta_shares", {})
-            
-            all_archs = set(list(s180.keys()) + list(s30.keys()))
-            for arch in all_archs:
-                v180 = s180.get(arch, 0.0)
-                v30 = s30.get(arch, 0.0)
-                merged_meta[arch] = (v180 * 6.0 + v30 * 1.0) / 7.0
+            # Combine meta shares weighted by actual match count in each period's matrix
+            merged_meta = merge_meta_shares(
+                [prev_180_data.get("meta_shares", {}), cur_30_data.get("meta_shares", {})],
+                [prev_180_data.get("matrix", {}), cur_30_data.get("matrix", {})]
+            )
             
             data_210 = {
                 "time_frame": "210_days",
