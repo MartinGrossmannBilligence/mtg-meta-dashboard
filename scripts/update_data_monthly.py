@@ -106,7 +106,7 @@ def parse_matrix(html, time_frame, tier_mapping):
                     "losses": losses,
                     "draws": 0,
                     "total_matches": matches,
-                    "win_rate": win_pct
+                    "win_rate": round(wins / matches, 4) if matches > 0 else 0
                 }
                 archetypes.add(opp)
                 
