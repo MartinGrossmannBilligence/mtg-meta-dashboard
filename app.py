@@ -27,11 +27,17 @@ def get_cached_period_data(period_key):
 # "Premodern Meta Lab" title is injected above the nav links via CSS ::before
 # in apply_custom_css().
 with st.sidebar:
-    period_name = st.segmented_control(
+    _period_raw = st.segmented_control(
         "Timeframe:", 
         options=list(TIMEFRAMES.keys()), 
         default="6M",
     )
+    # Prevent deselection — if user clicks active option it returns None
+    if _period_raw is None:
+        period_name = st.session_state.get("period_name", "6M")
+    else:
+        period_name = _period_raw
+        st.session_state["period_name"] = period_name
     st.divider()
     
     # Push items to bottom
