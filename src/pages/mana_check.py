@@ -407,10 +407,13 @@ def show_mana_check():
     for qty, _, produced in lands:
         for c in produced:
             sources[c] += qty
-    # Add mana-producing non-land permanents to sources
+    # Add mana-producing non-land permanents to colored sources
     for qty, _, produced in mana_perms:
         for c in produced:
             sources[c] += qty
+
+    # Total mana sources = lands + mana permanents (Moxen etc. also pay generic mana)
+    total_mana_sources = total_lands + sum(q for q, _, _ in mana_perms)
 
     spell_qty = sum(q for q, _, _, _ in spells)
     avg_cmc = sum(q * cmc for q, _, cmc, _ in spells) / spell_qty if spell_qty else 0
@@ -554,7 +557,8 @@ def show_mana_check():
         turn = max(1, cmc_int)
         cards_seen = min(7 + (turn if on_draw else turn - 1), int(deck_size))
 
-        land_prob = _hypergeom_at_least(int(deck_size), total_lands, cards_seen, turn)
+        # Use total mana sources (lands + free mana permanents like Mox) for generic mana check
+        land_prob = _hypergeom_at_least(int(deck_size), total_mana_sources, cards_seen, turn)
 
         color_probs: dict[str, float] = {}
         for c in COLORS:
@@ -577,7 +581,8 @@ def show_mana_check():
         else:
             prob_color = THEME["danger"]
 
-        all_factors = {"Lands": land_prob, **{COLOR_NAMES[c]: p for c, p in color_probs.items()}}
+        mana_label = "Mana sources" if mana_perms else "Lands"
+        all_factors = {mana_label: land_prob, **{COLOR_NAMES[c]: p for c, p in color_probs.items()}}
         bottleneck = min(all_factors, key=all_factors.get)
         bottleneck_pct = all_factors[bottleneck]
         bottleneck_html = (
