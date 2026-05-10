@@ -557,9 +557,14 @@ def show_mana_check():
         turn = max(1, cmc_int)
         cards_seen = min(7 + (turn if on_draw else turn - 1), int(deck_size))
 
-        # Use total mana sources (lands + free mana permanents like Mox) for generic mana check
-        land_prob = _hypergeom_at_least(int(deck_size), total_mana_sources, cards_seen, turn)
+        # Count pips (colored mana required)
+        total_pips = sum(
+            max(1, int(math.ceil(pips.get(c, 0))))
+            for c in COLORS if pips.get(c, 0) >= 0.5
+        )
+        generic_mana = max(0, cmc_int - total_pips)
 
+        # Colored source probabilities
         color_probs: dict[str, float] = {}
         for c in COLORS:
             pip_f = pips.get(c, 0)
@@ -568,6 +573,17 @@ def show_mana_check():
                 color_probs[c] = _hypergeom_at_least(
                     int(deck_size), sources[c], cards_seen, pip_needed
                 )
+
+        # Generic mana check — only needed when cost has {1},{2},... beyond colored pips.
+        # If CMC == total pips, colored sources ARE the mana (e.g. Island satisfies {U}
+        # and the land drop simultaneously), so a separate land check would double-count
+        # failures and underestimate the probability.
+        if generic_mana > 0:
+            land_prob = _hypergeom_at_least(
+                int(deck_size), total_mana_sources, cards_seen, cmc_int
+            )
+        else:
+            land_prob = 1.0
 
         combined = land_prob
         for p in color_probs.values():
@@ -582,9 +598,12 @@ def show_mana_check():
             prob_color = THEME["danger"]
 
         mana_label = "Mana sources" if mana_perms else "Lands"
-        all_factors = {mana_label: land_prob, **{COLOR_NAMES[c]: p for c, p in color_probs.items()}}
-        bottleneck = min(all_factors, key=all_factors.get)
-        bottleneck_pct = all_factors[bottleneck]
+        all_factors = {
+            **({mana_label: land_prob} if generic_mana > 0 else {}),
+            **{COLOR_NAMES[c]: p for c, p in color_probs.items()},
+        }
+        bottleneck = min(all_factors, key=all_factors.get) if all_factors else mana_label
+        bottleneck_pct = all_factors.get(bottleneck, 1.0)
         bottleneck_html = (
             f"<span style='color:{_mut};'>{bottleneck} ({bottleneck_pct:.1%})</span>"
             if combined < _tgt else "—"
@@ -621,15 +640,19 @@ def show_mana_check():
         st.markdown(f"""
 **Hypergeometric distribution** — correct model for sampling without replacement.
 
-For each spell with CMC *N* cast on turn *N* ({('on draw: ' if on_draw else 'on play: ')}cards seen = 7 + {'N' if on_draw else 'N−1'}):
+Cards seen by turn *N* ({'on draw' if on_draw else 'on play'}): 7 + {'N' if on_draw else 'N−1'}.
 
-1. **Land drops**: P(draw ≥ N lands in first *cards_seen* cards)
-2. **Color sources**: P(draw ≥ *k* sources of color C) for each required pip
+**Colored pips only (e.g. {{U}}, {{U}}{{U}}):**
+P = P(draw ≥ k blue sources). No separate land check — an Island satisfies both the pip and the land drop simultaneously, so multiplying them would double-count failures.
 
-Combined probability ≈ product of the above (treats color requirements as independent — slight underestimate for multi-color).
+**Generic mana in cost (e.g. {{1}}{{U}}, {{2}}):**
+P = P(draw ≥ k colored sources) × P(draw ≥ CMC total mana sources).
+Total mana sources = lands + mana-producing permanents (Mox Diamond etc.).
+
+Multi-color is treated as independent per color (slight underestimate when colors share dual lands).
 
 **Land recommendation**: `19.59 + 1.90 × avgCMC − cantrip_adjustment`
-Frank Karsten 2022 regression. Cantrips: −{list(CANTRIP_SAVINGS.values())[0]} per copy for cheap draw spells.
+Frank Karsten 2022 regression. Cantrips: −{list(CANTRIP_SAVINGS.values())[0]} per copy.
 
 **Source minimums** (Karsten, 90%, 60 cards, on the play):
 T1 1-pip → 14  ·  T2 1-pip → 13  ·  T2 2-pip → 21  ·  T3 1-pip → 12  ·  T3 2-pip → 18  ·  T3 3-pip → 23
